@@ -42,6 +42,7 @@ jobs:
       - name: Coverage summary
         run: node scripts/ci/coverage-summary.mjs >> "$GITHUB_STEP_SUMMARY"
 
+      # builds the site and synthesizes the CDK app, which bundles every Lambda with esbuild
       - run: npm run build
 
       - name: actionlint
