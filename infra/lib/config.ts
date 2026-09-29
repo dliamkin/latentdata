@@ -18,6 +18,24 @@ export interface StageConfig {
 export interface GitHubRepo {
   owner: string;
   repo: string;
+  // numeric ids, present when the repository issues immutable OIDC subjects
+  ownerId?: string;
+  repoId?: string;
+}
+
+// GitHub puts this at the front of the `sub` claim. Repositories with immutable subjects get
+// the ids appended to each name, so a renamed or re-created repository can't inherit the trust.
+// `gh api repos/<owner>/<repo>/actions/oidc/customization/sub` shows which form is in use.
+export function oidcSubjectPrefix(github: GitHubRepo): string {
+  if (github.ownerId === undefined || github.repoId === undefined) {
+    return `repo:${github.owner}/${github.repo}`;
+  }
+  return `repo:${github.owner}@${github.ownerId}/${github.repo}@${github.repoId}`;
+}
+
+export function optionalId(value: unknown): string | undefined {
+  if (typeof value === 'number') return String(value);
+  return typeof value === 'string' && value !== '' ? value : undefined;
 }
 
 export function parseStage(value: unknown): Stage {
