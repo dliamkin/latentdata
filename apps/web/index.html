@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Free and discounted IT certification promotions, tracked and verified."
+    />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#f9fafb" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/pwa-192.png" />
+    <title>Cert Promo Tracker</title>
+    <script>
+      // pick the theme before first paint so dark mode doesn't flash white, and start fetching
+      // its stylesheet now rather than after the app bundle has run
+      (function () {
+        var mode;
+        try {
+          mode = localStorage.getItem('cert-tracker:theme:v1');
+        } catch (e) {
+          mode = null;
+        }
+        if (mode !== 'light' && mode !== 'dark') {
+          mode = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.dataset.theme = mode;
+        var link = document.createElement('link');
+        link.id = 'theme-link';
+        link.rel = 'stylesheet';
+        link.href = '/themes/lara-' + mode + '-blue/theme.css';
+        document.head.appendChild(link);
+      })();
+    </script>
+    <style>
+      html[data-theme='light'] {
+        background: #f9fafb;
+        color: #1f2937;
+      }
+      html[data-theme='dark'] {
+        background: #111827;
+        color: #f9fafb;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

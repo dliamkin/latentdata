@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": ".tsout",
+    "emitDeclarationOnly": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "lib": ["ES2024", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx",
+    "types": ["node", "vite/client", "vite-plugin-pwa/react"]
+  },
+  "include": ["src", "e2e", "vite.config.ts", "playwright.config.ts", "snapshot.d.ts"],
+  "exclude": ["src/sw.ts"],
+  "references": [{ "path": "../../packages/core" }, { "path": "./tsconfig.sw.json" }]
+}
