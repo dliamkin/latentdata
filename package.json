@@ -8,7 +8,8 @@
     "npm": ">=11"
   },
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "apps/*"
   ],
   "scripts": {
     "lint": "eslint . && prettier --check .",
@@ -17,7 +18,13 @@
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "build": "npm run build --workspaces --if-present",
-    "check": "npm run lint && npm run typecheck && npm test && npm run build"
+    "check": "npm run lint && npm run typecheck && npm test && npm run build",
+    "schema:gen": "node scripts/schema-gen.ts",
+    "snapshot:local": "node scripts/snapshot-local.ts",
+    "e2e": "npm run e2e -w apps/web",
+    "lhci": "npm run lhci -w apps/web",
+    "pwa:icons": "node scripts/pwa-icons.ts",
+    "dev": "npm run dev -w apps/web"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",
@@ -25,10 +32,20 @@
     "@vitest/coverage-v8": "5.0.2",
     "eslint": "10.11.0",
     "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-jsx-a11y": "6.10.2",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "eslint-plugin-react-refresh": "0.5.7",
     "globals": "17.12.0",
     "prettier": "3.9.9",
     "typescript": "6.0.3",
     "typescript-eslint": "8.71.0",
     "vitest": "5.0.2"
+  },
+  "overrides": {
+    "eslint-plugin-jsx-a11y": {
+      "eslint": "$eslint"
+    },
+    "tmp": "0.2.7",
+    "uuid": "11.1.1"
   }
 }
