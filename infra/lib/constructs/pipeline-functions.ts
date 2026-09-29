@@ -1,0 +1,139 @@
+import { fileURLToPath } from 'node:url';
+
+import { Duration, RemovalPolicy } from 'aws-cdk-lib';
+import type { Table } from 'aws-cdk-lib/aws-dynamodb';
+import { Architecture, Runtime, Tracing } from 'aws-cdk-lib/aws-lambda';
+import { SqsEventSource } from 'aws-cdk-lib/aws-lambda-event-sources';
+import { NodejsFunction, OutputFormat } from 'aws-cdk-lib/aws-lambda-nodejs';
+import { LogGroup } from 'aws-cdk-lib/aws-logs';
+import { Schedule, ScheduleExpression } from 'aws-cdk-lib/aws-scheduler';
+import { LambdaInvoke } from 'aws-cdk-lib/aws-scheduler-targets';
+import type { Queue } from 'aws-cdk-lib/aws-sqs';
+import { Construct } from 'constructs';
+
+import { resourceName, stageSettings, type GitHubRepo, type Stage } from '../config.ts';
+import type { Events } from './events.ts';
+import { GITHUB_APP_PARAMETERS, type Secrets } from './secrets.ts';
+
+const REPO_ROOT = fileURLToPath(new URL('../../../', import.meta.url));
+const HANDLERS = `${REPO_ROOT}services/pipeline/src/handlers/`;
+
+// an ESM bundle still contains CommonJS dependencies that call require()
+const REQUIRE_SHIM =
+  "import{createRequire as __cr}from'node:module';const require=__cr(import.meta.url);";
+
+export interface PipelineFunctionsProps {
+  stage: Stage;
+  table: Table;
+  events: Events;
+  secrets: Secrets;
+  github: GitHubRepo;
+}
+
+interface FunctionSpec {
+  name: string;
+  timeout: Duration;
+  memoryMb: number;
+  environment?: Record<string, string>;
+}
+
+export class PipelineFunctions extends Construct {
+  readonly publish: NodejsFunction;
+  readonly status: NodejsFunction;
+  readonly all: NodejsFunction[];
+
+  private readonly stage: Stage;
+  private readonly table: Table;
+  private readonly deadLetterQueue: Queue;
+
+  constructor(scope: Construct, id: string, props: PipelineFunctionsProps) {
+    super(scope, id);
+    this.stage = props.stage;
+    this.table = props.table;
+    this.deadLetterQueue = props.events.deadLetterQueue;
+    const { github } = props;
+    const userAgent = `cert-tracker/1.0 (+https://github.com/${github.owner}/${github.repo})`;
+
+    this.publish = this.pipelineFunction({
+      name: 'publish',
+      timeout: Duration.minutes(2),
+      memoryMb: 256,
+      environment: { GITHUB_OWNER: github.owner, GITHUB_REPO: github.repo },
+    });
+    props.table.grantReadWriteData(this.publish);
+    props.secrets.grantRead(this.publish, GITHUB_APP_PARAMETERS);
+    this.publish.addEventSource(
+      // 2 is the floor SQS allows; the publish lease is what keeps commits one at a time
+      new SqsEventSource(props.events.publishQueue, { batchSize: 10, maxConcurrency: 2 }),
+    );
+    this.schedule('PublishSweep', this.publish, ScheduleExpression.rate(Duration.minutes(15)));
+
+    this.status = this.pipelineFunction({
+      name: 'status',
+      timeout: Duration.minutes(10),
+      memoryMb: 512,
+      environment: { USER_AGENT: userAgent },
+    });
+    props.table.grantReadWriteData(this.status);
+    this.schedule(
+      'StatusDaily',
+      this.status,
+      ScheduleExpression.cron({ minute: '17', hour: '4', day: '*', month: '*', year: '*' }),
+    );
+
+    this.all = [this.publish, this.status];
+  }
+
+  private pipelineFunction(spec: FunctionSpec): NodejsFunction {
+    const settings = stageSettings(this.stage);
+    const functionName = resourceName(this.stage, spec.name);
+    return new NodejsFunction(this, `${spec.name}Function`, {
+      functionName,
+      entry: `${HANDLERS}${spec.name}.ts`,
+      handler: 'handler',
+      runtime: Runtime.NODEJS_24_X,
+      architecture: Architecture.ARM_64,
+      timeout: spec.timeout,
+      memorySize: spec.memoryMb,
+      projectRoot: REPO_ROOT,
+      depsLockFilePath: `${REPO_ROOT}package-lock.json`,
+      bundling: {
+        format: OutputFormat.ESM,
+        target: 'node24',
+        minify: true,
+        sourceMap: true,
+        // the SDK is bundled too: deterministic, and v3 is small once tree-shaken
+        externalModules: [],
+        mainFields: ['module', 'main'],
+        banner: REQUIRE_SHIM,
+      },
+      environment: {
+        STAGE: this.stage,
+        TABLE_NAME: this.table.tableName,
+        POWERTOOLS_SERVICE_NAME: 'cert-tracker',
+        NODE_OPTIONS: '--enable-source-maps',
+        ...spec.environment,
+      },
+      logGroup: new LogGroup(this, `${spec.name}Logs`, {
+        logGroupName: `/aws/lambda/${functionName}`,
+        retention: settings.logRetention,
+        removalPolicy: RemovalPolicy.DESTROY,
+      }),
+      tracing: settings.isProd ? Tracing.ACTIVE : Tracing.DISABLED,
+      // async invocations that exhaust their retries land in the shared DLQ
+      deadLetterQueue: this.deadLetterQueue,
+      retryAttempts: 2,
+    });
+  }
+
+  private schedule(id: string, target: NodejsFunction, expression: ScheduleExpression): void {
+    new Schedule(this, id, {
+      scheduleName: resourceName(this.stage, id.toLowerCase()),
+      schedule: expression,
+      target: new LambdaInvoke(target, {
+        retryAttempts: 2,
+        deadLetterQueue: this.deadLetterQueue,
+      }),
+    });
+  }
+}
