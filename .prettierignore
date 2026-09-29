@@ -5,3 +5,4 @@ coverage/
 cdk.out/
 apps/web/src/data/snapshot.json
 /BRIEF.md
+packages/core/schema/
