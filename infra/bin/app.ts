@@ -1,16 +1,20 @@
 import { App, Tags } from 'aws-cdk-lib';
 
 import { CertTrackerStack } from '../lib/cert-tracker-stack.ts';
-import { loadStageConfig, parseStage, requireString } from '../lib/config.ts';
+import { loadStageConfig, optionalId, parseStage, requireString } from '../lib/config.ts';
 import { GithubOidcStack } from '../lib/github-oidc-stack.ts';
 
 const app = new App();
 const context = (name: string): unknown => app.node.tryGetContext(name);
 
 const stage = parseStage(context('stage'));
+const ownerId = optionalId(context('githubOwnerId'));
+const repoId = optionalId(context('githubRepoId'));
 const github = {
   owner: requireString(context('githubOwner'), 'context githubOwner'),
   repo: requireString(context('githubRepo'), 'context githubRepo'),
+  ...(ownerId === undefined ? {} : { ownerId }),
+  ...(repoId === undefined ? {} : { repoId }),
 };
 const env = {
   // `env` rather than hardcoded values: the account and region come from whoever is deploying

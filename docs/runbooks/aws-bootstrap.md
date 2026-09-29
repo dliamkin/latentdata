@@ -45,6 +45,11 @@ npx -w infra cdk deploy CertTrackerGithubOidc -c stage=prod -c alertEmail=<your 
 
 The second command prints two outputs, `DeployRoleArn` and `ReadonlyRoleArn`.
 
+If a workflow later fails with "Not authorized to perform sts:AssumeRoleWithWebIdentity", the
+subject GitHub sends does not match the one the roles trust. Compare the prefix from
+`gh api repos/<owner>/<repo>/actions/oidc/customization/sub` with `githubOwnerId` and
+`githubRepoId` in `infra/cdk.json`, fix the ids, and deploy this stack again.
+
 In GitHub → repository **Settings** → **Secrets and variables** → **Actions** → **Variables**,
 add four repository variables:
 

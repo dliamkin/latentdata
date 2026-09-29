@@ -2,7 +2,7 @@ import { CfnOutput, Duration, Stack, type StackProps } from 'aws-cdk-lib';
 import { CfnOIDCProvider, FederatedPrincipal, PolicyStatement, Role } from 'aws-cdk-lib/aws-iam';
 import type { Construct } from 'constructs';
 
-import type { GitHubRepo } from './config.ts';
+import { oidcSubjectPrefix, type GitHubRepo } from './config.ts';
 
 const ISSUER = 'token.actions.githubusercontent.com';
 // the qualifier `cdk bootstrap` uses unless told otherwise
@@ -20,7 +20,7 @@ export class GithubOidcStack extends Stack {
 
   constructor(scope: Construct, id: string, props: GithubOidcStackProps) {
     super(scope, id, props);
-    const repo = `repo:${props.github.owner}/${props.github.repo}`;
+    const repo = oidcSubjectPrefix(props.github);
 
     const provider = new CfnOIDCProvider(this, 'Provider', {
       url: `https://${ISSUER}`,

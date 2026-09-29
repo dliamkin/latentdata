@@ -3,6 +3,8 @@
   "context": {
     "githubOwner": "dliamkin",
     "githubRepo": "latentdata",
+    "githubOwnerId": "7390815",
+    "githubRepoId": "1395804326",
     "@aws-cdk/aws-signer:signingProfileNamePassedToCfn": true,
     "@aws-cdk/core:newStyleStackSynthesis": true,
     "@aws-cdk/core:stackRelativeExports": true,

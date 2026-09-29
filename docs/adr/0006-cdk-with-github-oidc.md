@@ -25,6 +25,10 @@ provider and two roles:
   `environment: prod` presents that subject, so there is no branch condition to get wrong.
 - `readonly`, trusted only for `repo:<owner>/<repo>:pull_request`, for `cdk diff`.
 
+The subject is built from the repository's immutable form, `repo:<owner>@<owner id>/<repo>@<repo id>`,
+when the ids are set in `cdk.json`. GitHub issues that form for this repository, and it means a
+renamed or re-created repository of the same name cannot inherit the trust.
+
 Both roles can do almost nothing themselves. They assume the roles `cdk bootstrap` created,
 which is where the real permissions live.
 

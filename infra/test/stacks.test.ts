@@ -268,6 +268,19 @@ describe('github oidc stack', () => {
     ]);
   });
 
+  it('matches immutable subjects when the repository ids are configured', () => {
+    const immutable = Template.fromStack(
+      new GithubOidcStack(app(), 'OidcImmutable', {
+        github: { ...GITHUB, ownerId: '42', repoId: '1337' },
+        env: ENV,
+      }),
+    );
+    const rendered = JSON.stringify(immutable.toJSON());
+    expect(rendered).toContain('repo:someone@42/somewhere@1337:environment:prod');
+    expect(rendered).toContain('repo:someone@42/somewhere@1337:pull_request');
+    expect(rendered).not.toContain('repo:someone/somewhere:');
+  });
+
   it('gives neither role a wildcard resource or an admin policy', () => {
     for (const role of resources(oidc, 'AWS::IAM::Role')) {
       expect(role.Properties.ManagedPolicyArns).toBeUndefined();
