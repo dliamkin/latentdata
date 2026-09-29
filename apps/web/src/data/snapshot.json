@@ -1,79 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-29T17:48:39.964Z",
+  "generatedAt": "2026-09-29T23:10:44.789Z",
   "offers": [
-    {
-      "id": "google-gear-get-certified-ed3-2026",
-      "name": "Google Cloud GEAR Get Certified — Edition 3 (2026)",
-      "vendor": "Google Cloud",
-      "category": "cloud",
-      "certifications": [
-        "Generative AI Leader",
-        "Associate Cloud Engineer",
-        "Professional Cloud Architect"
-      ],
-      "examCode": null,
-      "whatIsFree": "full-exam",
-      "cost": null,
-      "credentialWeight": "high",
-      "eligibility": [
-        "customer"
-      ],
-      "regions": "Global (EN), LatAm (ES), Brazil (PT). Corporate Google Workspace email from a Google Cloud customer org; Gmail/edu rejected.",
-      "windowStart": "2026-08-19",
-      "windowEnd": "2026-09-16",
-      "status": "expired",
-      "recurring": {
-        "isRecurring": true,
-        "cadence": "~3 editions per year",
-        "expectedNextWindow": "Edition 1 2027 — notification page live, registration expected ~Feb 2027",
-        "expectedNextWindowDate": "2027-02-01"
-      },
-      "requirements": "Apply during the window; complete all cohort milestones (labs, skill badges, capstone) to earn the 100% exam voucher. Cohort runs 2026-10-12 to 2026-12-18.",
-      "url": "https://developers.google.com/program/gear/getcertified",
-      "sourceUrl": "https://developers.google.com/program/gear/getcertified",
-      "lastVerified": "2026-09-29",
-      "verificationNote": "Vendor page shows Registration closed for Editions 1–3; dates from third-party (techbytes.app).",
-      "notes": "",
-      "addedBy": "manual",
-      "addedAt": "2026-09-05"
-    },
-    {
-      "id": "google-gear-get-certified-ed1-2027",
-      "name": "Google Cloud GEAR Get Certified — Edition 1 (2027)",
-      "vendor": "Google Cloud",
-      "category": "cloud",
-      "certifications": [
-        "Generative AI Leader",
-        "Associate Cloud Engineer",
-        "Professional Cloud Architect"
-      ],
-      "examCode": null,
-      "whatIsFree": "full-exam",
-      "cost": null,
-      "credentialWeight": "high",
-      "eligibility": [
-        "customer"
-      ],
-      "regions": "Global; corporate email from a Google Cloud customer org",
-      "windowStart": null,
-      "windowEnd": null,
-      "status": "upcoming",
-      "recurring": {
-        "isRecurring": true,
-        "cadence": "~3 editions per year",
-        "expectedNextWindow": "Registration expected ~Feb 2027 based on 2026 cadence (Ed1 apps Feb 10 – Mar 11, 2026)",
-        "expectedNextWindowDate": "2027-02-01"
-      },
-      "requirements": "Sign up on the notification badge page to be emailed when registration opens.",
-      "url": "https://developers.google.com/profile/badges/community/get-certified/notification-27-edition-1",
-      "sourceUrl": "https://developers.google.com/profile/badges/community/get-certified/notification-27-edition-1",
-      "lastVerified": "2026-09-29",
-      "verificationNote": "Notification page verified; no dates published.",
-      "notes": "",
-      "addedBy": "manual",
-      "addedAt": "2026-09-29"
-    },
     {
       "id": "aws-aif2cloud-2026",
       "name": "AWS Cloud Practitioner free after AI Practitioner (AIF2CLOUD)",
@@ -107,41 +35,8 @@
       "verificationNote": "Verified on Pearson VUE and AWS voucher T&Cs; no extension found.",
       "notes": "Second deadline: CLF-C02 by 2026-11-30.",
       "addedBy": "manual",
-      "addedAt": "2026-09-05"
-    },
-    {
-      "id": "aws-reinvent-2026-registrant-voucher",
-      "name": "AWS re:Invent 2026 registrant 50% exam voucher",
-      "vendor": "AWS",
-      "category": "cloud",
-      "certifications": [
-        "Any AWS Certification exam"
-      ],
-      "examCode": null,
-      "whatIsFree": "partial",
-      "cost": "50% of exam price; requires in-person re:Invent registration",
-      "credentialWeight": "high",
-      "eligibility": [
-        "event-attendee"
-      ],
-      "regions": "In-person registrants (Las Vegas, 2026-11-30 to 2026-12-04)",
-      "windowStart": null,
-      "windowEnd": "2027-01-31",
-      "status": "active",
-      "recurring": {
-        "isRecurring": true,
-        "cadence": "annual (re:Invent, late Nov/Dec)",
-        "expectedNextWindow": "re:Invent 2027",
-        "expectedNextWindowDate": "2027-11-01"
-      },
-      "requirements": "Register in person; voucher delivered via Attendee Portal; one per person; use by 2027-01-31. No onsite testing.",
-      "url": "https://reinvent.awsevents.com",
-      "sourceUrl": "https://aws.amazon.com/events/reinvent/faqs/",
-      "lastVerified": "2026-09-29",
-      "verificationNote": "Verified on re:Invent FAQ.",
-      "notes": "",
-      "addedBy": "manual",
-      "addedAt": "2026-09-29"
+      "addedAt": "2026-09-05",
+      "updatedAt": "2026-09-29T22:59:01.779Z"
     },
     {
       "id": "aws-emerging-talent-community-vouchers",
@@ -178,20 +73,59 @@
       "verificationNote": "No 2026 public announcement of voucher drops; availability is behind login. Last confirmed deadline was 2025-08-31.",
       "notes": "Check the Rewards tab directly.",
       "addedBy": "manual",
-      "addedAt": "2026-09-05"
+      "addedAt": "2026-09-05",
+      "updatedAt": "2026-09-29T22:59:01.779Z"
     },
     {
-      "id": "oracle-oci-architect-associate-free-2026",
-      "name": "Oracle OCI Architect Associate (free)",
-      "vendor": "Oracle",
+      "id": "aws-reinvent-2026-registrant-voucher",
+      "name": "AWS re:Invent 2026 registrant 50% exam voucher",
+      "vendor": "AWS",
       "category": "cloud",
       "certifications": [
-        "Oracle Cloud Infrastructure 2026 Architect Associate"
+        "Any AWS Certification exam"
       ],
-      "examCode": "1Z0-1072-26",
-      "whatIsFree": "full-exam",
-      "cost": null,
+      "examCode": null,
+      "whatIsFree": "partial",
+      "cost": "50% of exam price; requires in-person re:Invent registration",
       "credentialWeight": "high",
+      "eligibility": [
+        "event-attendee"
+      ],
+      "regions": "In-person registrants (Las Vegas, 2026-11-30 to 2026-12-04)",
+      "windowStart": null,
+      "windowEnd": "2027-01-31",
+      "status": "active",
+      "recurring": {
+        "isRecurring": true,
+        "cadence": "annual (re:Invent, late Nov/Dec)",
+        "expectedNextWindow": "re:Invent 2027",
+        "expectedNextWindowDate": "2027-11-01"
+      },
+      "requirements": "Register in person; voucher delivered via Attendee Portal; one per person; use by 2027-01-31. No onsite testing.",
+      "url": "https://reinvent.awsevents.com",
+      "sourceUrl": "https://aws.amazon.com/events/reinvent/faqs/",
+      "lastVerified": "2026-09-29",
+      "verificationNote": "Verified on re:Invent FAQ.",
+      "notes": "",
+      "addedBy": "manual",
+      "addedAt": "2026-09-29",
+      "updatedAt": "2026-09-29T22:59:01.779Z"
+    },
+    {
+      "id": "databricks-accreditations",
+      "name": "Databricks Academy accreditations",
+      "vendor": "Databricks",
+      "category": "data",
+      "certifications": [
+        "Databricks Fundamentals",
+        "Generative AI Fundamentals",
+        "AI Agent Fundamentals",
+        "Platform Administrator"
+      ],
+      "examCode": null,
+      "whatIsFree": "training-and-badge",
+      "cost": null,
+      "credentialWeight": "low",
       "eligibility": [
         "public"
       ],
@@ -205,30 +139,98 @@
         "expectedNextWindow": null,
         "expectedNextWindowDate": null
       },
-      "requirements": "Free Oracle MyLearn account; complete the learning path; exam is free.",
-      "url": "https://learn.oracle.com/ols/learning-path/become-an-oci-architect-associate-2026/146553/162234",
-      "sourceUrl": "https://blogs.oracle.com/oracleuniversity/oci-certification-learning-paths-and-exams-2026-updates-now-available",
-      "lastVerified": "2026-09-29",
-      "verificationNote": "Verified on Oracle University blog (2026-08-10). education.oracle.com returns 403 to scrapers.",
-      "notes": "First associate-level architect cert Oracle has made free. Professional-level exams are paid.",
+      "requirements": "Free Academy account; course + quiz → Credly badge.",
+      "url": "https://www.databricks.com/training/catalog/generative-ai-fundamentals-accreditation-1811",
+      "sourceUrl": "https://www.databricks.com/training/catalog/generative-ai-fundamentals-accreditation-1811",
+      "lastVerified": "2026-09-05",
+      "verificationNote": "Evergreen; badge, not a proctored certification.",
+      "notes": "",
       "addedBy": "manual",
-      "addedAt": "2026-09-05"
+      "addedAt": "2026-09-05",
+      "updatedAt": "2026-09-29T22:59:01.779Z"
     },
     {
-      "id": "oracle-foundations-free",
-      "name": "Oracle Foundations-level certifications (all)",
-      "vendor": "Oracle",
-      "category": "cloud",
+      "id": "databricks-advanced-learning-festival-fall-2026",
+      "name": "Databricks Advanced Learning Festival (fall 2026) — 50% certification voucher",
+      "vendor": "Databricks",
+      "category": "data",
       "certifications": [
-        "OCI Foundations",
-        "OCI AI Foundations",
-        "Oracle AI Database Foundations",
-        "Agentic AI Foundations",
-        "Fusion AI Agent Studio Foundations",
-        "Fusion ERP / HCM Foundations",
-        "OGL Admin Foundations"
+        "Any Databricks certification"
       ],
-      "examCode": "1Z0-1085-26, 1Z0-1122-26, 1Z0-1195-26, 1Z0-1157-26, 1Z0-1145-1, 1Z0-1160-1, 1Z0-1163-1, 1Z0-1153-1",
+      "examCode": null,
+      "whatIsFree": "partial",
+      "cost": "50% voucher for any Databricks certification, plus 20% Academy Labs coupon",
+      "credentialWeight": "high",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global (Customer Academy accounts; Partner Academy excluded)",
+      "windowStart": "2026-09-16",
+      "windowEnd": "2026-10-14",
+      "status": "active",
+      "recurring": {
+        "isRecurring": true,
+        "cadence": "twice yearly (spring + fall)",
+        "expectedNextWindow": "spring 2027",
+        "expectedNextWindowDate": "2027-03-01"
+      },
+      "requirements": "Complete all modules of at least one of nine pathways in Customer Academy during the window; one voucher per learner; vouchers emailed 2026-10-19 and expire before 2027-01-17. WebAssessor email must match Academy email.",
+      "url": "https://customer-academy.databricks.com/",
+      "sourceUrl": "https://community.databricks.com/t5/learning-events/databricks-advanced-learning-festival-september-16-october-14/ev-p/166157",
+      "lastVerified": "2026-09-29",
+      "verificationNote": "Verified on Databricks Community event + FAQ posts.",
+      "notes": "",
+      "addedBy": "manual",
+      "addedAt": "2026-09-29",
+      "updatedAt": "2026-09-29T22:59:01.779Z"
+    },
+    {
+      "id": "datacamp-free-access-week",
+      "name": "DataCamp Free Access Week (includes certifications)",
+      "vendor": "DataCamp",
+      "category": "data",
+      "certifications": [
+        "Data Analyst",
+        "Data Scientist",
+        "AI Engineer (DataCamp certifications)"
+      ],
+      "examCode": null,
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "credentialWeight": "low",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": "2026-08-24",
+      "windowEnd": "2026-08-30",
+      "status": "expired",
+      "recurring": {
+        "isRecurring": true,
+        "cadence": "several times a year (Feb, Jun, Aug in 2026)",
+        "expectedNextWindow": "possibly early Nov 2026 (2024 ran Nov 4–10)",
+        "expectedNextWindowDate": "2026-11-01"
+      },
+      "requirements": "Sign in during the free week; complete certification assessments.",
+      "url": "https://www.datacamp.com",
+      "sourceUrl": "https://www.datacamp.com/blog/datacamp-free-access-week",
+      "lastVerified": "2026-09-29",
+      "verificationNote": "Aug 24–30 window verified on DataCamp blog 2026-09-05; a second check surfaced Feb 16–22 and Jun 1–7 windows as well. No fall week announced.",
+      "notes": "",
+      "addedBy": "manual",
+      "addedAt": "2026-09-05",
+      "updatedAt": "2026-09-29T22:59:01.779Z"
+    },
+    {
+      "id": "fortinet-nse-fundamentals",
+      "name": "Fortinet NSE 1/2 (formerly FCF) and FCA",
+      "vendor": "Fortinet",
+      "category": "security",
+      "certifications": [
+        "Fortinet Certified Fundamentals (NSE 1/2)",
+        "Fortinet Certified Associate"
+      ],
+      "examCode": null,
       "whatIsFree": "full-exam",
       "cost": null,
       "credentialWeight": "low",
@@ -245,22 +247,243 @@
         "expectedNextWindow": null,
         "expectedNextWindowDate": null
       },
-      "requirements": "Free MyLearn account; course + exam free.",
-      "url": "https://mylearn.oracle.com/ou/home",
-      "sourceUrl": "https://blogs.oracle.com/oracleuniversity/oracle-agentic-ai-foundations-training-certification-now-available",
+      "requirements": "Free Training Institute account; self-paced course + non-proctored exam.",
+      "url": "https://training.fortinet.com",
+      "sourceUrl": "https://training.fortinet.com/local/staticpage/view.php?page=fcf_cybersecurity",
       "lastVerified": "2026-09-29",
-      "verificationNote": "Oracle blogs confirm Foundations remain free; exam-code list partly from Oracle community post (2026-07-31).",
-      "notes": "Multicloud Foundations (Sep 2026) and Exadata Database Service (Oct 2026) announced as upcoming.",
+      "verificationNote": "Program restructured 2026-07-15; fundamentals page still shows no pricing.",
+      "notes": "",
       "addedBy": "manual",
-      "addedAt": "2026-09-05"
+      "addedAt": "2026-09-05",
+      "updatedAt": "2026-09-29T22:59:01.779Z"
     },
     {
-      "id": "oracle-ai-world-2026-attendee-exams",
-      "name": "Oracle AI World 2026 attendee benefit — up to 3 free exam attempts",
-      "vendor": "Oracle",
+      "id": "github-foundations-datacamp-student",
+      "name": "GitHub Foundations via DataCamp (Student Developer Pack)",
+      "vendor": "GitHub",
+      "category": "dev",
+      "certifications": [
+        "GitHub Foundations"
+      ],
+      "examCode": null,
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "credentialWeight": "medium",
+      "eligibility": [
+        "student"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Verified GitHub Student Developer Pack; activate the pack's 3-month DataCamp access; complete the full GitHub Foundations track; code issued within ~15 working days.",
+      "url": "https://education.github.com/pack",
+      "sourceUrl": "https://support.datacamp.com/hc/en-us/articles/41749666959767-GitHub-Foundations-Certification-Voucher-through-DataCamp",
+      "lastVerified": "2026-09-05",
+      "verificationNote": "Verified on DataCamp support article on 2026-09-05; not re-checked since.",
+      "notes": "",
+      "addedBy": "manual",
+      "addedAt": "2026-09-05",
+      "updatedAt": "2026-09-29T22:59:01.779Z"
+    },
+    {
+      "id": "github-student-pack-direct-voucher-2025-26",
+      "name": "GitHub Student Pack direct exam voucher (Foundations or Copilot)",
+      "vendor": "GitHub",
+      "category": "dev",
+      "certifications": [
+        "GitHub Foundations",
+        "GitHub Copilot"
+      ],
+      "examCode": null,
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "credentialWeight": "medium",
+      "eligibility": [
+        "student"
+      ],
+      "regions": "Global",
+      "windowStart": "2025-09-30",
+      "windowEnd": "2026-06-30",
+      "status": "expired",
+      "recurring": {
+        "isRecurring": true,
+        "cadence": "annual academic cycle (returned Sep 30 in 2025)",
+        "expectedNextWindow": "Not reissued as of 2026-09-29; voucher language removed from the pack page — may be discontinued",
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Voucher tile appears in the Student Developer Pack when active.",
+      "url": "https://education.github.com/pack",
+      "sourceUrl": "https://github.com/orgs/community/discussions/184764",
+      "lastVerified": "2026-09-29",
+      "verificationNote": "Pack page shows only prep resources; community threads report vouchers unavailable with no staff reply.",
+      "notes": "",
+      "addedBy": "manual",
+      "addedAt": "2026-09-05",
+      "updatedAt": "2026-09-29T22:59:01.779Z"
+    },
+    {
+      "id": "github-universe-preview-gh700-voucher-2026",
+      "name": "GitHub Universe 2026 Preview livestream — GH-700 beta exam discount code",
+      "vendor": "GitHub",
+      "category": "ai",
+      "certifications": [
+        "GH-700 Agentic AI for Business Professionals (beta)"
+      ],
+      "examCode": "GH-700",
+      "whatIsFree": "partial",
+      "cost": "Discount code revealed at the end of the broadcast; amount undisclosed (Microsoft beta norm is 80% off for the first 300)",
+      "credentialWeight": "low",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global (livestream, 18:00–19:00 UTC)",
+      "windowStart": "2026-10-21",
+      "windowEnd": "2026-10-21",
+      "status": "upcoming",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Watch the Microsoft Reactor livestream to the end to receive the code.",
+      "url": "https://developer.microsoft.com/en-us/reactor/events/27591/",
+      "sourceUrl": "https://developer.microsoft.com/en-us/reactor/events/27591/",
+      "lastVerified": "2026-09-29",
+      "verificationNote": "Verified on Reactor event page.",
+      "notes": "GitHub Universe (Oct 28–29) also sells a $30 exam-voucher add-on.",
+      "addedBy": "manual",
+      "addedAt": "2026-09-29",
+      "updatedAt": "2026-09-29T22:59:01.779Z"
+    },
+    {
+      "id": "google-gear-get-certified-ed1-2027",
+      "name": "Google Cloud GEAR Get Certified — Edition 1 (2027)",
+      "vendor": "Google Cloud",
       "category": "cloud",
       "certifications": [
-        "Any Oracle Certification Program exam"
+        "Generative AI Leader",
+        "Associate Cloud Engineer",
+        "Professional Cloud Architect"
+      ],
+      "examCode": null,
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "credentialWeight": "high",
+      "eligibility": [
+        "customer"
+      ],
+      "regions": "Global; corporate email from a Google Cloud customer org",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "upcoming",
+      "recurring": {
+        "isRecurring": true,
+        "cadence": "~3 editions per year",
+        "expectedNextWindow": "Registration expected ~Feb 2027 based on 2026 cadence (Ed1 apps Feb 10 – Mar 11, 2026)",
+        "expectedNextWindowDate": "2027-02-01"
+      },
+      "requirements": "Sign up on the notification badge page to be emailed when registration opens.",
+      "url": "https://developers.google.com/profile/badges/community/get-certified/notification-27-edition-1",
+      "sourceUrl": "https://developers.google.com/profile/badges/community/get-certified/notification-27-edition-1",
+      "lastVerified": "2026-09-29",
+      "verificationNote": "Notification page verified; no dates published.",
+      "notes": "",
+      "addedBy": "manual",
+      "addedAt": "2026-09-29",
+      "updatedAt": "2026-09-29T22:59:01.779Z"
+    },
+    {
+      "id": "google-gear-get-certified-ed3-2026",
+      "name": "Google Cloud GEAR Get Certified — Edition 3 (2026)",
+      "vendor": "Google Cloud",
+      "category": "cloud",
+      "certifications": [
+        "Generative AI Leader",
+        "Associate Cloud Engineer",
+        "Professional Cloud Architect"
+      ],
+      "examCode": null,
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "credentialWeight": "high",
+      "eligibility": [
+        "customer"
+      ],
+      "regions": "Global (EN), LatAm (ES), Brazil (PT). Corporate Google Workspace email from a Google Cloud customer org; Gmail/edu rejected.",
+      "windowStart": "2026-08-19",
+      "windowEnd": "2026-09-16",
+      "status": "expired",
+      "recurring": {
+        "isRecurring": true,
+        "cadence": "~3 editions per year",
+        "expectedNextWindow": "Edition 1 2027 — notification page live, registration expected ~Feb 2027",
+        "expectedNextWindowDate": "2027-02-01"
+      },
+      "requirements": "Apply during the window; complete all cohort milestones (labs, skill badges, capstone) to earn the 100% exam voucher. Cohort runs 2026-10-12 to 2026-12-18.",
+      "url": "https://developers.google.com/program/gear/getcertified",
+      "sourceUrl": "https://developers.google.com/program/gear/getcertified",
+      "lastVerified": "2026-09-29",
+      "verificationNote": "Vendor page shows Registration closed for Editions 1–3; dates from third-party (techbytes.app).",
+      "notes": "",
+      "addedBy": "manual",
+      "addedAt": "2026-09-05",
+      "updatedAt": "2026-09-29T22:59:01.779Z"
+    },
+    {
+      "id": "google-skillshop",
+      "name": "Google Skillshop certifications",
+      "vendor": "Google",
+      "category": "marketing",
+      "certifications": [
+        "Google Ads (Search/Display/Video/Apps/Creative)",
+        "AI-Powered Performance Ads",
+        "GA4",
+        "Gemini for Workspace"
+      ],
+      "examCode": null,
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "credentialWeight": "low",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Free account; 12-month validity.",
+      "url": "https://skillshop.withgoogle.com",
+      "sourceUrl": "https://skillshop.withgoogle.com",
+      "lastVerified": "2026-09-05",
+      "verificationNote": "Evergreen.",
+      "notes": "",
+      "addedBy": "manual",
+      "addedAt": "2026-09-05",
+      "updatedAt": "2026-09-29T22:59:01.779Z"
+    },
+    {
+      "id": "hashiconf-2026-attendee-exams",
+      "name": "HashiConf at IBM TechXchange 2026 — up to 2 free exam attempts",
+      "vendor": "HashiCorp",
+      "category": "dev",
+      "certifications": [
+        "Terraform Associate / Authoring & Operations Pro",
+        "Vault Associate / Operations Pro",
+        "Consul Associate"
       ],
       "examCode": null,
       "whatIsFree": "full-exam",
@@ -269,32 +492,179 @@
       "eligibility": [
         "event-attendee"
       ],
-      "regions": "In-person general attendees and sponsors (Las Vegas, 2026-10-25 to 2026-10-28); excludes booth staff, speakers, media, Executive Summit, On Air",
-      "windowStart": "2026-06-09",
-      "windowEnd": "2026-12-31",
-      "status": "active",
+      "regions": "In-person attendees (Atlanta); remote attendees ineligible",
+      "windowStart": "2026-10-26",
+      "windowEnd": "2026-10-26",
+      "status": "upcoming",
       "recurring": {
         "isRecurring": true,
-        "cadence": "annual (Oracle AI World / CloudWorld, Oct)",
-        "expectedNextWindow": "Oct 2027",
+        "cadence": "annual (HashiConf)",
+        "expectedNextWindow": "HashiConf 2027",
         "expectedNextWindowDate": "2027-10-01"
       },
-      "requirements": "Register for a full conference pass (~$2,399); benefit includes OCI + Cloud Apps Learning Subscriptions and up to three exam attempts, valid through 2026-12-31 11:59 PM PT.",
-      "url": "https://www.oracle.com/ai-world/register/",
-      "sourceUrl": "https://www.oracle.com/ai-world/faq/",
+      "requirements": "Associate multiple-choice exams are walk-in during the event; Terraform/Vault lab exams (Mon Oct 26) must be scheduled via the portal banner.",
+      "url": "https://hashicorp-certifications.zendesk.com/hc/en-us/articles/28308772413581",
+      "sourceUrl": "https://hashicorp-certifications.zendesk.com/hc/en-us/articles/28308772413581",
       "lastVerified": "2026-09-29",
-      "verificationNote": "Verified on Oracle AI World register + FAQ pages.",
-      "notes": "Only free if you already hold a pass.",
+      "verificationNote": "Verified on HashiCorp certification support page; only the lab-exam day is dated, so the window is set to that day.",
+      "notes": "",
       "addedBy": "manual",
-      "addedAt": "2026-09-29"
+      "addedAt": "2026-09-29",
+      "updatedAt": "2026-09-29T22:59:01.779Z"
     },
     {
-      "id": "oracle-race-to-certification-2025",
-      "name": "Oracle Race to Certification 2025",
-      "vendor": "Oracle",
+      "id": "hubspot-academy",
+      "name": "HubSpot Academy certifications",
+      "vendor": "HubSpot",
+      "category": "marketing",
+      "certifications": [
+        "Inbound",
+        "Content Marketing",
+        "SEO",
+        "Email Marketing",
+        "Sales Software"
+      ],
+      "examCode": null,
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "credentialWeight": "low",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Free account.",
+      "url": "https://academy.hubspot.com",
+      "sourceUrl": "https://academy.hubspot.com",
+      "lastVerified": "2026-09-05",
+      "verificationNote": "Evergreen.",
+      "notes": "",
+      "addedBy": "manual",
+      "addedAt": "2026-09-05",
+      "updatedAt": "2026-09-29T22:59:01.779Z"
+    },
+    {
+      "id": "isc2-cc-one-million-certified",
+      "name": "ISC2 Certified in Cybersecurity — One Million Certified",
+      "vendor": "ISC2",
+      "category": "security",
+      "certifications": [
+        "Certified in Cybersecurity (CC)"
+      ],
+      "examCode": "CC",
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "credentialWeight": "high",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": "2026-05-20",
+      "status": "expired",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": "ISC2 has hinted at future initiatives; nothing announced",
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Program closed to new enrollment 2026-05-20; codes issued before then valid through 2026-12-31. Now $199 + $50/yr AMF.",
+      "url": "https://www.isc2.org/landing/1mcc",
+      "sourceUrl": "https://www.isc2.org/Insights/2026/04/one-million-certified-cyber-conclusion",
+      "lastVerified": "2026-09-29",
+      "verificationNote": "Verified on ISC2 site. Blogs claiming free CC 'through 2027' are wrong.",
+      "notes": "",
+      "addedBy": "manual",
+      "addedAt": "2026-09-05",
+      "updatedAt": "2026-09-29T22:59:01.779Z"
+    },
+    {
+      "id": "microsoft-ai-agent-skills-sweepstakes-2026",
+      "name": "Microsoft AI Agent Skills Sweepstakes (AB-100 / AB-900 / AB-620)",
+      "vendor": "Microsoft",
+      "category": "ai",
+      "certifications": [
+        "AB-100",
+        "AB-900",
+        "AB-620"
+      ],
+      "examCode": "AB-100 / AB-900 / AB-620",
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "credentialWeight": "medium",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": "2026-06-15",
+      "windowEnd": "2026-07-15",
+      "status": "expired",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Sweepstakes; 900 × 100% vouchers.",
+      "url": "https://learn.microsoft.com",
+      "sourceUrl": "https://learn.microsoft.com/en-us/credentials/support/",
+      "lastVerified": "2026-09-29",
+      "verificationNote": "Closed per Microsoft Learn rules pages.",
+      "notes": "",
+      "addedBy": "manual",
+      "addedAt": "2026-09-29",
+      "updatedAt": "2026-09-29T22:59:01.779Z"
+    },
+    {
+      "id": "microsoft-ai-skills-fest-2026",
+      "name": "Microsoft AI Skills Fest 2026 voucher",
+      "vendor": "Microsoft",
+      "category": "ai",
+      "certifications": [
+        "One Microsoft role-based exam"
+      ],
+      "examCode": null,
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "credentialWeight": "high",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": "2026-06-08",
+      "windowEnd": "2026-06-12",
+      "status": "expired",
+      "recurring": {
+        "isRecurring": true,
+        "cadence": "annual (spring)",
+        "expectedNextWindow": "spring 2027",
+        "expectedNextWindowDate": "2027-04-01"
+      },
+      "requirements": "Complete an AI Skills Fest playlist during the event window.",
+      "url": "https://learn.microsoft.com/training/topics/ai-skills-fest",
+      "sourceUrl": "https://vladtalkstech.com/microsoft-learning-and-credential-news/free-microsoft-certification-voucher-ai-skills-fest/",
+      "lastVerified": "2026-09-29",
+      "verificationNote": "Third-party writeup; tracker repo marks closed.",
+      "notes": "",
+      "addedBy": "manual",
+      "addedAt": "2026-09-05",
+      "updatedAt": "2026-09-29T22:59:01.779Z"
+    },
+    {
+      "id": "microsoft-applied-skills",
+      "name": "Microsoft Applied Skills",
+      "vendor": "Microsoft",
       "category": "cloud",
       "certifications": [
-        "OCI, AI, Multicloud, Data Platform certifications"
+        "Microsoft Applied Skills (various)"
       ],
       "examCode": null,
       "whatIsFree": "full-exam",
@@ -304,31 +674,32 @@
         "public"
       ],
       "regions": "Global",
-      "windowStart": "2025-07-01",
-      "windowEnd": "2025-10-31",
-      "status": "expired",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
       "recurring": {
-        "isRecurring": true,
-        "cadence": "annual 2023–2025 (Jul–Oct)",
-        "expectedNextWindow": "No 2026 edition announced as of 2026-09-29; Oracle made Foundations + Architect Associate free instead",
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
         "expectedNextWindowDate": null
       },
-      "requirements": "Register on MyLearn; complete by Oct 31.",
-      "url": "https://education.oracle.com",
-      "sourceUrl": "https://blogs.oracle.com/oracleuniversity/announcing-race-to-certification-2025",
-      "lastVerified": "2026-09-29",
-      "verificationNote": "Only the 2025 announcement exists.",
+      "requirements": "Lab-based assessment on Microsoft Learn.",
+      "url": "https://learn.microsoft.com/en-us/credentials/applied-skills/",
+      "sourceUrl": "https://learn.microsoft.com/en-us/credentials/applied-skills/",
+      "lastVerified": "2026-09-05",
+      "verificationNote": "Widely reported free; explicit price not quoted on FAQ.",
       "notes": "",
       "addedBy": "manual",
-      "addedAt": "2026-09-05"
+      "addedAt": "2026-09-05",
+      "updatedAt": "2026-09-29T22:59:01.779Z"
     },
     {
-      "id": "salesforce-dreamforce-2026-exam",
-      "name": "Salesforce on-site exam at Dreamforce 2026",
-      "vendor": "Salesforce",
+      "id": "microsoft-build-2026-voucher",
+      "name": "Microsoft Build 2026 attendee voucher",
+      "vendor": "Microsoft",
       "category": "cloud",
       "certifications": [
-        "Any Salesforce certification priced up to $400"
+        "One Microsoft or GitHub exam"
       ],
       "examCode": null,
       "whatIsFree": "full-exam",
@@ -337,69 +708,73 @@
       "eligibility": [
         "event-attendee"
       ],
-      "regions": "San Francisco, in person",
-      "windowStart": "2026-09-14",
-      "windowEnd": "2026-09-17",
+      "regions": "Global (virtual attendees included)",
+      "windowStart": "2026-06-02",
+      "windowEnd": "2026-07-31",
       "status": "expired",
       "recurring": {
         "isRecurring": true,
-        "cadence": "annual (Dreamforce, Sep)",
-        "expectedNextWindow": "Dreamforce 2027",
-        "expectedNextWindowDate": "2027-09-01"
+        "cadence": "annual (Build, May)",
+        "expectedNextWindow": "Build 2027",
+        "expectedNextWindowDate": "2027-05-01"
       },
-      "requirements": "Conference-pass holders; in-room registration during the event only; one exam per attendee; not applicable to prior or future exams.",
-      "url": "https://help.salesforce.com/s/articleView?id=005298818&type=1&language=en_US",
-      "sourceUrl": "https://help.salesforce.com/s/articleView?id=005298818&type=1&language=en_US",
+      "requirements": "Register for Build; redeem and take the exam by 2026-07-31.",
+      "url": "https://build.microsoft.com",
+      "sourceUrl": "https://learn.microsoft.com/en-us/credentials/support/microsoft-build-2026-certification-exam-voucher-terms-and-conditions",
       "lastVerified": "2026-09-29",
-      "verificationNote": "Verified on Salesforce Help; no post-event vouchers.",
+      "verificationNote": "Verified on Microsoft Learn T&Cs.",
       "notes": "",
       "addedBy": "manual",
-      "addedAt": "2026-09-05"
+      "addedAt": "2026-09-05",
+      "updatedAt": "2026-09-29T22:59:01.779Z"
     },
     {
-      "id": "salesforce-retake-promo-2026-27",
-      "name": "Salesforce Certification Exam Retake Promotion 2026/2027",
-      "vendor": "Salesforce",
-      "category": "cloud",
+      "id": "microsoft-defender-challenge-sweepstakes-2026",
+      "name": "Microsoft Defender Challenge Sweepstakes (SC-200 / SC-500)",
+      "vendor": "Microsoft",
+      "category": "security",
       "certifications": [
-        "Any $200 or $400 Salesforce exam (excludes CTA and Accredited Professional)"
+        "SC-200",
+        "SC-500"
       ],
-      "examCode": null,
+      "examCode": "SC-200 / SC-500",
       "whatIsFree": "partial",
-      "cost": "Full exam price ($200/$400); one free retake 2027-01-04 to 2027-04-07 if you fail",
+      "cost": "50% voucher (500 available)",
       "credentialWeight": "high",
       "eligibility": [
         "public"
       ],
-      "regions": "Global (USD pricing)",
-      "windowStart": "2026-09-29",
-      "windowEnd": "2026-11-17",
-      "status": "active",
+      "regions": "Global",
+      "windowStart": "2026-07-20",
+      "windowEnd": "2026-08-21",
+      "status": "expired",
       "recurring": {
-        "isRecurring": true,
-        "cadence": "roughly annual",
-        "expectedNextWindow": "fall 2027",
-        "expectedNextWindowDate": "2027-09-01"
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
       },
-      "requirements": "Opt in via the Pearson VUE link by 2026-09-29; schedule, pay for and take the exam 2026-09-29 to 2026-11-17 using the promo code from the opt-in email.",
-      "url": "https://help.salesforce.com/s/articleView?language=en_US&id=005460244&type=1",
-      "sourceUrl": "https://help.salesforce.com/s/articleView?language=en_US&id=005460244&type=1",
+      "requirements": "Sweepstakes.",
+      "url": "https://learn.microsoft.com",
+      "sourceUrl": "https://learn.microsoft.com/en-us/credentials/support/",
       "lastVerified": "2026-09-29",
-      "verificationNote": "Verified on Salesforce Help (posted ~2026-09-25).",
-      "notes": "Opt-in deadline is the same day as windowStart.",
+      "verificationNote": "Closed per Microsoft Learn rules pages.",
+      "notes": "",
       "addedBy": "manual",
-      "addedAt": "2026-09-29"
+      "addedAt": "2026-09-29",
+      "updatedAt": "2026-09-29T22:59:01.779Z"
     },
     {
-      "id": "salesforce-free-ai-certs-2025",
-      "name": "Salesforce free AI Associate / Agentforce Specialist exams",
-      "vendor": "Salesforce",
-      "category": "ai",
+      "id": "microsoft-fabric-data-days-2026",
+      "name": "Microsoft 60 Days of Data & AI / Fabric Data Days — free DP-600/700/800",
+      "vendor": "Microsoft",
+      "category": "data",
       "certifications": [
-        "AI Associate",
-        "Agentforce Specialist"
+        "Fabric Analytics Engineer",
+        "Fabric Data Engineer",
+        "SQL Database Engineer"
       ],
-      "examCode": null,
+      "examCode": "DP-600 / DP-700 / DP-800",
       "whatIsFree": "full-exam",
       "cost": null,
       "credentialWeight": "high",
@@ -407,23 +782,96 @@
         "public"
       ],
       "regions": "Global",
-      "windowStart": null,
-      "windowEnd": "2025-12-31",
+      "windowStart": "2026-06-15",
+      "windowEnd": "2026-08-10",
+      "status": "expired",
+      "recurring": {
+        "isRecurring": true,
+        "cadence": "annual (spring/summer); a fall Fabric Data Days ran Nov–Dec 2025",
+        "expectedNextWindow": "possibly Nov 2026; otherwise spring 2027",
+        "expectedNextWindowDate": "2026-11-01"
+      },
+      "requirements": "Join Fabric Community, watch 2 Data Days sessions, complete 3 Learn modules, request voucher by 2026-08-10 (20,000 supply); redeem by 2026-08-31; exam by 2026-09-30.",
+      "url": "https://community.fabric.microsoft.com",
+      "sourceUrl": "https://github.com/nisalgunawardhana/microsoft-certification-voucher-offers",
+      "lastVerified": "2026-09-29",
+      "verificationNote": "Request window closed; exam-by date 2026-09-30 for holders.",
+      "notes": "",
+      "addedBy": "manual",
+      "addedAt": "2026-09-05",
+      "updatedAt": "2026-09-29T22:59:01.779Z"
+    },
+    {
+      "id": "microsoft-ignite-challenge-2026",
+      "name": "Microsoft Ignite 2026 Challenge sweepstakes",
+      "vendor": "Microsoft",
+      "category": "cloud",
+      "certifications": [
+        "One Microsoft role-based exam"
+      ],
+      "examCode": null,
+      "whatIsFree": "partial",
+      "cost": "2025 prize was a 50% voucher (5,000 available); 2026 terms not yet published",
+      "credentialWeight": "high",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": "2026-11-17",
+      "windowEnd": null,
+      "status": "upcoming",
+      "recurring": {
+        "isRecurring": true,
+        "cadence": "annual (Ignite, Nov)",
+        "expectedNextWindow": "Ignite runs 2026-11-17 to 2026-11-20 (San Francisco); challenge typically opens day one and runs ~4 weeks",
+        "expectedNextWindowDate": "2026-11-17"
+      },
+      "requirements": "Complete the Ignite Challenge collection during the event window; sweepstakes entry.",
+      "url": "https://ignite.microsoft.com/en-US/home",
+      "sourceUrl": "https://learn.microsoft.com/en-us/credentials/support/microsoft-ignite-challenge-official-rules",
+      "lastVerified": "2026-09-29",
+      "verificationNote": "Ignite dates verified; official rules page still describes the 2025 challenge.",
+      "notes": "",
+      "addedBy": "manual",
+      "addedAt": "2026-09-05",
+      "updatedAt": "2026-09-29T22:59:01.779Z"
+    },
+    {
+      "id": "microsoft-levelup-frontier-vouchers-2026",
+      "name": "Microsoft LevelUp Frontier Transformation Engineer vouchers",
+      "vendor": "Microsoft",
+      "category": "ai",
+      "certifications": [
+        "AB-100",
+        "AI-103",
+        "GH-300"
+      ],
+      "examCode": "AB-100 / AI-103 / GH-300",
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "credentialWeight": "medium",
+      "eligibility": [
+        "partner"
+      ],
+      "regions": "Global, partner employees",
+      "windowStart": "2026-08-07",
+      "windowEnd": "2026-09-16",
       "status": "expired",
       "recurring": {
         "isRecurring": false,
         "cadence": null,
-        "expectedNextWindow": "No 2026 offer found",
+        "expectedNextWindow": null,
         "expectedNextWindowDate": null
       },
-      "requirements": "Ended; AI Associate retired 2026-02-02.",
-      "url": "https://trailhead.salesforce.com",
-      "sourceUrl": "https://www.salesforceben.com/salesforce-to-offer-free-ai-certifications-and-premium-training/",
+      "requirements": "Partner-domain email; ≥80% on LevelUp practice test; voucher valid 60 days.",
+      "url": "https://skillupwithlevelup.com",
+      "sourceUrl": "https://skillupwithlevelup.com/cert-terms-and-conditions",
       "lastVerified": "2026-09-29",
-      "verificationNote": "Third-party; no vendor promo page for 2026.",
+      "verificationNote": "LevelUp T&Cs now show the offer closed 2026-09-16.",
       "notes": "",
       "addedBy": "manual",
-      "addedAt": "2026-09-05"
+      "addedAt": "2026-09-05",
+      "updatedAt": "2026-09-29T22:59:01.779Z"
     },
     {
       "id": "microsoft-partner-cert-week-fy27",
@@ -472,7 +920,8 @@
       "verificationNote": "Verified on Fast Lane regional pages + LevelUp T&Cs. Some EMEA Oct 12–16 sessions already fully booked.",
       "notes": "Public trackers say 'any work email'; the LevelUp T&Cs say MAICPP partner domains only.",
       "addedBy": "manual",
-      "addedAt": "2026-09-05"
+      "addedAt": "2026-09-05",
+      "updatedAt": "2026-09-29T22:59:01.779Z"
     },
     {
       "id": "microsoft-sales-cert-week-fy27",
@@ -507,252 +956,8 @@
       "verificationNote": "Verified on Fast Lane; LevelUp T&Cs list it as Coming Soon.",
       "notes": "",
       "addedBy": "manual",
-      "addedAt": "2026-09-29"
-    },
-    {
-      "id": "microsoft-levelup-frontier-vouchers-2026",
-      "name": "Microsoft LevelUp Frontier Transformation Engineer vouchers",
-      "vendor": "Microsoft",
-      "category": "ai",
-      "certifications": [
-        "AB-100",
-        "AI-103",
-        "GH-300"
-      ],
-      "examCode": "AB-100 / AI-103 / GH-300",
-      "whatIsFree": "full-exam",
-      "cost": null,
-      "credentialWeight": "medium",
-      "eligibility": [
-        "partner"
-      ],
-      "regions": "Global, partner employees",
-      "windowStart": "2026-08-07",
-      "windowEnd": "2026-09-16",
-      "status": "expired",
-      "recurring": {
-        "isRecurring": false,
-        "cadence": null,
-        "expectedNextWindow": null,
-        "expectedNextWindowDate": null
-      },
-      "requirements": "Partner-domain email; ≥80% on LevelUp practice test; voucher valid 60 days.",
-      "url": "https://skillupwithlevelup.com",
-      "sourceUrl": "https://skillupwithlevelup.com/cert-terms-and-conditions",
-      "lastVerified": "2026-09-29",
-      "verificationNote": "LevelUp T&Cs now show the offer closed 2026-09-16.",
-      "notes": "",
-      "addedBy": "manual",
-      "addedAt": "2026-09-05"
-    },
-    {
-      "id": "microsoft-fabric-data-days-2026",
-      "name": "Microsoft 60 Days of Data & AI / Fabric Data Days — free DP-600/700/800",
-      "vendor": "Microsoft",
-      "category": "data",
-      "certifications": [
-        "Fabric Analytics Engineer",
-        "Fabric Data Engineer",
-        "SQL Database Engineer"
-      ],
-      "examCode": "DP-600 / DP-700 / DP-800",
-      "whatIsFree": "full-exam",
-      "cost": null,
-      "credentialWeight": "high",
-      "eligibility": [
-        "public"
-      ],
-      "regions": "Global",
-      "windowStart": "2026-06-15",
-      "windowEnd": "2026-08-10",
-      "status": "expired",
-      "recurring": {
-        "isRecurring": true,
-        "cadence": "annual (spring/summer); a fall Fabric Data Days ran Nov–Dec 2025",
-        "expectedNextWindow": "possibly Nov 2026; otherwise spring 2027",
-        "expectedNextWindowDate": "2026-11-01"
-      },
-      "requirements": "Join Fabric Community, watch 2 Data Days sessions, complete 3 Learn modules, request voucher by 2026-08-10 (20,000 supply); redeem by 2026-08-31; exam by 2026-09-30.",
-      "url": "https://community.fabric.microsoft.com",
-      "sourceUrl": "https://github.com/nisalgunawardhana/microsoft-certification-voucher-offers",
-      "lastVerified": "2026-09-29",
-      "verificationNote": "Request window closed; exam-by date 2026-09-30 for holders.",
-      "notes": "",
-      "addedBy": "manual",
-      "addedAt": "2026-09-05"
-    },
-    {
-      "id": "microsoft-ai-skills-fest-2026",
-      "name": "Microsoft AI Skills Fest 2026 voucher",
-      "vendor": "Microsoft",
-      "category": "ai",
-      "certifications": [
-        "One Microsoft role-based exam"
-      ],
-      "examCode": null,
-      "whatIsFree": "full-exam",
-      "cost": null,
-      "credentialWeight": "high",
-      "eligibility": [
-        "public"
-      ],
-      "regions": "Global",
-      "windowStart": "2026-06-08",
-      "windowEnd": "2026-06-12",
-      "status": "expired",
-      "recurring": {
-        "isRecurring": true,
-        "cadence": "annual (spring)",
-        "expectedNextWindow": "spring 2027",
-        "expectedNextWindowDate": "2027-04-01"
-      },
-      "requirements": "Complete an AI Skills Fest playlist during the event window.",
-      "url": "https://learn.microsoft.com/training/topics/ai-skills-fest",
-      "sourceUrl": "https://vladtalkstech.com/microsoft-learning-and-credential-news/free-microsoft-certification-voucher-ai-skills-fest/",
-      "lastVerified": "2026-09-29",
-      "verificationNote": "Third-party writeup; tracker repo marks closed.",
-      "notes": "",
-      "addedBy": "manual",
-      "addedAt": "2026-09-05"
-    },
-    {
-      "id": "microsoft-build-2026-voucher",
-      "name": "Microsoft Build 2026 attendee voucher",
-      "vendor": "Microsoft",
-      "category": "cloud",
-      "certifications": [
-        "One Microsoft or GitHub exam"
-      ],
-      "examCode": null,
-      "whatIsFree": "full-exam",
-      "cost": null,
-      "credentialWeight": "high",
-      "eligibility": [
-        "event-attendee"
-      ],
-      "regions": "Global (virtual attendees included)",
-      "windowStart": "2026-06-02",
-      "windowEnd": "2026-07-31",
-      "status": "expired",
-      "recurring": {
-        "isRecurring": true,
-        "cadence": "annual (Build, May)",
-        "expectedNextWindow": "Build 2027",
-        "expectedNextWindowDate": "2027-05-01"
-      },
-      "requirements": "Register for Build; redeem and take the exam by 2026-07-31.",
-      "url": "https://build.microsoft.com",
-      "sourceUrl": "https://learn.microsoft.com/en-us/credentials/support/microsoft-build-2026-certification-exam-voucher-terms-and-conditions",
-      "lastVerified": "2026-09-29",
-      "verificationNote": "Verified on Microsoft Learn T&Cs.",
-      "notes": "",
-      "addedBy": "manual",
-      "addedAt": "2026-09-05"
-    },
-    {
-      "id": "microsoft-ignite-challenge-2026",
-      "name": "Microsoft Ignite 2026 Challenge sweepstakes",
-      "vendor": "Microsoft",
-      "category": "cloud",
-      "certifications": [
-        "One Microsoft role-based exam"
-      ],
-      "examCode": null,
-      "whatIsFree": "partial",
-      "cost": "2025 prize was a 50% voucher (5,000 available); 2026 terms not yet published",
-      "credentialWeight": "high",
-      "eligibility": [
-        "public"
-      ],
-      "regions": "Global",
-      "windowStart": "2026-11-17",
-      "windowEnd": null,
-      "status": "upcoming",
-      "recurring": {
-        "isRecurring": true,
-        "cadence": "annual (Ignite, Nov)",
-        "expectedNextWindow": "Ignite runs 2026-11-17 to 2026-11-20 (San Francisco); challenge typically opens day one and runs ~4 weeks",
-        "expectedNextWindowDate": "2026-11-17"
-      },
-      "requirements": "Complete the Ignite Challenge collection during the event window; sweepstakes entry.",
-      "url": "https://ignite.microsoft.com/en-US/home",
-      "sourceUrl": "https://learn.microsoft.com/en-us/credentials/support/microsoft-ignite-challenge-official-rules",
-      "lastVerified": "2026-09-29",
-      "verificationNote": "Ignite dates verified; official rules page still describes the 2025 challenge.",
-      "notes": "",
-      "addedBy": "manual",
-      "addedAt": "2026-09-05"
-    },
-    {
-      "id": "microsoft-ai-agent-skills-sweepstakes-2026",
-      "name": "Microsoft AI Agent Skills Sweepstakes (AB-100 / AB-900 / AB-620)",
-      "vendor": "Microsoft",
-      "category": "ai",
-      "certifications": [
-        "AB-100",
-        "AB-900",
-        "AB-620"
-      ],
-      "examCode": "AB-100 / AB-900 / AB-620",
-      "whatIsFree": "full-exam",
-      "cost": null,
-      "credentialWeight": "medium",
-      "eligibility": [
-        "public"
-      ],
-      "regions": "Global",
-      "windowStart": "2026-06-15",
-      "windowEnd": "2026-07-15",
-      "status": "expired",
-      "recurring": {
-        "isRecurring": false,
-        "cadence": null,
-        "expectedNextWindow": null,
-        "expectedNextWindowDate": null
-      },
-      "requirements": "Sweepstakes; 900 × 100% vouchers.",
-      "url": "https://learn.microsoft.com",
-      "sourceUrl": "https://learn.microsoft.com/en-us/credentials/support/",
-      "lastVerified": "2026-09-29",
-      "verificationNote": "Closed per Microsoft Learn rules pages.",
-      "notes": "",
-      "addedBy": "manual",
-      "addedAt": "2026-09-29"
-    },
-    {
-      "id": "microsoft-defender-challenge-sweepstakes-2026",
-      "name": "Microsoft Defender Challenge Sweepstakes (SC-200 / SC-500)",
-      "vendor": "Microsoft",
-      "category": "security",
-      "certifications": [
-        "SC-200",
-        "SC-500"
-      ],
-      "examCode": "SC-200 / SC-500",
-      "whatIsFree": "partial",
-      "cost": "50% voucher (500 available)",
-      "credentialWeight": "high",
-      "eligibility": [
-        "public"
-      ],
-      "regions": "Global",
-      "windowStart": "2026-07-20",
-      "windowEnd": "2026-08-21",
-      "status": "expired",
-      "recurring": {
-        "isRecurring": false,
-        "cadence": null,
-        "expectedNextWindow": null,
-        "expectedNextWindowDate": null
-      },
-      "requirements": "Sweepstakes.",
-      "url": "https://learn.microsoft.com",
-      "sourceUrl": "https://learn.microsoft.com/en-us/credentials/support/",
-      "lastVerified": "2026-09-29",
-      "verificationNote": "Closed per Microsoft Learn rules pages.",
-      "notes": "",
-      "addedBy": "manual",
-      "addedAt": "2026-09-29"
+      "addedAt": "2026-09-29",
+      "updatedAt": "2026-09-29T22:59:01.779Z"
     },
     {
       "id": "microsoft-virtual-training-days-50",
@@ -791,7 +996,370 @@
       "verificationNote": "Ongoing per Microsoft Q&A (2026-08-25).",
       "notes": "",
       "addedBy": "manual",
-      "addedAt": "2026-09-29"
+      "addedAt": "2026-09-29",
+      "updatedAt": "2026-09-29T22:59:01.779Z"
+    },
+    {
+      "id": "openai-academy-certificates",
+      "name": "OpenAI Academy certificates",
+      "vendor": "OpenAI",
+      "category": "ai",
+      "certifications": [
+        "AI Foundations",
+        "Applied AI Foundations",
+        "Agents and Workflows"
+      ],
+      "examCode": null,
+      "whatIsFree": "training-and-badge",
+      "cost": null,
+      "credentialWeight": "low",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": "2026-06-15",
+      "windowEnd": null,
+      "status": "active",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Free ChatGPT account; Credly badge on completion.",
+      "url": "https://academy.openai.com",
+      "sourceUrl": "https://academy.openai.com",
+      "lastVerified": "2026-09-05",
+      "verificationNote": "Badge only; proctored OpenAI cert remains an employer pilot.",
+      "notes": "",
+      "addedBy": "manual",
+      "addedAt": "2026-09-05",
+      "updatedAt": "2026-09-29T22:59:01.779Z"
+    },
+    {
+      "id": "oracle-ai-world-2026-attendee-exams",
+      "name": "Oracle AI World 2026 attendee benefit — up to 3 free exam attempts",
+      "vendor": "Oracle",
+      "category": "cloud",
+      "certifications": [
+        "Any Oracle Certification Program exam"
+      ],
+      "examCode": null,
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "credentialWeight": "high",
+      "eligibility": [
+        "event-attendee"
+      ],
+      "regions": "In-person general attendees and sponsors (Las Vegas, 2026-10-25 to 2026-10-28); excludes booth staff, speakers, media, Executive Summit, On Air",
+      "windowStart": "2026-06-09",
+      "windowEnd": "2026-12-31",
+      "status": "active",
+      "recurring": {
+        "isRecurring": true,
+        "cadence": "annual (Oracle AI World / CloudWorld, Oct)",
+        "expectedNextWindow": "Oct 2027",
+        "expectedNextWindowDate": "2027-10-01"
+      },
+      "requirements": "Register for a full conference pass (~$2,399); benefit includes OCI + Cloud Apps Learning Subscriptions and up to three exam attempts, valid through 2026-12-31 11:59 PM PT.",
+      "url": "https://www.oracle.com/ai-world/register/",
+      "sourceUrl": "https://www.oracle.com/ai-world/faq/",
+      "lastVerified": "2026-09-29",
+      "verificationNote": "Verified on Oracle AI World register + FAQ pages.",
+      "notes": "Only free if you already hold a pass.",
+      "addedBy": "manual",
+      "addedAt": "2026-09-29",
+      "updatedAt": "2026-09-29T22:59:01.779Z"
+    },
+    {
+      "id": "oracle-foundations-free",
+      "name": "Oracle Foundations-level certifications (all)",
+      "vendor": "Oracle",
+      "category": "cloud",
+      "certifications": [
+        "OCI Foundations",
+        "OCI AI Foundations",
+        "Oracle AI Database Foundations",
+        "Agentic AI Foundations",
+        "Fusion AI Agent Studio Foundations",
+        "Fusion ERP / HCM Foundations",
+        "OGL Admin Foundations"
+      ],
+      "examCode": "1Z0-1085-26, 1Z0-1122-26, 1Z0-1195-26, 1Z0-1157-26, 1Z0-1145-1, 1Z0-1160-1, 1Z0-1163-1, 1Z0-1153-1",
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "credentialWeight": "low",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Free MyLearn account; course + exam free.",
+      "url": "https://mylearn.oracle.com/ou/home",
+      "sourceUrl": "https://blogs.oracle.com/oracleuniversity/oracle-agentic-ai-foundations-training-certification-now-available",
+      "lastVerified": "2026-09-29",
+      "verificationNote": "Oracle blogs confirm Foundations remain free; exam-code list partly from Oracle community post (2026-07-31).",
+      "notes": "Multicloud Foundations (Sep 2026) and Exadata Database Service (Oct 2026) announced as upcoming.",
+      "addedBy": "manual",
+      "addedAt": "2026-09-05",
+      "updatedAt": "2026-09-29T22:59:01.779Z"
+    },
+    {
+      "id": "oracle-oci-architect-associate-free-2026",
+      "name": "Oracle OCI Architect Associate (free)",
+      "vendor": "Oracle",
+      "category": "cloud",
+      "certifications": [
+        "Oracle Cloud Infrastructure 2026 Architect Associate"
+      ],
+      "examCode": "1Z0-1072-26",
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "credentialWeight": "high",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Free Oracle MyLearn account; complete the learning path; exam is free.",
+      "url": "https://learn.oracle.com/ols/learning-path/become-an-oci-architect-associate-2026/146553/162234",
+      "sourceUrl": "https://blogs.oracle.com/oracleuniversity/oci-certification-learning-paths-and-exams-2026-updates-now-available",
+      "lastVerified": "2026-09-29",
+      "verificationNote": "Verified on Oracle University blog (2026-08-10). education.oracle.com returns 403 to scrapers.",
+      "notes": "First associate-level architect cert Oracle has made free. Professional-level exams are paid.",
+      "addedBy": "manual",
+      "addedAt": "2026-09-05",
+      "updatedAt": "2026-09-29T22:59:01.779Z"
+    },
+    {
+      "id": "oracle-race-to-certification-2025",
+      "name": "Oracle Race to Certification 2025",
+      "vendor": "Oracle",
+      "category": "cloud",
+      "certifications": [
+        "OCI, AI, Multicloud, Data Platform certifications"
+      ],
+      "examCode": null,
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "credentialWeight": "medium",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": "2025-07-01",
+      "windowEnd": "2025-10-31",
+      "status": "expired",
+      "recurring": {
+        "isRecurring": true,
+        "cadence": "annual 2023–2025 (Jul–Oct)",
+        "expectedNextWindow": "No 2026 edition announced as of 2026-09-29; Oracle made Foundations + Architect Associate free instead",
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Register on MyLearn; complete by Oct 31.",
+      "url": "https://education.oracle.com",
+      "sourceUrl": "https://blogs.oracle.com/oracleuniversity/announcing-race-to-certification-2025",
+      "lastVerified": "2026-09-29",
+      "verificationNote": "Only the 2025 announcement exists.",
+      "notes": "",
+      "addedBy": "manual",
+      "addedAt": "2026-09-05",
+      "updatedAt": "2026-09-29T22:59:01.779Z"
+    },
+    {
+      "id": "salesforce-dreamforce-2026-exam",
+      "name": "Salesforce on-site exam at Dreamforce 2026",
+      "vendor": "Salesforce",
+      "category": "cloud",
+      "certifications": [
+        "Any Salesforce certification priced up to $400"
+      ],
+      "examCode": null,
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "credentialWeight": "high",
+      "eligibility": [
+        "event-attendee"
+      ],
+      "regions": "San Francisco, in person",
+      "windowStart": "2026-09-14",
+      "windowEnd": "2026-09-17",
+      "status": "expired",
+      "recurring": {
+        "isRecurring": true,
+        "cadence": "annual (Dreamforce, Sep)",
+        "expectedNextWindow": "Dreamforce 2027",
+        "expectedNextWindowDate": "2027-09-01"
+      },
+      "requirements": "Conference-pass holders; in-room registration during the event only; one exam per attendee; not applicable to prior or future exams.",
+      "url": "https://help.salesforce.com/s/articleView?id=005298818&type=1&language=en_US",
+      "sourceUrl": "https://help.salesforce.com/s/articleView?id=005298818&type=1&language=en_US",
+      "lastVerified": "2026-09-29",
+      "verificationNote": "Verified on Salesforce Help; no post-event vouchers.",
+      "notes": "",
+      "addedBy": "manual",
+      "addedAt": "2026-09-05",
+      "updatedAt": "2026-09-29T22:59:01.779Z"
+    },
+    {
+      "id": "salesforce-free-ai-certs-2025",
+      "name": "Salesforce free AI Associate / Agentforce Specialist exams",
+      "vendor": "Salesforce",
+      "category": "ai",
+      "certifications": [
+        "AI Associate",
+        "Agentforce Specialist"
+      ],
+      "examCode": null,
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "credentialWeight": "high",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": "2025-12-31",
+      "status": "expired",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": "No 2026 offer found",
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Ended; AI Associate retired 2026-02-02.",
+      "url": "https://trailhead.salesforce.com",
+      "sourceUrl": "https://www.salesforceben.com/salesforce-to-offer-free-ai-certifications-and-premium-training/",
+      "lastVerified": "2026-09-29",
+      "verificationNote": "Third-party; no vendor promo page for 2026.",
+      "notes": "",
+      "addedBy": "manual",
+      "addedAt": "2026-09-05",
+      "updatedAt": "2026-09-29T22:59:01.779Z"
+    },
+    {
+      "id": "salesforce-retake-promo-2026-27",
+      "name": "Salesforce Certification Exam Retake Promotion 2026/2027",
+      "vendor": "Salesforce",
+      "category": "cloud",
+      "certifications": [
+        "Any $200 or $400 Salesforce exam (excludes CTA and Accredited Professional)"
+      ],
+      "examCode": null,
+      "whatIsFree": "partial",
+      "cost": "Full exam price ($200/$400); one free retake 2027-01-04 to 2027-04-07 if you fail",
+      "credentialWeight": "high",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global (USD pricing)",
+      "windowStart": "2026-09-29",
+      "windowEnd": "2026-11-17",
+      "status": "active",
+      "recurring": {
+        "isRecurring": true,
+        "cadence": "roughly annual",
+        "expectedNextWindow": "fall 2027",
+        "expectedNextWindowDate": "2027-09-01"
+      },
+      "requirements": "Opt in via the Pearson VUE link by 2026-09-29; schedule, pay for and take the exam 2026-09-29 to 2026-11-17 using the promo code from the opt-in email.",
+      "url": "https://help.salesforce.com/s/articleView?language=en_US&id=005460244&type=1",
+      "sourceUrl": "https://help.salesforce.com/s/articleView?language=en_US&id=005460244&type=1",
+      "lastVerified": "2026-09-29",
+      "verificationNote": "Verified on Salesforce Help (posted ~2026-09-25).",
+      "notes": "Opt-in deadline is the same day as windowStart.",
+      "addedBy": "manual",
+      "addedAt": "2026-09-29",
+      "updatedAt": "2026-09-29T22:59:01.779Z"
+    },
+    {
+      "id": "snowflake-pearson-20-off-2026",
+      "name": "Snowflake SnowPro 20% off vouchers (Pearson VUE store)",
+      "vendor": "Snowflake",
+      "category": "data",
+      "certifications": [
+        "SnowPro Core",
+        "SnowPro Specialty",
+        "SnowPro Advanced"
+      ],
+      "examCode": null,
+      "whatIsFree": "partial",
+      "cost": "Core $140 (was $175), Specialty $180, Advanced $300",
+      "credentialWeight": "medium",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global except India",
+      "windowStart": null,
+      "windowEnd": "2026-11-30",
+      "status": "active",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Buy the voucher in the Pearson VUE Snowflake store before 2026-11-30.",
+      "url": "https://snowflakestore.pearsonvue.com/",
+      "sourceUrl": "https://snowflakestore.pearsonvue.com/",
+      "lastVerified": "2026-09-29",
+      "verificationNote": "Verified on vendor store.",
+      "notes": "",
+      "addedBy": "manual",
+      "addedAt": "2026-09-29",
+      "updatedAt": "2026-09-29T22:59:01.779Z"
+    },
+    {
+      "id": "snowflake-uk-get-tech-certified-2026",
+      "name": "Snowflake UK Get Tech Certified programme (with DSIT)",
+      "vendor": "Snowflake",
+      "category": "data",
+      "certifications": [
+        "SnowPro Core"
+      ],
+      "examCode": null,
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "credentialWeight": "medium",
+      "eligibility": [
+        "public",
+        "need-based"
+      ],
+      "regions": "UK residents; in-person training in London/Manchester",
+      "windowStart": null,
+      "windowEnd": "2026-12-08",
+      "status": "active",
+      "recurring": {
+        "isRecurring": true,
+        "cadence": "annual",
+        "expectedNextWindow": "2027",
+        "expectedNextWindowDate": "2027-01-01"
+      },
+      "requirements": "Free self-paced courses plus free 2-day practitioner training (Oct 19–20, Nov 12–13, Dec 7–8, 2026); limited places to sit SnowPro Core.",
+      "url": "https://www.snowflake.com/en/lp/GDS_Get_Tech_Certified_Programme/",
+      "sourceUrl": "https://www.snowflake.com/en/lp/GDS_Get_Tech_Certified_Programme/",
+      "lastVerified": "2026-09-29",
+      "verificationNote": "Verified on Snowflake programme page.",
+      "notes": "",
+      "addedBy": "manual",
+      "addedAt": "2026-09-29",
+      "updatedAt": "2026-09-29T22:59:01.779Z"
     },
     {
       "id": "yes-microsoft-ai-skills-south-africa-2026",
@@ -832,960 +1400,11 @@
       "verificationNote": "Verified on program page.",
       "notes": "",
       "addedBy": "manual",
-      "addedAt": "2026-09-29"
-    },
-    {
-      "id": "github-foundations-datacamp-student",
-      "name": "GitHub Foundations via DataCamp (Student Developer Pack)",
-      "vendor": "GitHub",
-      "category": "dev",
-      "certifications": [
-        "GitHub Foundations"
-      ],
-      "examCode": null,
-      "whatIsFree": "full-exam",
-      "cost": null,
-      "credentialWeight": "medium",
-      "eligibility": [
-        "student"
-      ],
-      "regions": "Global",
-      "windowStart": null,
-      "windowEnd": null,
-      "status": "evergreen",
-      "recurring": {
-        "isRecurring": false,
-        "cadence": null,
-        "expectedNextWindow": null,
-        "expectedNextWindowDate": null
-      },
-      "requirements": "Verified GitHub Student Developer Pack; activate the pack's 3-month DataCamp access; complete the full GitHub Foundations track; code issued within ~15 working days.",
-      "url": "https://education.github.com/pack",
-      "sourceUrl": "https://support.datacamp.com/hc/en-us/articles/41749666959767-GitHub-Foundations-Certification-Voucher-through-DataCamp",
-      "lastVerified": "2026-09-05",
-      "verificationNote": "Verified on DataCamp support article on 2026-09-05; not re-checked since.",
-      "notes": "",
-      "addedBy": "manual",
-      "addedAt": "2026-09-05"
-    },
-    {
-      "id": "github-student-pack-direct-voucher-2025-26",
-      "name": "GitHub Student Pack direct exam voucher (Foundations or Copilot)",
-      "vendor": "GitHub",
-      "category": "dev",
-      "certifications": [
-        "GitHub Foundations",
-        "GitHub Copilot"
-      ],
-      "examCode": null,
-      "whatIsFree": "full-exam",
-      "cost": null,
-      "credentialWeight": "medium",
-      "eligibility": [
-        "student"
-      ],
-      "regions": "Global",
-      "windowStart": "2025-09-30",
-      "windowEnd": "2026-06-30",
-      "status": "expired",
-      "recurring": {
-        "isRecurring": true,
-        "cadence": "annual academic cycle (returned Sep 30 in 2025)",
-        "expectedNextWindow": "Not reissued as of 2026-09-29; voucher language removed from the pack page — may be discontinued",
-        "expectedNextWindowDate": null
-      },
-      "requirements": "Voucher tile appears in the Student Developer Pack when active.",
-      "url": "https://education.github.com/pack",
-      "sourceUrl": "https://github.com/orgs/community/discussions/184764",
-      "lastVerified": "2026-09-29",
-      "verificationNote": "Pack page shows only prep resources; community threads report vouchers unavailable with no staff reply.",
-      "notes": "",
-      "addedBy": "manual",
-      "addedAt": "2026-09-05"
-    },
-    {
-      "id": "github-universe-preview-gh700-voucher-2026",
-      "name": "GitHub Universe 2026 Preview livestream — GH-700 beta exam discount code",
-      "vendor": "GitHub",
-      "category": "ai",
-      "certifications": [
-        "GH-700 Agentic AI for Business Professionals (beta)"
-      ],
-      "examCode": "GH-700",
-      "whatIsFree": "partial",
-      "cost": "Discount code revealed at the end of the broadcast; amount undisclosed (Microsoft beta norm is 80% off for the first 300)",
-      "credentialWeight": "low",
-      "eligibility": [
-        "public"
-      ],
-      "regions": "Global (livestream, 18:00–19:00 UTC)",
-      "windowStart": "2026-10-21",
-      "windowEnd": "2026-10-21",
-      "status": "upcoming",
-      "recurring": {
-        "isRecurring": false,
-        "cadence": null,
-        "expectedNextWindow": null,
-        "expectedNextWindowDate": null
-      },
-      "requirements": "Watch the Microsoft Reactor livestream to the end to receive the code.",
-      "url": "https://developer.microsoft.com/en-us/reactor/events/27591/",
-      "sourceUrl": "https://developer.microsoft.com/en-us/reactor/events/27591/",
-      "lastVerified": "2026-09-29",
-      "verificationNote": "Verified on Reactor event page.",
-      "notes": "GitHub Universe (Oct 28–29) also sells a $30 exam-voucher add-on.",
-      "addedBy": "manual",
-      "addedAt": "2026-09-29"
-    },
-    {
-      "id": "isc2-cc-one-million-certified",
-      "name": "ISC2 Certified in Cybersecurity — One Million Certified",
-      "vendor": "ISC2",
-      "category": "security",
-      "certifications": [
-        "Certified in Cybersecurity (CC)"
-      ],
-      "examCode": "CC",
-      "whatIsFree": "full-exam",
-      "cost": null,
-      "credentialWeight": "high",
-      "eligibility": [
-        "public"
-      ],
-      "regions": "Global",
-      "windowStart": null,
-      "windowEnd": "2026-05-20",
-      "status": "expired",
-      "recurring": {
-        "isRecurring": false,
-        "cadence": null,
-        "expectedNextWindow": "ISC2 has hinted at future initiatives; nothing announced",
-        "expectedNextWindowDate": null
-      },
-      "requirements": "Program closed to new enrollment 2026-05-20; codes issued before then valid through 2026-12-31. Now $199 + $50/yr AMF.",
-      "url": "https://www.isc2.org/landing/1mcc",
-      "sourceUrl": "https://www.isc2.org/Insights/2026/04/one-million-certified-cyber-conclusion",
-      "lastVerified": "2026-09-29",
-      "verificationNote": "Verified on ISC2 site. Blogs claiming free CC 'through 2027' are wrong.",
-      "notes": "",
-      "addedBy": "manual",
-      "addedAt": "2026-09-05"
-    },
-    {
-      "id": "databricks-advanced-learning-festival-fall-2026",
-      "name": "Databricks Advanced Learning Festival (fall 2026) — 50% certification voucher",
-      "vendor": "Databricks",
-      "category": "data",
-      "certifications": [
-        "Any Databricks certification"
-      ],
-      "examCode": null,
-      "whatIsFree": "partial",
-      "cost": "50% voucher for any Databricks certification, plus 20% Academy Labs coupon",
-      "credentialWeight": "high",
-      "eligibility": [
-        "public"
-      ],
-      "regions": "Global (Customer Academy accounts; Partner Academy excluded)",
-      "windowStart": "2026-09-16",
-      "windowEnd": "2026-10-14",
-      "status": "active",
-      "recurring": {
-        "isRecurring": true,
-        "cadence": "twice yearly (spring + fall)",
-        "expectedNextWindow": "spring 2027",
-        "expectedNextWindowDate": "2027-03-01"
-      },
-      "requirements": "Complete all modules of at least one of nine pathways in Customer Academy during the window; one voucher per learner; vouchers emailed 2026-10-19 and expire before 2027-01-17. WebAssessor email must match Academy email.",
-      "url": "https://customer-academy.databricks.com/",
-      "sourceUrl": "https://community.databricks.com/t5/learning-events/databricks-advanced-learning-festival-september-16-october-14/ev-p/166157",
-      "lastVerified": "2026-09-29",
-      "verificationNote": "Verified on Databricks Community event + FAQ posts.",
-      "notes": "",
-      "addedBy": "manual",
-      "addedAt": "2026-09-29"
-    },
-    {
-      "id": "databricks-accreditations",
-      "name": "Databricks Academy accreditations",
-      "vendor": "Databricks",
-      "category": "data",
-      "certifications": [
-        "Databricks Fundamentals",
-        "Generative AI Fundamentals",
-        "AI Agent Fundamentals",
-        "Platform Administrator"
-      ],
-      "examCode": null,
-      "whatIsFree": "training-and-badge",
-      "cost": null,
-      "credentialWeight": "low",
-      "eligibility": [
-        "public"
-      ],
-      "regions": "Global",
-      "windowStart": null,
-      "windowEnd": null,
-      "status": "evergreen",
-      "recurring": {
-        "isRecurring": false,
-        "cadence": null,
-        "expectedNextWindow": null,
-        "expectedNextWindowDate": null
-      },
-      "requirements": "Free Academy account; course + quiz → Credly badge.",
-      "url": "https://www.databricks.com/training/catalog/generative-ai-fundamentals-accreditation-1811",
-      "sourceUrl": "https://www.databricks.com/training/catalog/generative-ai-fundamentals-accreditation-1811",
-      "lastVerified": "2026-09-05",
-      "verificationNote": "Evergreen; badge, not a proctored certification.",
-      "notes": "",
-      "addedBy": "manual",
-      "addedAt": "2026-09-05"
-    },
-    {
-      "id": "hashiconf-2026-attendee-exams",
-      "name": "HashiConf at IBM TechXchange 2026 — up to 2 free exam attempts",
-      "vendor": "HashiCorp",
-      "category": "dev",
-      "certifications": [
-        "Terraform Associate / Authoring & Operations Pro",
-        "Vault Associate / Operations Pro",
-        "Consul Associate"
-      ],
-      "examCode": null,
-      "whatIsFree": "full-exam",
-      "cost": null,
-      "credentialWeight": "high",
-      "eligibility": [
-        "event-attendee"
-      ],
-      "regions": "In-person attendees (Atlanta); remote attendees ineligible",
-      "windowStart": "2026-10-26",
-      "windowEnd": "2026-10-26",
-      "status": "upcoming",
-      "recurring": {
-        "isRecurring": true,
-        "cadence": "annual (HashiConf)",
-        "expectedNextWindow": "HashiConf 2027",
-        "expectedNextWindowDate": "2027-10-01"
-      },
-      "requirements": "Associate multiple-choice exams are walk-in during the event; Terraform/Vault lab exams (Mon Oct 26) must be scheduled via the portal banner.",
-      "url": "https://hashicorp-certifications.zendesk.com/hc/en-us/articles/28308772413581",
-      "sourceUrl": "https://hashicorp-certifications.zendesk.com/hc/en-us/articles/28308772413581",
-      "lastVerified": "2026-09-29",
-      "verificationNote": "Verified on HashiCorp certification support page; only the lab-exam day is dated, so the window is set to that day.",
-      "notes": "",
-      "addedBy": "manual",
-      "addedAt": "2026-09-29"
-    },
-    {
-      "id": "snowflake-pearson-20-off-2026",
-      "name": "Snowflake SnowPro 20% off vouchers (Pearson VUE store)",
-      "vendor": "Snowflake",
-      "category": "data",
-      "certifications": [
-        "SnowPro Core",
-        "SnowPro Specialty",
-        "SnowPro Advanced"
-      ],
-      "examCode": null,
-      "whatIsFree": "partial",
-      "cost": "Core $140 (was $175), Specialty $180, Advanced $300",
-      "credentialWeight": "medium",
-      "eligibility": [
-        "public"
-      ],
-      "regions": "Global except India",
-      "windowStart": null,
-      "windowEnd": "2026-11-30",
-      "status": "active",
-      "recurring": {
-        "isRecurring": false,
-        "cadence": null,
-        "expectedNextWindow": null,
-        "expectedNextWindowDate": null
-      },
-      "requirements": "Buy the voucher in the Pearson VUE Snowflake store before 2026-11-30.",
-      "url": "https://snowflakestore.pearsonvue.com/",
-      "sourceUrl": "https://snowflakestore.pearsonvue.com/",
-      "lastVerified": "2026-09-29",
-      "verificationNote": "Verified on vendor store.",
-      "notes": "",
-      "addedBy": "manual",
-      "addedAt": "2026-09-29"
-    },
-    {
-      "id": "snowflake-uk-get-tech-certified-2026",
-      "name": "Snowflake UK Get Tech Certified programme (with DSIT)",
-      "vendor": "Snowflake",
-      "category": "data",
-      "certifications": [
-        "SnowPro Core"
-      ],
-      "examCode": null,
-      "whatIsFree": "full-exam",
-      "cost": null,
-      "credentialWeight": "medium",
-      "eligibility": [
-        "public",
-        "need-based"
-      ],
-      "regions": "UK residents; in-person training in London/Manchester",
-      "windowStart": null,
-      "windowEnd": "2026-12-08",
-      "status": "active",
-      "recurring": {
-        "isRecurring": true,
-        "cadence": "annual",
-        "expectedNextWindow": "2027",
-        "expectedNextWindowDate": "2027-01-01"
-      },
-      "requirements": "Free self-paced courses plus free 2-day practitioner training (Oct 19–20, Nov 12–13, Dec 7–8, 2026); limited places to sit SnowPro Core.",
-      "url": "https://www.snowflake.com/en/lp/GDS_Get_Tech_Certified_Programme/",
-      "sourceUrl": "https://www.snowflake.com/en/lp/GDS_Get_Tech_Certified_Programme/",
-      "lastVerified": "2026-09-29",
-      "verificationNote": "Verified on Snowflake programme page.",
-      "notes": "",
-      "addedBy": "manual",
-      "addedAt": "2026-09-29"
-    },
-    {
-      "id": "datacamp-free-access-week",
-      "name": "DataCamp Free Access Week (includes certifications)",
-      "vendor": "DataCamp",
-      "category": "data",
-      "certifications": [
-        "Data Analyst",
-        "Data Scientist",
-        "AI Engineer (DataCamp certifications)"
-      ],
-      "examCode": null,
-      "whatIsFree": "full-exam",
-      "cost": null,
-      "credentialWeight": "low",
-      "eligibility": [
-        "public"
-      ],
-      "regions": "Global",
-      "windowStart": "2026-08-24",
-      "windowEnd": "2026-08-30",
-      "status": "expired",
-      "recurring": {
-        "isRecurring": true,
-        "cadence": "several times a year (Feb, Jun, Aug in 2026)",
-        "expectedNextWindow": "possibly early Nov 2026 (2024 ran Nov 4–10)",
-        "expectedNextWindowDate": "2026-11-01"
-      },
-      "requirements": "Sign in during the free week; complete certification assessments.",
-      "url": "https://www.datacamp.com",
-      "sourceUrl": "https://www.datacamp.com/blog/datacamp-free-access-week",
-      "lastVerified": "2026-09-29",
-      "verificationNote": "Aug 24–30 window verified on DataCamp blog 2026-09-05; a second check surfaced Feb 16–22 and Jun 1–7 windows as well. No fall week announced.",
-      "notes": "",
-      "addedBy": "manual",
-      "addedAt": "2026-09-05"
-    },
-    {
-      "id": "fortinet-nse-fundamentals",
-      "name": "Fortinet NSE 1/2 (formerly FCF) and FCA",
-      "vendor": "Fortinet",
-      "category": "security",
-      "certifications": [
-        "Fortinet Certified Fundamentals (NSE 1/2)",
-        "Fortinet Certified Associate"
-      ],
-      "examCode": null,
-      "whatIsFree": "full-exam",
-      "cost": null,
-      "credentialWeight": "low",
-      "eligibility": [
-        "public"
-      ],
-      "regions": "Global",
-      "windowStart": null,
-      "windowEnd": null,
-      "status": "evergreen",
-      "recurring": {
-        "isRecurring": false,
-        "cadence": null,
-        "expectedNextWindow": null,
-        "expectedNextWindowDate": null
-      },
-      "requirements": "Free Training Institute account; self-paced course + non-proctored exam.",
-      "url": "https://training.fortinet.com",
-      "sourceUrl": "https://training.fortinet.com/local/staticpage/view.php?page=fcf_cybersecurity",
-      "lastVerified": "2026-09-29",
-      "verificationNote": "Program restructured 2026-07-15; fundamentals page still shows no pricing.",
-      "notes": "",
-      "addedBy": "manual",
-      "addedAt": "2026-09-05"
-    },
-    {
-      "id": "microsoft-applied-skills",
-      "name": "Microsoft Applied Skills",
-      "vendor": "Microsoft",
-      "category": "cloud",
-      "certifications": [
-        "Microsoft Applied Skills (various)"
-      ],
-      "examCode": null,
-      "whatIsFree": "full-exam",
-      "cost": null,
-      "credentialWeight": "medium",
-      "eligibility": [
-        "public"
-      ],
-      "regions": "Global",
-      "windowStart": null,
-      "windowEnd": null,
-      "status": "evergreen",
-      "recurring": {
-        "isRecurring": false,
-        "cadence": null,
-        "expectedNextWindow": null,
-        "expectedNextWindowDate": null
-      },
-      "requirements": "Lab-based assessment on Microsoft Learn.",
-      "url": "https://learn.microsoft.com/en-us/credentials/applied-skills/",
-      "sourceUrl": "https://learn.microsoft.com/en-us/credentials/applied-skills/",
-      "lastVerified": "2026-09-05",
-      "verificationNote": "Widely reported free; explicit price not quoted on FAQ.",
-      "notes": "",
-      "addedBy": "manual",
-      "addedAt": "2026-09-05"
-    },
-    {
-      "id": "google-skillshop",
-      "name": "Google Skillshop certifications",
-      "vendor": "Google",
-      "category": "marketing",
-      "certifications": [
-        "Google Ads (Search/Display/Video/Apps/Creative)",
-        "AI-Powered Performance Ads",
-        "GA4",
-        "Gemini for Workspace"
-      ],
-      "examCode": null,
-      "whatIsFree": "full-exam",
-      "cost": null,
-      "credentialWeight": "low",
-      "eligibility": [
-        "public"
-      ],
-      "regions": "Global",
-      "windowStart": null,
-      "windowEnd": null,
-      "status": "evergreen",
-      "recurring": {
-        "isRecurring": false,
-        "cadence": null,
-        "expectedNextWindow": null,
-        "expectedNextWindowDate": null
-      },
-      "requirements": "Free account; 12-month validity.",
-      "url": "https://skillshop.withgoogle.com",
-      "sourceUrl": "https://skillshop.withgoogle.com",
-      "lastVerified": "2026-09-05",
-      "verificationNote": "Evergreen.",
-      "notes": "",
-      "addedBy": "manual",
-      "addedAt": "2026-09-05"
-    },
-    {
-      "id": "hubspot-academy",
-      "name": "HubSpot Academy certifications",
-      "vendor": "HubSpot",
-      "category": "marketing",
-      "certifications": [
-        "Inbound",
-        "Content Marketing",
-        "SEO",
-        "Email Marketing",
-        "Sales Software"
-      ],
-      "examCode": null,
-      "whatIsFree": "full-exam",
-      "cost": null,
-      "credentialWeight": "low",
-      "eligibility": [
-        "public"
-      ],
-      "regions": "Global",
-      "windowStart": null,
-      "windowEnd": null,
-      "status": "evergreen",
-      "recurring": {
-        "isRecurring": false,
-        "cadence": null,
-        "expectedNextWindow": null,
-        "expectedNextWindowDate": null
-      },
-      "requirements": "Free account.",
-      "url": "https://academy.hubspot.com",
-      "sourceUrl": "https://academy.hubspot.com",
-      "lastVerified": "2026-09-05",
-      "verificationNote": "Evergreen.",
-      "notes": "",
-      "addedBy": "manual",
-      "addedAt": "2026-09-05"
-    },
-    {
-      "id": "openai-academy-certificates",
-      "name": "OpenAI Academy certificates",
-      "vendor": "OpenAI",
-      "category": "ai",
-      "certifications": [
-        "AI Foundations",
-        "Applied AI Foundations",
-        "Agents and Workflows"
-      ],
-      "examCode": null,
-      "whatIsFree": "training-and-badge",
-      "cost": null,
-      "credentialWeight": "low",
-      "eligibility": [
-        "public"
-      ],
-      "regions": "Global",
-      "windowStart": "2026-06-15",
-      "windowEnd": null,
-      "status": "active",
-      "recurring": {
-        "isRecurring": false,
-        "cadence": null,
-        "expectedNextWindow": null,
-        "expectedNextWindowDate": null
-      },
-      "requirements": "Free ChatGPT account; Credly badge on completion.",
-      "url": "https://academy.openai.com",
-      "sourceUrl": "https://academy.openai.com",
-      "lastVerified": "2026-09-05",
-      "verificationNote": "Badge only; proctored OpenAI cert remains an employer pilot.",
-      "notes": "",
-      "addedBy": "manual",
-      "addedAt": "2026-09-05"
+      "addedAt": "2026-09-29",
+      "updatedAt": "2026-09-29T22:59:01.779Z"
     }
   ],
-  "events": [
-    {
-      "eventId": "01M1QDTV00PBHQ2AE1DT02KYJ0",
-      "type": "offer.discovered",
-      "occurredAt": "2026-09-05T00:00:00.000Z",
-      "offerId": "google-gear-get-certified-ed3-2026",
-      "payload": {
-        "name": "Google Cloud GEAR Get Certified — Edition 3 (2026)",
-        "vendor": "Google Cloud",
-        "status": "expired"
-      }
-    },
-    {
-      "eventId": "01M1QDTV00WF0G4P8C2HNPVV8J",
-      "type": "offer.discovered",
-      "occurredAt": "2026-09-05T00:00:00.000Z",
-      "offerId": "aws-aif2cloud-2026",
-      "payload": {
-        "name": "AWS Cloud Practitioner free after AI Practitioner (AIF2CLOUD)",
-        "vendor": "AWS",
-        "status": "active"
-      }
-    },
-    {
-      "eventId": "01M1QDTV00HM9847MV8KDFV49A",
-      "type": "offer.discovered",
-      "occurredAt": "2026-09-05T00:00:00.000Z",
-      "offerId": "aws-emerging-talent-community-vouchers",
-      "payload": {
-        "name": "AWS Emerging Talent Community points-for-voucher",
-        "vendor": "AWS",
-        "status": "unverified"
-      }
-    },
-    {
-      "eventId": "01M1QDTV00XP49GHK2B38Z5X1G",
-      "type": "offer.discovered",
-      "occurredAt": "2026-09-05T00:00:00.000Z",
-      "offerId": "oracle-oci-architect-associate-free-2026",
-      "payload": {
-        "name": "Oracle OCI Architect Associate (free)",
-        "vendor": "Oracle",
-        "status": "evergreen"
-      }
-    },
-    {
-      "eventId": "01M1QDTV00WSCEWH6SDN70FDS7",
-      "type": "offer.discovered",
-      "occurredAt": "2026-09-05T00:00:00.000Z",
-      "offerId": "oracle-foundations-free",
-      "payload": {
-        "name": "Oracle Foundations-level certifications (all)",
-        "vendor": "Oracle",
-        "status": "evergreen"
-      }
-    },
-    {
-      "eventId": "01M1QDTV00WTT0VB0T5B1NJC1J",
-      "type": "offer.discovered",
-      "occurredAt": "2026-09-05T00:00:00.000Z",
-      "offerId": "oracle-race-to-certification-2025",
-      "payload": {
-        "name": "Oracle Race to Certification 2025",
-        "vendor": "Oracle",
-        "status": "expired"
-      }
-    },
-    {
-      "eventId": "01M1QDTV00DRNR64KKASH625T2",
-      "type": "offer.discovered",
-      "occurredAt": "2026-09-05T00:00:00.000Z",
-      "offerId": "salesforce-dreamforce-2026-exam",
-      "payload": {
-        "name": "Salesforce on-site exam at Dreamforce 2026",
-        "vendor": "Salesforce",
-        "status": "expired"
-      }
-    },
-    {
-      "eventId": "01M1QDTV00BCJCGHCE52NRPB6T",
-      "type": "offer.discovered",
-      "occurredAt": "2026-09-05T00:00:00.000Z",
-      "offerId": "salesforce-free-ai-certs-2025",
-      "payload": {
-        "name": "Salesforce free AI Associate / Agentforce Specialist exams",
-        "vendor": "Salesforce",
-        "status": "expired"
-      }
-    },
-    {
-      "eventId": "01M1QDTV00747KT23382V86GN7",
-      "type": "offer.discovered",
-      "occurredAt": "2026-09-05T00:00:00.000Z",
-      "offerId": "microsoft-partner-cert-week-fy27",
-      "payload": {
-        "name": "Microsoft Partner Certification Week FY27 (all regional cohorts)",
-        "vendor": "Microsoft",
-        "status": "active"
-      }
-    },
-    {
-      "eventId": "01M1QDTV00RXSB6ZMZ3F110GV7",
-      "type": "offer.discovered",
-      "occurredAt": "2026-09-05T00:00:00.000Z",
-      "offerId": "microsoft-levelup-frontier-vouchers-2026",
-      "payload": {
-        "name": "Microsoft LevelUp Frontier Transformation Engineer vouchers",
-        "vendor": "Microsoft",
-        "status": "expired"
-      }
-    },
-    {
-      "eventId": "01M1QDTV00NY38MFV2AFV8ZGBT",
-      "type": "offer.discovered",
-      "occurredAt": "2026-09-05T00:00:00.000Z",
-      "offerId": "microsoft-fabric-data-days-2026",
-      "payload": {
-        "name": "Microsoft 60 Days of Data & AI / Fabric Data Days — free DP-600/700/800",
-        "vendor": "Microsoft",
-        "status": "expired"
-      }
-    },
-    {
-      "eventId": "01M1QDTV00ACD028HGMCV77DBM",
-      "type": "offer.discovered",
-      "occurredAt": "2026-09-05T00:00:00.000Z",
-      "offerId": "microsoft-ai-skills-fest-2026",
-      "payload": {
-        "name": "Microsoft AI Skills Fest 2026 voucher",
-        "vendor": "Microsoft",
-        "status": "expired"
-      }
-    },
-    {
-      "eventId": "01M1QDTV00AV9WMJN6JXBXVK4D",
-      "type": "offer.discovered",
-      "occurredAt": "2026-09-05T00:00:00.000Z",
-      "offerId": "microsoft-build-2026-voucher",
-      "payload": {
-        "name": "Microsoft Build 2026 attendee voucher",
-        "vendor": "Microsoft",
-        "status": "expired"
-      }
-    },
-    {
-      "eventId": "01M1QDTV0005CSSBT7AKV741AP",
-      "type": "offer.discovered",
-      "occurredAt": "2026-09-05T00:00:00.000Z",
-      "offerId": "microsoft-ignite-challenge-2026",
-      "payload": {
-        "name": "Microsoft Ignite 2026 Challenge sweepstakes",
-        "vendor": "Microsoft",
-        "status": "upcoming"
-      }
-    },
-    {
-      "eventId": "01M1QDTV004FTW56JFQNYRAPJN",
-      "type": "offer.discovered",
-      "occurredAt": "2026-09-05T00:00:00.000Z",
-      "offerId": "github-foundations-datacamp-student",
-      "payload": {
-        "name": "GitHub Foundations via DataCamp (Student Developer Pack)",
-        "vendor": "GitHub",
-        "status": "evergreen"
-      }
-    },
-    {
-      "eventId": "01M1QDTV00YYX057S67XNB7YBQ",
-      "type": "offer.discovered",
-      "occurredAt": "2026-09-05T00:00:00.000Z",
-      "offerId": "github-student-pack-direct-voucher-2025-26",
-      "payload": {
-        "name": "GitHub Student Pack direct exam voucher (Foundations or Copilot)",
-        "vendor": "GitHub",
-        "status": "expired"
-      }
-    },
-    {
-      "eventId": "01M1QDTV00P50FY1ZAG2Z8YE52",
-      "type": "offer.discovered",
-      "occurredAt": "2026-09-05T00:00:00.000Z",
-      "offerId": "isc2-cc-one-million-certified",
-      "payload": {
-        "name": "ISC2 Certified in Cybersecurity — One Million Certified",
-        "vendor": "ISC2",
-        "status": "expired"
-      }
-    },
-    {
-      "eventId": "01M1QDTV0007DR7CVETVF2FJ7H",
-      "type": "offer.discovered",
-      "occurredAt": "2026-09-05T00:00:00.000Z",
-      "offerId": "databricks-accreditations",
-      "payload": {
-        "name": "Databricks Academy accreditations",
-        "vendor": "Databricks",
-        "status": "evergreen"
-      }
-    },
-    {
-      "eventId": "01M1QDTV0091XJF154T63FY03Q",
-      "type": "offer.discovered",
-      "occurredAt": "2026-09-05T00:00:00.000Z",
-      "offerId": "datacamp-free-access-week",
-      "payload": {
-        "name": "DataCamp Free Access Week (includes certifications)",
-        "vendor": "DataCamp",
-        "status": "expired"
-      }
-    },
-    {
-      "eventId": "01M1QDTV00TY67ZRF839MD5E0P",
-      "type": "offer.discovered",
-      "occurredAt": "2026-09-05T00:00:00.000Z",
-      "offerId": "fortinet-nse-fundamentals",
-      "payload": {
-        "name": "Fortinet NSE 1/2 (formerly FCF) and FCA",
-        "vendor": "Fortinet",
-        "status": "evergreen"
-      }
-    },
-    {
-      "eventId": "01M1QDTV000NZKRF62RZPVEBKA",
-      "type": "offer.discovered",
-      "occurredAt": "2026-09-05T00:00:00.000Z",
-      "offerId": "microsoft-applied-skills",
-      "payload": {
-        "name": "Microsoft Applied Skills",
-        "vendor": "Microsoft",
-        "status": "evergreen"
-      }
-    },
-    {
-      "eventId": "01M1QDTV00NDX8VF2AR8MV4YHS",
-      "type": "offer.discovered",
-      "occurredAt": "2026-09-05T00:00:00.000Z",
-      "offerId": "google-skillshop",
-      "payload": {
-        "name": "Google Skillshop certifications",
-        "vendor": "Google",
-        "status": "evergreen"
-      }
-    },
-    {
-      "eventId": "01M1QDTV005FF9BGFAGN9WDPBX",
-      "type": "offer.discovered",
-      "occurredAt": "2026-09-05T00:00:00.000Z",
-      "offerId": "hubspot-academy",
-      "payload": {
-        "name": "HubSpot Academy certifications",
-        "vendor": "HubSpot",
-        "status": "evergreen"
-      }
-    },
-    {
-      "eventId": "01M1QDTV00D5WP9J477S80XRAV",
-      "type": "offer.discovered",
-      "occurredAt": "2026-09-05T00:00:00.000Z",
-      "offerId": "openai-academy-certificates",
-      "payload": {
-        "name": "OpenAI Academy certificates",
-        "vendor": "OpenAI",
-        "status": "active"
-      }
-    },
-    {
-      "eventId": "01M3N7C300BGE8A2M3B4WJ7V1Z",
-      "type": "offer.discovered",
-      "occurredAt": "2026-09-29T00:00:00.000Z",
-      "offerId": "google-gear-get-certified-ed1-2027",
-      "payload": {
-        "name": "Google Cloud GEAR Get Certified — Edition 1 (2027)",
-        "vendor": "Google Cloud",
-        "status": "upcoming"
-      }
-    },
-    {
-      "eventId": "01M3N7C30013897QG5Y10PXV86",
-      "type": "offer.discovered",
-      "occurredAt": "2026-09-29T00:00:00.000Z",
-      "offerId": "aws-reinvent-2026-registrant-voucher",
-      "payload": {
-        "name": "AWS re:Invent 2026 registrant 50% exam voucher",
-        "vendor": "AWS",
-        "status": "active"
-      }
-    },
-    {
-      "eventId": "01M3N7C300QQHP3P4EVSPXTG9A",
-      "type": "offer.discovered",
-      "occurredAt": "2026-09-29T00:00:00.000Z",
-      "offerId": "oracle-ai-world-2026-attendee-exams",
-      "payload": {
-        "name": "Oracle AI World 2026 attendee benefit — up to 3 free exam attempts",
-        "vendor": "Oracle",
-        "status": "active"
-      }
-    },
-    {
-      "eventId": "01M3N7C300ZF6NRN4N4BD9DWZW",
-      "type": "offer.discovered",
-      "occurredAt": "2026-09-29T00:00:00.000Z",
-      "offerId": "salesforce-retake-promo-2026-27",
-      "payload": {
-        "name": "Salesforce Certification Exam Retake Promotion 2026/2027",
-        "vendor": "Salesforce",
-        "status": "active"
-      }
-    },
-    {
-      "eventId": "01M3N7C30056CBHS7PTP1NXFCW",
-      "type": "offer.discovered",
-      "occurredAt": "2026-09-29T00:00:00.000Z",
-      "offerId": "microsoft-sales-cert-week-fy27",
-      "payload": {
-        "name": "Microsoft Sales Certification Week FY27 (AB-730 / AB-731)",
-        "vendor": "Microsoft",
-        "status": "upcoming"
-      }
-    },
-    {
-      "eventId": "01M3N7C300DSJTD0B47TVMVSVT",
-      "type": "offer.discovered",
-      "occurredAt": "2026-09-29T00:00:00.000Z",
-      "offerId": "microsoft-ai-agent-skills-sweepstakes-2026",
-      "payload": {
-        "name": "Microsoft AI Agent Skills Sweepstakes (AB-100 / AB-900 / AB-620)",
-        "vendor": "Microsoft",
-        "status": "expired"
-      }
-    },
-    {
-      "eventId": "01M3N7C300YN7JTQGHKQ65HGAM",
-      "type": "offer.discovered",
-      "occurredAt": "2026-09-29T00:00:00.000Z",
-      "offerId": "microsoft-defender-challenge-sweepstakes-2026",
-      "payload": {
-        "name": "Microsoft Defender Challenge Sweepstakes (SC-200 / SC-500)",
-        "vendor": "Microsoft",
-        "status": "expired"
-      }
-    },
-    {
-      "eventId": "01M3N7C300NF1SRQQP0YTAAPKW",
-      "type": "offer.discovered",
-      "occurredAt": "2026-09-29T00:00:00.000Z",
-      "offerId": "microsoft-virtual-training-days-50",
-      "payload": {
-        "name": "Microsoft Virtual Training Days — 50% off Fundamentals exams",
-        "vendor": "Microsoft",
-        "status": "evergreen"
-      }
-    },
-    {
-      "eventId": "01M3N7C300CZ8NTF4WJXCZKRHE",
-      "type": "offer.discovered",
-      "occurredAt": "2026-09-29T00:00:00.000Z",
-      "offerId": "yes-microsoft-ai-skills-south-africa-2026",
-      "payload": {
-        "name": "YES × Microsoft AI Skills Initiative (South Africa) — 50,000 free Fundamentals vouchers",
-        "vendor": "Microsoft",
-        "status": "active"
-      }
-    },
-    {
-      "eventId": "01M3N7C300CZK5XQN3DAMCW8GK",
-      "type": "offer.discovered",
-      "occurredAt": "2026-09-29T00:00:00.000Z",
-      "offerId": "github-universe-preview-gh700-voucher-2026",
-      "payload": {
-        "name": "GitHub Universe 2026 Preview livestream — GH-700 beta exam discount code",
-        "vendor": "GitHub",
-        "status": "upcoming"
-      }
-    },
-    {
-      "eventId": "01M3N7C3000P37XTE9EV191KHT",
-      "type": "offer.discovered",
-      "occurredAt": "2026-09-29T00:00:00.000Z",
-      "offerId": "databricks-advanced-learning-festival-fall-2026",
-      "payload": {
-        "name": "Databricks Advanced Learning Festival (fall 2026) — 50% certification voucher",
-        "vendor": "Databricks",
-        "status": "active"
-      }
-    },
-    {
-      "eventId": "01M3N7C300R599BQA4JY2KK4EP",
-      "type": "offer.discovered",
-      "occurredAt": "2026-09-29T00:00:00.000Z",
-      "offerId": "hashiconf-2026-attendee-exams",
-      "payload": {
-        "name": "HashiConf at IBM TechXchange 2026 — up to 2 free exam attempts",
-        "vendor": "HashiCorp",
-        "status": "upcoming"
-      }
-    },
-    {
-      "eventId": "01M3N7C300APEBG49Q7KBXNY89",
-      "type": "offer.discovered",
-      "occurredAt": "2026-09-29T00:00:00.000Z",
-      "offerId": "snowflake-pearson-20-off-2026",
-      "payload": {
-        "name": "Snowflake SnowPro 20% off vouchers (Pearson VUE store)",
-        "vendor": "Snowflake",
-        "status": "active"
-      }
-    },
-    {
-      "eventId": "01M3N7C300DE21GY43DJPJ7AXC",
-      "type": "offer.discovered",
-      "occurredAt": "2026-09-29T00:00:00.000Z",
-      "offerId": "snowflake-uk-get-tech-certified-2026",
-      "payload": {
-        "name": "Snowflake UK Get Tech Certified programme (with DSIT)",
-        "vendor": "Snowflake",
-        "status": "active"
-      }
-    }
-  ],
+  "events": [],
   "meta": {
     "lastPollAt": null,
     "lastStatusRunAt": null,
