@@ -1,0 +1,64 @@
+import { act, render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { describe, expect, it } from 'vitest';
+import { axe } from 'vitest-axe';
+
+import App from './App.tsx';
+
+describe('App', () => {
+  it('renders the landmarks and the public tabs', async () => {
+    const { container } = render(<App />);
+    expect(screen.getByRole('link', { name: 'Skip to content' })).toBeInTheDocument();
+    expect(screen.getByRole('banner')).toBeInTheDocument();
+    expect(screen.getByRole('main')).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { level: 1, name: 'Cert Promo Tracker' }),
+    ).toBeInTheDocument();
+    expect(screen.getAllByRole('tab').map((tab) => tab.textContent)).toEqual([
+      'Offers',
+      'Calendar',
+      'Watch list',
+      'Activity',
+    ]);
+    expect(screen.queryByRole('tab', { name: 'Review' })).not.toBeInTheDocument();
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it('follows the location hash', async () => {
+    render(<App />);
+    await act(async () => {
+      window.location.hash = '#watchlist';
+      window.dispatchEvent(new HashChangeEvent('hashchange'));
+      await Promise.resolve();
+    });
+    expect(screen.getByRole('tab', { name: 'Watch list', selected: true })).toBeInTheDocument();
+    // the tab's chunk is lazy, so the list arrives a tick later
+    expect(await screen.findByRole('list', { name: 'Watch list' })).toBeInTheDocument();
+  });
+
+  it('opens the admin dialog on Shift+A twice and cancels back', async () => {
+    const user = userEvent.setup();
+    render(<App />);
+    const toggle = screen.getByTestId('theme-toggle');
+    toggle.focus();
+    await user.keyboard('{Shift>}A{/Shift}{Shift>}A{/Shift}');
+    const dialog = await screen.findByRole('dialog', { name: 'Admin mode' });
+    expect(dialog).toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: 'Cancel' }));
+    // the dialog leaves through a CSS transition, so it unmounts a beat later
+    await waitFor(() => {
+      expect(screen.queryByRole('dialog', { name: 'Admin mode' })).not.toBeInTheDocument();
+    });
+  });
+
+  it('shows the Review tab once a token is entered', async () => {
+    const user = userEvent.setup();
+    window.history.replaceState(null, '', '/?admin');
+    render(<App />);
+    await user.type(screen.getByLabelText('Admin token'), 'secret');
+    await user.click(screen.getByRole('button', { name: 'Enter admin mode' }));
+    expect(screen.getByRole('tab', { name: 'Review' })).toBeInTheDocument();
+    expect(window.sessionStorage.getItem('cert-tracker:admin-token:v1')).toBe('secret');
+    window.history.replaceState(null, '', '/');
+  });
+});
