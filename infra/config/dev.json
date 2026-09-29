@@ -1,0 +1,6 @@
+{
+  "siteOrigins": ["http://localhost:5173"],
+  "apiDomainName": null,
+  "apiCertificateArn": null,
+  "costAnomalyMonitor": false
+}

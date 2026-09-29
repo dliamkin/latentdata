@@ -1,0 +1,6 @@
+{
+  "siteOrigins": ["https://latentdata.org"],
+  "apiDomainName": "api.latentdata.org",
+  "apiCertificateArn": null,
+  "costAnomalyMonitor": false
+}
