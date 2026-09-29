@@ -8,5 +8,12 @@
   },
   "include": ["**/*.ts"],
   "exclude": ["dist"],
-  "references": [{ "path": "../packages/core" }]
+  "references": [
+    {
+      "path": "../packages/core"
+    },
+    {
+      "path": "../services/pipeline"
+    }
+  ]
 }
