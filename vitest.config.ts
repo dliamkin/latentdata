@@ -2,11 +2,11 @@ import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
   test: {
-    projects: ['packages/*', 'apps/*'],
+    projects: ['packages/*', 'apps/*', 'services/*', 'infra'],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json-summary'],
-      include: ['packages/*/src/**', 'apps/*/src/**'],
+      include: ['packages/*/src/**', 'apps/*/src/**', 'services/*/src/**', 'infra/lib/**'],
       exclude: ['**/*.test.{ts,tsx}', '**/test/**', '**/sw.ts', '**/main.tsx'],
     },
   },

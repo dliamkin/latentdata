@@ -1,0 +1,12 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "dist",
+    "emitDeclarationOnly": true,
+    "types": ["node"],
+    "resolveJsonModule": true
+  },
+  "include": ["bin", "lib", "test"],
+  "exclude": ["cdk.out", "dist"]
+}
