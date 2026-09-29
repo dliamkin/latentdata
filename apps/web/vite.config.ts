@@ -106,6 +106,9 @@ export default defineConfig(({ mode }) => {
       setupFiles: ['./src/test/setup.ts'],
       include: ['src/**/*.test.{ts,tsx}'],
       css: false,
+      // the table tests drive a full PrimeReact DataTable through jsdom; five seconds is tight
+      // once the other workspaces' suites share the machine
+      testTimeout: 20_000,
     },
   };
 });
