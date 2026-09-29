@@ -1,0 +1,260 @@
+{
+  "generatedAt": "2026-09-29",
+  "note": "Initial signal sources. Feed URLs must be verified on day one (M3) and recorded fixtures committed under fixtures/sources/. A source that cannot be fetched from AWS IPs stays enabled:false with a reason.",
+  "defaults": {
+    "pollIntervalMinutes": 120,
+    "keywordsInclude": [
+      "voucher",
+      "free exam",
+      "free certification",
+      "certification exam",
+      "100%",
+      "50%",
+      "discount code",
+      "promo code",
+      "challenge",
+      "sweepstakes",
+      "learning festival",
+      "cloud skills challenge",
+      "exam offer",
+      "free training and certification"
+    ],
+    "keywordsExclude": ["dumps", "braindump", "exam answers", "hiring", "job opening", "for sale"]
+  },
+  "sources": [
+    {
+      "sourceId": "rss-microsoft-learn-blog",
+      "kind": "rss",
+      "vendor": "Microsoft",
+      "url": "https://techcommunity.microsoft.com/t5/s/gxcuf89792/rss/board?board.id=MicrosoftLearnBlog",
+      "pollIntervalMinutes": 60,
+      "enabled": true,
+      "tags": ["vendor-blog"]
+    },
+    {
+      "sourceId": "rss-oracle-university-blog",
+      "kind": "rss",
+      "vendor": "Oracle",
+      "url": "https://blogs.oracle.com/oracleuniversity/rss",
+      "pollIntervalMinutes": 120,
+      "enabled": true,
+      "tags": ["vendor-blog"]
+    },
+    {
+      "sourceId": "rss-aws-training-blog",
+      "kind": "rss",
+      "vendor": "AWS",
+      "url": "https://aws.amazon.com/blogs/training-and-certification/feed/",
+      "pollIntervalMinutes": 120,
+      "enabled": true,
+      "tags": ["vendor-blog"]
+    },
+    {
+      "sourceId": "rss-google-cloud-training-blog",
+      "kind": "rss",
+      "vendor": "Google Cloud",
+      "url": "https://cloudblog.withgoogle.com/topics/training-certifications/rss/",
+      "pollIntervalMinutes": 120,
+      "enabled": true,
+      "tags": ["vendor-blog"]
+    },
+    {
+      "sourceId": "rss-databricks-community-learning-events",
+      "kind": "rss",
+      "vendor": "Databricks",
+      "url": "https://community.databricks.com/t5/learning-events/bd-p/learning-events",
+      "pollIntervalMinutes": 180,
+      "enabled": true,
+      "tags": ["community"],
+      "notes": "Khoros boards expose RSS at /t5/s/<site>/rss/board?board.id=<id>; resolve the exact feed URL during M3."
+    },
+    {
+      "sourceId": "rss-fabric-community-announcements",
+      "kind": "rss",
+      "vendor": "Microsoft",
+      "url": "https://community.fabric.microsoft.com/t5/Fabric-Community-Blog/bg-p/fabric-community-blog",
+      "pollIntervalMinutes": 180,
+      "enabled": true,
+      "tags": ["community"],
+      "notes": "Resolve the Khoros RSS URL during M3."
+    },
+    {
+      "sourceId": "rss-slickdeals-certification",
+      "kind": "rss",
+      "vendor": null,
+      "url": "https://slickdeals.net/newsearch.php?src=SearchBarV2&q=certification+exam&searcharea=deals&searchin=first&rss=1",
+      "pollIntervalMinutes": 120,
+      "enabled": true,
+      "tags": ["deals"],
+      "notes": "Slickdeals blocks some cloud IPs; disable with a reason if fetches fail from Lambda."
+    },
+    {
+      "sourceId": "reddit-azurecertification",
+      "kind": "reddit",
+      "vendor": "Microsoft",
+      "url": "https://www.reddit.com/r/AzureCertification/new.rss",
+      "pollIntervalMinutes": 60,
+      "enabled": true,
+      "tags": ["community", "experimental"],
+      "notes": "Reddit may block AWS egress; adapter must degrade gracefully and mark the source unhealthy, not retry hard."
+    },
+    {
+      "sourceId": "reddit-awscertifications",
+      "kind": "reddit",
+      "vendor": "AWS",
+      "url": "https://www.reddit.com/r/AWSCertifications/new.rss",
+      "pollIntervalMinutes": 60,
+      "enabled": true,
+      "tags": ["community", "experimental"]
+    },
+    {
+      "sourceId": "reddit-googlecloud",
+      "kind": "reddit",
+      "vendor": "Google Cloud",
+      "url": "https://www.reddit.com/r/googlecloud/new.rss",
+      "pollIntervalMinutes": 120,
+      "enabled": true,
+      "tags": ["community", "experimental"]
+    },
+    {
+      "sourceId": "reddit-comptia",
+      "kind": "reddit",
+      "vendor": "CompTIA",
+      "url": "https://www.reddit.com/r/CompTIA/new.rss",
+      "pollIntervalMinutes": 120,
+      "enabled": true,
+      "tags": ["community", "experimental"]
+    },
+    {
+      "sourceId": "reddit-itcareerquestions",
+      "kind": "reddit",
+      "vendor": null,
+      "url": "https://www.reddit.com/r/ITCareerQuestions/new.rss",
+      "pollIntervalMinutes": 120,
+      "enabled": true,
+      "tags": ["community", "experimental"]
+    },
+    {
+      "sourceId": "reddit-salesforce",
+      "kind": "reddit",
+      "vendor": "Salesforce",
+      "url": "https://www.reddit.com/r/salesforce/new.rss",
+      "pollIntervalMinutes": 120,
+      "enabled": true,
+      "tags": ["community", "experimental"]
+    },
+    {
+      "sourceId": "github-commits-ms-voucher-tracker",
+      "kind": "github-commits",
+      "vendor": "Microsoft",
+      "url": "https://api.github.com/repos/nisalgunawardhana/microsoft-certification-voucher-offers/commits",
+      "pollIntervalMinutes": 60,
+      "enabled": true,
+      "tags": ["tracker"]
+    },
+    {
+      "sourceId": "github-commits-free-certifications",
+      "kind": "github-commits",
+      "vendor": null,
+      "url": "https://api.github.com/repos/cloudcommunity/Free-Certifications/commits",
+      "pollIntervalMinutes": 180,
+      "enabled": true,
+      "tags": ["tracker"]
+    },
+    {
+      "sourceId": "page-ms-learn-cert-offers",
+      "kind": "page-diff",
+      "vendor": "Microsoft",
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/deals",
+      "pollIntervalMinutes": 180,
+      "enabled": true,
+      "tags": ["vendor-page"],
+      "notes": "Confirm the canonical offers URL during M3; fall back to https://learn.microsoft.com/en-us/credentials/support/ if it 404s."
+    },
+    {
+      "sourceId": "page-pearsonvue-aws-promos",
+      "kind": "page-diff",
+      "vendor": "AWS",
+      "url": "https://www.pearsonvue.com/us/en/aws.html",
+      "pollIntervalMinutes": 180,
+      "enabled": true,
+      "tags": ["vendor-page"]
+    },
+    {
+      "sourceId": "page-github-student-pack",
+      "kind": "page-diff",
+      "vendor": "GitHub",
+      "url": "https://education.github.com/pack",
+      "pollIntervalMinutes": 180,
+      "enabled": true,
+      "tags": ["vendor-page"],
+      "keywordsInclude": ["voucher", "certification"]
+    },
+    {
+      "sourceId": "page-google-gear-getcertified",
+      "kind": "page-diff",
+      "vendor": "Google Cloud",
+      "url": "https://developers.google.com/program/gear/getcertified",
+      "pollIntervalMinutes": 360,
+      "enabled": true,
+      "tags": ["vendor-page"],
+      "keywordsInclude": ["registration", "apply", "edition"]
+    },
+    {
+      "sourceId": "page-levelup-cert-faqs",
+      "kind": "page-diff",
+      "vendor": "Microsoft",
+      "url": "https://skillupwithlevelup.com/cert-faqs",
+      "pollIntervalMinutes": 360,
+      "enabled": true,
+      "tags": ["vendor-page"]
+    },
+    {
+      "sourceId": "page-fastlane-certweeks",
+      "kind": "page-diff",
+      "vendor": "Microsoft",
+      "url": "https://certweeks.fastlane.net/",
+      "pollIntervalMinutes": 360,
+      "enabled": true,
+      "tags": ["vendor-page"]
+    },
+    {
+      "sourceId": "page-isc2-1mcc",
+      "kind": "page-diff",
+      "vendor": "ISC2",
+      "url": "https://www.isc2.org/landing/1mcc",
+      "pollIntervalMinutes": 720,
+      "enabled": true,
+      "tags": ["vendor-page"]
+    },
+    {
+      "sourceId": "page-ms-ignite-challenge-rules",
+      "kind": "page-diff",
+      "vendor": "Microsoft",
+      "url": "https://learn.microsoft.com/en-us/credentials/support/microsoft-ignite-challenge-official-rules",
+      "pollIntervalMinutes": 360,
+      "enabled": true,
+      "tags": ["vendor-page"]
+    },
+    {
+      "sourceId": "page-salesforce-cert-news",
+      "kind": "page-diff",
+      "vendor": "Salesforce",
+      "url": "https://trailhead.salesforce.com/help?article=Certification-Announcements",
+      "pollIntervalMinutes": 360,
+      "enabled": true,
+      "tags": ["vendor-page"],
+      "notes": "Confirm the announcements URL during M3."
+    },
+    {
+      "sourceId": "page-linuxfoundation-offers",
+      "kind": "page-diff",
+      "vendor": "Linux Foundation",
+      "url": "https://training.linuxfoundation.org/offers/",
+      "pollIntervalMinutes": 720,
+      "enabled": false,
+      "tags": ["vendor-page"],
+      "notes": "Returned 404 on 2026-09-29; re-enable if the page returns."
+    }
+  ]
+}
