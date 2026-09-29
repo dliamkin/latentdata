@@ -1,0 +1,204 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "vendor": {
+      "type": "string",
+      "minLength": 1
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "cloud",
+        "security",
+        "data",
+        "ai",
+        "marketing",
+        "pm",
+        "dev",
+        "other"
+      ]
+    },
+    "certifications": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "examCode": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "whatIsFree": {
+      "type": "string",
+      "enum": [
+        "full-exam",
+        "partial",
+        "training-and-badge",
+        "training-only"
+      ]
+    },
+    "cost": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "credentialWeight": {
+      "type": "string",
+      "enum": [
+        "high",
+        "medium",
+        "low"
+      ]
+    },
+    "eligibility": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "public",
+          "partner",
+          "student",
+          "customer",
+          "event-attendee",
+          "need-based"
+        ]
+      }
+    },
+    "regions": {
+      "type": "string",
+      "minLength": 1
+    },
+    "windowStart": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "windowEnd": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "upcoming",
+        "expired",
+        "evergreen",
+        "unverified"
+      ]
+    },
+    "recurring": {
+      "type": "object",
+      "properties": {
+        "isRecurring": {
+          "type": "boolean"
+        },
+        "cadence": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "expectedNextWindow": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "expectedNextWindowDate": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "isRecurring",
+        "cadence",
+        "expectedNextWindow",
+        "expectedNextWindowDate"
+      ],
+      "additionalProperties": false
+    },
+    "requirements": {
+      "type": "string",
+      "minLength": 1
+    },
+    "url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "sourceUrl": {
+      "type": "string",
+      "format": "uri"
+    },
+    "lastVerified": {
+      "type": "string"
+    },
+    "verificationNote": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "addedBy": {
+      "type": "string",
+      "enum": [
+        "manual",
+        "scan"
+      ]
+    },
+    "addedAt": {
+      "type": "string"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "vendor",
+    "category",
+    "certifications",
+    "examCode",
+    "whatIsFree",
+    "cost",
+    "credentialWeight",
+    "eligibility",
+    "regions",
+    "windowStart",
+    "windowEnd",
+    "status",
+    "recurring",
+    "requirements",
+    "url",
+    "sourceUrl",
+    "lastVerified",
+    "verificationNote",
+    "notes",
+    "addedBy",
+    "addedAt"
+  ],
+  "additionalProperties": false
+}
