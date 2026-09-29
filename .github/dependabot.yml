@@ -9,6 +9,15 @@ updates:
     groups:
       npm-minor-patch:
         update-types: [minor, patch]
+    ignore:
+      # runtime is Node 24; the types follow the runtime, not the registry
+      - dependency-name: '@types/node'
+        update-types: ['version-update:semver-major']
+      # typescript-eslint caps TypeScript below 6.1 (ADR-0001)
+      - dependency-name: typescript
+        update-types: ['version-update:semver-major']
+      # pinned exactly (ADR-0009)
+      - dependency-name: primereact
 
   - package-ecosystem: github-actions
     directory: /
