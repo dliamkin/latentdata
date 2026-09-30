@@ -41,6 +41,12 @@ export async function putSourceIfAbsent(
   }
 }
 
+// poll is the only writer of source state and runs single-instance behind a lease, so a
+// whole-item put after read-modify-write is safe and keeps the expression trivial
+export async function putSource(doc: DocClient, table: string, source: Source): Promise<void> {
+  await doc.send(new PutCommand({ TableName: table, Item: sourceToItem(source) }));
+}
+
 export async function listSources(doc: DocClient, table: string): Promise<Source[]> {
   const sources: Source[] = [];
   let start: Record<string, unknown> | undefined;
