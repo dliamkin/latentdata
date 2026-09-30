@@ -13,7 +13,12 @@ import { Construct } from 'constructs';
 
 import { resourceName, stageSettings, type GitHubRepo, type Stage } from '../config.ts';
 import type { Events } from './events.ts';
-import { GITHUB_APP_PARAMETERS, type Secrets } from './secrets.ts';
+import {
+  GITHUB_APP_PARAMETERS,
+  GITHUB_TOKEN_PARAMETER,
+  LLM_PARAMETERS,
+  type Secrets,
+} from './secrets.ts';
 
 const REPO_ROOT = fileURLToPath(new URL('../../../', import.meta.url));
 const HANDLERS = `${REPO_ROOT}services/pipeline/src/handlers/`;
@@ -38,6 +43,9 @@ interface FunctionSpec {
 }
 
 export class PipelineFunctions extends Construct {
+  readonly poll: NodejsFunction;
+  readonly triage: NodejsFunction;
+  readonly verify: NodejsFunction;
   readonly publish: NodejsFunction;
   readonly status: NodejsFunction;
   readonly all: NodejsFunction[];
@@ -51,8 +59,61 @@ export class PipelineFunctions extends Construct {
     this.stage = props.stage;
     this.table = props.table;
     this.deadLetterQueue = props.events.deadLetterQueue;
-    const { github } = props;
+    const { github, events, secrets, table } = props;
     const userAgent = `cert-tracker/1.0 (+https://github.com/${github.owner}/${github.repo})`;
+    const queueUrls = {
+      TRIAGE_QUEUE_URL: events.triageQueue.queueUrl,
+      VERIFY_QUEUE_URL: events.verifyQueue.queueUrl,
+    };
+
+    this.poll = this.pipelineFunction({
+      name: 'poll',
+      timeout: Duration.minutes(5),
+      memoryMb: 512,
+      environment: { USER_AGENT: userAgent, ...queueUrls },
+    });
+    table.grantReadWriteData(this.poll);
+    events.triageQueue.grantSendMessages(this.poll);
+    events.verifyQueue.grantSendMessages(this.poll);
+    secrets.grantRead(this.poll, [GITHUB_TOKEN_PARAMETER]);
+    this.schedule(
+      'PollHourly',
+      this.poll,
+      ScheduleExpression.cron({ minute: '7', hour: '*', day: '*', month: '*', year: '*' }),
+    );
+
+    this.triage = this.pipelineFunction({
+      name: 'triage',
+      timeout: Duration.minutes(2),
+      memoryMb: 256,
+      environment: { VERIFY_QUEUE_URL: events.verifyQueue.queueUrl },
+    });
+    table.grantReadWriteData(this.triage);
+    events.verifyQueue.grantSendMessages(this.triage);
+    secrets.grantRead(this.triage, LLM_PARAMETERS);
+    this.triage.addEventSource(
+      new SqsEventSource(events.triageQueue, {
+        batchSize: 10,
+        maxConcurrency: 2,
+        reportBatchItemFailures: true,
+      }),
+    );
+
+    this.verify = this.pipelineFunction({
+      name: 'verify',
+      timeout: Duration.minutes(3),
+      memoryMb: 512,
+      environment: { USER_AGENT: userAgent },
+    });
+    table.grantReadWriteData(this.verify);
+    secrets.grantRead(this.verify, LLM_PARAMETERS);
+    this.verify.addEventSource(
+      new SqsEventSource(events.verifyQueue, {
+        batchSize: 1,
+        maxConcurrency: 2,
+        reportBatchItemFailures: true,
+      }),
+    );
 
     this.publish = this.pipelineFunction({
       name: 'publish',
@@ -60,11 +121,11 @@ export class PipelineFunctions extends Construct {
       memoryMb: 256,
       environment: { GITHUB_OWNER: github.owner, GITHUB_REPO: github.repo },
     });
-    props.table.grantReadWriteData(this.publish);
-    props.secrets.grantRead(this.publish, GITHUB_APP_PARAMETERS);
+    table.grantReadWriteData(this.publish);
+    secrets.grantRead(this.publish, GITHUB_APP_PARAMETERS);
     this.publish.addEventSource(
       // 2 is the floor SQS allows; the publish lease is what keeps commits one at a time
-      new SqsEventSource(props.events.publishQueue, { batchSize: 10, maxConcurrency: 2 }),
+      new SqsEventSource(events.publishQueue, { batchSize: 10, maxConcurrency: 2 }),
     );
     this.schedule('PublishSweep', this.publish, ScheduleExpression.rate(Duration.minutes(15)));
 
@@ -74,14 +135,14 @@ export class PipelineFunctions extends Construct {
       memoryMb: 512,
       environment: { USER_AGENT: userAgent },
     });
-    props.table.grantReadWriteData(this.status);
+    table.grantReadWriteData(this.status);
     this.schedule(
       'StatusDaily',
       this.status,
       ScheduleExpression.cron({ minute: '17', hour: '4', day: '*', month: '*', year: '*' }),
     );
 
-    this.all = [this.publish, this.status];
+    this.all = [this.poll, this.triage, this.verify, this.publish, this.status];
   }
 
   private pipelineFunction(spec: FunctionSpec): NodejsFunction {
@@ -106,6 +167,8 @@ export class PipelineFunctions extends Construct {
         externalModules: [],
         mainFields: ['module', 'main'],
         banner: REQUIRE_SHIM,
+        // prompt files ride inside the bundle as strings
+        loader: { '.md': 'text' },
       },
       environment: {
         STAGE: this.stage,

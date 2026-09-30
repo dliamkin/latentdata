@@ -10,6 +10,16 @@ export const GITHUB_APP_PARAMETERS = [
   'github/appPrivateKey',
 ] as const;
 
+export const GITHUB_TOKEN_PARAMETER = 'github/token';
+
+export const LLM_PARAMETERS = [
+  'anthropic/apiKey',
+  'llm/triageModel',
+  'llm/verifyModel',
+  'llm/pricing',
+  'llm/dailyCapUsd',
+] as const;
+
 // references only: the parameters are created by hand and their values never pass through
 // CloudFormation, a template, or CI
 export class Secrets extends Construct {

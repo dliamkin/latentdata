@@ -13,6 +13,8 @@ export interface StageConfig {
   apiCertificateArn: string | null;
   // new accounts already have a default services monitor and a second one fails to create
   costAnomalyMonitor: boolean;
+  // mirrors the SSM parameter /llm/dailyCapUsd; the alarm threshold has to be known at synth
+  llmDailyCapUsd: number;
 }
 
 export interface GitHubRepo {
@@ -64,6 +66,7 @@ export function loadStageConfig(stage: Stage): StageConfig {
     apiDomainName: config.apiDomainName ?? null,
     apiCertificateArn: config.apiCertificateArn ?? null,
     costAnomalyMonitor: config.costAnomalyMonitor ?? false,
+    llmDailyCapUsd: config.llmDailyCapUsd ?? 1,
   };
 }
 

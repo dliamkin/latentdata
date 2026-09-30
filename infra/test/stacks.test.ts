@@ -87,7 +87,7 @@ describe('table', () => {
 describe('functions', () => {
   it('are all arm64 on nodejs24.x with source maps on', () => {
     const functions = resources(prod, 'AWS::Lambda::Function');
-    expect(functions.length).toBeGreaterThanOrEqual(2);
+    expect(functions.length).toBe(5);
     for (const fn of functions) {
       expect(fn.Properties).toMatchObject({
         Runtime: 'nodejs24.x',
@@ -153,12 +153,15 @@ describe('iam', () => {
       };
       return document.Statement.filter((s) => [s.Action].flat().includes('ssm:GetParameter'));
     });
-    expect(statements).toHaveLength(1);
-    const rendered = JSON.stringify(statements[0]?.Resource);
+    const publisher = statements.filter((st) =>
+      JSON.stringify(st.Resource).includes('appPrivateKey'),
+    );
+    expect(publisher).toHaveLength(1);
+    const rendered = JSON.stringify(publisher[0]?.Resource);
     for (const name of ['appId', 'appInstallationId', 'appPrivateKey']) {
       expect(rendered).toContain(`parameter/cert-tracker/prod/github/${name}`);
     }
-    expect([statements[0]?.Resource].flat()).toHaveLength(3);
+    expect([publisher[0]?.Resource].flat()).toHaveLength(3);
     expect(rendered).not.toContain('*');
   });
 });
@@ -170,6 +173,8 @@ describe('events', () => {
       'cert-tracker-prod-dlq',
       'cert-tracker-prod-notify',
       'cert-tracker-prod-publish',
+      'cert-tracker-prod-triage',
+      'cert-tracker-prod-verify',
     ]);
     const consumers = queues.filter((q) => q.Properties.QueueName !== 'cert-tracker-prod-dlq');
     for (const queue of consumers) {
@@ -188,8 +193,20 @@ describe('events', () => {
     });
   });
 
+  it('lets the LLM functions read exactly the LLM parameters and nothing else', () => {
+    const rendered = JSON.stringify(prod.toJSON());
+    for (const name of ['anthropic/apiKey', 'llm/triageModel', 'llm/pricing', 'github/token']) {
+      expect(rendered).toContain(`parameter/cert-tracker/prod/${name}`);
+    }
+    expect(rendered).not.toContain('parameter/cert-tracker/prod/llm/*');
+    expect(rendered).not.toContain('parameter/cert-tracker/prod/*');
+  });
+
   it('runs the publisher and the status job on Scheduler, not on legacy rules', () => {
-    prod.resourceCountIs('AWS::Scheduler::Schedule', 2);
+    prod.resourceCountIs('AWS::Scheduler::Schedule', 3);
+    prod.hasResourceProperties('AWS::Scheduler::Schedule', {
+      ScheduleExpression: 'cron(7 * * * ? *)',
+    });
     prod.resourceCountIs('AWS::Events::Rule', 0);
     prod.hasResourceProperties('AWS::Scheduler::Schedule', {
       ScheduleExpression: 'cron(17 4 * * ? *)',
