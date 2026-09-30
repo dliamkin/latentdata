@@ -217,6 +217,12 @@ describe('robots rules', () => {
     expect(robotsAllows(txt, 'otherbot', '/private/offers/x')).toBe(true);
     expect(robotsAllows('', 'otherbot', '/anything')).toBe(true);
   });
+  it('handles comments, CRLF and a hostile line in linear time', () => {
+    const crlf = 'User-agent: *\r\nDisallow: /a # trailing\r\n';
+    expect(robotsAllows(crlf, 'x', '/a/b')).toBe(false);
+    const hostile = `User-agent: *\nDisallow: ${'#'.repeat(200_000)}\n${' '.repeat(200_000)}\r`;
+    expect(robotsAllows(hostile, 'x', '/a')).toBe(true);
+  });
 });
 
 describe('prefilter and text', () => {
@@ -241,6 +247,12 @@ describe('prefilter and text', () => {
       'one',
       'two x',
     ]);
+  });
+
+  it('finds the body without backtracking over a hostile page', () => {
+    expect(pageLines('<html><body class="x"><p>a</p></body></html>')).toEqual(['a']);
+    expect(pageLines('<p>no body tag</p>')).toEqual(['no body tag']);
+    expect(pageLines(`${'<body'.repeat(100_000)}${'a'.repeat(100_000)}`).length).toBeGreaterThan(0);
   });
 });
 
