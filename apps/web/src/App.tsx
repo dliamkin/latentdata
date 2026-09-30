@@ -13,6 +13,7 @@ import { TopBar } from './components/TopBar.tsx';
 import { UpdatePrompt } from './components/UpdatePrompt.tsx';
 import { summarize, type QuickFilter } from './data/offers.ts';
 import { useEvents, useGeneratedAt, useNewOfferIds, useOffers } from './data/useOffers.ts';
+import { pageMeta, useDocumentMeta } from './lib/pageMeta.ts';
 import {
   ALL_TABS,
   PUBLIC_TABS,
@@ -71,6 +72,8 @@ function Shell() {
   const tabs: readonly TabId[] = adminActive ? ALL_TABS : PUBLIC_TABS;
   const activeIndex = Math.max(0, tabs.indexOf(tab));
   const quickFilter: QuickFilter | null = selection === 'watchlist' ? null : selection;
+  const revealedOffer = reveal === null ? null : (rows.find((row) => row.id === reveal.id) ?? null);
+  useDocumentMeta(pageMeta(tab, revealedOffer));
 
   const revealOffer = useCallback(
     (offerId: string) => {

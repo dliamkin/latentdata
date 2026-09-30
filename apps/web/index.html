@@ -5,14 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Free and discounted IT certification promotions, tracked and verified."
+      content="Free and discounted IT certification exams from Microsoft, AWS, Google Cloud, Oracle, Salesforce and more. Each promotion is checked against the vendor's own page, with dates and eligibility."
     />
     <meta name="color-scheme" content="light dark" />
     <meta name="theme-color" content="#f9fafb" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/pwa-192.png" />
-    <title>Cert Promo Tracker</title>
+    <!-- ?offer= deep links show the same table, so they all point back to the root -->
+    <link rel="canonical" href="https://latentdata.org/" />
+    <!-- link previews in chat apps and social sites don't run the bundle; they only see these -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Cert Promo Tracker" />
+    <meta property="og:url" content="https://latentdata.org/" />
+    <meta property="og:title" content="Free IT certification vouchers and promos" />
+    <meta
+      property="og:description"
+      content="Free and discounted IT certification exams, checked against each vendor's own page, with dates and eligibility."
+    />
+    <meta property="og:image" content="https://latentdata.org/pwa-512.png" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta property="og:image:alt" content="Cert Promo Tracker logo" />
+    <meta name="twitter:card" content="summary" />
+    <title>Free IT Certification Vouchers &amp; Promos · Cert Promo Tracker</title>
     <script>
       // pick the theme before first paint so dark mode doesn't flash white, and start fetching
       // its stylesheet now rather than after the app bundle has run

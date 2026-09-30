@@ -9,6 +9,7 @@ import { defineConfig } from 'vitest/config';
 
 const FIXTURE_SNAPSHOT = '../../fixtures/web/snapshot.fixture.json';
 const THEMES: readonly string[] = ['lara-light-blue', 'lara-dark-blue'];
+const SITE_URL = 'https://latentdata.org';
 
 const require = createRequire(import.meta.url);
 const themeFile = (name: string): string =>
@@ -42,14 +43,36 @@ function themeAssets(): Plugin {
   };
 }
 
+// one URL; lastmod moves with each data snapshot so crawlers come back after the publisher commits
+function sitemap(snapshotPath: string): Plugin {
+  return {
+    name: 'sitemap',
+    generateBundle() {
+      const { generatedAt } = JSON.parse(readFileSync(snapshotPath, 'utf8')) as {
+        generatedAt: string;
+      };
+      this.emitFile({
+        type: 'asset',
+        fileName: 'sitemap.xml',
+        source: [
+          '<?xml version="1.0" encoding="UTF-8"?>',
+          '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+          `  <url><loc>${SITE_URL}/</loc><lastmod>${generatedAt}</lastmod></url>`,
+          '</urlset>',
+          '',
+        ].join('\n'),
+      });
+    },
+  };
+}
+
 export default defineConfig(({ mode }) => {
   const isTest = mode === 'test';
   // tests and e2e builds run against the fixture so assertions don't move with the live data
   const snapshotPath =
     process.env.SNAPSHOT_PATH ?? (isTest ? FIXTURE_SNAPSHOT : './src/data/snapshot.json');
-  const alias: Record<string, string> = {
-    '@snapshot': fileURLToPath(new URL(snapshotPath, import.meta.url)),
-  };
+  const snapshotFile = fileURLToPath(new URL(snapshotPath, import.meta.url));
+  const alias: Record<string, string> = { '@snapshot': snapshotFile };
   if (isTest) {
     // the PWA plugin is off under vitest, so its virtual module needs a stand-in
     alias['virtual:pwa-register/react'] = fileURLToPath(
@@ -61,6 +84,7 @@ export default defineConfig(({ mode }) => {
     plugins: [
       react(),
       themeAssets(),
+      sitemap(snapshotFile),
       VitePWA({
         strategies: 'injectManifest',
         srcDir: 'src',
