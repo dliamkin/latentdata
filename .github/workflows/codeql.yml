@@ -3,6 +3,9 @@ name: codeql
 on:
   push:
     branches: [main]
+    # snapshot commits change data, not code
+    paths-ignore:
+      - apps/web/src/data/snapshot.json
   pull_request:
     branches: [main]
   schedule:
