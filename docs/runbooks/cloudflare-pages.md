@@ -17,8 +17,10 @@ rebuilding on every push to `main`, with a preview URL for every pull request.
    | Build output directory | `apps/web/dist`                       |
    | Root directory         | `/` (leave empty)                     |
 
-4. Environment variables (both Production and Preview): `NODE_VERSION` = `24`.
-   The repo's `.node-version` says the same; the variable is belt and braces.
+4. Environment variables (both Production and Preview): `NODE_VERSION` = `24.18.0`.
+   An exact version, not `24`: Pages resolves a bare major to an older patch than the test
+   tooling accepts, and `npm ci` then stops with `EBADENGINE`. The repo's `.node-version` carries
+   the same value; raise both together.
 5. Save and deploy. The first build takes a couple of minutes.
 
 ## 2. Custom domain
