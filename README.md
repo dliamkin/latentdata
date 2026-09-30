@@ -5,9 +5,10 @@ records them, publishes a static dashboard and notifies subscribers.
 
 Live: https://latentdata.org
 
-Status: M2. The dashboard is live and the AWS foundation exists: a DynamoDB table as the system
-of record, a publisher that commits the site's data, and a daily status job. The pipeline that
-discovers offers on its own arrives in M3.
+Status: M3. The dashboard is live on top of a DynamoDB table, a publisher commits the site's
+data, and the discovery pipeline runs on its own: an hourly poll over twenty sources, a small
+model that triages what is new, a larger one that verifies and extracts, and a daily spending
+cap in front of both. Review tooling for the candidates it produces arrives in M4.
 
 How the parts fit: [docs/architecture.md](docs/architecture.md).
 

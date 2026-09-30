@@ -34,7 +34,7 @@
 | Static site, snapshot validation        | live  |
 | Table, events topic, queues, shared DLQ | M2    |
 | `publish`, `status`                     | M2    |
-| `poll`, `triage`, `verify`              | M3    |
+| `poll`, `triage`, `verify`              | live  |
 | Admin API and review UI                 | M4    |
 | `outbox`, `notify`, `digest`            | M5    |
 
