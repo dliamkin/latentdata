@@ -15,32 +15,84 @@ export function decodeEntities(text: string): string {
   });
 }
 
+const RAW_TEXT = new Set(['script', 'style', 'noscript', 'svg', 'template']);
+const CHROME = new Set([...RAW_TEXT, 'nav', 'header', 'footer', 'iframe']);
+const BLOCKS = new Set(
+  'p div li h1 h2 h3 h4 h5 h6 tr br section article header footer blockquote pre dd dt td th'.split(
+    ' ',
+  ),
+);
+const NONE: ReadonlySet<string> = new Set();
+
+function isNameChar(c: string): boolean {
+  return (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9');
+}
+
+// one pass, no regex: the markup is untrusted, and a page made of nothing but `<script` or
+// `<<<<` sends `<[^>]+>` style patterns quadratic. Elements in `skip` are dropped with their
+// contents, elements in `blocks` become line breaks, every other tag becomes a space.
+function stripTags(html: string, skip: ReadonlySet<string>, blocks: ReadonlySet<string>): string {
+  const lower = html.toLowerCase();
+  let out = '';
+  let i = 0;
+  while (i < html.length) {
+    const lt = html.indexOf('<', i);
+    if (lt === -1) {
+      out += html.slice(i);
+      break;
+    }
+    out += html.slice(i, lt);
+    if (lower.startsWith('<!--', lt)) {
+      const end = lower.indexOf('-->', lt + 4);
+      out += ' ';
+      if (end === -1) break;
+      i = end + 3;
+      continue;
+    }
+    const closing = html[lt + 1] === '/';
+    let j = lt + (closing ? 2 : 1);
+    while (j < lower.length && isNameChar(lower[j] ?? '')) j += 1;
+    const name = lower.slice(lt + (closing ? 2 : 1), j);
+    const gt = html.indexOf('>', j);
+    if (gt === -1) {
+      out += html.slice(lt);
+      break;
+    }
+    out += blocks.has(name) ? '\n' : ' ';
+    i = gt + 1;
+    if (!closing && skip.has(name)) {
+      const end = lower.indexOf(`</${name}`, i);
+      if (end === -1) break;
+      const endGt = html.indexOf('>', end);
+      i = endGt === -1 ? html.length : endGt + 1;
+    }
+  }
+  return out;
+}
+
 // markup to plain text, good enough for an excerpt: no layout, no attributes, no scripts
 export function stripHtml(html: string): string {
-  return decodeEntities(
-    html
-      .replace(/<(script|style|noscript|svg|template)\b[\s\S]*?<\/\1>/gi, ' ')
-      .replace(/<!--[\s\S]*?-->/g, ' ')
-      .replace(/<[^>]+>/g, ' '),
-  )
+  return decodeEntities(stripTags(html, RAW_TEXT, NONE))
     .replace(/\s+/g, ' ')
     .trim();
 }
 
-const BLOCK_TAGS = 'p|div|li|h[1-6]|tr|br|section|article|header|footer|blockquote|pre|dd|dt|td|th';
+// found by index, not by a `<body>(.*)</body>` capture: greedy, it has to backtrack from the
+// end of the page to the closing tag, quadratic in the worst case
+function bodyOf(html: string): string {
+  const open = html.search(/<body[\s>]/i);
+  if (open === -1) return html;
+  const start = html.indexOf('>', open);
+  if (start === -1) return html;
+  const close = html.toLowerCase().lastIndexOf('</body>');
+  if (close === -1 || close < start) return html;
+  return html.slice(start + 1, close);
+}
 
 // a page as lines of text, one per block element, with the chrome removed; what page-diff
 // hashes and diffs
 export function pageLines(html: string): string[] {
-  const body = /<body[^>]*>([\s\S]*)<\/body>/i.exec(html)?.[1] ?? html;
-  const withoutChrome = body
-    .replace(
-      /<(script|style|noscript|svg|template|nav|header|footer|iframe)\b[\s\S]*?<\/\1>/gi,
-      ' ',
-    )
-    .replace(/<!--[\s\S]*?-->/g, ' ')
-    .replace(new RegExp(`</?(${BLOCK_TAGS})\\b[^>]*>`, 'gi'), '\n');
-  return decodeEntities(withoutChrome.replace(/<[^>]+>/g, ' '))
+  return decodeEntities(stripTags(bodyOf(html), CHROME, BLOCKS))
     .split('\n')
     .map((line) => line.replace(/\s+/g, ' ').trim())
     .filter((line) => line.length > 0);

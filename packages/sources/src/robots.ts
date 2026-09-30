@@ -9,12 +9,16 @@ interface Group {
 export function parseRobots(text: string): Group[] {
   const groups: Group[] = [];
   let current: Group | null = null;
+  // indexOf rather than regexes: the file is untrusted and `.*$` style patterns backtrack
+  // polynomially on a line full of the same character
   for (const raw of text.split('\n')) {
-    const line = raw.replace(/#.*$/, '').trim();
-    const match = /^([a-z-]+)\s*:\s*(.*)$/i.exec(line);
-    if (match === null) continue;
-    const field = (match[1] ?? '').toLowerCase();
-    const value = (match[2] ?? '').trim();
+    const hash = raw.indexOf('#');
+    const line = (hash === -1 ? raw : raw.slice(0, hash)).trim();
+    const colon = line.indexOf(':');
+    if (colon === -1) continue;
+    const field = line.slice(0, colon).trim().toLowerCase();
+    if (!/^[a-z-]+$/.test(field)) continue;
+    const value = line.slice(colon + 1).trim();
     if (field === 'user-agent') {
       if (current === null || current.allow.length + current.disallow.length > 0) {
         current = { agents: [], allow: [], disallow: [] };
