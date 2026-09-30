@@ -28,8 +28,9 @@
       "vendor": "Microsoft",
       "url": "https://techcommunity.microsoft.com/t5/s/gxcuf89792/rss/board?board.id=MicrosoftLearnBlog",
       "pollIntervalMinutes": 60,
-      "enabled": true,
-      "tags": ["vendor-blog"]
+      "enabled": false,
+      "tags": ["vendor-blog"],
+      "notes": "Khoros board feed returned Resource Not Found on 2026-09-30 after the Tech Community platform move; the site-wide feed is unrelated support threads. Re-enable when a Learn-specific feed is found."
     },
     {
       "sourceId": "rss-oracle-university-blog",
@@ -37,8 +38,9 @@
       "vendor": "Oracle",
       "url": "https://blogs.oracle.com/oracleuniversity/rss",
       "pollIntervalMinutes": 120,
-      "enabled": true,
-      "tags": ["vendor-blog"]
+      "enabled": false,
+      "tags": ["vendor-blog"],
+      "notes": "blogs.oracle.com answers 403 to non-browser user agents (2026-09-30)."
     },
     {
       "sourceId": "rss-aws-training-blog",
@@ -64,9 +66,9 @@
       "vendor": "Databricks",
       "url": "https://community.databricks.com/t5/learning-events/bd-p/learning-events",
       "pollIntervalMinutes": 180,
-      "enabled": true,
+      "enabled": false,
       "tags": ["community"],
-      "notes": "Khoros boards expose RSS at /t5/s/<site>/rss/board?board.id=<id>; resolve the exact feed URL during M3."
+      "notes": "Khoros feed URLs under community.databricks.com answer 403 to non-browser user agents (2026-09-30)."
     },
     {
       "sourceId": "rss-fabric-community-announcements",
@@ -74,9 +76,9 @@
       "vendor": "Microsoft",
       "url": "https://community.fabric.microsoft.com/t5/Fabric-Community-Blog/bg-p/fabric-community-blog",
       "pollIntervalMinutes": 180,
-      "enabled": true,
+      "enabled": false,
       "tags": ["community"],
-      "notes": "Resolve the Khoros RSS URL during M3."
+      "notes": "Both Khoros feed URL forms 404 or 403 on 2026-09-30; find the Aurora RSS URL and re-enable."
     },
     {
       "sourceId": "rss-slickdeals-certification",
@@ -156,10 +158,11 @@
       "sourceId": "github-commits-free-certifications",
       "kind": "github-commits",
       "vendor": null,
-      "url": "https://api.github.com/repos/cloudcommunity/Free-Certifications/commits",
+      "url": "https://api.github.com/repos/ArslanYM/Free-Certifications/commits",
       "pollIntervalMinutes": 180,
       "enabled": true,
-      "tags": ["tracker"]
+      "tags": ["tracker"],
+      "notes": "cloudcommunity/Free-Certifications 404s; the repository lives under ArslanYM (2026-09-30)."
     },
     {
       "sourceId": "page-ms-learn-cert-offers",

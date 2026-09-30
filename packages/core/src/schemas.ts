@@ -177,8 +177,13 @@ export const SignalSchema = z.object({
       verdict: z.enum(['relevant', 'irrelevant']),
       confidence: z.number().min(0).max(1),
       reason: z.string(),
+      promptVersion: z.string(),
+      model: z.string(),
     })
     .optional(),
+  // set when the budget guard parked the signal; poll re-queues it once the day rolls over
+  deferredAt: IsoDateTimeSchema.optional(),
+  deferredStage: z.enum(['triage', 'verify']).optional(),
 });
 
 export type Signal = z.infer<typeof SignalSchema>;
@@ -193,6 +198,12 @@ export const SourceStateSchema = z.object({
   consecutiveFailures: z.number().int().min(0),
   lastError: z.string().optional(),
   contentHash: z.string().optional(),
+  // page-diff keeps the last extracted text so the next change can be shown as a diff
+  pageText: z.string().max(8000).optional(),
+  robotsAllowed: z.boolean().optional(),
+  robotsCheckedAt: IsoDateTimeSchema.optional(),
+  // set from Retry-After on a 429; poll skips the source until then
+  cooldownUntil: IsoDateTimeSchema.optional(),
 });
 
 export const SourceSchema = z.object({
