@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:slash="http://purl.org/rss/1.0/modules/slash/" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" version="2.0">
+
+<channel>
+	<title>AWS Training and Certification Blog</title>
+	<atom:link href="https://aws.amazon.com/blogs/training-and-certification/feed/" rel="self" type="application/rss+xml"/>
+	<link>https://aws.amazon.com/blogs/training-and-certification/</link>
+	<description>Just another Amazon Web Services site</description>
+	<lastBuildDate>Tue, 29 Sep 2026 19:44:15 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	
+	<item>
+		<title>Prove your agentic AI skills: Two new microcredentials now available</title>
+		<link>https://aws.amazon.com/blogs/training-and-certification/prove-your-agentic-ai-skills-two-new-microcredentials-now-available/</link>
+		
+		<dc:creator><![CDATA[Tom Lawlor]]></dc:creator>
+		<pubDate>Tue, 29 Sep 2026 17:37:57 +0000</pubDate>
+				<category><![CDATA[Announcements]]></category>
+		<category><![CDATA[AWS Training and Certification]]></category>
+		<guid isPermaLink="false">72e762270899e0430d4f8b3eb2d23e7c6f5c9f99</guid>
+
+					<description>An AI agent is only as trustworthy as the identity controls and data layer behind it. If you’re the one building those, it’s time to validate — and showcase — exactly what you can do. Today, two new microcredentials focused on agentic AI are now available: AWS Securing Agent Identities Demonstrated and AWS Databases for […]</description>
+										<content:encoded>&lt;p&gt;An AI agent is only as trustworthy as the identity controls and data layer behind it. If you’re the one building those, it’s time to validate — and showcase — exactly what you can do.&lt;/p&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;T&lt;/span&gt;&lt;span data-contrast="auto"&gt;oday, two new microcredentials focused on agentic AI are now available: &lt;/span&gt;&lt;b&gt;&lt;span data-contrast="auto"&gt;AWS Securing Agent Identities Demonstrated&lt;/span&gt;&lt;/b&gt;&lt;span data-contrast="auto"&gt; and &lt;/span&gt;&lt;b&gt;&lt;span data-contrast="auto"&gt;AWS Databases for Agentic AI Demonstrated&lt;/span&gt;&lt;/b&gt;&lt;span data-contrast="auto"&gt;. Each one validates your hands-on ability to diagnose real issues and implement solutions in a live AWS environment, under time pressure, with no hints.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;These microcredentials are free to access on AWS Skill Builder. No subscription required.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;span data-contrast="none"&gt;What’s &lt;/span&gt;&lt;span data-contrast="none"&gt;n&lt;/span&gt;&lt;span data-contrast="none"&gt;ew&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1,&amp;quot;335559738&amp;quot;:350}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://skillbuilder.aws/learn/Z8M87YZWXB/aws-securing-agent-identities-demonstrated/9ZRC3U51YT"&gt;&lt;span data-contrast="none"&gt;AWS Securing Agent Identities Demonstrated&lt;/span&gt;&lt;/a&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1,&amp;quot;335559738&amp;quot;:350}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;Prove you can harden identity and access across a fleet of agentic AI workloads. You’ll provision workload identities for self-hosted agents, enforce tag-based access control on identity management, secure inbound access with scoped JWT authorization, choose the right authentication method per caller (SigV4 vs. JWT), migrate agents to production-grade JWT identity verification, and establish audit trails for token operations.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;&lt;span data-contrast="auto"&gt;AWS services covered: &lt;/span&gt;&lt;/b&gt;&lt;span data-contrast="auto"&gt;Amazon Bedrock AgentCore, Amazon Cognito, AWS Identity and Access Management (IAM), AWS CloudTrail, Amazon CloudWatch, AWS Systems Manager&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;&lt;span data-contrast="auto"&gt;Ideal for: &lt;/span&gt;&lt;/b&gt;&lt;span data-contrast="auto"&gt;Cloud Security Engineers and Solutions Architects securing agentic AI workloads on AWS&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://skillbuilder.aws/learn/2MHE4K7STM/aws-databases-for-agentic-ai-demonstrated/NYCNC3CU6X"&gt;&lt;span data-contrast="none"&gt;AWS Databases for Agentic AI Demonstrated&lt;/span&gt;&lt;/a&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1,&amp;quot;335559738&amp;quot;:350}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;Prove you can build and troubleshoot the data layer that powers agentic AI. You’ll configure Amazon Aurora PostgreSQL and Amazon DynamoDB for agent access and memory, set up pgvector and Amazon Bedrock Knowledge Bases for document retrieval, configure MCP servers to debug agent database interactions, and optimize the agent’s database queries.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;&lt;span data-contrast="auto"&gt;AWS services covered: &lt;/span&gt;&lt;/b&gt;&lt;span data-contrast="auto"&gt;Amazon Aurora PostgreSQL, Amazon DynamoDB, Amazon Bedrock, AWS Lambda, Amazon CloudWatch, AWS Secrets Manager&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;&lt;span data-contrast="auto"&gt;Ideal for: &lt;/span&gt;&lt;/b&gt;&lt;span data-contrast="auto"&gt;Database Solutions Engineers, Database Engineers, Solutions Architects, and AI/ML Engineers working with the data layer of agentic AI applications on AWS&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;span data-contrast="none"&gt;How &lt;/span&gt;&lt;span data-contrast="none"&gt;i&lt;/span&gt;&lt;span data-contrast="none"&gt;t &lt;/span&gt;&lt;span data-contrast="none"&gt;w&lt;/span&gt;&lt;span data-contrast="none"&gt;orks&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1,&amp;quot;335559738&amp;quot;:350}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;Each microcredential is a hands-on, timed lab assessment. You work in a live AWS environment to solve realistic challenges. There are no multiple-choice questions. You either fix the problem or you don’t.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;When you pass, you earn a digital badge through Credly that you can share on LinkedIn, your resume, or with your team.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;span data-contrast="none"&gt;Why Microcredentials&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1,&amp;quot;335559738&amp;quot;:350}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;AWS Certifications validate what you know. Microcredentials validate what you can do. They complement each other: certifications prove breadth of knowledge across a domain, while microcredentials prove you can deliver hands-on in specific, high-demand skill areas.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;These two agentic AI microcredentials join the existing portfolio, which includes:&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li data-leveltext="●" data-font="Calibri" data-listid="2" data-list-defn-props="{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:576,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;●&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}" data-aria-posinset="1" data-aria-level="1"&gt;&lt;a href="https://skillbuilder.aws/learn/XV3B4RGA8Q/aws-serverless-demonstrated/BYD5SH8R5C" target="_blank" rel="noopener"&gt;&lt;span data-contrast="none"&gt;AWS Serverless Demonstrated&lt;/span&gt;&lt;/a&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1,&amp;quot;335559991&amp;quot;:360}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+ &lt;li data-leveltext="●" data-font="Calibri" data-listid="2" data-list-defn-props="{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:576,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;●&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}" data-aria-posinset="2" data-aria-level="1"&gt;&lt;a href="https://skillbuilder.aws/learn/GTGKXBWUGU/aws-agentic-ai-demonstrated/SJK9ZKVCYU" target="_blank" rel="noopener"&gt;&lt;span data-contrast="none"&gt;AWS Agentic AI Demonstrated&lt;/span&gt;&lt;/a&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1,&amp;quot;335559991&amp;quot;:360}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+ &lt;li data-leveltext="●" data-font="Calibri" data-listid="2" data-list-defn-props="{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:576,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;●&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}" data-aria-posinset="3" data-aria-level="1"&gt;&lt;a href="https://skillbuilder.aws/learn/EM5GTXEQB6/aws-application-networking-demonstrated/GS9ZN623HY" target="_blank" rel="noopener"&gt;&lt;span data-contrast="none"&gt;AWS Application Networking Demonstrated&lt;/span&gt;&lt;/a&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1,&amp;quot;335559991&amp;quot;:360}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+ &lt;li data-leveltext="●" data-font="Calibri" data-listid="2" data-list-defn-props="{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:576,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;●&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}" data-aria-posinset="4" data-aria-level="1"&gt;&lt;a href="https://skillbuilder.aws/learn/UQWKF19DT7/aws-incident-response-demonstrated/VH96JY5RJZ" target="_blank" rel="noopener"&gt;&lt;span data-contrast="none"&gt;AWS Incident Response Demonstrated&lt;/span&gt;&lt;/a&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1,&amp;quot;335559991&amp;quot;:360}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+ &lt;li data-leveltext="●" data-font="Calibri" data-listid="2" data-list-defn-props="{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:576,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;●&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}" data-aria-posinset="5" data-aria-level="1"&gt;&lt;a href="https://skillbuilder.aws/learn/JWNE2TPE6J/aws-mlops-demonstrated/FV55WQPV8G" target="_blank" rel="noopener"&gt;&lt;span data-contrast="none"&gt;AWS MLOps Demonstrated&lt;/span&gt;&lt;/a&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1,&amp;quot;335559991&amp;quot;:360}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+ &lt;li data-leveltext="●" data-font="Calibri" data-listid="2" data-list-defn-props="{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:576,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;●&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}" data-aria-posinset="6" data-aria-level="1"&gt;&lt;a href="https://skillbuilder.aws/learn/D5KCRHGVJ3/aws-data-streaming-demonstrated/8J9N6ZT5R4" target="_blank" rel="noopener"&gt;&lt;span data-contrast="none"&gt;AWS Data Streaming Demonstrated&lt;/span&gt;&lt;/a&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1,&amp;quot;335559991&amp;quot;:360}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+ &lt;li data-leveltext="●" data-font="Calibri" data-listid="2" data-list-defn-props="{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:576,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;●&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}" data-aria-posinset="7" data-aria-level="1"&gt;&lt;a href="https://skillbuilder.aws/learn/CXQUD7AC5F/aws-data-lakehouse-demonstrated/2FNRMHXE62" target="_blank" rel="noopener"&gt;&lt;span data-contrast="none"&gt;AWS Data Lakehouse Demonstrated&lt;/span&gt;&lt;/a&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1,&amp;quot;335559991&amp;quot;:360}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+ &lt;li data-leveltext="●" data-font="Calibri" data-listid="2" data-list-defn-props="{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:576,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;●&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}" data-aria-posinset="8" data-aria-level="1"&gt;&lt;a href="https://skillbuilder.aws/learn/Y2PFJC725K/aws-data-visualization-demonstrated/K817X4D424" target="_blank" rel="noopener"&gt;&lt;span data-contrast="none"&gt;AWS Data Visualization Demonstrated&lt;/span&gt;&lt;/a&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1,&amp;quot;335559991&amp;quot;:360}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;&lt;span data-contrast="none"&gt;Get started&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1,&amp;quot;335559738&amp;quot;:350}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;Both assessments are free on AWS Skill Builder. No subscription, no paywall, no waiting.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://skillbuilder.aws/certification/microcredentials" target="_blank" rel="noopener"&gt;&lt;span data-contrast="none"&gt;Explore all microcredentials on AWS Skill Builder →&lt;/span&gt;&lt;/a&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;</content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Certification updates from AWS Training and Certification: September 2026</title>
+		<link>https://aws.amazon.com/blogs/training-and-certification/september-2026-new-offerings/</link>
+		
+		<dc:creator><![CDATA[Training and Certification Blog Editor]]></dc:creator>
+		<pubDate>Tue, 01 Sep 2026 13:31:15 +0000</pubDate>
+				<category><![CDATA[Announcements]]></category>
+		<category><![CDATA[AWS Training and Certification]]></category>
+		<guid isPermaLink="false">f2d643b1badb4978c17f2471b959b0d459dba5fe</guid>
+
+					<description>AWS Certification is updating three exams to reflect how cloud roles have evolved – AWS Certified Machine Learning Engineer – Associate (MLA-C02), AWS Certified Solutions Architect – Professional (SAP-C03), and AWS Certified Developer – Associate (DVA-C03). This blog covers what’s changing, why, and the key dates you need to know. Beta registration now open: AWS […]</description>
+										<content:encoded>&lt;p&gt;AWS Certification is updating three exams to reflect how cloud roles have evolved – AWS Certified Machine Learning Engineer – Associate (MLA-C02), AWS Certified Solutions Architect – Professional (SAP-C03), and AWS Certified Developer – Associate (DVA-C03). This blog covers what’s changing, why, and the key dates you need to know.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Beta registration now open: AWS Certified Machine Learning Engineer – Associate (MLA-C02)&lt;/h2&gt;
+&lt;p&gt;Registration for the beta version of the AWS Certified Machine Learning Engineer – Associate exam (MLA-C02) is now available in English. The last day to take the current version of the exam (MLA-C01) in English will be September 28, 2026. The current version of the exam (MLA-C01) will remain available in Japanese, Korean, and Simplified Chinese during the beta period until GA delivery on January 14, 2027.&lt;/p&gt;
+&lt;p&gt;The role of the machine learning (ML) engineer has evolved. Today’s ML engineers don’t just build and deploy traditional models. They implement generative AI solutions, work with foundation models and large language models (LLMs), orchestrate agentic AI workflows, and operationalize AI at scale. To keep pace with this evolution, the updated exam (MLA-C02) will include generative AI, agentic AI, and foundation model/LLM workloads alongside traditional ML engineering. This certification validates your ability to build, deploy, maintain, and monitor ML and generative AI solutions on AWS using services like Amazon SageMaker AI, Amazon Bedrock, and others.&lt;/p&gt;
+&lt;h3&gt;Who is this certification for?&lt;/h3&gt;
+&lt;p&gt;The updated AWS Certified Machine Learning Engineer – Associate certification is designed for professionals who build and operationalize ML and generative AI solutions in production environments. Target roles include:&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li&gt;ML Engineers and MLOps Engineers responsible for end-to-end ML lifecycle management&lt;/li&gt;
+ &lt;li&gt;LLMOps Engineers operationalizing foundation models and GenAI applications&lt;/li&gt;
+ &lt;li&gt;Data Engineers building and managing ML data pipelines&lt;/li&gt;
+ &lt;li&gt;Software Developers integrating ML/GenAI capabilities into applications&lt;/li&gt;
+ &lt;li&gt;Data Scientists transitioning into ML engineering roles&lt;/li&gt;
+ &lt;li&gt;Machine Learning Architects and Solutions Architects designing ML systems&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Recommended experience:&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li&gt;At least 1 year of experience using Amazon SageMaker AI, Amazon Bedrock, and other AWS services for ML engineering&lt;/li&gt;
+ &lt;li&gt;At least 1 year of experience in a related role such as backend software developer, DevOps developer, data engineer, or data scientist&lt;/li&gt;
+ &lt;li&gt;Experience with both traditional ML and generative AI (GenAI)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For employers and AWS Partners: This certification provides confidence that your ML engineers and MLOps engineers have validated, current skills across both traditional ML and generative AI, ensuring your teams can deliver production-grade solutions that meet today’s business objectives.&lt;/p&gt;
+&lt;h3&gt;What has changed in MLA-C02 and why&lt;/h3&gt;
+&lt;p&gt;The domain structure of the exam remains the same. No new domains were added. However, the updated exam reflects key additions that align with how the ML engineer role has broadened in practice:&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li&gt;Generative AI implementation: Building and deploying GenAI solutions, fine-tuning foundation models, and implementing retrieval-augmented generation (RAG) architectures&lt;/li&gt;
+ &lt;li&gt;Agentic AI: Orchestrating AI agents and complex workflows&lt;/li&gt;
+ &lt;li&gt;Foundation models and LLMs: Selecting, customizing, and operationalizing large language models&lt;/li&gt;
+ &lt;li&gt;Amazon Bedrock: Expanded coverage of Amazon Bedrock capabilities for GenAI workloads&lt;/li&gt;
+ &lt;li&gt;Responsible AI practices: Updated guidance on responsible AI implementation across both traditional ML and GenAI&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Existing task statements and skills have been updated to align with current industry practices, while retaining the core ML engineering competencies that the certification has always validated.&lt;/p&gt;
+&lt;p&gt;Note: The full exam guide with detailed task statements is now available.&lt;/p&gt;
+&lt;h3&gt;Key dates&lt;/h3&gt;
+&lt;ul&gt;
+ &lt;li&gt;September 1, 2026 – Beta registration opens (English only); exam guide released&lt;/li&gt;
+ &lt;li&gt;September 28, 2026 – Last day to take MLA-C01 in English (Japanese, Korean, and Simplified Chinese will remain available during the beta period)&lt;/li&gt;
+ &lt;li&gt;September 29, 2026 – Beta delivery begins&lt;/li&gt;
+ &lt;li&gt;January 14, 2027 – GA delivery begins (all languages); MLA-C01 retired in all languages&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Beta exam details&lt;/h3&gt;
+&lt;ul&gt;
+ &lt;li&gt;Duration: 170 minutes&lt;/li&gt;
+ &lt;li&gt;Number of questions: 85&lt;/li&gt;
+ &lt;li&gt;Price: $75 USD&lt;/li&gt;
+ &lt;li&gt;Language: English only&lt;/li&gt;
+ &lt;li&gt;Delivery: Pearson VUE (test center or online proctoring)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Should you take MLA-C01 or MLA-C02?&lt;/h3&gt;
+&lt;p&gt;For those taking the exam in English, consider:&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li&gt;Take MLA-C01 (by September 28, 2026) if you’re already prepared and want to earn the certification now. Your credential remains active through its original expiration date.&lt;/li&gt;
+ &lt;li&gt;Take the beta (registration open now) if you want your certification to validate both traditional ML and GenAI skills.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For those taking the exam in Japanese, Korean, or Simplified Chinese, MLA-C01 will remain available until GA delivery of MLA-C02 on January 14, 2027.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Coming soon: AWS Certified Solutions Architect – Professional (SAP-C03)&lt;/h2&gt;
+&lt;p&gt;AWS Certification is updating the AWS Certified Solutions Architect – Professional exam. Registration for the updated exam (SAP-C03) will open on October 27, 2026, with GA delivery beginning November 17, 2026. The last day to take the current version of the exam (SAP-C02) will be November 16, 2026. SAP-C03 will be available in all languages currently supported at launch.&lt;/p&gt;
+&lt;p&gt;The solutions architect role has expanded. Today’s architects don’t just design highly available, cost-efficient systems. They integrate generative AI and agentic architectures, implement post-quantum cryptography, design resilience-as-a-service patterns, and build DevSecOps automation into every layer of the stack. To keep pace with this evolution, the updated exam (SAP-C03) validates your ability to design optimized AWS solutions aligned with the AWS Well-Architected Framework, including cloud-native architectures with AI/ML integration, security and compliance architectures, cost optimization, resilience and business continuity, and operational excellence.&lt;/p&gt;
+&lt;h3&gt;Who is this certification for?&lt;/h3&gt;
+&lt;p&gt;The updated AWS Certified Solutions Architect – Professional certification is designed for experienced architects who provide expert guidance across multiple applications and projects in complex, multi-account environments. Target roles include:&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li&gt;Solutions Architects designing enterprise-grade cloud systems&lt;/li&gt;
+ &lt;li&gt;Cloud Architects leading multi-account governance strategies&lt;/li&gt;
+ &lt;li&gt;Infrastructure Architects implementing modern resilience and security patterns&lt;/li&gt;
+ &lt;li&gt;Technical leads guiding teams on cloud-native and AI-integrated architectures&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Recommended experience:&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li&gt;2 or more years of experience using AWS services to design and implement cloud solutions&lt;/li&gt;
+ &lt;li&gt;Ability to evaluate cloud application requirements and make architectural recommendations for implementation on AWS&lt;/li&gt;
+ &lt;li&gt;Experience providing guidance across modern cloud-native, serverless, and AI-integrated architectures&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For employers and AWS Partners: This certification provides confidence that your solutions architects have validated, current skills across both traditional infrastructure design and modern AI-integrated cloud architectures, ensuring your teams can deliver enterprise-grade solutions that leverage the full breadth of AWS services.&lt;/p&gt;
+&lt;h3&gt;What has changed in SAP-C03 and why&lt;/h3&gt;
+&lt;p&gt;Key additions that align with how the architect role has broadened in practice:&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li&gt;GenAI and agentic AI (11 new skills): Designing generative AI integrations using Amazon Bedrock, AI agent architectures with Amazon Bedrock AgentCore, RAG architectures, Bedrock Guardrails for content filtering, and human-oversight workflows for AI operations&lt;/li&gt;
+ &lt;li&gt;Resilience engineering: AWS Fault Injection Service, AWS Resilience Hub, AWS Application Recovery Controller, and automated runbooks via AWS Systems Manager&lt;/li&gt;
+ &lt;li&gt;Cloud-native patterns (7 new skills): Serverless data pipelines, durable workflows with AWS Step Functions, service mesh with Amazon VPC Lattice and Amazon ECS Service Connect, container image security, multi-tenant architectures, and real-time data architectures&lt;/li&gt;
+ &lt;li&gt;DevSecOps and observability (6 new skills): Pipeline vulnerability scanning, multi-account deployment pipelines, container monitoring, AI/ML metrics monitoring, and synthetic/real-user monitoring&lt;/li&gt;
+ &lt;li&gt;Data and analytics (3 new skills): Data lakehouse architectures with AWS Lake Formation and Apache Iceberg, real-time and batch analytics pipelines, and cross-account data sharing via AWS Clean Rooms&lt;/li&gt;
+ &lt;li&gt;Post-quantum cryptography: AWS KMS with ML-DSA and ML-KEM&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The five domains in SAP-C03:&lt;/p&gt;
+&lt;ol&gt;
+ &lt;li&gt;Cloud-native architecture design and implementation&lt;/li&gt;
+ &lt;li&gt;Security, compliance, and governance&lt;/li&gt;
+ &lt;li&gt;Cost-optimized architecture design&lt;/li&gt;
+ &lt;li&gt;Resilience, migration, and business continuity&lt;/li&gt;
+ &lt;li&gt;Operational excellence and automation&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Existing task statements and skills have been updated to align with current industry practices, while retaining the core architectural competencies that the certification has always validated.&lt;/p&gt;
+&lt;p&gt;Note: The full exam guide with detailed task statements will be available when registration opens on October 27, 2026.&lt;/p&gt;
+&lt;h3&gt;Key dates&lt;/h3&gt;
+&lt;ul&gt;
+ &lt;li&gt;October 27, 2026 – Registration opens (all languages)&lt;/li&gt;
+ &lt;li&gt;November 16, 2026 – Last day to take SAP-C02&lt;/li&gt;
+ &lt;li&gt;November 17, 2026 – SAP-C03 GA delivery begins&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;GA exam details&lt;/h3&gt;
+&lt;ul&gt;
+ &lt;li&gt;Duration: 180 minutes&lt;/li&gt;
+ &lt;li&gt;Number of questions: 75&lt;/li&gt;
+ &lt;li&gt;Price: $300 USD&lt;/li&gt;
+ &lt;li&gt;Languages: All currently supported languages&lt;/li&gt;
+ &lt;li&gt;Delivery: Pearson VUE (test center or online proctoring)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Should you take SAP-C02 or SAP-C03?&lt;/h3&gt;
+&lt;ul&gt;
+ &lt;li&gt;Take SAP-C02 (by November 16, 2026) if you’re already prepared and want to earn the certification now. Your credential remains active through its original expiration date.&lt;/li&gt;
+ &lt;li&gt;Wait for SAP-C03 (registration opens October 27, 2026) if you want your certification to validate cloud-native, GenAI/agentic AI, and modern resilience engineering skills alongside traditional architecture competencies.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Coming soon: AWS Certified Developer – Associate (DVA-C03)&lt;/h2&gt;
+&lt;p&gt;AWS Certification is updating the AWS Certified Developer – Associate exam. Registration for the updated exam (DVA-C03) will open on October 27, 2026, with GA delivery beginning December 1, 2026. The last day to take the current version of the exam (DVA-C02) will be November 30, 2026. DVA-C03 will be available in all languages currently supported at launch.&lt;/p&gt;
+&lt;p&gt;The developer role has evolved. Today’s developers don’t just write application code. They use AI-assisted development tools to generate, review, and optimize code; integrate managed AI services into applications; and secure AI agent interactions. AI-assisted development is now a core competency, not an optional add-on. To keep pace with this evolution, the updated exam (DVA-C03) validates your ability to develop, test, deploy, and debug cloud-based applications on AWS using modern tooling and AI-assisted development workflows.&lt;/p&gt;
+&lt;h3&gt;Who is this certification for?&lt;/h3&gt;
+&lt;p&gt;The updated AWS Certified Developer – Associate certification is designed for developers who build, test, deploy, and debug applications using AWS services. Target roles include:&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li&gt;Software Developers building cloud-native applications&lt;/li&gt;
+ &lt;li&gt;Backend Engineers integrating AWS services and AI capabilities into applications&lt;/li&gt;
+ &lt;li&gt;DevOps practitioners managing CI/CD pipelines and deployments&lt;/li&gt;
+ &lt;li&gt;Full-stack Developers working across application layers&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Recommended experience:&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li&gt;1 or more years of hands-on experience developing and maintaining applications using AWS services&lt;/li&gt;
+ &lt;li&gt;Proficiency in at least one high-level programming language&lt;/li&gt;
+ &lt;li&gt;Experience using AI-assisted development tools and workflows&lt;/li&gt;
+ &lt;li&gt;Understanding of application lifecycle management and CI/CD pipelines&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For employers and AWS Partners: This certification provides confidence that your developers have validated, current skills in both traditional cloud development and AI-assisted development workflows, ensuring your teams can ship high-quality, secure applications using modern tooling.&lt;/p&gt;
+&lt;h3&gt;What has changed in DVA-C03 and why&lt;/h3&gt;
+&lt;p&gt;Key additions that align with how the developer role has broadened in practice:&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li&gt;New Task 2.3 — AI security (5 skills): Access management for AI services, data privacy controls (VPC endpoints, ensuring inputs/outputs are not used to train AI models), content filtering and prompt injection protection, AI agent interaction security (tool-use authorization, session isolation, human-in-the-loop approval flows), and protecting sensitive content in monitoring logs&lt;/li&gt;
+ &lt;li&gt;AI-assisted development across all domains: Code generation and automated review (Domain 1), test automation and regression testing (Domain 3), CI/CD workflow support including automated deployment approvals (Domain 3), error analysis and troubleshooting suggestions (Domain 4), and performance optimization recommendations (Domain 4)&lt;/li&gt;
+ &lt;li&gt;Container management: Building and managing container images with Amazon ECR, and deploying containerized applications with Amazon ECS, Amazon EKS, and AWS Fargate&lt;/li&gt;
+ &lt;li&gt;New in-scope services: Amazon Bedrock, Amazon Bedrock AgentCore, Amazon Q, Kiro, Amazon Data Firehose, AWS PrivateLink&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Key consolidations:&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li&gt;DynamoDB: 4 separate skills consolidated into 1 comprehensive skill&lt;/li&gt;
+ &lt;li&gt;Security (encryption and sensitive data): 13 skills across 2 tasks consolidated into 7 skills in 1 task&lt;/li&gt;
+ &lt;li&gt;Testing: 11 skills across 2 tasks consolidated into 5 skills in 1 task&lt;/li&gt;
+ &lt;li&gt;Observability: 8 skills consolidated into 5 skills&lt;/li&gt;
+ &lt;li&gt;Optimization: 9 skills consolidated into 6 skills&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The four domains remain unchanged:&lt;/p&gt;
+&lt;ol&gt;
+ &lt;li&gt;Development with AWS Services (30%)&lt;/li&gt;
+ &lt;li&gt;Security (26%)&lt;/li&gt;
+ &lt;li&gt;Testing and Deployment (22%)&lt;/li&gt;
+ &lt;li&gt;Troubleshooting and Optimization (22%)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Out of scope: Prompt engineering, RAG design, AI model selection, Amazon SageMaker AI, and AI governance framework design.&lt;/p&gt;
+&lt;p&gt;Existing task statements and skills have been updated to align with current industry practices, while retaining the core development competencies that the certification has always validated.&lt;/p&gt;
+&lt;p&gt;Note: The full exam guide with detailed task statements will be available when registration opens on October 27, 2026.&lt;/p&gt;
+&lt;h3&gt;Key dates&lt;/h3&gt;
+&lt;ul&gt;
+ &lt;li&gt;October 27, 2026 – Registration opens (all languages)&lt;/li&gt;
+ &lt;li&gt;November 30, 2026 – Last day to take DVA-C02&lt;/li&gt;
+ &lt;li&gt;December 1, 2026 – DVA-C03 GA delivery begins&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;GA exam details&lt;/h3&gt;
+&lt;ul&gt;
+ &lt;li&gt;Duration: 130 minutes&lt;/li&gt;
+ &lt;li&gt;Number of questions: 65 (50 scored, 15 unscored)&lt;/li&gt;
+ &lt;li&gt;Price: $150 USD&lt;/li&gt;
+ &lt;li&gt;Passing score: 720 out of 1,000&lt;/li&gt;
+ &lt;li&gt;Languages: All currently supported languages&lt;/li&gt;
+ &lt;li&gt;Delivery: Pearson VUE (test center or online proctoring)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Should you take DVA-C02 or DVA-C03?&lt;/h3&gt;
+&lt;ul&gt;
+ &lt;li&gt;Take DVA-C02 (by November 30, 2026) if you’re already prepared and want to earn the certification now. Your credential remains active through its original expiration date.&lt;/li&gt;
+ &lt;li&gt;Wait for DVA-C03 (registration opens October 27, 2026) if you want your certification to validate AI-assisted development skills and modern security practices for AI services.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;Get started today&lt;/h2&gt;
+&lt;p&gt;Cloud roles are evolving, and these certifications evolve with them. Whether you’re building ML pipelines, designing enterprise architectures with generative AI, or shipping applications with AI-assisted tools.&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li&gt;Learn more about &lt;a href="https://aws.amazon.com/certification/"&gt;AWS Certifications&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;Start preparing with &lt;a href="https://skillbuilder.aws/" target="_blank" rel="noopener"&gt;AWS Skill Builder&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;Explore the &lt;a href="https://aws.amazon.com/certification/" target="_blank" rel="noopener"&gt;AWS Certification paths&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Introducing AWS Certified AI Business Strategist: Built for the people who scale AI</title>
+		<link>https://aws.amazon.com/blogs/training-and-certification/introducing-aws-certified-ai-business-strategist-built-for-the-people-who-scale-ai/</link>
+		
+		<dc:creator><![CDATA[Ania Braszkiewicz]]></dc:creator>
+		<pubDate>Tue, 01 Sep 2026 13:27:08 +0000</pubDate>
+				<category><![CDATA[Announcements]]></category>
+		<category><![CDATA[AWS Training and Certification]]></category>
+		<guid isPermaLink="false">cd02ac38e75bc2b9d2f9efce1e1194566fd90a3a</guid>
+
+					<description>Every AI&amp;nbsp;initiative has two kinds of work happening at once.&amp;nbsp;There’s&amp;nbsp;the building: the models, the infrastructure, the code. And&amp;nbsp;there’s&amp;nbsp;the&amp;nbsp;deciding: which investments to fund, how to measure success, what governance to put in place, when to scale and when to stop. AWS has credentialed&amp;nbsp;technical&amp;nbsp;builders for years. Starting September 1,&amp;nbsp;we’re&amp;nbsp;credentialing the&amp;nbsp;professionals&amp;nbsp;who drive AI adoption alongside them.&amp;nbsp; AWS Certified […]</description>
+										<content:encoded>&lt;p&gt;&lt;span data-contrast="auto"&gt;Every AI&amp;nbsp;initiative has two kinds of work happening at once.&amp;nbsp;There’s&amp;nbsp;the building: the models, the infrastructure, the code. And&amp;nbsp;there’s&amp;nbsp;the&amp;nbsp;deciding: which investments to fund, how to measure success, what governance to put in place, when to scale and when to stop. AWS has credentialed&amp;nbsp;technical&amp;nbsp;builders for years. Starting September 1,&amp;nbsp;we’re&amp;nbsp;credentialing the&amp;nbsp;professionals&amp;nbsp;who drive AI adoption alongside them.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559740&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;AWS Certified AI Business Strategist is a new certification for professionals who evaluate, champion, and scale AI initiatives in their organizations: line-of-business leaders driving adoption across their teams, sales professionals articulating AI value to customers, consultants guiding client strategy from experimentation through production, program managers aligning AI investments to business outcomes. The exam tests portable business judgment through enterprise-based scenarios. AWS services appear as practical context, but they are not the subject being tested. The frameworks this certification validates are portable across organizations and industries.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559740&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;That makes it different from credentials that test knowledge specific to a single provider’s products, platforms, and tech stacks. And different from academic programs that cost thousands of dollars over months of coursework, or online programs that may be lower cost but still require weeks to complete. This is a rigorous, proctored exam that&amp;nbsp;validates&amp;nbsp;strategic skills with&amp;nbsp;an industry-recognized credential&amp;nbsp;you can put on your resume&amp;nbsp;immediately.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559740&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;You’re&amp;nbsp;already driving&amp;nbsp;AI&amp;nbsp;adoption. Now&amp;nbsp;there’s&amp;nbsp;a credential that recognizes it.&amp;nbsp;&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559740&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading="lazy" class="alignnone wp-image-5712 size-medium" src="https://d2908q01vomqb2.cloudfront.net/9109c85a45b703f87f1413a405549a2cea9ab556/2026/08/10/AI-Business-Strategist-Badge-Image-300x300.png" alt="" width="300" height="300"&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;span data-contrast="none"&gt;Why we built this&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559740&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;Too many organizations still treat AI as&amp;nbsp;only a&amp;nbsp;technology initiative.&amp;nbsp;It’s&amp;nbsp;also&amp;nbsp;a&amp;nbsp;strategic&amp;nbsp;business initiative, and scaling&amp;nbsp;AI&amp;nbsp;requires a different skill set than building it.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559740&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;We heard the same thing from customers across industries. Mid-career professionals and senior individual contributors&amp;nbsp;were responsible for&amp;nbsp;AI outcomes but&amp;nbsp;couldn’t&amp;nbsp;prove they had the skills to lead them. Teams&amp;nbsp;were relying&amp;nbsp;on&amp;nbsp;technical staff for decisions that were fundamentally about business value: which use cases to prioritize, how to build a credible business case, what governance to put in place, and how to scale beyond a pilot. These are judgment calls, and organizations had no way to&amp;nbsp;identify&amp;nbsp;or develop the people who could make them well.&amp;nbsp;&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559740&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;We also heard from professionals in sales, consulting, operations, and business leadership roles who wanted a credential calibrated to strategic decision-making rather than technical implementation. Some had already earned&amp;nbsp;AWS&amp;nbsp;Certified&amp;nbsp;AI Practitioner&amp;nbsp;certification&amp;nbsp;and valued the technical foundation it gave them. But the work they did every&amp;nbsp;day required a different kind of validation. AI Practitioner&amp;nbsp;certification&amp;nbsp;validates&amp;nbsp;technical understanding. AI Business Strategist&amp;nbsp;certification&amp;nbsp;validates&amp;nbsp;business judgment.&amp;nbsp;Transformation requires both.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559740&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;So&amp;nbsp;we built it. The exam is designed for professionals with at least six months of experience working with or alongside AI initiatives. No coding, AWS implementation experience, or&amp;nbsp;other&amp;nbsp;AWS&amp;nbsp;Certifications are&amp;nbsp;required.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559740&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;span data-contrast="none"&gt;Why this matters to you&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559740&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;You’ve&amp;nbsp;probably seen&amp;nbsp;it in your own organization: AI tools are&amp;nbsp;available,&amp;nbsp;technical talent is in place, but initiatives&amp;nbsp;are&amp;nbsp;stuck in pilot purgatory. A recent Harvard Business Review study found that middle managers&amp;nbsp;are bearing&amp;nbsp;the operational burden of AI adoption.&amp;nbsp;They’re&amp;nbsp;making critical decisions about AI usage standards, quality, and governance in isolation, without formal support or firm-wide guidance (&lt;/span&gt;&lt;a href="https://hbr.org/2026/06/ai-adoption-is-overloading-your-middle-managers" target="_blank" rel="noopener"&gt;&lt;span data-contrast="none"&gt;HBR, 2026)&lt;/span&gt;&lt;/a&gt;&lt;span data-contrast="auto"&gt;. That pattern is playing out everywhere. 88% of organizations now use AI in at least one business function (&lt;/span&gt;&lt;a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank" rel="noopener"&gt;&lt;span data-contrast="none"&gt;McKinsey, 2025&lt;/span&gt;&lt;/a&gt;&lt;span data-contrast="auto"&gt;), yet only 19% say those efforts are producing meaningful business outcomes (&lt;/span&gt;&lt;a href="https://www.servicenow.com/workflow/ai/enterprise-ai-maturity-index-2025.html" target="_blank" rel="noopener"&gt;&lt;span data-contrast="none"&gt;ServiceNow/Oxford Economics, 2025&lt;/span&gt;&lt;/a&gt;&lt;span data-contrast="auto"&gt;).&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559740&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559740&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;The reason&amp;nbsp;is structural.&amp;nbsp;Most&amp;nbsp;organizations bolted&amp;nbsp;AI&amp;nbsp;onto&amp;nbsp;existing workflows without redesigning the work&amp;nbsp;itself. Getting out of&amp;nbsp;pilot purgatory&amp;nbsp;requires&amp;nbsp;professionals&amp;nbsp;who can&amp;nbsp;rethink how work&amp;nbsp;gets done, not&amp;nbsp;just&amp;nbsp;which&amp;nbsp;tools&amp;nbsp;to use.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559740&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;The professionals who can close that gap are the ones organizations need most: the ones who evaluate which use cases justify investment, build business cases that set realistic expectations, and manage the change&amp;nbsp;required&amp;nbsp;to scale.&amp;nbsp;Employers are&amp;nbsp;compensating accordingly.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559740&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;Roles where AI increases the need for human expertise are seeing 42% higher wage growth than roles where AI makes tasks easier for non-experts&amp;nbsp;(&lt;/span&gt;&lt;a href="https://www.pwc.com/gx/en/services/ai/ai-jobs-barometer.html" target="_blank" rel="noopener"&gt;&lt;span data-contrast="none"&gt;PwC, 2026 Global AI Jobs Barometer&lt;/span&gt;&lt;/a&gt;&lt;span data-contrast="auto"&gt;).&amp;nbsp;Workers who hold AI credentials win promotions 3.5 times faster than peers (&lt;/span&gt;&lt;a href="https://www.randstadusa.com/about/press-room/press-releases/ai-fluent-professionals-secure-promotions-faster/"&gt;&lt;span data-contrast="none"&gt;Randstad, May 2026&lt;/span&gt;&lt;/a&gt;&lt;span data-contrast="auto"&gt;), and non-degree credentials reduce mid-career stall risk by 29% on average (&lt;/span&gt;&lt;a href="https://static1.squarespace.com/static/6197797102be715f55c0e0a1/t/6a188d7fca504d1b103d1a66/1779993983643/Sidetracked_04072026_v2May.pdf" target="_blank" rel="noopener"&gt;&lt;span data-contrast="none"&gt;NYU/Burning Glass Institute, 2026&lt;/span&gt;&lt;/a&gt;&lt;span data-contrast="auto"&gt;).&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;201341983&amp;quot;:0,&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559740&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;Without a way to&amp;nbsp;validate&amp;nbsp;these skills,&amp;nbsp;professionals&amp;nbsp;risk being passed over for the AI leadership roles&amp;nbsp;they’re&amp;nbsp;already qualified to fill.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;201341983&amp;quot;:0,&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559740&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;span data-contrast="auto"&gt;If you already hold AWS technical certifications, this credential complements what you have. It&amp;nbsp;validates&amp;nbsp;the&amp;nbsp;strategic&amp;nbsp;layer&amp;nbsp;that shapes&amp;nbsp;what gets&amp;nbsp;built&amp;nbsp;and why. When an organization has professionals certified in both technical implementation and AI business strategy, teams share a common framework for evaluating opportunities and decisions&amp;nbsp;move&amp;nbsp;faster.&amp;nbsp;&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559740&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;span data-contrast="none"&gt;What the exam tests&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559740&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;This&amp;nbsp;exam&amp;nbsp;covers four domains through scenario-based questions that put you in&amp;nbsp;real business&amp;nbsp;situations.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559740&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li&gt;&lt;b&gt;&lt;span data-contrast="auto"&gt;AI Fundamentals and Literacy&lt;/span&gt;&lt;/b&gt;&lt;span data-contrast="auto"&gt;&amp;nbsp;tests practical understanding of AI concepts, capabilities, and limitations in a business context: the knowledge you need to evaluate whether a proposed AI solution fits the problem and to ask the right questions of your technical team.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559740&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559740&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;b&gt;&lt;span data-contrast="auto"&gt;AI Strategy and Business Value Creation&lt;/span&gt;&lt;/b&gt;&lt;span data-contrast="auto"&gt;&amp;nbsp;is the largest domain. It tests your ability to evaluate use cases, build business cases, quantify ROI, and&amp;nbsp;determine&amp;nbsp;when AI is not the right solution. A vendor proposes a $2M&amp;nbsp;AI&amp;nbsp;deployment. Can you evaluate whether the investment is sound, premature, or missing critical success factors?&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559740&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;b&gt;&lt;span data-contrast="auto"&gt;AI Governance and Responsible AI Leadership&lt;/span&gt;&lt;/b&gt;&lt;span data-contrast="auto"&gt;&amp;nbsp;tests your ability to&amp;nbsp;establish&amp;nbsp;governance structures, manage enterprise AI risk, and address regulatory requirements. Organizations that skip governance&amp;nbsp;don’t&amp;nbsp;move faster. They stall when compliance, legal, or reputational concerns catch up.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559740&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;b&gt;&lt;span data-contrast="auto"&gt;Business Readiness, Leadership, and AI&lt;/span&gt;&lt;/b&gt;&lt;span data-contrast="auto"&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;&lt;span data-contrast="auto"&gt;Transformation&lt;/span&gt;&lt;/b&gt;&lt;span data-contrast="auto"&gt;&amp;nbsp;tests&amp;nbsp;your ability to assess organizational readiness, manage change, and move initiatives from pilots to enterprise deployment.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559740&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;&lt;span data-contrast="none"&gt;How to prepare&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559740&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://skillbuilder.aws/" target="_blank" rel="noopener"&gt;&lt;span data-contrast="none"&gt;AWS Skill Builder&lt;/span&gt;&lt;/a&gt;&lt;span data-contrast="auto"&gt;&amp;nbsp;provides everything you need. If&amp;nbsp;you’re&amp;nbsp;new to the material, start with the&amp;nbsp;&lt;/span&gt;&lt;a href="https://skillbuilder.aws/learning-plan/TSP9R1XQ6P/aws-ai-business-strategist-learning-plan/BDE88AHVZN" target="_blank" rel="noopener"&gt;&lt;span data-contrast="none"&gt;digital courses for the AI Business Strategist role&lt;/span&gt;&lt;/a&gt;&lt;span data-contrast="auto"&gt;, which map directly to the four exam domains across 13 modules. Complete the digital courses, then follow the&amp;nbsp;&lt;/span&gt;&lt;a href="https://skillbuilder.aws/category/exam-prep/ai-business-strategist-business-AIB-C01" target="_blank" rel="noopener"&gt;&lt;span data-contrast="none"&gt;certification exam prep plan&lt;/span&gt;&lt;/a&gt;&lt;span data-contrast="none"&gt;&amp;nbsp;&lt;/span&gt;&lt;span data-contrast="auto"&gt;to&amp;nbsp;identify&amp;nbsp;remaining gaps and practice with&amp;nbsp;the&amp;nbsp;Practice Question Set&amp;nbsp;and&amp;nbsp;Walk-through&amp;nbsp;Questions. If you already have experience, start with the exam prep plan.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559740&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559740&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;span data-contrast="none"&gt;Get started&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559740&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;Beta exam registration opens September 1, 2026,&amp;nbsp;with&amp;nbsp;exam&amp;nbsp;delivery&amp;nbsp;beginning September 29.&amp;nbsp;The beta exam is available in English and Japanese, with&amp;nbsp;additional&amp;nbsp;languages available at general availability. Candidates&amp;nbsp;who&amp;nbsp;earn&amp;nbsp;this certification by February 15,&amp;nbsp;2027&amp;nbsp;receive&amp;nbsp;an early adopter badge in addition to the credential badge.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559740&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;The next time your organization&amp;nbsp;asks,&amp;nbsp;“should we invest in this?” or “how should we scale what’s working?”,&amp;nbsp;be the one&amp;nbsp;who&amp;nbsp;turns&amp;nbsp;incremental AI gains&amp;nbsp;into compounding&amp;nbsp;transformation—with&amp;nbsp;the credential to back it up.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;201341983&amp;quot;:0,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559740&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://aws.amazon.com/certification/certified-ai-business-strategist/" target="_blank" rel="noopener"&gt;&lt;span data-contrast="none"&gt;Register for the beta exam →&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;</content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Announcing Lab Maker Build, Save, and Share: Create custom AWS Labs and share them across your organization</title>
+		<link>https://aws.amazon.com/blogs/training-and-certification/announcing-lab-maker-build-save-and-share-create-custom-aws-labs-and-share-them-across-your-organization/</link>
+		
+		<dc:creator><![CDATA[Adam Balest]]></dc:creator>
+		<pubDate>Tue, 25 Aug 2026 22:17:37 +0000</pubDate>
+				<category><![CDATA[Announcements]]></category>
+		<category><![CDATA[AWS Training and Certification]]></category>
+		<guid isPermaLink="false">3e99bf3ece81a211e746a1f6bf4102d01f2bcd00</guid>
+
+					<description>Today, we’re excited to announce Build, Save, and Share for Lab Maker on AWS Skill Builder. With this launch AWS Skill Builder Team Subscription customers can now save their AI-generated custom labs, relaunch them with one click, and share them with their organization through a new Lab Creation Hub. Building custom labs is powerful. Sharing […]</description>
+										<content:encoded>&lt;p&gt;Today, we’re excited to announce Build, Save, and Share for Lab Maker on AWS Skill Builder. With this launch &lt;a href="https://aws.amazon.com/training/digital/team-subscription/"&gt;AWS Skill Builder Team Subscription&lt;/a&gt; customers can now save their AI-generated custom labs, relaunch them with one click, and share them with their organization through a new Lab Creation Hub.&lt;/p&gt;
+&lt;p&gt;Building custom labs is powerful. Sharing them is transformative.&lt;/p&gt;
+&lt;p&gt;Since launching Lab Maker, we’ve heard from customers that creating instant custom labs with natural language is transformative for hands-on learning. A cloud architect can describe a scenario, and within moments, they have a fully structured lab with tasks and complexity ratings ready to go. But once that session ended, the lab was gone.&lt;/p&gt;
+&lt;p&gt;Customers told us they wanted to build a lab once and use it again and again, across their teams, without rebuilding from scratch every time.&lt;/p&gt;
+&lt;p&gt;Lab Maker’s Build, Save, and Share feature solves this.&lt;/p&gt;
+&lt;h2&gt;How it works&lt;/h2&gt;
+&lt;p&gt;When you create a lab in Lab Maker, you now have the option to save it. Saving persists your lab with a name, description, and visibility setting, making it available in your Lab Creation Hub for future use.&lt;/p&gt;
+&lt;p&gt;From the Lab Creation Hub, you can:&lt;/p&gt;
+&lt;ol&gt;
+ &lt;li&gt;Launch any saved lab with one click, pre-loaded with its original configuration&lt;/li&gt;
+ &lt;li&gt;Clone a lab to create your own editable copy without modifying the original&lt;/li&gt;
+ &lt;li&gt;Share a lab by setting its visibility to Listed, which generates a unique URL accessible to all members of your Team subscription organization&lt;/li&gt;
+ &lt;li&gt;Delete labs you no longer need&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Privacy by default&lt;/h2&gt;
+&lt;p&gt;All saved labs default to Private, meaning only you can see them. When you’re ready to share, you can set a lab to Public, making it discoverable to everyone in your organization. Public labs open in read-only mode for others, but any team member can clone a shared lab to customize it for their own needs.&lt;/p&gt;
+&lt;h2&gt;Built for teams&lt;/h2&gt;
+&lt;p&gt;Every organization has unique use cases, and now your labs can reflect exactly that. Build, Save and Share lets your teams create labs tailored to the services, architectures, and workflows they actually use, then share them across the organization so everyone benefits. Use it to onboard new team members with labs that mirror your real environment, experiment with new AWS services in a structured way before adopting them in production, or build a shared library of immersive learning labs that evolve alongside your AWS practice. Labs are created by your builders, for your builders, at the speed your organization moves.&lt;/p&gt;
+&lt;p&gt;Shared lab URLs are scoped to authenticated members of the same Team subscription organization, ensuring your labs stay within your team.&lt;/p&gt;
+&lt;h2&gt;Getting started&lt;/h2&gt;
+&lt;p&gt;To get started with Lab Maker:&lt;/p&gt;
+&lt;ol&gt;
+ &lt;li&gt;Open &lt;a href="https://skillbuilder.aws/lab-maker" target="_blank" rel="noopener"&gt;Lab Maker&lt;/a&gt; on AWS Skill Builder&lt;/li&gt;
+ &lt;li&gt;Describe your lab using natural language&lt;/li&gt;
+ &lt;li&gt;Review the AI-generated preview with tasks&lt;/li&gt;
+ &lt;li&gt;Click Save and give your lab a name and description&lt;/li&gt;
+ &lt;li&gt;Find your saved labs in the Lab Creation Hub&lt;/li&gt;
+ &lt;li&gt;When ready to share, set visibility to Public and copy the shareable URL&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Availability&lt;/h2&gt;
+&lt;p&gt;Build, Save, and Share is available today for all authenticated AWS Skill Builder Team Subscription customers.&lt;/p&gt;
+&lt;p&gt;Get started today in &lt;a href="https://skillbuilder.aws/lab-maker" target="_blank" rel="noopener"&gt;Lab Maker&lt;/a&gt; on AWS Skill Builder.&lt;/p&gt;</content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Introducing Contests and Tournaments: New ways to practice and compete in AWS Card Clash</title>
+		<link>https://aws.amazon.com/blogs/training-and-certification/introducing-contests-and-tournaments-new-ways-to-practice-and-compete-in-aws-card-clash/</link>
+		
+		<dc:creator><![CDATA[Curtis Morton]]></dc:creator>
+		<pubDate>Tue, 25 Aug 2026 18:08:54 +0000</pubDate>
+				<category><![CDATA[Announcements]]></category>
+		<category><![CDATA[AWS Training and Certification]]></category>
+		<guid isPermaLink="false">48fff2a2406eecdd3bea864af8c6fd4c88aa92fd</guid>
+
+					<description>Cloud learning is more effective when learners can apply what they have learned, compare approaches with others, and choose an experience that fits the moment. Sometimes a team needs a flexible challenge that participants can complete across a week or across time zones.&amp;nbsp;Other times, a community wants the energy of direct competition, a live bracket, […]</description>
+										<content:encoded>&lt;p&gt;Cloud learning is more effective when learners can apply what they have learned, compare approaches with others, and choose an experience that fits the moment. Sometimes a team needs a flexible challenge that participants can complete across a week or across time zones.&amp;nbsp;Other times, a community wants the energy of direct competition, a live bracket, and a shared final.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://skillbuilder.aws/learn/7V665TRGMY/aws-card-clash--an-architecture-design-game/7RJQ9341Z8?_sa=search&amp;amp;_si=39eeb282-9cc9-433d-88b9-4da10c0893f6&amp;amp;_sq=1accb8f2-9c1d-41e1-b93c-e2514bf4bc34" target="_blank" rel="noopener noreferrer"&gt;AWS Card Clash&lt;/a&gt; is a free, mobile-first&amp;nbsp;&lt;strong&gt;Architecture Design Game&lt;/strong&gt; on AWS Skill Builder. Players deploy AWS service cards into missing architecture slots to complete real-world solution diagrams. Today, we’re excited to introduce&amp;nbsp;&lt;strong&gt;Contests&lt;/strong&gt;&amp;nbsp;and&amp;nbsp;&lt;strong&gt;Tournaments&lt;/strong&gt;, two ways to turn that individual learning experience into a shared competitive event.&lt;/p&gt;
+&lt;p&gt;Contests give learners a structured, AI-based leaderboard challenge they can complete during an event window. Tournaments bring players together for direct player-versus-player bracket competition. Used independently or together, they help learning leaders create an experience that matches their audience, schedule, and goal.&amp;nbsp;You can use an AWS Skill Builder account to join either experience.&lt;/p&gt;
+&lt;p&gt;&lt;img loading="lazy" class="alignnone size-full wp-image-5729" src="https://d2908q01vomqb2.cloudfront.net/9109c85a45b703f87f1413a405549a2cea9ab556/2026/08/25/image-1-3.png" alt="" width="2210" height="1228"&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;strong&gt;Contests: shared practice that fits the event&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;A Contest is a time-boxed Card Clash event in which every participant plays the same set of architecture challenges against the AI. The organizer chooses the architecture pool when creating the event, and participants work through it in the same sequence. This creates a common learning journey while giving each participant time to complete the challenge during the event window.&lt;/p&gt;
+&lt;p&gt;The competitive element stays focused on mastery. After completing every assigned&amp;nbsp;architecture once,&amp;nbsp;you&amp;nbsp;can replay any architecture to improve their result. For each architecture, only the participant’s best winning attempt contributes to the leaderboard. Rankings use total stars first, then total quality score, then earlier completion time. In other words, learners can practice and improve without turning repeated attempts into an advantage on their own.&lt;/p&gt;
+&lt;p&gt;Contests work well when a group wants a shared learning challenge but does not need everyone to be online at the same time. A training leader can run a Contest for a cohort after an architecture learning program.&amp;nbsp;A community organizer can give participants a window to compare their skills across a set of challenges.&amp;nbsp;A distributed team can create a common goal while allowing each learner to&amp;nbsp;participate&amp;nbsp;on a schedule that works for them.&lt;/p&gt;
+&lt;h2&gt;&lt;strong&gt;Tournaments: direct competition for live moments&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Tournaments give communities a direct player-versus-player competition experience. Instead of comparing results on a leaderboard, players face one another in bracket matches and advance by winning.&lt;/p&gt;
+&lt;p&gt;The default Tournament structure starts with a Swiss phase and then moves to an elimination bracket. Organizers can also use Swiss-only or elimination-only play, with rounds sized for the player count. This gives organizers flexibility to use Tournaments for a focused live session,&amp;nbsp;a community&amp;nbsp;activation, or a larger competitive event.&lt;/p&gt;
+&lt;p&gt;Tournaments support public events, recurring public&amp;nbsp;events,&amp;nbsp;private-open events joined with a code, and private-closed events for a defined audience. Events can be virtual or in&amp;nbsp;person, and&amp;nbsp;can be open to a broad audience or restricted to an organization. Tournament registration uses an AWS Skill Builder account, connecting each participant’s event experience to a learner profile.&lt;/p&gt;
+&lt;p&gt;For semifinals and finals, organizers can stream a Tournament match to a watch party with observer mode. The watch-only view hides both players’ hands, so an audience can follow the competition without exposing private in-game information.&lt;/p&gt;
+&lt;p&gt;&lt;img loading="lazy" class="alignnone size-full wp-image-5730" src="https://d2908q01vomqb2.cloudfront.net/9109c85a45b703f87f1413a405549a2cea9ab556/2026/08/25/image-2-2.png" alt="" width="1478" height="824"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Arcade Mode: a polished in-person Tournament experience&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Arcade Mode is the in-person delivery layer for Tournaments at summits, conferences, campus days, and internal builder meetups. It is not a separate competitive system: players at dedicated stations play the same head-to-head matches and use the same pairing, bracket, round-advancement, scoring, and no-show handling that power the online Tournament experience.&lt;/p&gt;
+&lt;p&gt;Between matches, each station&amp;nbsp;remains&amp;nbsp;locked and displays a short-lived check-in code. Players register with an AWS Skill Builder account before playing, then use that same authenticated Card Clash app identity to join the event and enter the&amp;nbsp;station’s&amp;nbsp;code for their current-round pairing. The station unlocks and loads the match when check-in succeeds. When the pairing resolves,&amp;nbsp;whether through a completed match or the Tournament’s no-show handling,&amp;nbsp;the station automatically re-locks for the next player.&lt;/p&gt;
+&lt;p&gt;For organizers, Arcade Mode removes much of the manual work of running an on-site competition. Organizers can register stations one at a time or in bulk from a floor file, add players, and let the Tournament engine run the competition. The admin experience provides station lock states and aggregate station-state&amp;nbsp;counts, and&amp;nbsp;lets staff force-relock a stuck station when needed. Pairings, scoring, standings, and round progression stay&amp;nbsp;in sync&amp;nbsp;automatically, so organizers can host a polished event without manual scorekeeping.&lt;/p&gt;
+&lt;h2&gt;&lt;strong&gt;Two distinct experiences, one learning journey&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Contests and Tournaments solve&amp;nbsp;different needs. Use a Contest when learners need a flexible, AI-based challenge that supports practice and recognizes&amp;nbsp;demonstrated&amp;nbsp;mastery. Use a&amp;nbsp;Tournament when the goal is a live, direct competitive experience where players face one another in a bracket.&lt;/p&gt;
+&lt;p&gt;Both event experiences can also extend learning beyond the event itself. Contest and Tournament play unlocks single-player campaign progression, so participants can leave with new levels unlocked and continue their solo learning journey afterward.
+ &lt;br&gt;
+ The two experiences can work together as well. For example, an organization can run a Contest for a cohort over several days, then use the Contest or campaign leaderboard to seed an elimination Tournament. This creates a progression&amp;nbsp;from individual practice,&amp;nbsp;to shared comparison, to a live competitive final.&lt;/p&gt;
+&lt;p&gt;A community event might take the opposite approach: begin with a Tournament to create immediate energy, then invite participants to continue building their skills through Contest challenges. The right format depends on whether the learning moment calls for flexible practice, direct competition, or both.&lt;/p&gt;
+&lt;h2&gt;&lt;strong&gt;Get started&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Start with the experience that matches your&amp;nbsp;objective. Create a Contest when your learners need a shared set of architecture challenges and the flexibility to&amp;nbsp;participate&amp;nbsp;during an event window. Choose a Tournament when your community is ready for direct bracket competition.&lt;/p&gt;
+&lt;p&gt;Whether your goal is to encourage practice, create a team challenge, or celebrate the best players in a live final, Contests and Tournaments give AWS Card Clash new ways to turn learning into a shared experience&amp;nbsp;and help learners carry that momentum into their own campaign journey.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ready to play?&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li&gt;&lt;strong&gt;Play on the web:&lt;/strong&gt; Visit &lt;a href="https://skillbuilder.aws/"&gt;AWS SkillBuilder&lt;/a&gt;.&lt;/li&gt;
+ &lt;li&gt;&lt;strong&gt;Get the mobile app:&lt;/strong&gt; Download AWS Card Clash from the &lt;a href="https://apps.apple.com/us/app/aws-card-clash/id6745035578" target="_blank" rel="noopener noreferrer"&gt;Apple App Store&lt;/a&gt;, &lt;a href="https://play.google.com/store/apps/details?id=com.amazon.aws.cardclash" target="_blank" rel="noopener noreferrer"&gt;Google Play&lt;/a&gt;, or the &lt;a href="https://www.amazon.com/gp/product/B0CWVVYHCJ" target="_blank" rel="noopener noreferrer"&gt;Amazon Appstore&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;</content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Introducing the new AWS Cloud Quest: AI-powered practice, hands-on building, and a path to official AWS badges</title>
+		<link>https://aws.amazon.com/blogs/training-and-certification/introducing-the-new-aws-cloud-quest-ai-powered-practice-hands-on-building-and-a-path-to-official-aws-badges/</link>
+		
+		<dc:creator><![CDATA[Curtis Morton]]></dc:creator>
+		<pubDate>Tue, 11 Aug 2026 17:18:26 +0000</pubDate>
+				<category><![CDATA[Announcements]]></category>
+		<category><![CDATA[AWS Training and Certification]]></category>
+		<guid isPermaLink="false">cf2387ebb148d02f4ccc4ac3de4dcd84ebcfe7f1</guid>
+
+					<description>Today we're announcing a major refresh to AWS Cloud Quest, the 3D, role-based learning game on AWS Skill Builder.</description>
+										<content:encoded>&lt;p&gt;A customer sits across from you with a problem: their app keeps falling over when traffic spikes, and they need it fixed.&amp;nbsp;There’s&amp;nbsp;no multiple-choice prompt, no transcript to skim.&amp;nbsp;You have to ask the right questions, figure out what they actually need, then go build it in a real AWS environment.&amp;nbsp;This is cloud learning that feels less like a course and more like the job.&lt;/p&gt;
+&lt;p&gt;That’s &lt;a href="https://skillbuilder.aws/learn/FU5WCYVGKY/aws-cloud-quest-cloud-practitioner/JF9TKU68GT" target="_blank" rel="noopener"&gt;AWS Cloud Quest&lt;/a&gt;, the 3D, role-based learning game on AWS Skill Builder. Today&amp;nbsp;we’re&amp;nbsp;announcing a major refresh built around the&amp;nbsp;four things that matter most when&amp;nbsp;you’re&amp;nbsp;stepping into a cloud career.&lt;/p&gt;
+&lt;p&gt;&lt;img loading="lazy" class="alignnone size-full wp-image-5671" src="https://d2908q01vomqb2.cloudfront.net/9109c85a45b703f87f1413a405549a2cea9ab556/2026/07/06/CloudQuest.png" alt="" width="858" height="618"&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;strong&gt;Practice the soft skills employers want, with AI&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;The new Cloud Quest puts an AI-powered customer conversation at the center of the experience. Each assignment starts with a conversation. A virtual customer describes their problem, and you&amp;nbsp;have to&amp;nbsp;figure out what they need by asking questions, the same way you would in a real meeting. The conversation is powered by generative AI, so&amp;nbsp;it’s&amp;nbsp;different every time, and a feedback panel shows you in real time how your soft skills are developing.&lt;/p&gt;
+&lt;p&gt;&lt;img loading="lazy" class="alignnone wp-image-5708 size-full" src="https://d2908q01vomqb2.cloudfront.net/9109c85a45b703f87f1413a405549a2cea9ab556/2026/08/10/CloudQuest-2.png" alt="" width="1928" height="1201"&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;strong&gt;Build real solutions in live AWS environments&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;The core learning loop in Cloud Quest is hands-on building. Learners explore an interactive solution diagram, build the solution in a live AWS environment, then apply and validate their work in a do-it-yourself challenge. Every assignment is a real exercise in real services. Hands-on labs are complemented by short learning videos and quizzes, so learners build both practical and foundational understanding.&lt;/p&gt;
+&lt;h2&gt;&lt;strong&gt;Augment certification prep with practice that sticks&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Cloud Quest assignments map to the services and scenarios on AWS Certification exams, giving learners hands-on reps that complement digital courses and exam-prep content on &lt;a href="https://skillbuilder.aws/" target="_blank" rel="noopener"&gt;AWS Skill Builder&lt;/a&gt;. Every learner, including free-tier players, can now relaunch any completed lab to revisit a topic or sharpen skills before exam day. The result is certification readiness built through doing, not just reading.&lt;/p&gt;
+&lt;h2&gt;&lt;strong&gt;Earn official AWS badges as proof of what you can build&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;As&amp;nbsp;learners&amp;nbsp;complete assignments, they progress toward earning official AWS badges they can share with their professional network. The Cloud Quest Cloud Practitioner badge grounds learners in foundational cloud concepts like&amp;nbsp;compute, storage, networking, and security, and&amp;nbsp;prepares&amp;nbsp;them for the AWS Certified Cloud Practitioner exam. The Generative AI Practitioner badge introduces core AI concepts like prompt engineering, foundation models, and responsible AI, and prepares learners for the AWS Certified AI Practitioner exam. These are just two of the roles available, with more spanning solution architecture, machine learning, security, and beyond. A redesigned heads-up display keeps badge progress front and center, so you always see how close you are to the next credential.&lt;/p&gt;
+&lt;p&gt;&lt;img loading="lazy" class="alignnone size-full wp-image-5709" src="https://d2908q01vomqb2.cloudfront.net/9109c85a45b703f87f1413a405549a2cea9ab556/2026/08/10/CloudQuest-3.png" alt="" width="1324" height="746"&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;strong&gt;A richer experience and a refined UX&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;More than one million learners have trained in Cloud Quest since launch, and we’ve been listening. The new release rebuilds the player experience around the moments where learners told us they wanted more clarity, more agency, and more reward.&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li&gt;&lt;strong&gt;Streamlined onboarding.&lt;/strong&gt; A redesigned onboarding flow leads with role selection and career value, so learners reach their first hands-on build faster, with less friction.&lt;/li&gt;
+ &lt;li&gt;&lt;strong&gt;Effortless navigation.&lt;/strong&gt; Teleportation lets learners jump to any assignment, NPC, or island at any time. A redesigned Quest Tracker keeps the next step always within reach, and updated character cameras and inputs make moving around the world smoother.&lt;/li&gt;
+ &lt;li&gt;&lt;strong&gt;Tournaments, online and global.&lt;/strong&gt; Compete with players around the world or build a custom tournament from any role. A new Tournament Points scoring layer lets veterans and newcomers play on equal footing, with lab replay during tournament play to score in real time.&lt;/li&gt;
+ &lt;li&gt;&lt;strong&gt;A new avatar engine.&lt;/strong&gt; A brand new editor gives learners far richer faces, hairstyles, outfits, and colors, and lets a character’s look evolve as the learner progresses.&lt;/li&gt;
+ &lt;li&gt;&lt;strong&gt;Builder Bonus rewards.&lt;/strong&gt; At the end of select assignments, learners have a chance to earn premium avatar outfits that aren’t available anywhere else in the game. Builder Bonus is earned through gameplay, with no purchase or in-game currency cost.&lt;/li&gt;
+ &lt;li&gt;&lt;strong&gt;A refreshed garage.&lt;/strong&gt; A new lineup of vehicles fits the updated visual world. Returning learners receive new vehicles in place of the retired ones at the same role tier they earned.&lt;/li&gt;
+ &lt;li&gt;&lt;strong&gt;Richer progression feedback.&lt;/strong&gt; Player level upgrades, structure upgrades, and pet level changes all get clearer, more rewarding feedback moments, so the wins feel like wins.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;&lt;strong&gt;Everything you earned carries over&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;The new Cloud Quest ships to all learners in a single release, and existing progress carries over: Reputation Level, Builder Level, badges, completed assignments, vehicles earned through role progression, and city building progress. A short welcome walks returning learners through what’s new.&lt;/p&gt;
+&lt;blockquote&gt;
+ &lt;p&gt;“Cloud Quest has always been about learning by doing,” said Curtis Morton, Sr. Product Manager at AWS Training and Certification. “With this release we focused on the outcomes learners care about most: real practice with AI, hands-on building in live AWS, a clear path to certification readiness, and official badges that show what they can do. Everything else, the navigation, the visuals, the rewards, exists to make that path faster and more engaging.”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;&lt;strong&gt;Get started&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;AWS Cloud Quest is part of the full suite of experiential learning within AWS Skill Builder, alongside hundreds of digital courses, AWS Builder Labs, and AWS Certification preparation resources. The new Cloud Quest is available now to all learners on AWS Skill Builder.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://skillbuilder.aws/" target="_blank" rel="noopener"&gt;Get started with AWS Cloud Quest today&lt;/a&gt;.&lt;/p&gt;</content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Prove your data analytics skills: Three new microcredentials now available</title>
+		<link>https://aws.amazon.com/blogs/training-and-certification/prove-your-data-analytics-skills-three-new-microcredentials-now-available/</link>
+		
+		<dc:creator><![CDATA[Tom Lawlor]]></dc:creator>
+		<pubDate>Thu, 30 Jul 2026 17:08:37 +0000</pubDate>
+				<category><![CDATA[Analytics]]></category>
+		<category><![CDATA[AWS Training and Certification]]></category>
+		<guid isPermaLink="false">fd0f0bbcf9fe31991fb56d344729928d7f5e32f1</guid>
+
+					<description>Today,&amp;nbsp;we're&amp;nbsp;launching three new&amp;nbsp;microcredentials&amp;nbsp;focused on Data Analytics:&amp;nbsp;AWS Data Streaming Demonstrated,&amp;nbsp;AWS Data Lakehouse Demonstrated, and&amp;nbsp;AWS Data Visualization Demonstrated. Each one&amp;nbsp;validates&amp;nbsp;your hands-on ability to diagnose&amp;nbsp;real issues&amp;nbsp;and implement solutions in a live AWS environment, under time pressure, with no hints.&amp;nbsp;</description>
+										<content:encoded>&lt;p&gt;&lt;span data-contrast="auto"&gt;You build streaming pipelines, manage lakehouse architectures, and deliver dashboards that drive decisions. Now you can earn a credential that validates your hands-on skills.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;Today,&amp;nbsp;we’re&amp;nbsp;launching three new&amp;nbsp;microcredentials&amp;nbsp;focused on Data Analytics:&amp;nbsp;&lt;/span&gt;&lt;b&gt;&lt;span data-contrast="auto"&gt;AWS Data Streaming Demonstrated&lt;/span&gt;&lt;/b&gt;&lt;span data-contrast="auto"&gt;,&amp;nbsp;&lt;/span&gt;&lt;b&gt;&lt;span data-contrast="auto"&gt;AWS Data Lakehouse Demonstrated&lt;/span&gt;&lt;/b&gt;&lt;span data-contrast="auto"&gt;, and&amp;nbsp;&lt;/span&gt;&lt;b&gt;&lt;span data-contrast="auto"&gt;AWS Data Visualization Demonstrated&lt;/span&gt;&lt;/b&gt;&lt;span data-contrast="auto"&gt;. Each one&amp;nbsp;validates&amp;nbsp;your hands-on ability to diagnose&amp;nbsp;real issues&amp;nbsp;and implement solutions in a live AWS environment, under time pressure, with no hints.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;These&amp;nbsp;microcredentials&amp;nbsp;are free to access on AWS Skill Builder. No subscription&amp;nbsp;required.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;span data-contrast="none"&gt;What’s new&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1,&amp;quot;335559738&amp;quot;:350}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://skillbuilder.aws/learn/D5KCRHGVJ3/aws-data-streaming-demonstrated/8J9N6ZT5R4" target="_blank" rel="noopener"&gt;&lt;span data-contrast="none"&gt;AWS Data Streaming Demonstrated&lt;/span&gt;&lt;/a&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1,&amp;quot;335559738&amp;quot;:350}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;Prove you can troubleshoot and fix real-time streaming infrastructure.&amp;nbsp;You’ll&amp;nbsp;work through challenges involving real-time ingestion, event streaming, stream processing, data delivery pipelines, poison-pill handling, and schema-driven format conversion.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;&lt;span data-contrast="auto"&gt;AWS services covered:&lt;/span&gt;&lt;/b&gt;&lt;span data-contrast="auto"&gt;&amp;nbsp;Amazon Kinesis Data Streams, Amazon MSK, Amazon Data Firehose, Amazon Managed Service for Apache Flink, AWS Glue&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;&lt;span data-contrast="auto"&gt;Ideal for:&lt;/span&gt;&lt;/b&gt;&lt;span data-contrast="auto"&gt;&amp;nbsp;Data Engineers and Cloud Engineers working with streaming workloads on AWS&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://skillbuilder.aws/learn/CXQUD7AC5F/aws-data-lakehouse-demonstrated/2FNRMHXE62" target="_blank" rel="noopener"&gt;&lt;span data-contrast="none"&gt;AWS Data Lakehouse Demonstrated&lt;/span&gt;&lt;/a&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1,&amp;quot;335559738&amp;quot;:350}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;Prove you can diagnose and resolve issues across&amp;nbsp;lakehouse&amp;nbsp;architectures.&amp;nbsp;You’ll&amp;nbsp;fix schema mismatches,&amp;nbsp;eliminate&amp;nbsp;duplicate records, restore query performance, configure fine-grained access controls, and&amp;nbsp;maintain&amp;nbsp;data processing pipelines.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;&lt;span data-contrast="auto"&gt;AWS services covered:&lt;/span&gt;&lt;/b&gt;&lt;span data-contrast="auto"&gt;&amp;nbsp;Amazon Athena, AWS Glue, Apache Iceberg, Amazon&amp;nbsp;EventBridge, AWS Lake Formation, Amazon Data Firehose&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;&lt;span data-contrast="auto"&gt;Ideal for:&lt;/span&gt;&lt;/b&gt;&lt;span data-contrast="auto"&gt;&amp;nbsp;Data Engineers, Analytics Engineers, and Solutions Architects working with&amp;nbsp;lakehouse&amp;nbsp;workloads on AWS&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://skillbuilder.aws/learn/Y2PFJC725K/aws-data-visualization-demonstrated/K817X4D424" target="_blank" rel="noopener"&gt;&lt;span data-contrast="none"&gt;AWS Data Visualization Demonstrated&lt;/span&gt;&lt;/a&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1,&amp;quot;335559738&amp;quot;:350}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;Prove you can build, secure, and troubleshoot analytics dashboards and reporting layers.&amp;nbsp;You’ll&amp;nbsp;fix ingestion failures from schema drift, build calculated metrics with ML-powered forecasting, implement multi-tenant row-level and column-level security, and publish executive dashboards.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;&lt;span data-contrast="auto"&gt;AWS services covered:&lt;/span&gt;&lt;/b&gt;&lt;span data-contrast="auto"&gt;&amp;nbsp;Amazon Athena, Amazon Redshift Serverless, AWS Glue, Amazon&amp;nbsp;QuickSight&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;&lt;span data-contrast="auto"&gt;Ideal for:&lt;/span&gt;&lt;/b&gt;&lt;span data-contrast="auto"&gt;&amp;nbsp;BI Analysts, Analytics Engineers, and Solutions Architects working with visualization workloads on AWS&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;span data-contrast="none"&gt;How it works&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1,&amp;quot;335559738&amp;quot;:350}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;Each&amp;nbsp;microcredential&amp;nbsp;is a hands-on, timed lab assessment.&amp;nbsp;You work in a live AWS environment to solve realistic challenges. There are no multiple-choice questions. You either fix the&amp;nbsp;problem&amp;nbsp;or you&amp;nbsp;don’t.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;When you pass, you earn a digital badge through&amp;nbsp;Credly&amp;nbsp;that you can share on LinkedIn, your resume, or with your team.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;span data-contrast="none"&gt;Why microcredentials&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1,&amp;quot;335559738&amp;quot;:350}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;AWS Certifications&amp;nbsp;validate&amp;nbsp;what you know.&amp;nbsp;Microcredentials&amp;nbsp;validate what you can do. They complement each other: certifications prove breadth of knowledge across a domain, while&amp;nbsp;microcredentials&amp;nbsp;prove you can deliver hands-on in specific, high-demand skill areas.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;These three Data Analytics&amp;nbsp;microcredentials&amp;nbsp;join the existing portfolio, which includes:&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li data-leveltext="●" data-font="Calibri" data-listid="2" data-list-defn-props="{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:576,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;●&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}" data-aria-posinset="1" data-aria-level="1"&gt;&lt;span data-contrast="auto"&gt;AWS Serverless Demonstrated&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1,&amp;quot;335559991&amp;quot;:360}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+ &lt;li data-leveltext="●" data-font="Calibri" data-listid="2" data-list-defn-props="{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:576,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;●&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}" data-aria-posinset="2" data-aria-level="1"&gt;&lt;span data-contrast="auto"&gt;AWS Agentic AI Demonstrated&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1,&amp;quot;335559991&amp;quot;:360}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+ &lt;li data-leveltext="●" data-font="Calibri" data-listid="2" data-list-defn-props="{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:576,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;●&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}" data-aria-posinset="3" data-aria-level="1"&gt;&lt;span data-contrast="auto"&gt;AWS Application Networking Demonstrated&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1,&amp;quot;335559991&amp;quot;:360}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+ &lt;li data-leveltext="●" data-font="Calibri" data-listid="2" data-list-defn-props="{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:576,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;●&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}" data-aria-posinset="4" data-aria-level="1"&gt;&lt;span data-contrast="auto"&gt;AWS Incident Response Demonstrated&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1,&amp;quot;335559991&amp;quot;:360}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+ &lt;li data-leveltext="●" data-font="Calibri" data-listid="2" data-list-defn-props="{&amp;quot;335552541&amp;quot;:1,&amp;quot;335559685&amp;quot;:576,&amp;quot;469769242&amp;quot;:[8226],&amp;quot;469777803&amp;quot;:&amp;quot;left&amp;quot;,&amp;quot;469777804&amp;quot;:&amp;quot;●&amp;quot;,&amp;quot;469777815&amp;quot;:&amp;quot;hybridMultilevel&amp;quot;}" data-aria-posinset="5" data-aria-level="1"&gt;&lt;span data-contrast="auto"&gt;AWS&amp;nbsp;MLOps&amp;nbsp;Demonstrated&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1,&amp;quot;335559991&amp;quot;:360}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;&lt;span data-contrast="none"&gt;Get started&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1,&amp;quot;335559738&amp;quot;:350}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;All three assessments are available now, free on AWS Skill Builder. No subscription, no paywall, no waiting.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://skillbuilder.aws/certification/microcredentials" target="_blank" rel="noopener"&gt;&lt;span data-contrast="none"&gt;Explore all microcredentials on AWS Skill Builder →&lt;/span&gt;&lt;/a&gt;&lt;span data-ccp-props="{&amp;quot;335551550&amp;quot;:1,&amp;quot;335551620&amp;quot;:1}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;</content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Introducing Self-Paced Trivia and Polls: new ways to compete and connect in AWS Skill Builder Trivia </title>
+		<link>https://aws.amazon.com/blogs/training-and-certification/introducing-self-paced-trivia-and-polls-new-ways-to-compete-and-connect-in-aws-skill-builder-trivia/</link>
+		
+		<dc:creator><![CDATA[Curtis Morton]]></dc:creator>
+		<pubDate>Tue, 28 Jul 2026 16:58:50 +0000</pubDate>
+				<category><![CDATA[Announcements]]></category>
+		<category><![CDATA[AWS Training and Certification]]></category>
+		<guid isPermaLink="false">6a3eaf6ba179d3bab1c2d800fe5db542fce25f0a</guid>
+
+					<description>Today,&amp;nbsp;we’re&amp;nbsp;excited to announce&amp;nbsp;Self-Paced&amp;nbsp;Trivia&amp;nbsp;and&amp;nbsp;Polls, two new capabilities that give teams more flexibility in how they learn and engage.&amp;nbsp;Self-Paced&amp;nbsp;Trivia lets participants compete on their own&amp;nbsp;schedule. Polls let facilitators gather audience input without changing the score. Used independently or together, they help organizations create learning experiences that fit the moment.&amp;nbsp;</description>
+										<content:encoded>&lt;p&gt;&lt;span data-contrast="auto"&gt;Cloud learning is most effective when teams can engage with it in ways that fit their work. Learners need opportunities to reinforce what they have learned, even when they are spread across time zones,&amp;nbsp;working&amp;nbsp;different schedules, or attending a multi-day event. Facilitators also need a way to understand how their audience feels,&amp;nbsp;what participants know, where they need support, and what they want to learn next,&amp;nbsp;without turning every question into a scored knowledge check.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;134233117&amp;quot;:false,&amp;quot;134233118&amp;quot;:false,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559739&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;Since launch, &lt;a href="https://explore.skillbuilder.aws/learn/courses/22827/aws-skill-builder-trivia" target="_blank" rel="noopener"&gt;AWS Skill Builder Trivia&lt;/a&gt; has helped teams reinforce cloud knowledge through live, gamified competition. In a live session, a host guides question delivery in real time while participants answer together, earn points for accuracy and speed, and compete on a shared leaderboard. This format brings energy to team meetings, training programs, and events, but it requires everyone to be available at the same time and does not offer a natural way to ask an opinion question without assigning an arbitrary correct answer.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;134233117&amp;quot;:false,&amp;quot;134233118&amp;quot;:false,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559739&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;Today,&amp;nbsp;we’re&amp;nbsp;excited to announce&amp;nbsp;&lt;/span&gt;&lt;b&gt;&lt;span data-contrast="auto"&gt;Self-Paced&amp;nbsp;Trivia&lt;/span&gt;&lt;/b&gt;&lt;span data-contrast="auto"&gt;&amp;nbsp;and&amp;nbsp;&lt;/span&gt;&lt;b&gt;&lt;span data-contrast="auto"&gt;Polls&lt;/span&gt;&lt;/b&gt;&lt;span data-contrast="auto"&gt;, two new capabilities that give teams more flexibility in how they learn and engage.&amp;nbsp;Self-Paced&amp;nbsp;Trivia lets participants compete on their own&amp;nbsp;schedule. Polls let facilitators gather audience input without changing the score. Used independently or together, they help organizations create learning experiences that fit the moment.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;134233117&amp;quot;:false,&amp;quot;134233118&amp;quot;:false,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559739&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;b&gt;&lt;span data-contrast="auto"&gt;Self-Paced&amp;nbsp;Trivia: competition that fits your schedule&lt;/span&gt;&lt;/b&gt;&lt;span data-ccp-props="{&amp;quot;134233117&amp;quot;:false,&amp;quot;134233118&amp;quot;:false,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559739&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;Self-Paced&amp;nbsp;Trivia is a new asynchronous mode of AWS Skill Builder Trivia. An event creator sets up a trivia challenge, chooses an availability window of up to&amp;nbsp;30 days, and shares a QR code or link. Participants join when it works for them, answer questions at their own pace, and contribute to a shared leaderboard. No host is&amp;nbsp;required&amp;nbsp;during gameplay, and there is no fixed time when every participant must be online.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;134233117&amp;quot;:false,&amp;quot;134233118&amp;quot;:false,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559739&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;The competitive experience&amp;nbsp;remains&amp;nbsp;at the center. Standard quiz questions use the same speed-based scoring as live Trivia: each&amp;nbsp;correct answer can earn up to 1,000 points based on accuracy and answer speed. When participants complete the event, they see their final score and position on the leaderboard alongside everyone else who has played.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;134233117&amp;quot;:false,&amp;quot;134233118&amp;quot;:false,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559739&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;For organizers,&amp;nbsp;Self-Paced&amp;nbsp;Trivia makes it possible to extend a learning moment beyond a single meeting. A training leader can share a challenge after an AWS course and give the team a week to&amp;nbsp;participate. A conference organizer can run a trivia challenge throughout a multi-day event. A distributed team can compete across time zones without coordinating a live session. From the event detail page, administrators can&amp;nbsp;monitor&amp;nbsp;participation, completion rates, average scores, and the leaderboard without needing to host gameplay.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;134233117&amp;quot;:false,&amp;quot;134233118&amp;quot;:false,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559739&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading="lazy" class="size-full wp-image-5696 alignnone" src="https://d2908q01vomqb2.cloudfront.net/9109c85a45b703f87f1413a405549a2cea9ab556/2026/07/28/Screenshot-2026-07-28-at-8.44.16 AM.png" alt="" width="1004" height="880"&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;b&gt;&lt;span data-contrast="auto"&gt;Polls: a way to hear from your audience&lt;/span&gt;&lt;/b&gt;&lt;span data-ccp-props="{&amp;quot;134233117&amp;quot;:false,&amp;quot;134233118&amp;quot;:false,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559739&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;Polls are a separate Trivia question type for facilitators who want to collect sentiment, confidence, or feedback. A Poll can ask questions such as “How prepared do you feel?” or “Which topic should we cover next?” without requiring an arbitrary correct answer.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;134233117&amp;quot;:false,&amp;quot;134233118&amp;quot;:false,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559739&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;A Poll is answered like a quiz question, but it awards zero points and never changes the leaderboard. Rather than showing correct or incorrect feedback, every answer&amp;nbsp;option&amp;nbsp;remains&amp;nbsp;colored and the result is clearly labeled&amp;nbsp;&lt;/span&gt;&lt;b&gt;&lt;span data-contrast="auto"&gt;“Poll · No points.”&lt;/span&gt;&lt;/b&gt;&lt;span data-contrast="auto"&gt;&amp;nbsp;After responding, participants see the response distribution. In a&amp;nbsp;Self-Paced&amp;nbsp;Trivia event, they&amp;nbsp;immediately&amp;nbsp;see how many participants selected each&amp;nbsp;option.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;134233117&amp;quot;:false,&amp;quot;134233118&amp;quot;:false,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559739&amp;quot;:240}"&gt; &lt;span class="NormalTextRun SCXW256002094 BCX0"&gt;Once a Self-Paced Trivia event ends, administrators can download a report showing how many participants&amp;nbsp;&lt;/span&gt;&lt;span class="NormalTextRun ContextualSpellingAndGrammarErrorV2Themed SCXW256002094 BCX0"&gt;selected&lt;/span&gt;&lt;span class="NormalTextRun SCXW256002094 BCX0"&gt;&amp;nbsp;each&amp;nbsp;&lt;/span&gt;&lt;span class="NormalTextRun SCXW256002094 BCX0"&gt;option&lt;/span&gt;&lt;span class="NormalTextRun SCXW256002094 BCX0"&gt;.&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;Polls can be used in live sessions or included in a&amp;nbsp;Self-Paced&amp;nbsp;Trivia event. This gives facilitators&amp;nbsp;a simple way&amp;nbsp;to combine scored knowledge checks with audience feedback while keeping the competition focused on the questions that measure learning.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;134233117&amp;quot;:false,&amp;quot;134233118&amp;quot;:false,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559739&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;b&gt;&lt;span data-contrast="auto"&gt;Two distinct capabilities, one flexible learning experience&lt;/span&gt;&lt;/b&gt;&lt;span data-ccp-props="{&amp;quot;134233117&amp;quot;:false,&amp;quot;134233118&amp;quot;:false,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559739&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;Self-Paced&amp;nbsp;Trivia and Polls solve&amp;nbsp;different needs. Use&amp;nbsp;Self-Paced&amp;nbsp;Trivia when a team needs a flexible, competitive way to reinforce learning across schedules, time zones, or an extended event window.&amp;nbsp;Use Polls when an organizer wants to understand what an audience thinks without awarding points or a correct answer.&amp;nbsp;Use both when a learning experience should include scored questions and feedback in the same event.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;134233117&amp;quot;:false,&amp;quot;134233118&amp;quot;:false,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559739&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;For example, a manager can create a week-long&amp;nbsp;Self-Paced&amp;nbsp;Trivia event after a training program, then add a Poll that asks participants where they want more practice. A conference facilitator can use Polls during a live session to capture audience input, then share a&amp;nbsp;Self-Paced&amp;nbsp;Trivia challenge that attendees can complete between sessions.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;134233117&amp;quot;:false,&amp;quot;134233118&amp;quot;:false,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559739&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;b&gt;&lt;span data-contrast="auto"&gt;Availability&lt;/span&gt;&lt;/b&gt;&lt;span data-ccp-props="{&amp;quot;134233117&amp;quot;:false,&amp;quot;134233118&amp;quot;:false,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559739&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;Self-Paced&amp;nbsp;Trivia events can be created for free using the existing question bank. An AWS Skill Builder subscription adds the AI quiz generator and custom template uploads for&amp;nbsp;Self-Paced&amp;nbsp;Trivia. Poll creation is also available to AWS Skill Builder subscription authors.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;134233117&amp;quot;:false,&amp;quot;134233118&amp;quot;:false,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559739&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;Participants can join and answer quiz questions or Polls for free by default. No account is required by default, although event creators can require Skill Builder authentication when they need&amp;nbsp;additional&amp;nbsp;control.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;134233117&amp;quot;:false,&amp;quot;134233118&amp;quot;:false,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559739&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;b&gt;&lt;span data-contrast="auto"&gt;Get started&lt;/span&gt;&lt;/b&gt;&lt;span data-ccp-props="{&amp;quot;134233117&amp;quot;:false,&amp;quot;134233118&amp;quot;:false,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559739&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;AWS Skill Builder Trivia is part of the experiential learning portfolio within AWS Skill Builder, alongside hundreds of digital courses, AWS Builder Labs, AWS Cloud Quest, and AWS Certification preparation resources. To create an asynchronous challenge, navigate to&amp;nbsp;&lt;/span&gt;&lt;b&gt;&lt;span data-contrast="auto"&gt;Self-Paced&amp;nbsp;Events&lt;/span&gt;&lt;/b&gt;&lt;span data-contrast="auto"&gt; in&amp;nbsp;&lt;span class="TextRun Highlight SCXW67034761 BCX0" lang="EN-US" xml:lang="EN-US" data-contrast="auto"&gt;&lt;span class="NormalTextRun SCXW67034761 BCX0"&gt;AWS Skill Builder&lt;/span&gt;&lt;span class="NormalTextRun SCXW67034761 BCX0"&gt;&amp;nbsp;Trivia&lt;/span&gt;&lt;span class="NormalTextRun SCXW67034761 BCX0"&gt;.&lt;/span&gt;&lt;/span&gt; To add Polls, use the Trivia editor to include them in a live session or a&amp;nbsp;Self-Paced&amp;nbsp;Trivia event.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;134233117&amp;quot;:false,&amp;quot;134233118&amp;quot;:false,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559739&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span data-contrast="auto"&gt;Share an event with your team, learn what your audience needs, and turn cloud learning into an experience people can join on their own schedule.&lt;/span&gt;&lt;span data-ccp-props="{&amp;quot;134233117&amp;quot;:false,&amp;quot;134233118&amp;quot;:false,&amp;quot;335559738&amp;quot;:0,&amp;quot;335559739&amp;quot;:240}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span data-ccp-props="{}"&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;</content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Updates to AWS Certified Machine Learning Engineer – Associate (MLA-C02)</title>
+		<link>https://aws.amazon.com/blogs/training-and-certification/updates-to-aws-certified-machine-learning-engineer-associate-mla-c02/</link>
+		
+		<dc:creator><![CDATA[Vandit Kothari]]></dc:creator>
+		<pubDate>Tue, 14 Jul 2026 15:11:03 +0000</pubDate>
+				<category><![CDATA[Announcements]]></category>
+		<category><![CDATA[AWS Training and Certification]]></category>
+		<guid isPermaLink="false">1d41675d09a658b02119e3ebbb8ac0d862533379</guid>
+
+					<description>AWS Certification is updating the AWS Certified Machine Learning Engineer - Associate exam. Registration for the beta version of the exam will be available in English starting September 1, 2026. The last day to take the current version of the exam (MLA-C01) in English will be September 28, 2026.</description>
+										<content:encoded>&lt;p&gt;&lt;em&gt;Coming Soon: Updates to AWS Certified Machine Learning Engineer – Associate (MLA-C02)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;AWS Certification is updating the AWS Certified Machine Learning Engineer – Associate exam. Registration for the beta version of the exam will be available in English starting September 1, 2026. The last day to take the current version of the exam (MLA-C01) in English will be September 28, 2026. The current version of the exam (MLA-C01) will remain available in Japanese, Korean, and Simplified Chinese during the beta period.&lt;/p&gt;
+&lt;p&gt;The role of the machine learning (ML) engineer has evolved. Today’s ML engineers don’t just build and deploy traditional models. They implement generative AI solutions, work with foundation models and large language models (LLMs), orchestrate agentic AI workflows, and operationalize AI at scale. To keep pace with this evolution, the updated exam (MLA-C02) will include generative AI, agentic AI, and foundation model/LLM workloads alongside traditional ML engineering. This certification validates your ability to build, deploy, maintain, and monitor ML and generative AI solutions on AWS using services like Amazon SageMaker AI, Amazon Bedrock, and others.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Who is this certification for?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The updated AWS Certified Machine Learning Engineer – Associate certification is designed for professionals who build and operationalize ML and generative AI solutions in production environments. Target roles include:&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li&gt;ML Engineers and MLOps Engineers responsible for end-to-end ML lifecycle management&lt;/li&gt;
+ &lt;li&gt;LLMOps Engineers operationalizing foundation models and GenAI applications&lt;/li&gt;
+ &lt;li&gt;Data Engineers building and managing ML data pipelines&lt;/li&gt;
+ &lt;li&gt;Software Developers integrating ML/GenAI capabilities into applications&lt;/li&gt;
+ &lt;li&gt;Data Scientists transitioning into ML engineering roles&lt;/li&gt;
+ &lt;li&gt;Machine Learning Architects and Solutions Architects designing ML systems&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Recommended experience:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li&gt;At least 1 year of experience using Amazon SageMaker AI, Amazon Bedrock, and other AWS services for ML engineering&lt;/li&gt;
+ &lt;li&gt;At least 1 year of experience in a related role such as backend software developer, DevOps developer, data engineer, or data scientist&lt;/li&gt;
+ &lt;li&gt;Experience with both traditional ML and generative AI&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;For employers and AWS Partners:&lt;/strong&gt; This certification provides confidence that your ML engineers and MLOps engineers have validated, current skills across both traditional ML and generative AI, ensuring your teams can deliver production-grade solutions that meet today’s business objectives.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;What has changed in MLA-C02 and why&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The domain structure of the exam remains the same. No new domains were added. However, the updated exam reflects key additions that align with how the ML engineer role has broadened in practice:&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li&gt;&lt;strong&gt;Generative AI implementation&lt;/strong&gt;: Building and deploying GenAI solutions, fine-tuning foundation models, and implementing retrieval-augmented generation (RAG) architectures&lt;/li&gt;
+ &lt;li&gt;&lt;strong&gt;Agentic AI&lt;/strong&gt;: Orchestrating AI agents and complex workflows&lt;/li&gt;
+ &lt;li&gt;&lt;strong&gt;Foundation models and LLMs&lt;/strong&gt;: Selecting, customizing, and operationalizing large language models&lt;/li&gt;
+ &lt;li&gt;&lt;strong&gt;Amazon Bedrock&lt;/strong&gt;: Expanded coverage of Amazon Bedrock capabilities for generative AI workloads&lt;/li&gt;
+ &lt;li&gt;&lt;strong&gt;Responsible AI practices&lt;/strong&gt;: Updated guidance on responsible AI implementation across both traditional ML and generative AI.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Existing task statements and skills have been updated to align with current industry practices, while retaining the core ML engineering competencies that the certification has always validated.&lt;/p&gt;
+&lt;p&gt;Note: The full exam guide with detailed task statements will be available when beta registration opens on September 1, 2026.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Key dates&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;September 1, 2026 – Beta registration opens (English only); exam guide released&lt;/p&gt;
+&lt;p&gt;September 28, 2026 – Last day to take MLA-C01 in English (Japanese, Korean, and Simplified Chinese will remain available during the beta period)&lt;/p&gt;
+&lt;p&gt;September 29, 2026 – Beta delivery begins&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Beta exam details&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Duration: 170 minutes&lt;/p&gt;
+&lt;p&gt;Number of questions: 85&lt;/p&gt;
+&lt;p&gt;Price: $75 USD&lt;/p&gt;
+&lt;p&gt;Language: English only&lt;/p&gt;
+&lt;p&gt;Delivery: Pearson VUE (test center or online proctoring)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Should you take MLA-C01 or MLA-C02?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;For those taking the exam in English, consider:&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li&gt;Take MLA-C01 (by September 28, 2026) if you’re already prepared and want to earn the certification now. Your credential remains active through its original expiration date.&lt;/li&gt;
+ &lt;li&gt;Take the beta (registration opens September 1, 2026) if you want your certification to validate both traditional ML and GenAI skills&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For all exam languages, the standard version of the updated exam (MLA-C02) will be available in early 2027.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Get started today&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The ML engineer role has evolved, and this certification evolves with it. Whether you’re building recommendation systems, fine-tuning foundation models, or implementing agentic AI workflows, MLA-C02 validates that your skills reflect what the industry demands today.&lt;/p&gt;
+&lt;ul&gt;
+ &lt;li&gt;Learn more about the &lt;a href="https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/" target="_blank" rel="noopener"&gt;AWS Certified Machine Learning Engineer – Associate&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;Start preparing with &lt;a href="https://skillbuilder.aws/" target="_blank" rel="noopener"&gt;AWS Skill Builder&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;Explore the &lt;a href="https://aws.amazon.com/certification/" target="_blank" rel="noopener"&gt;AWS Certification paths&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>What’s new in Cohorts Studio: Edit, collaborate, and scale</title>
+		<link>https://aws.amazon.com/blogs/training-and-certification/whats-new-in-cohorts-studio-edit-collaborate-and-scale/</link>
+		
+		<dc:creator><![CDATA[Rajeev Kapoor]]></dc:creator>
+		<pubDate>Wed, 08 Jul 2026 15:32:14 +0000</pubDate>
+				<category><![CDATA[Announcements]]></category>
+		<category><![CDATA[AWS Training and Certification]]></category>
+		<guid isPermaLink="false">aac194caa59510d68898fa176d8352014d107829</guid>
+
+					<description>Cohorts Studio now supports edits, shared management, and more. Along with these core updates, this release also includes expanded content options, engagement tools, global cohort support, and streamlined administration. In this post, we cover how these capabilities help you manage cohort programs with less effort.</description>
+										<content:encoded>&lt;p&gt;For AWS Skill Builder Team Subscription customers managing learning cohorts, the work doesn’t stop once a cohort goes live. Plans change, schedules shift, links arrive late, and ownership moves around. At the same time, a single cohort owner becomes a bottleneck when responsibilities need to shift.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://skillbuilder.aws/learn/cohorts-studio" target="_blank" rel="noopener"&gt;Cohorts Studio&lt;/a&gt; now supports edits, shared management, and more. Along with these core updates, this release also includes expanded content options, engagement tools, global cohort support, and streamlined administration. In this post, we cover how these capabilities help you manage cohort programs with less effort.&lt;/p&gt;
+&lt;h1&gt;Edit published cohorts without starting over&lt;/h1&gt;
+&lt;p&gt;Two out of three published cohorts require some form of edit after launch. Common examples include adding or removing a learning activity, moving activities between weeks, shifting start dates, or entering live meeting links not yet available at creation time. Instead of starting over, you update the live cohort directly. Edits that previously meant recreating the cohort can now be made in seconds.&lt;/p&gt;
+&lt;p&gt;You can keep your cohort intact when plans change. Edit weekly agendas, insert new weeks, and move start dates on a published cohort. Add live meetings that weren’t available at creation time. Designate optional activities and rearrange weeks. Custom holiday week messages let learners know when a break is planned.&lt;/p&gt;
+&lt;h1&gt;Collaborate with your team&lt;/h1&gt;
+&lt;p&gt;When a cohort manager changes roles or goes on leave, the cohort shouldn’t stall. Until now, only one person could own and manage a cohort at a time, creating a single point of failure for active programs. Sometimes an organization doesn’t have the time or expertise to create a cohort themselves. In those cases, they delegate creation to another individual within the org or to an AWS representative. Once the cohort is built, ownership may need to transfer back to the person who will run it day to day. Ownership transfers complete instantly, eliminating manual handoffs and single-manager bottlenecks.&lt;/p&gt;
+&lt;p&gt;Cohorts Studio now lets you assign management responsibilities to additional team members and transfer ownership when needed. Templates built on your behalf by AWS can be transferred to your team, or shared between team members within your organization. Shareable preview links let recipients review, edit, and create cohorts from those templates. Viewer access lets stakeholders observe cohort progress without editing anything.&lt;/p&gt;
+&lt;h1&gt;Bring more content into your cohorts&lt;/h1&gt;
+&lt;p&gt;Customers told us they needed more flexible ways to add content and get started quickly. You can paste a Skill Builder course or Learning Plan URL to add that activity directly to your cohort agenda. Cohorts Studio breaks down Learning Plans into smaller, weekly consumable chunks within the cohort program. Pre-built templates, including one for the AWS Certified Generative AI Developer – Professional (AIP-C01) exam, help you get started.&lt;/p&gt;
+&lt;h1&gt;Drive engagement with built-in competitions and nudges&lt;/h1&gt;
+&lt;p&gt;Keeping learners engaged across multi-week programs has been a consistent challenge, especially when cohort activities compete with daily work. Cloud Quest Tournaments, Escape Room, Trivia, and Jams are integrated directly within Cohorts Studio, giving your learners competitive, interactive experiences without leaving the cohort flow. Custom nudge emails let you send targeted reminders to keep learners motivated at the moments that matter.&lt;/p&gt;
+&lt;h1&gt;Better experience for global cohorts&lt;/h1&gt;
+&lt;p&gt;An improved AI recommendation interface helps you build cohorts with smarter content suggestions. Time zone selection means your global teams see the right schedule, regardless of where they’re located.&lt;/p&gt;
+&lt;h1&gt;Efficient administration at scale&lt;/h1&gt;
+&lt;p&gt;Adding learners manually, one at a time, slowed down program launches for large teams. Bulk import replaces one-by-one learner entry, turning dozens of manual steps into a single action. Skill Builder group integration connects your existing team structures. Learning Admins can create and manage cohorts using Cohorts Studio without consuming a Skill Builder subscription seat. Export cohort data to Excel for reporting and sharing with your team.&lt;/p&gt;
+&lt;h1&gt;Get started&lt;/h1&gt;
+&lt;p&gt;These enhancements represent the first major update to Cohorts Studio since launch, and they reflect what you, our customers, told us mattered most. These updates reflect our commitment to cohort-based learning on AWS Skill Builder that is flexible, collaborative, and impactful.&lt;/p&gt;
+&lt;p&gt;Ready to get started? Explore the updated &lt;a href="https://skillbuilder.aws/learn/cohorts-studio" target="_blank" rel="noopener"&gt;Cohorts Studio&lt;/a&gt; on &lt;a href="https://skillbuilder.aws" target="_blank" rel="noopener"&gt;AWS Skill Builder&lt;/a&gt; or learn more about &lt;a href="https://aws.amazon.com/training/digital/team-subscription/" target="_blank" rel="noopener"&gt;AWS Skill Builder Team subscriptions&lt;/a&gt;. Start building your next cohort with these new capabilities today.&lt;/p&gt;</content:encoded>
+					
+		
+		
+			</item>
+	</channel>
+</rss>

@@ -6,3 +6,5 @@ cdk.out/
 apps/web/src/data/snapshot.json
 /BRIEF.md
 packages/core/schema/
+# recorded responses are byte-for-byte captures
+fixtures/sources/
