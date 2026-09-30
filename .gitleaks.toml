@@ -1,0 +1,9 @@
+# The recorded pages under fixtures/sources/ are public documents; anything key-shaped in them
+# was served to every visitor and is redacted at record time (scripts/lib/redact.ts). The
+# allowlist covers what the redaction misses, and the commits from before it existed.
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "recorded public pages"
+paths = ['''fixtures/sources/.*''']

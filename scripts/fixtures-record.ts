@@ -3,6 +3,7 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { SourcesSeedSchema, normalizeSources } from '@cert-tracker/pipeline/seed';
 
 import { repoRoot, sourcesSeedPath } from './lib/paths.ts';
+import { redactPublicKeys } from './lib/redact.ts';
 
 // npm run fixtures:record -- <sourceId> [<sourceId> ...]
 // Hits the network once per source and writes the raw response under fixtures/sources/<id>/
@@ -34,7 +35,7 @@ for (const id of ids) {
   });
   const dir = `${repoRoot}fixtures/sources/${id}/`;
   mkdirSync(dir, { recursive: true });
-  const body = await response.text();
+  const body = redactPublicKeys(await response.text());
   const file = `${dir}response.${extensions[source.kind] ?? 'html'}`;
   writeFileSync(file, body);
   writeFileSync(
