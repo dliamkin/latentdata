@@ -1,0 +1,13 @@
+{
+  "name": "@cert-tracker/sources",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@cert-tracker/core": "0.0.0",
+    "fast-xml-parser": "5.11.2"
+  }
+}
