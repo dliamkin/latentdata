@@ -1,3 +1,11 @@
+export { addDailyUsage, getDailyBudget, type DailyBudget } from './budget.ts';
+export {
+  candidatePutItem,
+  candidateToItem,
+  itemToCandidate,
+  listCandidatesByStage,
+  putCandidateIfAbsent,
+} from './candidates.ts';
 export {
   cancellationReasons,
   createDocClient,
@@ -19,15 +27,29 @@ export {
   getOffer,
   itemToOffer,
   listOffers,
+  offerPutItem,
   offerStatusUpdateItem,
   offerToItem,
   putOfferIfAbsent,
   type OfferStatusChange,
 } from './offers.ts';
 export {
+  SIGNAL_TTL_DAYS,
+  deferSignal,
+  itemToSignal,
+  listDeferredSignals,
+  putSignalIfAbsent,
+  requeueSignal,
+  seenFingerprints,
+  setSignalState,
+  setSignalTriage,
+  signalToItem,
+} from './signals.ts';
+export {
   UNHEALTHY_AFTER_FAILURES,
   itemToSource,
   listSources,
+  putSource,
   putSourceIfAbsent,
   sourceHealth,
   sourceToItem,

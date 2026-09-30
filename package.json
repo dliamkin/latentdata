@@ -28,7 +28,10 @@
     "pwa:icons": "node scripts/pwa-icons.ts",
     "dev": "npm run dev -w apps/web",
     "seed:import": "node scripts/seed-import.ts",
-    "cdk": "npm run cdk -w infra --"
+    "cdk": "npm run cdk -w infra --",
+    "fixtures:record": "node scripts/fixtures-record.ts",
+    "eval:triage": "node scripts/eval-triage.ts",
+    "source:set": "node scripts/source-set.ts"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",

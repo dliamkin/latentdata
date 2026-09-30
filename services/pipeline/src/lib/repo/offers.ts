@@ -63,6 +63,17 @@ export async function putOfferIfAbsent(
   }
 }
 
+// a Put for a transaction: the auto-accept path creates the offer alongside its candidate
+export function offerPutItem(table: string, offer: Offer): Record<string, unknown> {
+  return {
+    Put: {
+      TableName: table,
+      Item: offerToItem(offer),
+      ConditionExpression: 'attribute_not_exists(PK)',
+    },
+  };
+}
+
 export interface OfferStatusChange {
   id: string;
   windowEnd: string | null;
