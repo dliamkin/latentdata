@@ -4,6 +4,6 @@
 [extend]
 useDefault = true
 
-[[allowlists]]
+[allowlist]
 description = "recorded public pages"
 paths = ['''fixtures/sources/.*''']
