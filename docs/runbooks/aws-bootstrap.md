@@ -92,16 +92,36 @@ aws ssm put-parameter --type SecureString --name /cert-tracker/prod/github/appPr
 
 Delete the `.pem` from your laptop afterwards. The parameter is the only copy that matters.
 
+### M3: the discovery pipeline
+
+Six more parameters, created **before** the M3 deploy is approved. The functions read them at
+cold start and fail loudly if one is missing.
+
+The API key comes from a dedicated key in the Anthropic console, on a workspace with its own
+monthly spend limit. That limit is the outer fence; `dailyCapUsd` is the inner one. The GitHub
+token is a fine-grained personal access token with **no** repository access at all (public
+data only): it exists so that commit polling gets 5,000 requests an hour instead of 60.
+
+```
+aws ssm put-parameter --type SecureString --name /cert-tracker/prod/anthropic/apiKey --value "<sk-ant-...>"
+aws ssm put-parameter --type SecureString --name /cert-tracker/prod/github/token --value "<github_pat_...>"
+aws ssm put-parameter --type SecureString --name /cert-tracker/prod/llm/triageModel --value "claude-haiku-4-5"
+aws ssm put-parameter --type SecureString --name /cert-tracker/prod/llm/verifyModel --value "claude-sonnet-5-5"
+aws ssm put-parameter --type SecureString --name /cert-tracker/prod/llm/dailyCapUsd --value "1"
+aws ssm put-parameter --type SecureString --name /cert-tracker/prod/llm/pricing --value '{"claude-haiku-4-5":{"inputPerMTok":1,"outputPerMTok":5,"cacheReadPerMTok":0.1,"cacheWritePerMTok":1.25},"claude-sonnet-5-5":{"inputPerMTok":3,"outputPerMTok":15,"cacheReadPerMTok":0.3,"cacheWritePerMTok":3.75,"webSearchPerRequest":0.01}}'
+```
+
+Prices are USD per million tokens; check them against the pricing page when you create the
+parameter and again whenever you change a model id. The pipeline only uses them to meter the
+daily cap, so an error here moves the fence, it does not change the bill. To change a model
+later, overwrite the parameter with `--overwrite` and let the functions cold-start; no deploy.
+
 The rest arrive with the milestones that use them:
 
-| Parameter                                            | Needed from |
-| ---------------------------------------------------- | ----------- |
-| `/cert-tracker/prod/anthropic/apiKey`                | M3          |
-| `/cert-tracker/prod/github/token`                    | M3          |
-| `/cert-tracker/prod/llm/triageModel`, `/verifyModel` | M3          |
-| `/cert-tracker/prod/llm/pricing`, `/dailyCapUsd`     | M3          |
-| `/cert-tracker/prod/admin/tokenHash`                 | M4          |
-| `/cert-tracker/prod/ntfy/topic`, `/ntfy/token`       | M5          |
+| Parameter                                      | Needed from |
+| ---------------------------------------------- | ----------- |
+| `/cert-tracker/prod/admin/tokenHash`           | M4          |
+| `/cert-tracker/prod/ntfy/topic`, `/ntfy/token` | M5          |
 
 ## 6. First deploy and the seed
 
@@ -118,6 +138,19 @@ never overwrites an item that already exists.
 
 Within 15 minutes the publisher commits a fresh `snapshot.json` to `main` and Cloudflare Pages
 rebuilds the site. Confirm the alert email subscription when SNS sends it.
+
+## 7. Sources after the import
+
+The seed file is an input; after the import the table is the truth. When a feed moves or dies,
+fix the seed for the next reader **and** write the change to the table:
+
+```
+npm run source:set -- --stage prod --id rss-microsoft-learn-blog --enabled false --notes "2026-09-30: feed removed"
+npm run source:set -- --stage prod --id github-commits-free-certifications --url https://api.github.com/repos/ArslanYM/Free-Certifications/commits
+```
+
+The script resets the failure counter so the next hourly poll starts clean. The `SourcesUnhealthy`
+alarm and the `source.unhealthy` events in the Activity tab are how you find out which ones need it.
 
 ## Checks
 
