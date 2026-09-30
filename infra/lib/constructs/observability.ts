@@ -24,6 +24,8 @@ const PUBLISH_ALARM_THRESHOLD = 150;
 export interface ObservabilityProps {
   stage: Stage;
   alertEmail: string;
+  llmDailyCapUsd: number;
+  pollFunction: IFunction;
   table: Table;
   deadLetterQueue: Queue;
   queues: Queue[];
@@ -77,6 +79,21 @@ export class Observability extends Construct {
       threshold: 1,
       description: 'A function was throttled; the account concurrency limit is too low.',
     });
+    this.alarm('PollErrors', {
+      metric: props.pollFunction.metricErrors({ period: Duration.hours(3), statistic: 'Sum' }),
+      threshold: 1,
+      description: 'The hourly poll failed outright; discovery has stopped.',
+    });
+    this.alarm('LlmCostUsd', {
+      metric: this.customMetric('LlmCostUsd', 'Sum', Duration.days(1)),
+      threshold: props.llmDailyCapUsd,
+      description: 'LLM spend recorded today reached the daily cap; signals are being parked.',
+    });
+    this.alarm('SourcesUnhealthy', {
+      metric: this.customMetric('SourcesUnhealthy', 'Maximum', Duration.hours(1)),
+      threshold: 3,
+      description: 'Three or more sources have failed three polls in a row.',
+    });
     this.alarm('PublishCountMonth', {
       metric: this.customMetric('PublishCountMonth', 'Maximum', Duration.days(1)),
       threshold: PUBLISH_ALARM_THRESHOLD,
@@ -114,6 +131,20 @@ export class Observability extends Construct {
       new GraphWidget({
         title: 'Dead letters',
         left: [props.deadLetterQueue.metricApproximateNumberOfMessagesVisible()],
+        width: 6,
+      }),
+      new GraphWidget({
+        title: 'LLM spend (USD)',
+        left: [this.customMetric('LlmCostUsd', 'Sum', Duration.days(1))],
+        width: 6,
+      }),
+      new GraphWidget({
+        title: 'Signals and relevance',
+        left: [
+          this.customMetric('SignalsNew', 'Sum', Duration.days(1)),
+          this.customMetric('TriageRelevant', 'Sum', Duration.days(1)),
+          this.customMetric('OffersDiscovered', 'Sum', Duration.days(1)),
+        ],
         width: 6,
       }),
       new GraphWidget({

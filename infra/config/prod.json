@@ -2,5 +2,6 @@
   "siteOrigins": ["https://latentdata.org"],
   "apiDomainName": "api.latentdata.org",
   "apiCertificateArn": null,
-  "costAnomalyMonitor": false
+  "costAnomalyMonitor": false,
+  "llmDailyCapUsd": 1
 }

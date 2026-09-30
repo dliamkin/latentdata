@@ -15,6 +15,9 @@ export class Events extends Construct {
   readonly deadLetterQueue: Queue;
   readonly notifyQueue: Queue;
   readonly publishQueue: Queue;
+  // fed by poll and triage directly, not by the topic: signals are pipeline work, not events
+  readonly triageQueue: Queue;
+  readonly verifyQueue: Queue;
 
   constructor(scope: Construct, id: string, props: { stage: Stage }) {
     super(scope, id);
@@ -36,6 +39,8 @@ export class Events extends Construct {
 
     this.notifyQueue = this.consumerQueue('Notify', resourceName(stage, 'notify'), 1);
     this.publishQueue = this.consumerQueue('Publish', resourceName(stage, 'publish'), 2);
+    this.triageQueue = this.consumerQueue('Triage', resourceName(stage, 'triage'), 2);
+    this.verifyQueue = this.consumerQueue('Verify', resourceName(stage, 'verify'), 3);
 
     this.topic.addSubscription(new SqsSubscription(this.notifyQueue, { rawMessageDelivery: true }));
     this.topic.addSubscription(

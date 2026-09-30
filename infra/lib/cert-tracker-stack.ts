@@ -41,9 +41,16 @@ export class CertTrackerStack extends Stack {
     this.observability = new Observability(this, 'Observability', {
       stage,
       alertEmail: props.alertEmail,
+      llmDailyCapUsd: props.config.llmDailyCapUsd,
+      pollFunction: this.functions.poll,
       table: this.data.table,
       deadLetterQueue: this.events.deadLetterQueue,
-      queues: [this.events.notifyQueue, this.events.publishQueue],
+      queues: [
+        this.events.triageQueue,
+        this.events.verifyQueue,
+        this.events.notifyQueue,
+        this.events.publishQueue,
+      ],
       functions: this.functions.all,
     });
 
