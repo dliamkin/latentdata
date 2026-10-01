@@ -4,6 +4,14 @@ export const PUBLIC_TABS = ['offers', 'calendar', 'watchlist', 'activity'] as co
 export const ALL_TABS = [...PUBLIC_TABS, 'review'] as const;
 export type TabId = (typeof ALL_TABS)[number];
 
+export function tabElementId(id: TabId): string {
+  return `tab-${id}`;
+}
+
+export function panelElementId(id: TabId): string {
+  return `panel-${id}`;
+}
+
 export function tabFromHash(hash: string): TabId {
   const id = hash.replace(/^#/, '');
   return (ALL_TABS as readonly string[]).includes(id) ? (id as TabId) : 'offers';

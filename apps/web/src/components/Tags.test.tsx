@@ -23,7 +23,7 @@ describe('tags', () => {
     expect(screen.getByText('Unverified')).toBeInTheDocument();
     expect(screen.getByText('High weight')).toBeInTheDocument();
     expect(screen.getByRole('list', { name: 'Eligibility' })).toBeInTheDocument();
-    expect(container.querySelectorAll('.p-tag-icon').length).toBeGreaterThanOrEqual(7);
+    expect(container.querySelectorAll('.mark-icon').length).toBeGreaterThanOrEqual(7);
     expect(await axe(container)).toHaveNoViolations();
   });
 });

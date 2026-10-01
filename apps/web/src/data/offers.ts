@@ -20,13 +20,34 @@ const WHAT_IS_FREE_RANK = {
   'training-only': 3,
 } as const;
 
+// the table's row groups, in display order: what to act on first comes first
+export const OFFER_GROUPS = ['ending', 'open', 'later', 'always', 'check', 'expired'] as const;
+export type OfferGroup = (typeof OFFER_GROUPS)[number];
+
+export function offerGroup(status: OfferStatus, expiringSoon: boolean): OfferGroup {
+  switch (status) {
+    case 'active':
+      return expiringSoon ? 'ending' : 'open';
+    case 'upcoming':
+      return 'later';
+    case 'evergreen':
+      return 'always';
+    case 'unverified':
+      return 'check';
+    case 'expired':
+      return 'expired';
+  }
+}
+
 export interface OfferRow extends Offer {
   derivedStatus: OfferStatus;
   expiringSoon: boolean;
   daysLeft: number | null;
   isNew: boolean;
   watch: boolean;
+  group: OfferGroup;
   // sort keys: the table sorts by these, the cells render the enum
+  groupRank: number;
   windowEndSort: string;
   weightRank: number;
   whatIsFreeRank: number;
@@ -34,17 +55,24 @@ export interface OfferRow extends Offer {
 
 export function toRows(offers: readonly Offer[], today: string): OfferRow[] {
   const newSince = addDays(today, -NEW_DAYS);
-  return offers.map((offer) => ({
-    ...offer,
-    derivedStatus: deriveStatus(offer, today),
-    expiringSoon: isExpiringSoon(offer, today),
-    daysLeft: daysUntilEnd(offer, today),
-    isNew: compareIsoDates(offer.addedAt, newSince) >= 0,
-    watch: isWatchList(offer, today),
-    windowEndSort: offer.windowEnd ?? '9999-12-31',
-    weightRank: WEIGHT_RANK[offer.credentialWeight],
-    whatIsFreeRank: WHAT_IS_FREE_RANK[offer.whatIsFree],
-  }));
+  return offers.map((offer) => {
+    const derivedStatus = deriveStatus(offer, today);
+    const expiringSoon = isExpiringSoon(offer, today);
+    const group = offerGroup(derivedStatus, expiringSoon);
+    return {
+      ...offer,
+      derivedStatus,
+      expiringSoon,
+      daysLeft: daysUntilEnd(offer, today),
+      isNew: compareIsoDates(offer.addedAt, newSince) >= 0,
+      watch: isWatchList(offer, today),
+      group,
+      groupRank: OFFER_GROUPS.indexOf(group),
+      windowEndSort: offer.windowEnd ?? '9999-12-31',
+      weightRank: WEIGHT_RANK[offer.credentialWeight],
+      whatIsFreeRank: WHAT_IS_FREE_RANK[offer.whatIsFree],
+    };
+  });
 }
 
 export type QuickFilter = 'active' | 'expiring' | 'upcoming' | 'evergreen' | 'new';
