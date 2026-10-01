@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 import type { Offer, WhatIsFree } from '@cert-tracker/core';
 
-import type { TabId } from '../routing/tabs.ts';
+import type { Route } from '../routing/tabs.ts';
 import { windowLabel } from './format.ts';
 
 export interface PageMeta {
@@ -14,7 +14,7 @@ const SITE_NAME = 'LatentData';
 // Google cuts snippets off around here; better to end on a word than mid-word
 const DESCRIPTION_MAX = 160;
 
-const TAB_META: Record<Exclude<TabId, 'offers'>, PageMeta> = {
+const TAB_META: Record<Exclude<Route, 'offers'>, PageMeta> = {
   calendar: {
     title: `Calendar · ${SITE_NAME}`,
     description:
@@ -39,6 +39,16 @@ const TAB_META: Record<Exclude<TabId, 'offers'>, PageMeta> = {
     title: `Review · ${SITE_NAME}`,
     description: 'Candidate offers waiting for review.',
   },
+  architecture: {
+    title: `Architecture · ${SITE_NAME}`,
+    description:
+      'How the tracker finds a certification promotion, checks it against the vendor page and publishes it: the pipeline, the data model and the cost guards.',
+  },
+  privacy: {
+    title: `Privacy · ${SITE_NAME}`,
+    description:
+      'What LatentData stores in your browser and what it sends anywhere. No cookies, no analytics, no accounts, and nothing leaves your device.',
+  },
 };
 
 const WHAT_IS_FREE_PHRASE: Record<WhatIsFree, string> = {
@@ -56,8 +66,8 @@ export function clip(text: string, max = DESCRIPTION_MAX): string {
 }
 
 // null means the static head in index.html already says the right thing
-export function pageMeta(tab: TabId, offer: Offer | null): PageMeta | null {
-  if (tab !== 'offers') return TAB_META[tab];
+export function pageMeta(route: Route, offer: Offer | null): PageMeta | null {
+  if (route !== 'offers') return TAB_META[route];
   if (offer === null) return null;
   const phrase = WHAT_IS_FREE_PHRASE[offer.whatIsFree];
   const dates = windowLabel(offer.windowStart, offer.windowEnd);

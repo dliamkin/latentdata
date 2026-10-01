@@ -21,6 +21,21 @@ for (const theme of ['light', 'dark'] as const) {
   }
 }
 
+// the footer pages have no tab bar, so they anchor on their heading instead
+for (const theme of ['light', 'dark'] as const) {
+  for (const [page_, heading] of [
+    ['architecture', 'How it works'],
+    ['privacy', 'Privacy'],
+  ] as const) {
+    test(`${page_} page has no serious axe violations (${theme})`, async ({ page }) => {
+      await page.emulateMedia({ colorScheme: theme });
+      await page.goto(`/#${page_}`);
+      await expect(page.getByRole('heading', { level: 2, name: heading })).toBeVisible();
+      expect(await seriousViolations(page)).toEqual([]);
+    });
+  }
+}
+
 test('an expanded row and the admin dialog have no serious axe violations', async ({ page }) => {
   await page.goto('/?offer=fx-active-long');
   await expect(page.getByRole('region', { name: /Details for/ })).toBeVisible();
@@ -32,11 +47,13 @@ test('an expanded row and the admin dialog have no serious axe violations', asyn
   expect(await seriousViolations(page)).toEqual([]);
 });
 
-test('the page works at 320px without horizontal scroll', async ({ page }) => {
-  await page.setViewportSize({ width: 320, height: 800 });
-  await page.goto('/');
-  const overflow = await page.evaluate(
-    () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
-  );
-  expect(overflow).toBeLessThanOrEqual(0);
-});
+for (const path of ['/', '/#architecture', '/#privacy'] as const) {
+  test(`${path} works at 320px without horizontal scroll`, async ({ page }) => {
+    await page.setViewportSize({ width: 320, height: 800 });
+    await page.goto(path);
+    const overflow = await page.evaluate(
+      () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+    );
+    expect(overflow).toBeLessThanOrEqual(0);
+  });
+}

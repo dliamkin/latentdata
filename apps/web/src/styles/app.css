@@ -2062,3 +2062,351 @@ html[data-theme] .p-button.p-button-contrast {
     grid-column: 1 / -1;
   }
 }
+
+/* ---- site footer -------------------------------------------------------- */
+/* the only way into the doc pages; deliberately quiet, at the end of the scroll */
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  margin-top: 48px;
+}
+
+.site-footer-inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 18px var(--gutter);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px 24px;
+  flex-wrap: wrap;
+  font-size: 12.5px;
+  color: var(--faint);
+}
+
+.site-footer-copy {
+  margin: 0;
+}
+
+.site-footer-links {
+  display: flex;
+  gap: 18px;
+  margin-left: auto;
+}
+
+.site-footer-links a {
+  color: var(--faint);
+  text-decoration: none;
+}
+
+.site-footer-links a:hover {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ---- doc pages (architecture, privacy) ---------------------------------- */
+
+.doc {
+  max-width: 76ch;
+  margin: 0 auto;
+  padding-top: 28px;
+}
+
+/* the figures are wider than the reading column, so that one page opens out */
+.doc:has(.doc-figure) {
+  max-width: 1000px;
+}
+
+.doc-head {
+  margin-bottom: 20px;
+}
+
+.doc h2 {
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0 0 4px;
+  text-wrap: balance;
+}
+
+.doc h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 34px 0 8px;
+}
+
+.doc-meta {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--muted);
+}
+
+.doc p {
+  margin: 0 0 14px;
+  max-width: 76ch;
+}
+
+.doc-lede {
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.doc-foot {
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  font-size: 12.5px;
+  color: var(--faint);
+}
+
+.doc code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  background: var(--subtle);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.05em 0.3em;
+}
+
+.doc-scroller {
+  overflow-x: auto;
+  min-width: 0;
+}
+
+.doc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin: 0 0 14px;
+}
+
+.doc-table th,
+.doc-table td {
+  text-align: left;
+  vertical-align: top;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border);
+  font-weight: 400;
+}
+
+.doc-table thead th {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.doc-table tbody th {
+  white-space: nowrap;
+}
+
+/* ---- figures ------------------------------------------------------------ */
+
+.doc-figure {
+  margin: 0 0 18px;
+}
+
+.doc-figure-frame {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  overflow-x: auto;
+  min-width: 0;
+}
+
+.doc-figure-frame svg {
+  display: block;
+  height: auto;
+  min-width: 720px;
+  max-width: 940px;
+  margin: 0 auto;
+}
+
+.doc-figure figcaption {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 10px;
+  max-width: 80ch;
+}
+
+.doc-figure figcaption b {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.doc-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  padding: 12px 16px;
+  background: var(--subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 12.5px;
+  color: var(--muted);
+  margin: 0 0 8px;
+}
+
+.doc-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.doc-swatch {
+  width: 26px;
+  height: 0;
+  border-top-width: 2px;
+  flex: none;
+}
+
+.doc-swatch.sw-live {
+  border-top-style: solid;
+  border-top-color: var(--accent);
+}
+
+.doc-swatch.sw-norm {
+  border-top-style: solid;
+  border-top-color: var(--muted);
+}
+
+.doc-swatch.sw-idle {
+  border-top-style: dashed;
+  border-top-color: var(--faint);
+}
+
+.doc-swatch.sw-owed {
+  border-top-style: dashed;
+  border-top-color: var(--deadline);
+}
+
+/* diagram ink: every stroke and fill is a token, so both themes come for free */
+.d .t {
+  font: 500 13px var(--font-sans);
+  fill: var(--ink);
+}
+
+.d .ts {
+  font: 400 11px var(--font-mono);
+  fill: var(--muted);
+}
+
+.d .band {
+  font: 500 11.5px var(--font-mono);
+  fill: var(--faint);
+  letter-spacing: 0.08em;
+}
+
+.d .el {
+  font: 400 11px var(--font-sans);
+  fill: var(--muted);
+}
+
+.d .ela {
+  font: 500 11px var(--font-sans);
+  fill: var(--accent-tint-text);
+}
+
+.d .elw {
+  font: 500 11px var(--font-sans);
+  fill: var(--deadline);
+}
+
+.d .box {
+  fill: var(--panel);
+  stroke: var(--border);
+  stroke-width: 1.25;
+}
+
+.d .box-a {
+  fill: var(--accent-tint);
+  stroke: var(--accent-line);
+  stroke-width: 1.25;
+}
+
+.d .box-s {
+  fill: var(--subtle);
+  stroke: var(--border);
+  stroke-width: 1.25;
+}
+
+.d .box-w {
+  fill: var(--deadline-tint);
+  stroke: var(--deadline-line);
+  stroke-width: 1.25;
+}
+
+.d .box-i {
+  fill: none;
+  stroke: var(--faint);
+  stroke-width: 1.25;
+  stroke-dasharray: 4 3;
+}
+
+.d .e {
+  stroke: var(--muted);
+  stroke-width: 1.5;
+  fill: none;
+}
+
+.d .ea {
+  stroke: var(--accent);
+  stroke-width: 2;
+  fill: none;
+}
+
+.d .ei {
+  stroke: var(--faint);
+  stroke-width: 1.4;
+  fill: none;
+  stroke-dasharray: 4 3;
+}
+
+.d .ew {
+  stroke: var(--deadline);
+  stroke-width: 1.5;
+  fill: none;
+  stroke-dasharray: 4 3;
+}
+
+.d .hd {
+  fill: var(--muted);
+}
+
+.d .hda {
+  fill: var(--accent);
+}
+
+.d .hdi {
+  fill: var(--faint);
+}
+
+.d .hdw {
+  fill: var(--deadline);
+}
+
+.d .rule {
+  stroke: var(--border);
+  stroke-width: 1;
+}
+
+@media (max-width: 767px) {
+  .site-footer-inner {
+    font-size: 12px;
+  }
+
+  .site-footer-links {
+    gap: 14px;
+  }
+
+  .doc-figure-frame svg {
+    min-width: 680px;
+  }
+}

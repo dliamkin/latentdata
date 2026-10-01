@@ -1,4 +1,4 @@
-import { act, render, screen, waitFor } from '@testing-library/react';
+import { act, render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 import { axe } from 'vitest-axe';
@@ -20,6 +20,56 @@ describe('App', () => {
     );
     expect(screen.queryByRole('tab', { name: /Review/ })).not.toBeInTheDocument();
     expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it('puts the doc pages in the footer and nowhere else', () => {
+    render(<App />);
+    const footer = screen.getByRole('contentinfo');
+    expect(footer).toHaveTextContent('Copyright © 2026');
+    // reachable only from here: neither page is a tab
+    expect(within(footer).getByRole('link', { name: 'How it works' })).toBeInTheDocument();
+    expect(within(footer).getByRole('link', { name: 'Privacy' })).toBeInTheDocument();
+    expect(screen.queryByRole('tab', { name: /Privacy|How it works/ })).not.toBeInTheDocument();
+  });
+
+  it('opens a doc page from the footer and leaves the tab bar behind', async () => {
+    const user = userEvent.setup();
+    const { container } = render(<App />);
+    await user.click(screen.getByRole('link', { name: 'Privacy' }));
+    expect(await screen.findByRole('heading', { level: 2, name: 'Privacy' })).toBeInTheDocument();
+    expect(screen.queryByRole('tab')).not.toBeInTheDocument();
+    expect(window.location.hash).toBe('#privacy');
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it('reaches a doc page from the hash alone', async () => {
+    render(<App />);
+    await act(async () => {
+      window.location.hash = '#architecture';
+      window.dispatchEvent(new HashChangeEvent('hashchange'));
+      await Promise.resolve();
+    });
+    expect(
+      await screen.findByRole('heading', { level: 2, name: 'How it works' }),
+    ).toBeInTheDocument();
+  });
+
+  it('does not change route when the skip link is used', async () => {
+    render(<App />);
+    await act(async () => {
+      window.location.hash = '#calendar';
+      window.dispatchEvent(new HashChangeEvent('hashchange'));
+      await Promise.resolve();
+    });
+    expect(screen.getByRole('tab', { name: /Calendar/, selected: true })).toBeInTheDocument();
+    // the skip link is href="#main"; before routeFromHash took the current route into account
+    // this bounced the visitor back to Offers
+    await act(async () => {
+      window.location.hash = '#main';
+      window.dispatchEvent(new HashChangeEvent('hashchange'));
+      await Promise.resolve();
+    });
+    expect(screen.getByRole('tab', { name: /Calendar/, selected: true })).toBeInTheDocument();
   });
 
   it('follows the location hash', async () => {
