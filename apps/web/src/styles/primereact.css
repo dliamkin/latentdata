@@ -1,0 +1,727 @@
+/*
+  Restyles the PrimeReact components the app keeps (table, paginator, dropdown, inputs, buttons,
+  dialog, menu, datepicker) onto the Grove tokens. The Lara theme stays loaded for structure
+  (overlay positioning, focus handling); every rule here only changes colour, type and spacing.
+  The html[data-theme] prefix outranks Lara's own selectors.
+*/
+
+html[data-theme] .p-component {
+  font-family: var(--font-sans);
+  font-size: 14px;
+}
+
+html[data-theme] .p-component:focus-visible,
+html[data-theme] .p-focus,
+html[data-theme] .p-inputtext:enabled:focus,
+html[data-theme] .p-dropdown:not(.p-disabled).p-focus,
+html[data-theme] .p-button:focus,
+html[data-theme] .p-link:focus {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+/* ---- inputs ---- */
+
+html[data-theme] .p-inputtext {
+  padding: 8px 12px;
+  font-size: 13px;
+  color: var(--ink);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+html[data-theme] .p-inputtext::placeholder {
+  color: var(--faint);
+}
+
+html[data-theme] .p-inputtext:enabled:hover {
+  border-color: var(--muted);
+}
+
+html[data-theme] .p-inputtext:enabled:focus {
+  border-color: var(--accent);
+}
+
+html[data-theme] .p-inputtextarea {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+html[data-theme] .p-dropdown {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+html[data-theme] .p-dropdown:not(.p-disabled):hover {
+  border-color: var(--muted);
+}
+
+html[data-theme] .p-dropdown:not(.p-disabled).p-focus {
+  border-color: var(--accent);
+}
+
+html[data-theme] .p-dropdown .p-dropdown-label {
+  padding: 7px 10px;
+  font-size: 13px;
+  color: var(--ink);
+}
+
+html[data-theme] .p-dropdown .p-dropdown-label.p-placeholder {
+  color: var(--faint);
+}
+
+html[data-theme] .p-dropdown .p-dropdown-trigger,
+html[data-theme] .p-dropdown .p-dropdown-clear-icon {
+  color: var(--muted);
+  width: 2rem;
+}
+
+html[data-theme] .p-dropdown-panel {
+  background: var(--panel);
+  color: var(--ink);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-popover);
+}
+
+html[data-theme] .p-dropdown-panel .p-dropdown-items {
+  padding: 4px;
+}
+
+html[data-theme] .p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+  padding: 7px 10px;
+  font-size: 13.5px;
+  color: var(--ink);
+  border-radius: 5px;
+}
+
+html[data-theme]
+  .p-dropdown-panel
+  .p-dropdown-items
+  .p-dropdown-item:not(.p-highlight):not(.p-disabled).p-focus,
+html[data-theme]
+  .p-dropdown-panel
+  .p-dropdown-items
+  .p-dropdown-item:not(.p-highlight):not(.p-disabled):hover {
+  background: var(--subtle);
+  color: var(--ink);
+}
+
+html[data-theme] .p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
+  background: var(--accent-tint);
+  color: var(--accent-tint-text);
+  font-weight: 500;
+}
+
+/* ---- buttons ---- */
+
+html[data-theme] .p-button {
+  padding: 7px 12px;
+  font-size: 12.5px;
+  font-weight: 500;
+  border-radius: var(--radius);
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  color: var(--on-accent);
+  transition: none;
+}
+
+html[data-theme] .p-button:enabled:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+  filter: brightness(1.08);
+}
+
+html[data-theme] .p-button.p-button-sm {
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+html[data-theme] .p-button .p-button-icon-left {
+  margin-right: 6px;
+  font-size: 12px;
+}
+
+html[data-theme] .p-button.p-button-outlined,
+html[data-theme] .p-button.p-button-secondary {
+  background: var(--panel);
+  border-color: var(--border);
+  color: var(--ink);
+}
+
+html[data-theme] .p-button.p-button-outlined:enabled:hover,
+html[data-theme] .p-button.p-button-secondary:enabled:hover {
+  background: var(--subtle);
+  border-color: var(--muted);
+  color: var(--ink);
+  filter: none;
+}
+
+html[data-theme] .p-button.p-button-text {
+  background: transparent;
+  border-color: transparent;
+  color: var(--accent);
+}
+
+html[data-theme] .p-button.p-button-text:enabled:hover {
+  background: var(--accent-tint);
+  border-color: transparent;
+  color: var(--accent-tint-text);
+  filter: none;
+}
+
+html[data-theme] .p-button.p-button-icon-only {
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+}
+
+html[data-theme] .p-button.p-button-icon-only.p-button-rounded {
+  border-radius: 50%;
+}
+
+/* PrimeReact 10.9 renders the toggle as div.p-togglebutton > input + div.p-button */
+html[data-theme] .p-togglebutton .p-button {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-weight: 500;
+  padding: 7px 12px;
+  font-size: 13px;
+}
+
+html[data-theme] .p-togglebutton:not([data-p-highlight='true']):hover .p-button {
+  background: var(--subtle);
+  border-color: var(--muted);
+  color: var(--ink);
+}
+
+html[data-theme] .p-togglebutton[data-p-highlight='true'] .p-button {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--page);
+}
+
+html[data-theme] .p-togglebutton .p-button .p-button-icon-left {
+  color: inherit;
+}
+
+html[data-theme] .p-togglebutton .p-togglebutton-input:focus-visible + .p-button {
+  box-shadow: var(--focus-ring);
+}
+
+/* ---- data table ---- */
+
+html[data-theme] .p-datatable {
+  font-size: 14px;
+}
+
+html[data-theme] .p-datatable .p-datatable-wrapper {
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+html[data-theme] .p-datatable .p-datatable-thead > tr > th {
+  padding: 10px 12px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--muted);
+  background: var(--subtle);
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+html[data-theme] .p-datatable .p-datatable-thead > tr > th .p-column-header-content {
+  gap: 4px;
+}
+
+html[data-theme] .p-datatable .p-sortable-column .p-sortable-column-icon {
+  font-size: 10px;
+  color: var(--faint);
+  margin-left: 4px;
+}
+
+html[data-theme] .p-datatable .p-sortable-column:not(.p-highlight):hover {
+  background: var(--subtle);
+  color: var(--ink);
+}
+
+html[data-theme] .p-datatable .p-sortable-column.p-highlight,
+html[data-theme] .p-datatable .p-sortable-column.p-highlight:hover {
+  background: var(--subtle);
+  color: var(--ink);
+}
+
+html[data-theme] .p-datatable .p-sortable-column.p-highlight .p-sortable-column-icon {
+  color: var(--accent);
+}
+
+html[data-theme] .p-datatable .p-sortable-column .p-sortable-column-badge {
+  display: none;
+}
+
+html[data-theme] .p-datatable .p-datatable-tbody > tr {
+  background: var(--panel);
+  color: var(--ink);
+}
+
+html[data-theme] .p-datatable.p-datatable-striped .p-datatable-tbody > tr:nth-child(even) {
+  background: var(--panel);
+}
+
+html[data-theme] .p-datatable .p-datatable-tbody > tr > td {
+  padding: 12px 12px;
+  border: 0;
+  border-bottom: 1px solid var(--row);
+  vertical-align: middle;
+}
+
+html[data-theme] .p-datatable .p-datatable-tbody > tr > td:first-child {
+  padding-left: 16px;
+}
+
+html[data-theme] .p-datatable .p-datatable-tbody > tr > td:last-child {
+  padding-right: 16px;
+}
+
+html[data-theme] .p-datatable .p-datatable-tbody > tr.p-datatable-row-expansion > td {
+  padding: 0;
+  background: var(--subtle);
+  border-bottom: 1px solid var(--border);
+}
+
+html[data-theme] .p-datatable .p-datatable-tbody > tr.row-expanded > td {
+  background: var(--subtle);
+  border-top: 1px solid var(--border);
+  border-bottom: 0;
+}
+
+html[data-theme] .p-datatable .p-datatable-tbody > tr:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+html[data-theme] .p-datatable .p-row-toggler {
+  width: 20px;
+  height: 20px;
+  color: var(--faint);
+  border-radius: 4px;
+}
+
+html[data-theme] .p-datatable .p-row-toggler:enabled:hover {
+  color: var(--ink);
+  background: var(--row);
+}
+
+html[data-theme] .p-datatable .p-row-toggler .p-icon {
+  width: 12px;
+  height: 12px;
+}
+
+/* group subheaders: the row's only cell carries the label */
+html[data-theme] .p-datatable .p-datatable-tbody > tr.p-rowgroup-header > td {
+  padding: 14px 16px 6px;
+  border-bottom: 0;
+  background: var(--panel);
+}
+
+html[data-theme] .p-datatable .p-datatable-tbody > tr.p-rowgroup-header .p-rowgroup-header-name {
+  display: block;
+}
+
+html[data-theme] .p-datatable .p-datatable-emptymessage > td {
+  padding: 32px 16px;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* column filter button + overlay */
+html[data-theme] .p-column-filter-menu-button {
+  width: 20px;
+  height: 20px;
+  color: var(--faint);
+  border-radius: 4px;
+  margin-left: 2px;
+}
+
+html[data-theme] .p-column-filter-menu-button .p-icon {
+  width: 11px;
+  height: 11px;
+}
+
+html[data-theme] .p-column-filter-menu-button:hover,
+html[data-theme] .p-column-filter-menu-button.p-column-filter-menu-button-open {
+  background: var(--row);
+  color: var(--ink);
+}
+
+html[data-theme] .p-column-filter-menu-button.p-column-filter-menu-button-active,
+html[data-theme] .p-column-filter-menu-button.p-column-filter-menu-button-active:hover {
+  background: var(--accent-tint);
+  color: var(--accent-tint-text);
+}
+
+html[data-theme] .p-column-filter-overlay {
+  min-width: 240px;
+  background: var(--panel);
+  color: var(--ink);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-popover);
+}
+
+html[data-theme] .p-column-filter-overlay-menu .p-column-filter-header {
+  padding: 14px 16px 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+html[data-theme] .p-column-filter-overlay-menu .p-column-filter-constraint {
+  padding: 14px 16px 10px;
+  border-bottom: 0;
+}
+
+html[data-theme] .p-column-filter-overlay-menu .p-column-filter-buttonbar {
+  padding: 10px 16px 12px;
+  border-top: 1px solid var(--row);
+  margin: 0 0 0;
+}
+
+html[data-theme] .p-column-filter-overlay-menu .p-column-filter-buttonbar .p-button-outlined {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  padding-left: 0;
+}
+
+html[data-theme]
+  .p-column-filter-overlay-menu
+  .p-column-filter-buttonbar
+  .p-button-outlined:enabled:hover {
+  background: transparent;
+  color: var(--ink);
+}
+
+html[data-theme] .p-column-filter-overlay .p-dropdown,
+html[data-theme] .p-column-filter-overlay .p-inputtext {
+  width: 100%;
+}
+
+/* ---- paginator ---- */
+
+html[data-theme] .p-paginator {
+  padding: 10px 16px;
+  background: var(--subtle);
+  border-top: 1px solid var(--border);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  font-size: 12px;
+  color: var(--muted);
+  gap: 4px;
+}
+
+html[data-theme] .p-paginator .p-paginator-current {
+  margin-right: auto;
+  padding: 0;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  height: auto;
+}
+
+html[data-theme] .p-paginator .p-paginator-pages .p-paginator-page,
+html[data-theme] .p-paginator .p-paginator-first,
+html[data-theme] .p-paginator .p-paginator-prev,
+html[data-theme] .p-paginator .p-paginator-next,
+html[data-theme] .p-paginator .p-paginator-last {
+  min-width: 26px;
+  height: 26px;
+  margin: 0;
+  color: var(--muted);
+  border-radius: 5px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+html[data-theme] .p-paginator .p-paginator-pages .p-paginator-page:not(.p-highlight):hover,
+html[data-theme] .p-paginator .p-paginator-first:not(.p-disabled):hover,
+html[data-theme] .p-paginator .p-paginator-prev:not(.p-disabled):hover,
+html[data-theme] .p-paginator .p-paginator-next:not(.p-disabled):hover,
+html[data-theme] .p-paginator .p-paginator-last:not(.p-disabled):hover {
+  background: var(--row);
+  color: var(--ink);
+}
+
+html[data-theme] .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+  background: var(--ink);
+  color: var(--page);
+}
+
+html[data-theme] .p-paginator .p-dropdown {
+  height: 26px;
+  margin-right: 10px;
+}
+
+html[data-theme] .p-paginator .p-dropdown .p-dropdown-label {
+  padding: 3px 8px;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+html[data-theme] .p-paginator .p-dropdown .p-dropdown-trigger {
+  width: 1.5rem;
+}
+
+/* ---- dialog ---- */
+
+html[data-theme] .p-dialog-mask.p-component-overlay {
+  background: var(--backdrop);
+}
+
+html[data-theme] .p-dialog {
+  border-radius: 10px;
+  box-shadow: var(--shadow-dialog);
+  border: 0;
+}
+
+html[data-theme] .p-dialog .p-dialog-header {
+  padding: 26px 28px 0;
+  background: var(--panel);
+  color: var(--ink);
+  border-radius: 10px 10px 0 0;
+}
+
+html[data-theme] .p-dialog .p-dialog-header .p-dialog-title {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+html[data-theme] .p-dialog .p-dialog-header .p-dialog-header-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--muted);
+  border-radius: 5px;
+}
+
+html[data-theme] .p-dialog .p-dialog-header .p-dialog-header-icon:enabled:hover {
+  background: var(--subtle);
+  color: var(--ink);
+}
+
+html[data-theme] .p-dialog .p-dialog-content {
+  padding: 12px 28px 24px;
+  background: var(--panel);
+  color: var(--ink);
+  border-radius: 0 0 10px 10px;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+/* ---- popup menu ---- */
+
+html[data-theme] .p-menu {
+  width: 240px;
+  padding: 6px;
+  background: var(--panel);
+  color: var(--ink);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-popover);
+}
+
+html[data-theme] .p-menu .p-menuitem > .p-menuitem-content {
+  border-radius: 5px;
+  color: var(--ink);
+}
+
+html[data-theme] .p-menu .p-menuitem > .p-menuitem-content .p-menuitem-link {
+  padding: 9px 12px;
+  color: var(--ink);
+  font-size: 13.5px;
+}
+
+html[data-theme] .p-menu .p-menuitem > .p-menuitem-content .p-menuitem-link .p-menuitem-icon {
+  display: none;
+}
+
+html[data-theme] .p-menu .p-menuitem:not(.p-highlight):not(.p-disabled) > .p-menuitem-content:hover,
+html[data-theme] .p-menu .p-menuitem.p-focus > .p-menuitem-content {
+  background: var(--subtle);
+  color: var(--ink);
+}
+
+html[data-theme] .p-menu .p-menuitem.p-disabled > .p-menuitem-content {
+  opacity: 0.5;
+}
+
+html[data-theme] .p-menu .p-menuitem-separator {
+  margin: 4px 6px;
+  border-top: 1px solid var(--row);
+}
+
+/* ---- inline datepicker ---- */
+
+html[data-theme] .p-datepicker {
+  padding: 0;
+  background: transparent;
+  color: var(--ink);
+  border: 0;
+}
+
+html[data-theme] .p-datepicker:not(.p-datepicker-inline) {
+  background: var(--panel);
+}
+
+html[data-theme] .p-datepicker .p-datepicker-header {
+  padding: 0 0 10px;
+  background: transparent;
+  color: var(--ink);
+  border-bottom: 0;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+html[data-theme] .p-datepicker .p-datepicker-header .p-datepicker-title {
+  order: -1;
+  margin-right: auto;
+  line-height: 28px;
+}
+
+html[data-theme] .p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-month,
+html[data-theme] .p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-year {
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+html[data-theme] .p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-year {
+  font-weight: 400;
+  color: var(--muted);
+  margin-left: 6px;
+}
+
+html[data-theme] .p-datepicker .p-datepicker-header .p-datepicker-prev,
+html[data-theme] .p-datepicker .p-datepicker-header .p-datepicker-next {
+  width: 28px;
+  height: 28px;
+  margin-left: 6px;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+}
+
+html[data-theme] .p-datepicker .p-datepicker-header .p-datepicker-prev:enabled:hover,
+html[data-theme] .p-datepicker .p-datepicker-header .p-datepicker-next:enabled:hover {
+  background: var(--subtle);
+  color: var(--ink);
+  border-color: var(--muted);
+}
+
+html[data-theme] .p-datepicker .p-datepicker-header .p-datepicker-prev .p-icon,
+html[data-theme] .p-datepicker .p-datepicker-header .p-datepicker-next .p-icon {
+  width: 12px;
+  height: 12px;
+}
+
+html[data-theme] .p-datepicker table {
+  width: calc(100% + 8px);
+  margin: 0 -4px;
+  table-layout: fixed;
+  font-size: 13px;
+  border-spacing: 4px;
+  border-collapse: separate;
+}
+
+html[data-theme] .p-datepicker .p-datepicker-group-container,
+html[data-theme] .p-datepicker .p-datepicker-group {
+  width: 100%;
+}
+
+/* the inline wrapper keeps a p-focus class once a day has focus; only the day cells show it */
+html[data-theme] .p-calendar.p-inputwrapper.p-focus,
+html[data-theme] .p-calendar.p-inputwrapper:focus-within {
+  box-shadow: none;
+  outline: none;
+}
+
+html[data-theme] .p-calendar.p-inputwrapper {
+  display: block;
+}
+
+html[data-theme] .p-datepicker table th {
+  padding: 10px 0 2px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--faint);
+  text-align: left;
+}
+
+html[data-theme] .p-datepicker table th > span {
+  width: auto;
+  height: auto;
+}
+
+html[data-theme] .p-datepicker table td {
+  padding: 0;
+}
+
+html[data-theme] .p-datepicker table td > span {
+  display: block;
+  width: 100%;
+  height: 56px;
+  padding: 6px 8px;
+  margin: 0;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 5px;
+  color: var(--ink);
+  background: var(--heat, transparent);
+  box-shadow: var(--today-ring, none);
+  font-weight: 500;
+  text-align: left;
+  transition: none;
+}
+
+html[data-theme] .p-datepicker table td > span:not(.p-highlight):not(.p-disabled):hover {
+  background: var(--row);
+}
+
+html[data-theme] .p-datepicker table td > span.p-highlight {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+html[data-theme] .p-datepicker table td > span:focus {
+  box-shadow: var(--today-ring, none), var(--focus-ring);
+}
+
+html[data-theme] .p-datepicker table td.p-datepicker-other-month > span {
+  color: var(--out-of-month);
+}
+
+html[data-theme] .p-datepicker table td.p-datepicker-today > span {
+  background: var(--heat, transparent);
+  color: var(--ink);
+}
+
+html[data-theme] .p-datepicker table td.p-datepicker-today > span.p-highlight {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+/* ---- misc ---- */
+
+html[data-theme] .p-error {
+  color: var(--deadline);
+}
+
+html[data-theme] .p-component-overlay-enter {
+  animation: none;
+}
