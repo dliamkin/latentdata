@@ -23,6 +23,8 @@ html[data-theme='light'] {
   --accent: #3d5b3e;
   --accent-rgb: 61 91 62;
   --on-accent: #fff;
+  --accent-strip: var(--accent);
+  --on-accent-strip: #fff;
   --accent-tint: #e6ede4;
   --accent-tint-text: #2f4a30;
   --accent-line: #d4dfd1;
@@ -57,6 +59,7 @@ html[data-theme='dark'] {
   --accent: #5aa478;
   --accent-rgb: 90 164 120;
   --on-accent: #0f1612;
+  --accent-strip: #3f7a55;
   --on-accent-strip: #fff;
   --accent-tint: #1f3a2a;
   --accent-tint-text: #9fd4b0;
