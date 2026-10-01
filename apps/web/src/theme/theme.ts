@@ -13,6 +13,15 @@ export function logoSrc(mode: ThemeMode): string {
   return `/logo-${mode}.png`;
 }
 
+// the other theme's stylesheet is fetched at low priority so a toggle doesn't wait on it
+export function prefetchOtherTheme(mode: ThemeMode): void {
+  const link = document.createElement('link');
+  link.rel = 'prefetch';
+  link.as = 'style';
+  link.href = themeHref(mode === 'dark' ? 'light' : 'dark');
+  document.head.append(link);
+}
+
 // dark unless the visitor chose light; the OS preference is not consulted (index.html agrees)
 export function initialMode(): ThemeMode {
   try {

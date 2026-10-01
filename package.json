@@ -31,7 +31,8 @@
     "cdk": "npm run cdk -w infra --",
     "fixtures:record": "node scripts/fixtures-record.ts",
     "eval:triage": "node --import ./scripts/lib/md-hook.ts scripts/eval-triage.ts",
-    "source:set": "node scripts/source-set.ts"
+    "source:set": "node scripts/source-set.ts",
+    "vendor:icons": "node scripts/vendor-icons.ts"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",

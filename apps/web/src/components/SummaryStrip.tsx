@@ -11,6 +11,7 @@ interface Item {
   tone?: 'deadline';
   // the Watch list cell is a jump, not a filter, and says so with an arrow
   jump?: boolean;
+  hint: string;
 }
 
 export function SummaryStrip({
@@ -23,18 +24,50 @@ export function SummaryStrip({
   onSelect: (selection: StripSelection) => void;
 }) {
   const items: Item[] = [
-    { id: 'active', label: 'Active', icon: 'pi pi-check-circle', count: counts.active },
+    {
+      id: 'active',
+      label: 'Active',
+      icon: 'pi pi-check-circle',
+      count: counts.active,
+      hint: 'Show only offers open right now',
+    },
     {
       id: 'expiring',
       label: 'Ends ≤ 14 days',
       icon: 'pi pi-clock',
       count: counts.expiring,
       tone: 'deadline',
+      hint: 'Show only offers ending within two weeks',
     },
-    { id: 'upcoming', label: 'Upcoming', icon: 'pi pi-play-circle', count: counts.upcoming },
-    { id: 'evergreen', label: 'Evergreen', icon: 'pi pi-sync', count: counts.evergreen },
-    { id: 'watchlist', label: 'Watch list', icon: 'pi pi-eye', count: counts.watch, jump: true },
-    { id: 'new', label: 'New this week', icon: 'pi pi-plus-circle', count: counts.new },
+    {
+      id: 'upcoming',
+      label: 'Upcoming',
+      icon: 'pi pi-play-circle',
+      count: counts.upcoming,
+      hint: 'Show only offers that have not opened yet',
+    },
+    {
+      id: 'evergreen',
+      label: 'Evergreen',
+      icon: 'pi pi-sync',
+      count: counts.evergreen,
+      hint: 'Show only offers with no end date',
+    },
+    {
+      id: 'watchlist',
+      label: 'Watch list',
+      icon: 'pi pi-eye',
+      count: counts.watch,
+      jump: true,
+      hint: 'Open the watch list',
+    },
+    {
+      id: 'new',
+      label: 'New this week',
+      icon: 'pi pi-plus-circle',
+      count: counts.new,
+      hint: 'Show only offers found in the last 7 days',
+    },
   ];
 
   return (
@@ -47,6 +80,7 @@ export function SummaryStrip({
               <button
                 type="button"
                 aria-pressed={pressed}
+                title={pressed ? 'Clear this filter' : item.hint}
                 className={item.tone === undefined ? undefined : `strip--${item.tone}`}
                 onClick={() => {
                   onSelect(pressed ? null : item.id);

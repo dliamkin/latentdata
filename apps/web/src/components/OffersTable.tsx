@@ -1,4 +1,13 @@
-import { useEffect, useId, useMemo, useReducer, useRef, useState, type ReactNode } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useId,
+  useMemo,
+  useReducer,
+  useRef,
+  useState,
+  type ReactNode,
+} from 'react';
 import { createPortal } from 'react-dom';
 
 import { FilterMatchMode, FilterService } from 'primereact/api';
@@ -40,7 +49,10 @@ import {
 } from '../lib/labels.ts';
 import { TRACK_STATUSES, isTrackStatus, type TrackStatus } from '../tracking/tracking.ts';
 import { useTracking } from '../tracking/trackingContext.ts';
+import { VendorMark } from './VendorMark.tsx';
 import { OfferExpansion } from './OfferExpansion.tsx';
+import { Reveal } from './Reveal.tsx';
+import { WindowBar } from './WindowBar.tsx';
 import { EligibilityTags, StatusTag, WhatIsFreeTag } from './Tags.tsx';
 
 const PAGE_SIZES = [25, 50, 100];
@@ -118,6 +130,7 @@ type TableAction =
   | { type: 'globalFilter'; value: string }
   | { type: 'filters'; value: DataTableFilterMeta }
   | { type: 'expandedRows'; value: OfferRow[] }
+  | { type: 'collapse'; id: string }
   | { type: 'page'; first: number; rows: number }
   | { type: 'sort'; value: DataTableSortMeta[] };
 
@@ -170,6 +183,8 @@ function reducer(state: TableState, action: TableAction): TableState {
       return { ...state, filters: action.value, first: 0 };
     case 'expandedRows':
       return { ...state, expandedRows: action.value };
+    case 'collapse':
+      return { ...state, expandedRows: state.expandedRows.filter((r) => r.id !== action.id) };
     case 'page':
       return { ...state, first: action.first, rows: action.rows };
     case 'sort':
@@ -279,6 +294,7 @@ export function OffersTable({
   const { entries, setStatus } = useTracking();
   const { announce } = useAnnouncer();
   const searchId = useId();
+  const searchRef = useRef<HTMLInputElement>(null);
   const tableRef = useRef<HTMLDivElement>(null);
   const announceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const lastAnnounced = useRef<number | null>(null);
@@ -302,6 +318,8 @@ export function OffersTable({
   // those after the first update, so the initial value is counted here, when no column or
   // global filter can be set yet
   const [groupCounts, setGroupCounts] = useState<Counts>(() => countBy(visible, (r) => r.group));
+  // rows playing their collapse animation; they leave expandedRows when it ends
+  const [closing, setClosing] = useState<readonly string[]>([]);
 
   // the filter popovers show a count per value, taken before the column filters apply
   const valueCounts = useMemo(
@@ -343,6 +361,26 @@ export function OffersTable({
     [],
   );
 
+  // "/" jumps to the search box from anywhere that isn't already a text field
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent): void => {
+      if (event.key !== '/' || event.ctrlKey || event.metaKey || event.altKey) return;
+      const target = event.target;
+      if (
+        target instanceof HTMLElement &&
+        (target.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(target.tagName))
+      )
+        return;
+      event.preventDefault();
+      searchRef.current?.focus();
+      searchRef.current?.select();
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => {
+      window.removeEventListener('keydown', onKeyDown);
+    };
+  }, []);
+
   const onValueChange = (processed: OfferRow[]): void => {
     const counts = countBy(processed, (r) => r.group);
     setGroupCounts((current) => (sameCounts(current, counts) ? current : counts));
@@ -353,6 +391,11 @@ export function OffersTable({
       announce(`${plural(processed.length, 'offer')} shown`);
     }, ANNOUNCE_DELAY_MS);
   };
+
+  const finishClose = useCallback((id: string): void => {
+    setClosing((current) => (current.includes(id) ? current.filter((c) => c !== id) : current));
+    dispatch({ type: 'collapse', id });
+  }, []);
 
   const offerFilter = (opts: ColumnFilterElementTemplateOptions): ReactNode => {
     const current = (opts.value as OfferFilter | null) ?? {
@@ -406,9 +449,10 @@ export function OffersTable({
       <label htmlFor={searchId} className="sr-only">
         Search offers
       </label>
-      <span className="search-field">
+      <span className="search-field" title="Press / to search from anywhere on this tab">
         <span className="pi pi-search" aria-hidden="true" />
         <InputText
+          ref={searchRef}
           id={searchId}
           type="search"
           placeholder="Search name, vendor, certification, exam code"
@@ -417,6 +461,9 @@ export function OffersTable({
             dispatch({ type: 'globalFilter', value: event.target.value });
           }}
         />
+        <kbd className="search-kbd" aria-hidden="true">
+          /
+        </kbd>
       </span>
       <ToggleButton
         checked={state.showExpired}
@@ -457,8 +504,13 @@ export function OffersTable({
         }}
         rowGroupMode="subheader"
         groupRowsBy="group"
-        // PrimeReact emits an empty role=row footer per group even without a footer template
-        pt={{ rowGroupFooter: { role: 'presentation', hidden: true } }}
+        pt={{
+          // PrimeReact emits an empty role=row footer per group even without a footer template
+          rowGroupFooter: { role: 'presentation', hidden: true },
+          // the inline overflow:auto would make the wrapper the scroll container and trap the
+          // sticky header; the table fits its column, so nothing needs to scroll here
+          wrapper: { style: { overflow: 'visible' } },
+        }}
         rowGroupHeaderTemplate={(row: OfferRow) => {
           const spec = GROUP_LABELS[row.group];
           return (
@@ -479,14 +531,31 @@ export function OffersTable({
         onValueChange={onValueChange}
         expandedRows={state.expandedRows}
         onRowToggle={(event) => {
-          dispatch({ type: 'expandedRows', value: event.data as OfferRow[] });
+          const next = event.data as OfferRow[];
+          // a row being closed is kept open until its animation has played (see finishClose)
+          const removed = state.expandedRows.filter((r) => !next.some((n) => n.id === r.id));
+          if (removed.length > 0) {
+            setClosing((current) => [...current, ...removed.map((r) => r.id)]);
+          }
+          dispatch({ type: 'expandedRows', value: [...next, ...removed] });
         }}
-        rowExpansionTemplate={(row: OfferRow) => <OfferExpansion row={row} />}
+        rowExpansionTemplate={(row: OfferRow) => (
+          <Reveal
+            closing={closing.includes(row.id)}
+            onClosed={() => {
+              finishClose(row.id);
+            }}
+          >
+            <OfferExpansion row={row} />
+          </Reveal>
+        )}
         rowClassName={(row: OfferRow) =>
           [
             'data-row',
             row.whatIsFree === 'training-only' ? 'row-muted' : '',
-            state.expandedRows.some((r) => r.id === row.id) ? 'row-expanded' : '',
+            state.expandedRows.some((r) => r.id === row.id) && !closing.includes(row.id)
+              ? 'row-expanded'
+              : '',
           ]
             .filter(Boolean)
             .join(' ')
@@ -502,7 +571,15 @@ export function OffersTable({
           header={<span className="sr-only">Details</span>}
           headerStyle={{ width: '2.5rem' }}
           // PrimeReact points aria-controls at an id it never renders; aria-expanded carries the state
-          pt={{ rowToggler: { 'aria-controls': undefined } }}
+          pt={{ rowToggler: { 'aria-controls': undefined, title: 'Show or hide the details' } }}
+        />
+        <Column
+          field="vendor"
+          header={<span className="sr-only">Vendor</span>}
+          headerStyle={{ width: '2.5rem' }}
+          sortable
+          pt={{ headerCell: { title: 'Sort by vendor' } }}
+          body={(row: OfferRow) => <VendorMark vendor={row.vendor} />}
         />
         <Column
           field="name"
@@ -515,6 +592,7 @@ export function OffersTable({
           showFilterMatchModes={false}
           showFilterOperator={false}
           showAddButton={false}
+          pt={{ filterMenuButton: { title: 'Filter this column' } }}
           body={(row: OfferRow) => (
             <div className="offer-name" data-offer-id={row.id}>
               <span className="offer-title">
@@ -550,6 +628,7 @@ export function OffersTable({
           showFilterMatchModes={false}
           showFilterOperator={false}
           showAddButton={false}
+          pt={{ filterMenuButton: { title: 'Filter this column' } }}
           body={(row: OfferRow) => <WhatIsFreeTag value={row.whatIsFree} />}
         />
         <Column
@@ -563,8 +642,13 @@ export function OffersTable({
           headerStyle={{ width: '11rem' }}
           sortable
           body={(row: OfferRow) => (
-            <span className={`mono${row.windowEnd === null ? ' faint' : ''}`}>
-              {windowLabel(row.windowStart, row.windowEnd)}
+            <span className="window-cell">
+              <span className={`mono${row.windowEnd === null ? ' faint' : ''}`}>
+                {windowLabel(row.windowStart, row.windowEnd)}
+              </span>
+              {row.group === 'ending' && row.windowProgress !== null && (
+                <WindowBar progress={row.windowProgress} daysLeft={row.daysLeft} />
+              )}
             </span>
           )}
         />
@@ -589,6 +673,7 @@ export function OffersTable({
           showFilterMatchModes={false}
           showFilterOperator={false}
           showAddButton={false}
+          pt={{ filterMenuButton: { title: 'Filter this column' } }}
           body={(row: OfferRow) => (
             <StatusTag
               status={row.derivedStatus}
@@ -608,6 +693,7 @@ export function OffersTable({
               <select
                 className={`status-select${status === '' ? ' status-select--empty' : ''}`}
                 aria-label={`My status for ${row.name}`}
+                title="Track where you are with this offer (saved in this browser)"
                 value={status}
                 onChange={(event) => {
                   const next = event.target.value;
@@ -634,6 +720,7 @@ export function OffersTable({
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Open ${row.name} offer page`}
+              title="Open the vendor's offer page"
             >
               <span className="pi pi-external-link" aria-hidden="true" />
             </a>

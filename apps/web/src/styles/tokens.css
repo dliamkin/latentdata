@@ -40,6 +40,8 @@ html[data-theme='light'] {
   --backdrop: rgb(31 42 31 / 0.42);
   --shadow-dialog: 0 24px 64px rgb(0 0 0 / 0.28);
   --shadow-popover: 0 12px 32px rgb(31 42 31 / 0.14);
+  --shadow-card: 0 6px 18px rgb(31 42 31 / 0.1);
+  --shadow-nav: 0 4px 16px rgb(31 42 31 / 0.08);
   --heat-4: rgb(var(--accent-rgb) / 0.09);
   --heat-5: rgb(var(--accent-rgb) / 0.18);
   --heat-6: rgb(var(--accent-rgb) / 0.32);
@@ -76,6 +78,8 @@ html[data-theme='dark'] {
   --backdrop: rgb(0 0 0 / 0.55);
   --shadow-dialog: 0 24px 64px rgb(0 0 0 / 0.5);
   --shadow-popover: 0 12px 32px rgb(0 0 0 / 0.4);
+  --shadow-card: 0 6px 18px rgb(0 0 0 / 0.35);
+  --shadow-nav: 0 4px 16px rgb(0 0 0 / 0.35);
   --heat-4: rgb(var(--accent-rgb) / 0.14);
   --heat-5: rgb(var(--accent-rgb) / 0.27);
   --heat-6: rgb(var(--accent-rgb) / 0.42);
@@ -91,6 +95,10 @@ html[data-theme] {
   --gutter: 32px;
   --content-max: 1280px;
   --focus-ring: 0 0 0 3px rgb(var(--accent-rgb) / 0.35);
+  /* heights of the sticky layers, for the layers stacked under them */
+  --topbar-h: 49px;
+  --tabbar-h: 44px;
+  --sticky-stack: 134px;
 
   /* Lara's variables, repointed */
   --font-family: var(--font-sans);

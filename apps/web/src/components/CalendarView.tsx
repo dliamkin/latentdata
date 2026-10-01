@@ -8,6 +8,7 @@ import { localIsoDate } from '@cert-tracker/core';
 
 import { offersOnDay, type OfferRow } from '../data/offers.ts';
 import { formatDate, plural, windowLabel } from '../lib/format.ts';
+import { VendorMark } from './VendorMark.tsx';
 import { StatusTag } from './Tags.tsx';
 
 // three-letter weekday headers instead of PrimeReact's two
@@ -136,12 +137,15 @@ export function CalendarView({
           <ul className="day-list">
             {onSelectedDay.map((row) => (
               <li key={row.id}>
-                <div className="offer-name">
-                  <span className="offer-title">{row.name}</span>
-                  <span className="offer-meta">
-                    {row.vendor} ·{' '}
-                    <span className="mono">{windowLabel(row.windowStart, row.windowEnd)}</span>
-                  </span>
+                <div className="offer-cell">
+                  <VendorMark vendor={row.vendor} />
+                  <div className="offer-name">
+                    <span className="offer-title">{row.name}</span>
+                    <span className="offer-meta">
+                      {row.vendor} ·{' '}
+                      <span className="mono">{windowLabel(row.windowStart, row.windowEnd)}</span>
+                    </span>
+                  </div>
                 </div>
                 <div className="day-list-side">
                   <StatusTag
