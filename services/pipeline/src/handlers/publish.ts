@@ -4,6 +4,7 @@ import {
   acquireLock,
   createDocClient,
   getSystemMeta,
+  listCatalog,
   listOffers,
   listPublicEventsSince,
   listSources,
@@ -62,12 +63,13 @@ export async function runPublish(deps: PublishDeps, urgent: boolean): Promise<Pu
       return 'capped';
     }
 
-    const [offers, events, sources] = await Promise.all([
+    const [offers, catalog, events, sources] = await Promise.all([
       listOffers(doc, table),
+      listCatalog(doc, table),
       listPublicEventsSince(doc, table, eventTailStart(startedAt)),
       listSources(doc, table),
     ]);
-    const snapshot = buildSnapshot({ offers, events, sources, meta, now: startedAt });
+    const snapshot = buildSnapshot({ offers, catalog, events, sources, meta, now: startedAt });
 
     const published = await store.read();
     // startedAt, not now: anything written while we were reading must still look unpublished

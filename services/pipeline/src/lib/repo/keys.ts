@@ -16,6 +16,7 @@ export interface Gsi1Key {
 export const GSI1_NAME = 'GSI1';
 export const GSI1_OFFERS = 'OFFERS';
 export const GSI1_SOURCES = 'SOURCES';
+export const GSI1_CATALOG = 'CATALOG';
 
 export function offerKey(id: string): Key {
   return { PK: `OFFER#${id}`, SK: META_SK };
@@ -47,6 +48,14 @@ export function sourceKey(sourceId: string): Key {
 
 export function sourceGsi1(sourceId: string): Gsi1Key {
   return { GSI1PK: GSI1_SOURCES, GSI1SK: sourceId };
+}
+
+export function catalogKey(id: string): Key {
+  return { PK: `CERT#${id}`, SK: META_SK };
+}
+
+export function catalogGsi1(category: string, rank: number, id: string): Gsi1Key {
+  return { GSI1PK: GSI1_CATALOG, GSI1SK: `${category}#${String(rank).padStart(3, '0')}#${id}` };
 }
 
 export function eventKey(occurredAt: string, eventId: string): Key {

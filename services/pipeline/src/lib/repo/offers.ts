@@ -1,6 +1,12 @@
-import { GetCommand, PutCommand, QueryCommand } from '@aws-sdk/lib-dynamodb';
+import { GetCommand, PutCommand, QueryCommand, UpdateCommand } from '@aws-sdk/lib-dynamodb';
 
-import { OfferSchema, type Offer, type OfferStatus } from '@cert-tracker/core';
+import {
+  OfferSchema,
+  type Offer,
+  type OfferStatus,
+  type Technology,
+  type Track,
+} from '@cert-tracker/core';
 
 import { isConditionalCheckFailed, stripStorageKeys, type DocClient } from './client.ts';
 import { GSI1_NAME, GSI1_OFFERS, offerGsi1, offerKey } from './keys.ts';
@@ -61,6 +67,29 @@ export async function putOfferIfAbsent(
     if (isConditionalCheckFailed(error)) return 'exists';
     throw error;
   }
+}
+
+// the importer's backfill for offers stored before the taxonomy existed
+export async function setOfferTaxonomy(
+  doc: DocClient,
+  table: string,
+  id: string,
+  taxonomy: { tracks: Track[]; technologies: Technology[] },
+  now: Date,
+): Promise<void> {
+  await doc.send(
+    new UpdateCommand({
+      TableName: table,
+      Key: offerKey(id),
+      UpdateExpression: 'SET tracks = :tracks, technologies = :technologies, updatedAt = :now',
+      ConditionExpression: 'attribute_exists(PK)',
+      ExpressionAttributeValues: {
+        ':tracks': taxonomy.tracks,
+        ':technologies': taxonomy.technologies,
+        ':now': now.toISOString(),
+      },
+    }),
+  );
 }
 
 // a Put for a transaction: the auto-accept path creates the offer alongside its candidate

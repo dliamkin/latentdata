@@ -1,4 +1,4 @@
-import { PutCommand, QueryCommand } from '@aws-sdk/lib-dynamodb';
+import { PutCommand, QueryCommand, UpdateCommand } from '@aws-sdk/lib-dynamodb';
 
 import { SourceSchema, type Source } from '@cert-tracker/core';
 
@@ -45,6 +45,28 @@ export async function putSourceIfAbsent(
 // whole-item put after read-modify-write is safe and keeps the expression trivial
 export async function putSource(doc: DocClient, table: string, source: Source): Promise<void> {
   await doc.send(new PutCommand({ TableName: table, Item: sourceToItem(source) }));
+}
+
+// touches only the keyword lists, so it can't undo the state poll keeps on the same item;
+// a poll that read the item just before this ran will still write the old lists back
+export async function setSourceKeywords(
+  doc: DocClient,
+  table: string,
+  sourceId: string,
+  keywords: { keywordsInclude: string[]; keywordsExclude: string[] },
+): Promise<void> {
+  await doc.send(
+    new UpdateCommand({
+      TableName: table,
+      Key: sourceKey(sourceId),
+      UpdateExpression: 'SET keywordsInclude = :include, keywordsExclude = :exclude',
+      ConditionExpression: 'attribute_exists(PK)',
+      ExpressionAttributeValues: {
+        ':include': keywords.keywordsInclude,
+        ':exclude': keywords.keywordsExclude,
+      },
+    }),
+  );
 }
 
 export async function listSources(doc: DocClient, table: string): Promise<Source[]> {

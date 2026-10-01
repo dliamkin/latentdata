@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { offer, source } from '../../test/helpers.ts';
+import { catalogEntry, offer, source } from '../../test/helpers.ts';
 import {
   buildSnapshot,
   eventTailStart,
@@ -14,6 +14,7 @@ const NOW = new Date('2026-09-29T12:00:00.000Z');
 function input(overrides: Partial<SnapshotInput> = {}): SnapshotInput {
   return {
     offers: [offer({ id: 'b' }), offer({ id: 'a' })],
+    catalog: [catalogEntry({ id: 'z' }), catalogEntry({ id: 'y' })],
     events: [
       {
         eventId: '01ARZ3NDEKTSV4RRFFQ69G5FA2',
@@ -43,6 +44,7 @@ describe('buildSnapshot', () => {
     expect(snapshot.schemaVersion).toBe(1);
     expect(snapshot.generatedAt).toBe(NOW.toISOString());
     expect(snapshot.offers.map((o) => o.id)).toEqual(['a', 'b']);
+    expect(snapshot.catalog.map((c) => c.id)).toEqual(['y', 'z']);
     expect(snapshot.events.map((e) => e.offerId)).toEqual(['a', 'b']);
     expect(snapshot.meta.sourceHealth).toEqual({ total: 2, unhealthy: 1 });
   });
@@ -70,7 +72,34 @@ describe('sameContent', () => {
       false,
     );
     expect(sameContent(buildSnapshot(input({ events: [] })), published)).toBe(false);
+    expect(
+      sameContent(
+        buildSnapshot(input({ catalog: [catalogEntry({ id: 'y', listPriceUsd: 165 })] })),
+        published,
+      ),
+    ).toBe(false);
     expect(sameContent(buildSnapshot(input({ sources: [source()] })), published)).toBe(false);
+  });
+
+  it('reads a file published before the taxonomy and the catalog existed', () => {
+    const old = JSON.parse(serializeSnapshot(buildSnapshot(input({ catalog: [] })))) as {
+      catalog?: unknown;
+      offers: Record<string, unknown>[];
+    };
+    delete old.catalog;
+    for (const item of old.offers) {
+      delete item.tracks;
+      delete item.technologies;
+    }
+    const bare = input({
+      catalog: [],
+      offers: [
+        offer({ id: 'a', tracks: [], technologies: [] }),
+        offer({ id: 'b', tracks: [], technologies: [] }),
+      ],
+    });
+    expect(sameContent(buildSnapshot(bare), JSON.stringify(old))).toBe(true);
+    expect(sameContent(buildSnapshot(input()), JSON.stringify(old))).toBe(false);
   });
 
   it('treats an unreadable published file as different', () => {

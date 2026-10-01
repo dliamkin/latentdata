@@ -7,6 +7,13 @@ export {
   putCandidateIfAbsent,
 } from './candidates.ts';
 export {
+  catalogEntryToItem,
+  deleteCatalogEntry,
+  itemToCatalogEntry,
+  listCatalog,
+  putCatalogEntry,
+} from './catalog.ts';
+export {
   cancellationReasons,
   createDocClient,
   isConditionalCheckFailed,
@@ -31,6 +38,7 @@ export {
   offerStatusUpdateItem,
   offerToItem,
   putOfferIfAbsent,
+  setOfferTaxonomy,
   type OfferStatusChange,
 } from './offers.ts';
 export {
@@ -51,6 +59,7 @@ export {
   listSources,
   putSource,
   putSourceIfAbsent,
+  setSourceKeywords,
   sourceHealth,
   sourceToItem,
 } from './sources.ts';

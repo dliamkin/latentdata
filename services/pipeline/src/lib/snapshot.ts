@@ -1,5 +1,6 @@
 import {
   SnapshotSchema,
+  type CatalogEntry,
   type Offer,
   type Snapshot,
   type SnapshotEvent,
@@ -13,6 +14,7 @@ export const EVENT_TAIL_DAYS = 90;
 
 export interface SnapshotInput {
   offers: readonly Offer[];
+  catalog: readonly CatalogEntry[];
   events: readonly SnapshotEvent[];
   sources: readonly Source[];
   meta: Pick<SystemMeta, 'lastPollAt' | 'lastStatusRunAt'>;
@@ -32,6 +34,7 @@ export function buildSnapshot(input: SnapshotInput): Snapshot {
     schemaVersion: 1,
     generatedAt: input.now.toISOString(),
     offers: [...input.offers].sort((a, b) => byString(a.id, b.id)),
+    catalog: [...input.catalog].sort((a, b) => byString(a.id, b.id)),
     events: [...input.events].sort(
       (a, b) => byString(a.occurredAt, b.occurredAt) || byString(a.eventId, b.eventId),
     ),
