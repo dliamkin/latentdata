@@ -4,7 +4,8 @@ import { InputTextarea } from 'primereact/inputtextarea';
 
 import { useAnnouncer } from '../a11y/announcerContext.ts';
 import type { OfferRow } from '../data/offers.ts';
-import { formatDate } from '../lib/format.ts';
+import { formatDate, plural } from '../lib/format.ts';
+import { STATUS_TAGS, WHAT_IS_FREE_TAGS, countdownLabel } from '../lib/labels.ts';
 import { useTracking } from '../tracking/trackingContext.ts';
 
 const SAVE_DELAY_MS = 600;
@@ -15,6 +16,48 @@ function recurringText(row: OfferRow): string {
     (p): p is string => p !== null && p !== '',
   );
   return parts.length > 0 ? parts.join(' · ') : 'Recurring, cadence unknown';
+}
+
+interface Fact {
+  label: string;
+  value: string;
+  note: string;
+  mono?: boolean;
+  deadline?: boolean;
+}
+
+// the three things a reader decides on: what it costs, when it ends, which exam it is
+function facts(row: OfferRow): Fact[] {
+  const deadline: Fact =
+    row.windowEnd !== null
+      ? {
+          label: 'Deadline',
+          value: formatDate(row.windowEnd),
+          note:
+            row.derivedStatus === 'active' && row.expiringSoon && row.daysLeft !== null
+              ? countdownLabel(row.daysLeft)
+              : row.derivedStatus === 'upcoming' && row.windowStart !== null
+                ? `Opens ${formatDate(row.windowStart)}`
+                : STATUS_TAGS[row.derivedStatus].label,
+          deadline: row.derivedStatus === 'active' && row.expiringSoon,
+        }
+      : row.windowStart !== null
+        ? { label: 'Opens', value: formatDate(row.windowStart), note: 'No end date announced' }
+        : { label: 'Deadline', value: 'None', note: 'Available until withdrawn' };
+  return [
+    {
+      label: 'Cost',
+      value: row.cost ?? (row.whatIsFree === 'full-exam' ? 'Free' : 'Not specified'),
+      note: WHAT_IS_FREE_TAGS[row.whatIsFree].label,
+    },
+    deadline,
+    {
+      label: row.examCode?.includes('/') === true ? 'Exam codes' : 'Exam code',
+      value: row.examCode ?? 'Not specified',
+      note: plural(row.certifications.length, 'certification'),
+      mono: true,
+    },
+  ];
 }
 
 export function OfferExpansion({ row }: { row: OfferRow }) {
@@ -43,44 +86,56 @@ export function OfferExpansion({ row }: { row: OfferRow }) {
 
   return (
     <div className="offer-expansion" role="region" aria-label={`Details for ${row.name}`}>
-      <dl className="offer-details">
-        <dt>Certifications</dt>
-        <dd>{row.certifications.join(', ')}</dd>
-        <dt>Exam code</dt>
-        <dd>{row.examCode ?? 'Not specified'}</dd>
-        {row.cost !== null && (
-          <>
-            <dt>Cost</dt>
-            <dd>{row.cost}</dd>
-          </>
-        )}
-        <dt>Regions</dt>
-        <dd>{row.regions}</dd>
-        <dt>Requirements</dt>
-        <dd>{row.requirements}</dd>
-        <dt>Recurring</dt>
-        <dd>{recurringText(row)}</dd>
-        <dt>Verified</dt>
-        <dd>
-          <a href={row.sourceUrl} target="_blank" rel="noopener noreferrer">
-            Source page
-          </a>{' '}
-          on {formatDate(row.lastVerified)}
-          {row.verificationNote !== '' && ` · ${row.verificationNote}`}
-        </dd>
-        {row.notes !== '' && (
-          <>
-            <dt>Notes</dt>
-            <dd>{row.notes}</dd>
-          </>
-        )}
-      </dl>
+      <div className="offer-facts-column">
+        <dl className="fact-cards">
+          {facts(row).map((fact) => (
+            <div
+              key={fact.label}
+              className={`fact-card${fact.deadline === true ? ' fact-card--deadline' : ''}`}
+            >
+              <dt>{fact.label}</dt>
+              <dd>
+                <span className={`fact-value${fact.mono === true ? ' mono' : ''}`}>
+                  {fact.value}
+                </span>
+                <span className="fact-note">{fact.note}</span>
+              </dd>
+            </div>
+          ))}
+        </dl>
+        <dl className="offer-details">
+          <dt>Requirements</dt>
+          <dd>{row.requirements}</dd>
+          <dt>Certifications</dt>
+          <dd>{row.certifications.join(' · ')}</dd>
+          <dt>Regions</dt>
+          <dd>{row.regions}</dd>
+          <dt>Recurring</dt>
+          <dd>{recurringText(row)}</dd>
+          <dt>Verified</dt>
+          <dd>
+            <a className="text-link" href={row.sourceUrl} target="_blank" rel="noopener noreferrer">
+              Source page <span className="pi pi-external-link" aria-hidden="true" />
+            </a>{' '}
+            · {formatDate(row.lastVerified)}
+            {row.verificationNote !== '' && ` · ${row.verificationNote}`}
+          </dd>
+          {row.notes !== '' && (
+            <>
+              <dt>Notes</dt>
+              <dd>{row.notes}</dd>
+            </>
+          )}
+        </dl>
+      </div>
       <div className="tracking-notes">
-        <label htmlFor={notesId}>My notes</label>
+        <label htmlFor={notesId} className="eyebrow">
+          My notes
+        </label>
         <InputTextarea
           id={notesId}
           value={draft}
-          rows={3}
+          rows={5}
           autoResize
           aria-describedby={helpId}
           onChange={(event) => {

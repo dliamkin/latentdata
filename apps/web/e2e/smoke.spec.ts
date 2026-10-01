@@ -6,7 +6,7 @@ test('tabs sync with the hash and the back button', async ({ page }) => {
 
   await page.getByRole('tab', { name: 'Calendar' }).click();
   await expect(page).toHaveURL(/#calendar$/);
-  await expect(page.getByRole('heading', { name: /Offers on/ })).toBeVisible();
+  await expect(page.getByRole('heading', { name: /Open on/ })).toBeVisible();
 
   await page.goBack();
   await expect(page.getByRole('tab', { name: 'Offers', selected: true })).toBeVisible();
@@ -61,7 +61,7 @@ test('the admin dialog opens on Shift+A twice and cancel restores focus', async 
   await toggle.focus();
   await page.keyboard.press('Shift+A');
   await page.keyboard.press('Shift+A');
-  const dialog = page.getByRole('dialog', { name: 'Admin mode' });
+  const dialog = page.getByRole('dialog', { name: 'Enter admin mode' });
   await expect(dialog).toBeVisible();
   await expect(dialog.getByLabel('Admin token')).toBeFocused();
   await dialog.getByRole('button', { name: 'Cancel' }).click();

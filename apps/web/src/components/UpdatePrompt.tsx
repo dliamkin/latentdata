@@ -11,10 +11,12 @@ export function UpdatePrompt() {
 
   return (
     <div className="update-toast" role="status">
-      <span>A newer version is available.</span>
+      <span className="pi pi-refresh mark--accent" aria-hidden="true" />
+      <span className="update-toast-text">A newer version is available.</span>
       <Button
         label="Reload"
         size="small"
+        severity="contrast"
         onClick={() => {
           void updateServiceWorker(true);
         }}

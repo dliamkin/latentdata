@@ -5,7 +5,12 @@ export type StripSelection = QuickFilter | 'watchlist' | null;
 interface Item {
   id: Exclude<StripSelection, null>;
   label: string;
+  icon: string;
   count: number;
+  // the numeral takes the status colour; the deadline bucket is the only one that does
+  tone?: 'deadline';
+  // the Watch list cell is a jump, not a filter, and says so with an arrow
+  jump?: boolean;
 }
 
 export function SummaryStrip({
@@ -18,12 +23,18 @@ export function SummaryStrip({
   onSelect: (selection: StripSelection) => void;
 }) {
   const items: Item[] = [
-    { id: 'active', label: 'Active', count: counts.active },
-    { id: 'expiring', label: 'Expiring ≤ 14 days', count: counts.expiring },
-    { id: 'upcoming', label: 'Upcoming', count: counts.upcoming },
-    { id: 'evergreen', label: 'Evergreen', count: counts.evergreen },
-    { id: 'watchlist', label: 'Watch list', count: counts.watch },
-    { id: 'new', label: 'New this week', count: counts.new },
+    { id: 'active', label: 'Active', icon: 'pi pi-check-circle', count: counts.active },
+    {
+      id: 'expiring',
+      label: 'Ends ≤ 14 days',
+      icon: 'pi pi-clock',
+      count: counts.expiring,
+      tone: 'deadline',
+    },
+    { id: 'upcoming', label: 'Upcoming', icon: 'pi pi-play-circle', count: counts.upcoming },
+    { id: 'evergreen', label: 'Evergreen', icon: 'pi pi-sync', count: counts.evergreen },
+    { id: 'watchlist', label: 'Watch list', icon: 'pi pi-eye', count: counts.watch, jump: true },
+    { id: 'new', label: 'New this week', icon: 'pi pi-plus-circle', count: counts.new },
   ];
 
   return (
@@ -36,12 +47,19 @@ export function SummaryStrip({
               <button
                 type="button"
                 aria-pressed={pressed}
+                className={item.tone === undefined ? undefined : `strip--${item.tone}`}
                 onClick={() => {
                   onSelect(pressed ? null : item.id);
                 }}
               >
                 <span className="count">{item.count}</span>{' '}
-                <span className="label">{item.label}</span>
+                <span className="label">
+                  <span className={item.icon} aria-hidden="true" /> {item.label}
+                  {item.jump === true && (
+                    <span className="pi pi-arrow-right strip-arrow" aria-hidden="true" />
+                  )}
+                  {pressed && <span className="strip-clear" aria-hidden="true" />}
+                </span>
               </button>
             </li>
           );
