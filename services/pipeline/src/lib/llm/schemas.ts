@@ -5,6 +5,8 @@ import {
   CREDENTIAL_WEIGHTS,
   ELIGIBILITIES,
   OFFER_CATEGORIES,
+  TECHNOLOGIES,
+  TRACKS,
   WHAT_IS_FREE,
 } from '@cert-tracker/core';
 
@@ -29,6 +31,8 @@ export const ExtractionSchema = z.object({
   name: z.string(),
   vendor: z.string(),
   category: z.enum(OFFER_CATEGORIES),
+  tracks: z.array(z.enum(TRACKS)),
+  technologies: z.array(z.enum(TECHNOLOGIES)),
   certifications: z.array(z.string()),
   examCode: z.string().nullable(),
   whatIsFree: z.enum(WHAT_IS_FREE),

@@ -84,6 +84,18 @@ export function relativeTime(isoDateTime: string, now: Date = new Date()): strin
   return 'just now';
 }
 
+const usdFormat = new Intl.NumberFormat('en', {
+  style: 'currency',
+  currency: 'USD',
+  maximumFractionDigits: 0,
+});
+
+// "USD 150", or "Free" for a zero price; null has no price published
+export function priceLabel(listPriceUsd: number | null): string {
+  if (listPriceUsd === null) return 'Price not published';
+  return listPriceUsd === 0 ? 'Free' : usdFormat.format(listPriceUsd);
+}
+
 export function plural(count: number, noun: string): string {
   return `${String(count)} ${noun}${count === 1 ? '' : 's'}`;
 }

@@ -24,8 +24,67 @@
         "marketing",
         "pm",
         "dev",
+        "infrastructure",
         "other"
       ]
+    },
+    "tracks": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "software",
+          "it"
+        ]
+      }
+    },
+    "technologies": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "javascript",
+          "typescript",
+          "python",
+          "java",
+          "csharp",
+          "cpp",
+          "go",
+          "rust",
+          "php",
+          "ruby",
+          "kotlin",
+          "swift",
+          "sql",
+          "r",
+          "html-css",
+          "dotnet",
+          "react",
+          "angular",
+          "vue",
+          "nodejs",
+          "spring",
+          "android",
+          "ios",
+          "aws",
+          "azure",
+          "gcp",
+          "oci",
+          "kubernetes",
+          "docker",
+          "terraform",
+          "linux",
+          "git",
+          "github",
+          "salesforce",
+          "databricks",
+          "snowflake",
+          "mongodb",
+          "power-platform"
+        ]
+      }
     },
     "certifications": {
       "minItems": 1,
@@ -180,6 +239,8 @@
     "name",
     "vendor",
     "category",
+    "tracks",
+    "technologies",
     "certifications",
     "examCode",
     "whatIsFree",

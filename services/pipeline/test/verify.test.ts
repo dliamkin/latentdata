@@ -93,6 +93,8 @@ describe('auto-accept rule', () => {
       name: e.name,
       vendor: e.vendor,
       category: e.category,
+      tracks: e.tracks,
+      technologies: e.technologies,
       certifications: e.certifications,
       examCode: e.examCode,
       whatIsFree: e.whatIsFree,

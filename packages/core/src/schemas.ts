@@ -16,7 +16,54 @@ export const OFFER_CATEGORIES = [
   'marketing',
   'pm',
   'dev',
+  'infrastructure',
   'other',
+] as const;
+// who a credential is for: people who write code, people who run systems; an offer can be
+// both, or neither (marketing, general business)
+export const TRACKS = ['software', 'it'] as const;
+// a closed list so filters and the extraction schema agree on spelling; grouped for the UI
+export const TECHNOLOGY_GROUPS = {
+  language: [
+    'javascript',
+    'typescript',
+    'python',
+    'java',
+    'csharp',
+    'cpp',
+    'go',
+    'rust',
+    'php',
+    'ruby',
+    'kotlin',
+    'swift',
+    'sql',
+    'r',
+    'html-css',
+  ],
+  framework: ['dotnet', 'react', 'angular', 'vue', 'nodejs', 'spring', 'android', 'ios'],
+  platform: [
+    'aws',
+    'azure',
+    'gcp',
+    'oci',
+    'kubernetes',
+    'docker',
+    'terraform',
+    'linux',
+    'git',
+    'github',
+    'salesforce',
+    'databricks',
+    'snowflake',
+    'mongodb',
+    'power-platform',
+  ],
+} as const;
+export const TECHNOLOGIES = [
+  ...TECHNOLOGY_GROUPS.language,
+  ...TECHNOLOGY_GROUPS.framework,
+  ...TECHNOLOGY_GROUPS.platform,
 ] as const;
 export const WHAT_IS_FREE = [
   'full-exam',
@@ -47,6 +94,8 @@ export const EVENT_TYPES = [
 ] as const;
 
 export const OfferCategorySchema = z.enum(OFFER_CATEGORIES);
+export const TrackSchema = z.enum(TRACKS);
+export const TechnologySchema = z.enum(TECHNOLOGIES);
 export const WhatIsFreeSchema = z.enum(WHAT_IS_FREE);
 export const CredentialWeightSchema = z.enum(CREDENTIAL_WEIGHTS);
 export const EligibilitySchema = z.enum(ELIGIBILITIES);
@@ -54,6 +103,9 @@ export const OfferStatusSchema = z.enum(OFFER_STATUSES);
 export const EventTypeSchema = z.enum(EVENT_TYPES);
 
 export type OfferCategory = z.infer<typeof OfferCategorySchema>;
+export type Track = z.infer<typeof TrackSchema>;
+export type Technology = z.infer<typeof TechnologySchema>;
+export type TechnologyGroup = keyof typeof TECHNOLOGY_GROUPS;
 export type WhatIsFree = z.infer<typeof WhatIsFreeSchema>;
 export type CredentialWeight = z.infer<typeof CredentialWeightSchema>;
 export type Eligibility = z.infer<typeof EligibilitySchema>;
@@ -71,6 +123,9 @@ const offerFields = {
   name: z.string().min(1),
   vendor: z.string().min(1),
   category: OfferCategorySchema,
+  // defaulted so items written before the taxonomy existed still parse
+  tracks: z.array(TrackSchema).default([]),
+  technologies: z.array(TechnologySchema).default([]),
   certifications: z.array(z.string().min(1)).min(1),
   examCode: z.string().nullable(),
   whatIsFree: WhatIsFreeSchema,
@@ -287,6 +342,33 @@ export const NotificationSchema = z.object({
 
 export type Notification = z.infer<typeof NotificationSchema>;
 
+export const CATALOG_KINDS = ['exam', 'course'] as const;
+
+// a well-known credential, listed whether or not an offer covers it right now
+export const CatalogEntrySchema = z.object({
+  id: SlugSchema,
+  name: z.string().min(1),
+  vendor: z.string().min(1),
+  kind: z.enum(CATALOG_KINDS),
+  category: OfferCategorySchema,
+  tracks: z.array(TrackSchema),
+  technologies: z.array(TechnologySchema),
+  examCode: z.string().nullable(),
+  // standard US list price; null when the vendor doesn't publish one figure
+  listPriceUsd: z.number().min(0).nullable(),
+  priceNote: z.string(),
+  // other names offers use for it; this is what ties an offer to the entry
+  aliases: z.array(z.string().min(1)),
+  // display order inside its category, 1 first
+  rank: z.number().int().min(1),
+  url: z.url(),
+  lastVerified: IsoDateSchema,
+  notes: z.string(),
+});
+
+export type CatalogEntry = z.infer<typeof CatalogEntrySchema>;
+export type CatalogKind = CatalogEntry['kind'];
+
 export const SnapshotEventSchema = EventSchema.pick({
   eventId: true,
   type: true,
@@ -301,6 +383,8 @@ export const SnapshotSchema = z.object({
   schemaVersion: z.literal(1),
   generatedAt: IsoDateTimeSchema,
   offers: z.array(OfferSchema),
+  // absent from snapshots published before the catalog existed
+  catalog: z.array(CatalogEntrySchema).default([]),
   events: z.array(SnapshotEventSchema),
   meta: z.object({
     lastPollAt: IsoDateTimeSchema.nullable(),

@@ -38,8 +38,67 @@
               "marketing",
               "pm",
               "dev",
+              "infrastructure",
               "other"
             ]
+          },
+          "tracks": {
+            "default": [],
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "software",
+                "it"
+              ]
+            }
+          },
+          "technologies": {
+            "default": [],
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "javascript",
+                "typescript",
+                "python",
+                "java",
+                "csharp",
+                "cpp",
+                "go",
+                "rust",
+                "php",
+                "ruby",
+                "kotlin",
+                "swift",
+                "sql",
+                "r",
+                "html-css",
+                "dotnet",
+                "react",
+                "angular",
+                "vue",
+                "nodejs",
+                "spring",
+                "android",
+                "ios",
+                "aws",
+                "azure",
+                "gcp",
+                "oci",
+                "kubernetes",
+                "docker",
+                "terraform",
+                "linux",
+                "git",
+                "github",
+                "salesforce",
+                "databricks",
+                "snowflake",
+                "mongodb",
+                "power-platform"
+              ]
+            }
           },
           "certifications": {
             "minItems": 1,
@@ -194,6 +253,8 @@
           "name",
           "vendor",
           "category",
+          "tracks",
+          "technologies",
           "certifications",
           "examCode",
           "whatIsFree",
@@ -213,6 +274,164 @@
           "notes",
           "addedBy",
           "addedAt"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "catalog": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "vendor": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "exam",
+              "course"
+            ]
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "cloud",
+              "security",
+              "data",
+              "ai",
+              "marketing",
+              "pm",
+              "dev",
+              "infrastructure",
+              "other"
+            ]
+          },
+          "tracks": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "software",
+                "it"
+              ]
+            }
+          },
+          "technologies": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "javascript",
+                "typescript",
+                "python",
+                "java",
+                "csharp",
+                "cpp",
+                "go",
+                "rust",
+                "php",
+                "ruby",
+                "kotlin",
+                "swift",
+                "sql",
+                "r",
+                "html-css",
+                "dotnet",
+                "react",
+                "angular",
+                "vue",
+                "nodejs",
+                "spring",
+                "android",
+                "ios",
+                "aws",
+                "azure",
+                "gcp",
+                "oci",
+                "kubernetes",
+                "docker",
+                "terraform",
+                "linux",
+                "git",
+                "github",
+                "salesforce",
+                "databricks",
+                "snowflake",
+                "mongodb",
+                "power-platform"
+              ]
+            }
+          },
+          "examCode": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "listPriceUsd": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "priceNote": {
+            "type": "string"
+          },
+          "aliases": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "rank": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "lastVerified": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "vendor",
+          "kind",
+          "category",
+          "tracks",
+          "technologies",
+          "examCode",
+          "listPriceUsd",
+          "priceNote",
+          "aliases",
+          "rank",
+          "url",
+          "lastVerified",
+          "notes"
         ],
         "additionalProperties": false
       }
@@ -325,6 +544,7 @@
     "schemaVersion",
     "generatedAt",
     "offers",
+    "catalog",
     "events",
     "meta"
   ],

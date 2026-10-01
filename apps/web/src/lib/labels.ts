@@ -1,11 +1,17 @@
 import type {
+  CatalogKind,
   CredentialWeight,
   Eligibility,
   EventType,
   OfferCategory,
   OfferStatus,
+  Technology,
+  TechnologyGroup,
+  Track,
   WhatIsFree,
 } from '@cert-tracker/core';
+
+import type { Coverage } from '../data/catalog.ts';
 
 // the colour a marker takes; each maps to one token (see Tags.tsx and app.css)
 export type Tone = 'accent' | 'upcoming' | 'grey' | 'deadline' | 'ink' | 'muted';
@@ -49,6 +55,72 @@ export const ELIGIBILITY_TAGS: Record<Eligibility, TagSpec> = {
   'need-based': { label: 'Need-based', icon: 'pi pi-heart', tone: 'muted' },
 };
 
+export const TRACK_TAGS: Record<Track, TagSpec> = {
+  software: { label: 'Software', icon: 'pi pi-code', tone: 'muted' },
+  it: { label: 'IT & ops', icon: 'pi pi-server', tone: 'muted' },
+};
+
+export const CATALOG_KIND_LABELS: Record<CatalogKind, string> = {
+  exam: 'Exam',
+  course: 'Course',
+};
+
+// what the catalog says about a credential today; "free now" is the whole point of the site
+export const COVERAGE_TAGS: Record<Coverage, TagSpec> = {
+  'free-now': { label: 'Free now', icon: 'pi pi-star', tone: 'accent', strong: true },
+  'reduced-now': { label: 'Discounted now', icon: 'pi pi-percentage', tone: 'accent' },
+  opening: { label: 'Offer opening', icon: 'pi pi-play-circle', tone: 'upcoming' },
+  'needs-check': { label: 'Unconfirmed offer', icon: 'pi pi-question-circle', tone: 'deadline' },
+  none: { label: 'No offer now', icon: 'pi pi-minus', tone: 'grey' },
+};
+
+export const TECHNOLOGY_GROUP_LABELS: Record<TechnologyGroup, string> = {
+  language: 'Languages',
+  framework: 'Frameworks',
+  platform: 'Platforms & tools',
+};
+
+export const TECHNOLOGY_LABELS: Record<Technology, string> = {
+  javascript: 'JavaScript',
+  typescript: 'TypeScript',
+  python: 'Python',
+  java: 'Java',
+  csharp: 'C#',
+  cpp: 'C++',
+  go: 'Go',
+  rust: 'Rust',
+  php: 'PHP',
+  ruby: 'Ruby',
+  kotlin: 'Kotlin',
+  swift: 'Swift',
+  sql: 'SQL',
+  r: 'R',
+  'html-css': 'HTML & CSS',
+  dotnet: '.NET',
+  react: 'React',
+  angular: 'Angular',
+  vue: 'Vue',
+  nodejs: 'Node.js',
+  spring: 'Spring',
+  android: 'Android',
+  ios: 'iOS',
+  aws: 'AWS',
+  azure: 'Azure',
+  gcp: 'Google Cloud',
+  oci: 'Oracle Cloud',
+  kubernetes: 'Kubernetes',
+  docker: 'Docker',
+  terraform: 'Terraform',
+  linux: 'Linux',
+  git: 'Git',
+  github: 'GitHub',
+  salesforce: 'Salesforce',
+  databricks: 'Databricks',
+  snowflake: 'Snowflake',
+  mongodb: 'MongoDB',
+  'power-platform': 'Power Platform',
+};
+
 export const CATEGORY_LABELS: Record<OfferCategory, string> = {
   cloud: 'Cloud',
   security: 'Security',
@@ -57,6 +129,7 @@ export const CATEGORY_LABELS: Record<OfferCategory, string> = {
   marketing: 'Marketing',
   pm: 'Project management',
   dev: 'Development',
+  infrastructure: 'Networking & systems',
   other: 'Other',
 };
 

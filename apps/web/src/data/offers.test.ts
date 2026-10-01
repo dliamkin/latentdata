@@ -1,7 +1,10 @@
 import { describe, expect, it } from 'vitest';
 
 import {
+  matchesAudience,
   matchesQuickFilter,
+  matchesTechnology,
+  technologyCounts,
   newOfferIds,
   offersOnDay,
   summarize,
@@ -80,6 +83,43 @@ describe('matchesQuickFilter', () => {
     expect(matchesQuickFilter(byId('fx-expired'), 'new', new Set(['fx-expired']))).toBe(true);
     expect(matchesQuickFilter(byId('fx-expired'), 'new', none)).toBe(false);
     expect(matchesQuickFilter(byId('fx-expired'), null, none)).toBe(true);
+  });
+});
+
+describe('the audience lens', () => {
+  it('keeps everything when no track is chosen', () => {
+    expect(rows.every((row) => matchesAudience(row, null))).toBe(true);
+  });
+
+  it('keeps the offers whose tracks include the chosen one', () => {
+    expect(rows.filter((row) => matchesAudience(row, 'software')).map((r) => r.id)).toEqual([
+      'fx-active-long',
+      'fx-evergreen',
+      'fx-unverified',
+    ]);
+    expect(rows.filter((row) => matchesAudience(row, 'it')).map((r) => r.id)).toEqual([
+      'fx-active-long',
+      'fx-upcoming',
+      'fx-expired',
+      'fx-recurring-undated',
+    ]);
+    // marketing and business credentials sit in neither
+    expect(matchesAudience(byId('fx-training-only'), 'software')).toBe(false);
+    expect(matchesAudience(byId('fx-training-only'), 'it')).toBe(false);
+  });
+
+  it('filters by technology and counts the ones in use, in core order', () => {
+    expect(matchesTechnology(byId('fx-unverified'), 'react')).toBe(true);
+    expect(matchesTechnology(byId('fx-unverified'), 'python')).toBe(false);
+    expect(matchesTechnology(byId('fx-unverified'), null)).toBe(true);
+    expect(technologyCounts(rows)).toEqual([
+      { technology: 'javascript', count: 1 },
+      { technology: 'python', count: 1 },
+      { technology: 'sql', count: 1 },
+      { technology: 'react', count: 1 },
+      { technology: 'kubernetes', count: 1 },
+      { technology: 'linux', count: 1 },
+    ]);
   });
 });
 

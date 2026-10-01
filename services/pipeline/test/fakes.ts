@@ -72,6 +72,8 @@ export function extraction(overrides: Partial<Extraction> = {}): Extraction {
     name: 'Vendor Cloud Week 2026',
     vendor: 'Microsoft',
     category: 'cloud',
+    tracks: ['it'],
+    technologies: ['azure'],
     certifications: ['Azure Fundamentals'],
     examCode: 'AZ-900',
     whatIsFree: 'full-exam',
