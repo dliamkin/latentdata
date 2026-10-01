@@ -15,20 +15,29 @@ interface Offer {
 // brand domains; anything not listed falls back to the host the vendor's offers point at
 const BRAND_DOMAINS: Record<string, string> = {
   AWS: 'aws.amazon.com',
+  Cisco: 'cisco.com',
   Databricks: 'databricks.com',
   DataCamp: 'datacamp.com',
   Fortinet: 'fortinet.com',
   GitHub: 'github.com',
   Google: 'google.com',
   'Google Cloud': 'cloud.google.com',
+  HackerRank: 'hackerrank.com',
   HashiCorp: 'hashicorp.com',
+  'Hugging Face': 'huggingface.co',
   HubSpot: 'hubspot.com',
   ISC2: 'isc2.org',
+  Kaggle: 'kaggle.com',
+  'Linux Foundation': 'linuxfoundation.org',
   Microsoft: 'microsoft.com',
+  MongoDB: 'mongodb.com',
+  Neo4j: 'neo4j.com',
   OpenAI: 'openai.com',
   Oracle: 'oracle.com',
+  Redis: 'redis.io',
   Salesforce: 'salesforce.com',
   Snowflake: 'snowflake.com',
+  freeCodeCamp: 'freecodecamp.org',
 };
 
 const outDir = `${repoRoot}apps/web/public/vendors/`;

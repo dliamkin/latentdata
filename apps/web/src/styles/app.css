@@ -725,6 +725,86 @@ html[data-theme] .search-field .p-inputtext {
   padding-left: 32px;
 }
 
+/* ---- vendor chips ---- */
+
+.vendor-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4px 10px 4px 4px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--panel);
+  color: var(--ink);
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background-color 0.15s,
+    border-color 0.15s,
+    color 0.15s;
+}
+
+.chip:hover {
+  border-color: var(--muted);
+  background: var(--subtle);
+}
+
+.chip .vendor-mark,
+.chip .monogram {
+  width: 22px;
+  height: 22px;
+  margin-top: 0;
+  border-radius: 999px;
+  font-size: 8.5px;
+}
+
+.chip .vendor-mark img {
+  width: 14px;
+  height: 14px;
+}
+
+.chip-count {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--faint);
+}
+
+.chip[aria-pressed='true'] {
+  background: var(--accent-strip);
+  border-color: var(--accent-strip);
+  color: var(--on-accent-strip);
+}
+
+/* full strength, not dimmed: white at 80% over the dark accent falls under 4.5:1 and the
+   mono face already separates the count from the label */
+.chip[aria-pressed='true'] .chip-count {
+  color: inherit;
+}
+
+/* the text-only chips sit on the same baseline as the ones carrying a mark */
+.chip--all,
+.chip--more {
+  padding: 4px 12px;
+}
+
+.chip--more {
+  color: var(--muted);
+  border-style: dashed;
+}
+
+.chip--more:hover {
+  color: var(--ink);
+}
+
 /* ---- offers table ---- */
 
 /* below the tab bar, which is sticky too (the wrapper's overflow is cleared in OffersTable) */
@@ -1594,6 +1674,18 @@ html[data-theme] .p-button.p-button-contrast {
 
   .topbar {
     position: static;
+  }
+
+  .vendor-chips {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin-right: calc(var(--gutter) * -1);
+    padding-right: var(--gutter);
+  }
+
+  .chip {
+    flex: none;
   }
 
   .tabbar {

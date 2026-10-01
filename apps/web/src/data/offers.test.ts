@@ -8,7 +8,9 @@ import {
   newOfferIds,
   offersOnDay,
   summarize,
+  matchesVendor,
   toRows,
+  vendorCounts,
   watchListOrder,
 } from './offers.ts';
 import { snapshot } from './snapshot.ts';
@@ -55,6 +57,33 @@ describe('toRows', () => {
     expect(
       toRows(snapshot.offers, '2099-12-20').find((r) => r.id === 'fx-active-long')?.group,
     ).toBe('ending');
+  });
+
+  it('counts vendors, busiest first, and filters by them', () => {
+    const sample = [
+      { vendor: 'Microsoft' },
+      { vendor: 'AWS' },
+      { vendor: 'Microsoft' },
+      { vendor: 'Oracle' },
+      { vendor: 'AWS' },
+      { vendor: 'Microsoft' },
+    ];
+    expect(vendorCounts(sample)).toEqual([
+      { vendor: 'Microsoft', count: 3 },
+      { vendor: 'AWS', count: 2 },
+      { vendor: 'Oracle', count: 1 },
+    ]);
+    // a tie falls back to the name so the row doesn't reshuffle between renders
+    expect(vendorCounts([{ vendor: 'Zoom' }, { vendor: 'Adobe' }]).map((v) => v.vendor)).toEqual([
+      'Adobe',
+      'Zoom',
+    ]);
+
+    const row = { vendor: 'AWS' };
+    expect(matchesVendor(row, [])).toBe(true);
+    expect(matchesVendor(row, ['AWS'])).toBe(true);
+    expect(matchesVendor(row, ['Oracle'])).toBe(false);
+    expect(matchesVendor(row, ['Oracle', 'AWS'])).toBe(true);
   });
 
   it('measures how much of a dated window has elapsed', () => {

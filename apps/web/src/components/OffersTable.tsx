@@ -35,7 +35,9 @@ import { useAnnouncer } from '../a11y/announcerContext.ts';
 import { dropdownA11y } from '../a11y/dropdown.ts';
 import {
   matchesQuickFilter,
+  matchesVendor,
   technologyCounts,
+  vendorCounts,
   type OfferGroup,
   type OfferRow,
   type QuickFilter,
@@ -53,6 +55,7 @@ import {
 } from '../lib/labels.ts';
 import { TRACK_STATUSES, isTrackStatus, type TrackStatus } from '../tracking/tracking.ts';
 import { useTracking } from '../tracking/trackingContext.ts';
+import { VendorChips } from './VendorChips.tsx';
 import { VendorMark } from './VendorMark.tsx';
 import { OfferExpansion } from './OfferExpansion.tsx';
 import { Reveal } from './Reveal.tsx';
@@ -114,6 +117,8 @@ FilterService.register('custom_offerKey', (value: OfferFilter, filter: OfferFilt
 
 interface TableState {
   showExpired: boolean;
+  // chosen vendors; empty means every vendor
+  vendors: readonly string[];
   globalFilter: string;
   filters: DataTableFilterMeta;
   // an array, not the keyed object: PrimeReact wants one whenever rows are grouped
@@ -125,6 +130,8 @@ interface TableState {
 
 type TableAction =
   | { type: 'showExpired'; value: boolean }
+  | { type: 'toggleVendor'; vendor: string }
+  | { type: 'clearVendors' }
   | { type: 'globalFilter'; value: string }
   | { type: 'filters'; value: DataTableFilterMeta }
   | { type: 'expandedRows'; value: OfferRow[] }
@@ -151,6 +158,7 @@ function defaultOrder(a: OfferRow, b: OfferRow): number {
 function initialState(target: OfferRow | null, index: number): TableState {
   return {
     showExpired: target?.derivedStatus === 'expired',
+    vendors: [],
     globalFilter: '',
     filters: initialFilters(),
     expandedRows: target === null ? [] : [target],
@@ -164,6 +172,16 @@ function reducer(state: TableState, action: TableAction): TableState {
   switch (action.type) {
     case 'showExpired':
       return { ...state, showExpired: action.value, first: 0 };
+    case 'toggleVendor':
+      return {
+        ...state,
+        vendors: state.vendors.includes(action.vendor)
+          ? state.vendors.filter((v) => v !== action.vendor)
+          : [...state.vendors, action.vendor],
+        first: 0,
+      };
+    case 'clearVendors':
+      return { ...state, vendors: [], first: 0 };
     case 'globalFilter':
       return {
         ...state,
@@ -297,14 +315,23 @@ export function OffersTable({
   const announceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const lastAnnounced = useRef<number | null>(null);
 
+  // everything the table would show if no vendor were chosen; the chips count these, so a
+  // chip says what picking it would add rather than what is already on screen
+  const scoped = useMemo(
+    () =>
+      rows.filter(
+        (row) =>
+          (state.showExpired || row.derivedStatus !== 'expired') &&
+          matchesQuickFilter(row, quickFilter, newIds),
+      ),
+    [rows, state.showExpired, quickFilter, newIds],
+  );
+  const vendors = useMemo(() => vendorCounts(scoped), [scoped]);
+
   const visible = useMemo(
     () =>
-      rows
-        .filter(
-          (row) =>
-            (state.showExpired || row.derivedStatus !== 'expired') &&
-            matchesQuickFilter(row, quickFilter, newIds),
-        )
+      scoped
+        .filter((row) => matchesVendor(row, state.vendors))
         .map((row): TableRow => ({
           ...row,
           offerKey: {
@@ -314,7 +341,7 @@ export function OffersTable({
             technology: null,
           },
         })),
-    [rows, state.showExpired, quickFilter, newIds],
+    [scoped, state.vendors],
   );
 
   // group header counts follow the processed rows (onValueChange); PrimeReact only reports
@@ -509,253 +536,265 @@ export function OffersTable({
   );
 
   return (
-    <div ref={tableRef} className="offers">
-      {toolbarSlot === undefined
-        ? toolbar
-        : toolbarSlot !== null && createPortal(toolbar, toolbarSlot)}
-      <DataTable
-        value={visible}
-        dataKey="id"
-        paginator
-        first={state.first}
-        rows={state.rows}
-        rowsPerPageOptions={PAGE_SIZES}
-        onPage={(event) => {
-          dispatch({ type: 'page', first: event.first, rows: event.rows });
+    <>
+      <VendorChips
+        counts={vendors}
+        selected={state.vendors}
+        onToggle={(vendor) => {
+          dispatch({ type: 'toggleVendor', vendor });
         }}
-        paginatorTemplate={paginatorTemplate}
-        currentPageReportTemplate="{first}–{last} of {totalRecords}"
-        sortMode="multiple"
-        removableSort
-        multiSortMeta={multiSortMeta}
-        onSort={(event) => {
-          dispatch({ type: 'sort', value: event.multiSortMeta ?? [] });
+        onClear={() => {
+          dispatch({ type: 'clearVendors' });
         }}
-        rowGroupMode="subheader"
-        groupRowsBy="group"
-        pt={{
-          // PrimeReact emits an empty role=row footer per group even without a footer template
-          rowGroupFooter: { role: 'presentation', hidden: true },
-          // the inline overflow:auto would make the wrapper the scroll container and trap the
-          // sticky header; the table fits its column, so nothing needs to scroll here
-          wrapper: { style: { overflow: 'visible' } },
-        }}
-        rowGroupHeaderTemplate={(row: OfferRow) => {
-          const spec = GROUP_LABELS[row.group];
-          return (
-            <span className={`group-label group-label--${spec.tone}`}>
-              <span>
-                {spec.label} · {groupCounts[row.group] ?? 0}
-              </span>
-              <span className="group-rule" aria-hidden="true" />
-            </span>
-          );
-        }}
-        filterDisplay="menu"
-        filters={filters}
-        onFilter={(event) => {
-          dispatch({ type: 'filters', value: event.filters });
-        }}
-        globalFilterFields={['name', 'vendor', 'certifications', 'examCode']}
-        onValueChange={onValueChange}
-        expandedRows={state.expandedRows}
-        onRowToggle={(event) => {
-          const next = event.data as OfferRow[];
-          // a row being closed is kept open until its animation has played (see finishClose)
-          const removed = state.expandedRows.filter((r) => !next.some((n) => n.id === r.id));
-          if (removed.length > 0) {
-            setClosing((current) => [...current, ...removed.map((r) => r.id)]);
-          }
-          dispatch({ type: 'expandedRows', value: [...next, ...removed] });
-        }}
-        rowExpansionTemplate={(row: OfferRow) => (
-          <Reveal
-            closing={closing.includes(row.id)}
-            onClosed={() => {
-              finishClose(row.id);
-            }}
-          >
-            <OfferExpansion row={row} />
-          </Reveal>
-        )}
-        rowClassName={(row: OfferRow) =>
-          [
-            'data-row',
-            row.whatIsFree === 'training-only' ? 'row-muted' : '',
-            state.expandedRows.some((r) => r.id === row.id) && !closing.includes(row.id)
-              ? 'row-expanded'
-              : '',
-          ]
-            .filter(Boolean)
-            .join(' ')
-        }
-        // stack mode below the md breakpoint; PrimeReact 10 only exposes it through this prop
-        // eslint-disable-next-line @typescript-eslint/no-deprecated
-        responsiveLayout="stack"
-        breakpoint="767px"
-        emptyMessage="No offers match."
-      >
-        <Column
-          expander
-          header={<span className="sr-only">Details</span>}
-          headerStyle={{ width: '2.5rem' }}
-          // PrimeReact points aria-controls at an id it never renders; aria-expanded carries the state
-          pt={{ rowToggler: { 'aria-controls': undefined, title: 'Show or hide the details' } }}
-        />
-        <Column
-          field="vendor"
-          header={<span className="sr-only">Vendor</span>}
-          headerStyle={{ width: '2.5rem' }}
-          sortable
-          pt={{ headerCell: { title: 'Sort by vendor' } }}
-          body={(row: OfferRow) => <VendorMark vendor={row.vendor} />}
-        />
-        <Column
-          field="name"
-          filterField="offerKey"
-          header="Offer"
-          sortable
-          filter
-          filterHeader="Filter · Offer"
-          filterElement={offerFilter}
-          showFilterMatchModes={false}
-          showFilterOperator={false}
-          showAddButton={false}
-          pt={{ filterMenuButton: { title: 'Filter this column' } }}
-          body={(row: OfferRow) => (
-            <div className="offer-name" data-offer-id={row.id}>
-              <span className="offer-title">
-                {row.name}
-                {row.isNew && <span className="new-badge">NEW</span>}
-              </span>
-              <span className="offer-meta">
-                {row.vendor} · {CATEGORY_LABELS[row.category]} ·{' '}
-                {WEIGHT_TAGS[row.credentialWeight].label} weight
-              </span>
-            </div>
-          )}
-        />
-        <Column
-          field="whatIsFreeRank"
-          filterField="whatIsFree"
-          header="What's free"
-          headerStyle={{ width: '9rem' }}
-          sortable
-          filter
-          filterHeader="Filter · What's free"
-          filterElement={(opts) => (
-            <CountedDropdown
-              value={opts.value as string | null}
-              options={whatIsFreeOptions}
-              counts={valueCounts.whatIsFree}
-              label="Filter by what's free"
-              onChange={(value) => {
-                opts.filterApplyCallback(value);
-              }}
-            />
-          )}
-          showFilterMatchModes={false}
-          showFilterOperator={false}
-          showAddButton={false}
-          pt={{ filterMenuButton: { title: 'Filter this column' } }}
-          body={(row: OfferRow) => <WhatIsFreeTag value={row.whatIsFree} />}
-        />
-        <Column
-          header="Eligibility"
-          headerStyle={{ width: '8.5rem' }}
-          body={(row: OfferRow) => <EligibilityTags values={row.eligibility} />}
-        />
-        <Column
-          field="windowEndSort"
-          header="Window"
-          headerStyle={{ width: '11rem' }}
-          sortable
-          body={(row: OfferRow) => (
-            <span className="window-cell">
-              <span className={`mono${row.windowEnd === null ? ' faint' : ''}`}>
-                {windowLabel(row.windowStart, row.windowEnd)}
-              </span>
-              {row.group === 'ending' && row.windowProgress !== null && (
-                <WindowBar progress={row.windowProgress} daysLeft={row.daysLeft} />
-              )}
-            </span>
-          )}
-        />
-        <Column
-          field="derivedStatus"
-          header="Status"
-          headerStyle={{ width: '9.5rem' }}
-          sortable
-          filter
-          filterHeader="Filter · Status"
-          filterElement={(opts) => (
-            <CountedDropdown
-              value={opts.value as string | null}
-              options={statusOptions}
-              counts={valueCounts.status}
-              label="Filter by status"
-              onChange={(value) => {
-                opts.filterApplyCallback(value);
-              }}
-            />
-          )}
-          showFilterMatchModes={false}
-          showFilterOperator={false}
-          showAddButton={false}
-          pt={{ filterMenuButton: { title: 'Filter this column' } }}
-          body={(row: OfferRow) => (
-            <StatusTag
-              status={row.derivedStatus}
-              expiringSoon={row.expiringSoon}
-              daysLeft={row.daysLeft}
-            />
-          )}
-        />
-        <Column
-          header="Mine"
-          headerStyle={{ width: '9rem' }}
-          body={(row: OfferRow) => {
-            const status = entries[row.id]?.status ?? '';
+      />
+      <div ref={tableRef} className="offers">
+        {toolbarSlot === undefined
+          ? toolbar
+          : toolbarSlot !== null && createPortal(toolbar, toolbarSlot)}
+        <DataTable
+          value={visible}
+          dataKey="id"
+          paginator
+          first={state.first}
+          rows={state.rows}
+          rowsPerPageOptions={PAGE_SIZES}
+          onPage={(event) => {
+            dispatch({ type: 'page', first: event.first, rows: event.rows });
+          }}
+          paginatorTemplate={paginatorTemplate}
+          currentPageReportTemplate="{first}–{last} of {totalRecords}"
+          sortMode="multiple"
+          removableSort
+          multiSortMeta={multiSortMeta}
+          onSort={(event) => {
+            dispatch({ type: 'sort', value: event.multiSortMeta ?? [] });
+          }}
+          rowGroupMode="subheader"
+          groupRowsBy="group"
+          pt={{
+            // PrimeReact emits an empty role=row footer per group even without a footer template
+            rowGroupFooter: { role: 'presentation', hidden: true },
+            // the inline overflow:auto would make the wrapper the scroll container and trap the
+            // sticky header; the table fits its column, so nothing needs to scroll here
+            wrapper: { style: { overflow: 'visible' } },
+          }}
+          rowGroupHeaderTemplate={(row: OfferRow) => {
+            const spec = GROUP_LABELS[row.group];
             return (
-              // a native select: one element per row instead of PrimeReact's dozen, and the
-              // browser's own keyboard handling
-              <select
-                className={`status-select${status === '' ? ' status-select--empty' : ''}`}
-                aria-label={`My status for ${row.name}`}
-                title="Track where you are with this offer (saved in this browser)"
-                value={status}
-                onChange={(event) => {
-                  const next = event.target.value;
-                  setStatus(row.id, isTrackStatus(next) ? next : null);
-                }}
-              >
-                <option value="">Not tracked</option>
-                {TRACK_STATUSES.map((track) => (
-                  <option key={track} value={track}>
-                    {TRACK_LABELS[track]}
-                  </option>
-                ))}
-              </select>
+              <span className={`group-label group-label--${spec.tone}`}>
+                <span>
+                  {spec.label} · {groupCounts[row.group] ?? 0}
+                </span>
+                <span className="group-rule" aria-hidden="true" />
+              </span>
             );
           }}
-        />
-        <Column
-          header={<span className="sr-only">Link</span>}
-          headerStyle={{ width: '2.5rem' }}
-          body={(row: OfferRow) => (
-            <a
-              className="icon-link"
-              href={row.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Open ${row.name} offer page`}
-              title="Open the vendor's offer page"
+          filterDisplay="menu"
+          filters={filters}
+          onFilter={(event) => {
+            dispatch({ type: 'filters', value: event.filters });
+          }}
+          globalFilterFields={['name', 'vendor', 'certifications', 'examCode']}
+          onValueChange={onValueChange}
+          expandedRows={state.expandedRows}
+          onRowToggle={(event) => {
+            const next = event.data as OfferRow[];
+            // a row being closed is kept open until its animation has played (see finishClose)
+            const removed = state.expandedRows.filter((r) => !next.some((n) => n.id === r.id));
+            if (removed.length > 0) {
+              setClosing((current) => [...current, ...removed.map((r) => r.id)]);
+            }
+            dispatch({ type: 'expandedRows', value: [...next, ...removed] });
+          }}
+          rowExpansionTemplate={(row: OfferRow) => (
+            <Reveal
+              closing={closing.includes(row.id)}
+              onClosed={() => {
+                finishClose(row.id);
+              }}
             >
-              <span className="pi pi-external-link" aria-hidden="true" />
-            </a>
+              <OfferExpansion row={row} />
+            </Reveal>
           )}
-        />
-      </DataTable>
-    </div>
+          rowClassName={(row: OfferRow) =>
+            [
+              'data-row',
+              row.whatIsFree === 'training-only' ? 'row-muted' : '',
+              state.expandedRows.some((r) => r.id === row.id) && !closing.includes(row.id)
+                ? 'row-expanded'
+                : '',
+            ]
+              .filter(Boolean)
+              .join(' ')
+          }
+          // stack mode below the md breakpoint; PrimeReact 10 only exposes it through this prop
+          // eslint-disable-next-line @typescript-eslint/no-deprecated
+          responsiveLayout="stack"
+          breakpoint="767px"
+          emptyMessage="No offers match."
+        >
+          <Column
+            expander
+            header={<span className="sr-only">Details</span>}
+            headerStyle={{ width: '2.5rem' }}
+            // PrimeReact points aria-controls at an id it never renders; aria-expanded carries the state
+            pt={{ rowToggler: { 'aria-controls': undefined, title: 'Show or hide the details' } }}
+          />
+          <Column
+            field="vendor"
+            header={<span className="sr-only">Vendor</span>}
+            headerStyle={{ width: '2.5rem' }}
+            sortable
+            pt={{ headerCell: { title: 'Sort by vendor' } }}
+            body={(row: OfferRow) => <VendorMark vendor={row.vendor} />}
+          />
+          <Column
+            field="name"
+            filterField="offerKey"
+            header="Offer"
+            sortable
+            filter
+            filterHeader="Filter · Offer"
+            filterElement={offerFilter}
+            showFilterMatchModes={false}
+            showFilterOperator={false}
+            showAddButton={false}
+            pt={{ filterMenuButton: { title: 'Filter this column' } }}
+            body={(row: OfferRow) => (
+              <div className="offer-name" data-offer-id={row.id}>
+                <span className="offer-title">
+                  {row.name}
+                  {row.isNew && <span className="new-badge">NEW</span>}
+                </span>
+                <span className="offer-meta">
+                  {row.vendor} · {CATEGORY_LABELS[row.category]} ·{' '}
+                  {WEIGHT_TAGS[row.credentialWeight].label} weight
+                </span>
+              </div>
+            )}
+          />
+          <Column
+            field="whatIsFreeRank"
+            filterField="whatIsFree"
+            header="What's free"
+            headerStyle={{ width: '9rem' }}
+            sortable
+            filter
+            filterHeader="Filter · What's free"
+            filterElement={(opts) => (
+              <CountedDropdown
+                value={opts.value as string | null}
+                options={whatIsFreeOptions}
+                counts={valueCounts.whatIsFree}
+                label="Filter by what's free"
+                onChange={(value) => {
+                  opts.filterApplyCallback(value);
+                }}
+              />
+            )}
+            showFilterMatchModes={false}
+            showFilterOperator={false}
+            showAddButton={false}
+            pt={{ filterMenuButton: { title: 'Filter this column' } }}
+            body={(row: OfferRow) => <WhatIsFreeTag value={row.whatIsFree} />}
+          />
+          <Column
+            header="Eligibility"
+            headerStyle={{ width: '8.5rem' }}
+            body={(row: OfferRow) => <EligibilityTags values={row.eligibility} />}
+          />
+          <Column
+            field="windowEndSort"
+            header="Window"
+            headerStyle={{ width: '11rem' }}
+            sortable
+            body={(row: OfferRow) => (
+              <span className="window-cell">
+                <span className={`mono${row.windowEnd === null ? ' faint' : ''}`}>
+                  {windowLabel(row.windowStart, row.windowEnd)}
+                </span>
+                {row.group === 'ending' && row.windowProgress !== null && (
+                  <WindowBar progress={row.windowProgress} daysLeft={row.daysLeft} />
+                )}
+              </span>
+            )}
+          />
+          <Column
+            field="derivedStatus"
+            header="Status"
+            headerStyle={{ width: '9.5rem' }}
+            sortable
+            filter
+            filterHeader="Filter · Status"
+            filterElement={(opts) => (
+              <CountedDropdown
+                value={opts.value as string | null}
+                options={statusOptions}
+                counts={valueCounts.status}
+                label="Filter by status"
+                onChange={(value) => {
+                  opts.filterApplyCallback(value);
+                }}
+              />
+            )}
+            showFilterMatchModes={false}
+            showFilterOperator={false}
+            showAddButton={false}
+            pt={{ filterMenuButton: { title: 'Filter this column' } }}
+            body={(row: OfferRow) => (
+              <StatusTag
+                status={row.derivedStatus}
+                expiringSoon={row.expiringSoon}
+                daysLeft={row.daysLeft}
+              />
+            )}
+          />
+          <Column
+            header="Mine"
+            headerStyle={{ width: '9rem' }}
+            body={(row: OfferRow) => {
+              const status = entries[row.id]?.status ?? '';
+              return (
+                // a native select: one element per row instead of PrimeReact's dozen, and the
+                // browser's own keyboard handling
+                <select
+                  className={`status-select${status === '' ? ' status-select--empty' : ''}`}
+                  aria-label={`My status for ${row.name}`}
+                  title="Track where you are with this offer (saved in this browser)"
+                  value={status}
+                  onChange={(event) => {
+                    const next = event.target.value;
+                    setStatus(row.id, isTrackStatus(next) ? next : null);
+                  }}
+                >
+                  <option value="">Not tracked</option>
+                  {TRACK_STATUSES.map((track) => (
+                    <option key={track} value={track}>
+                      {TRACK_LABELS[track]}
+                    </option>
+                  ))}
+                </select>
+              );
+            }}
+          />
+          <Column
+            header={<span className="sr-only">Link</span>}
+            headerStyle={{ width: '2.5rem' }}
+            body={(row: OfferRow) => (
+              <a
+                className="icon-link"
+                href={row.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Open ${row.name} offer page`}
+                title="Open the vendor's offer page"
+              >
+                <span className="pi pi-external-link" aria-hidden="true" />
+              </a>
+            )}
+          />
+        </DataTable>
+      </div>
+    </>
   );
 }
