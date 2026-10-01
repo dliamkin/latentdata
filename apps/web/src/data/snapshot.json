@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-29T23:10:44.789Z",
+  "generatedAt": "2026-10-01T04:25:44.856Z",
   "offers": [
     {
       "id": "aws-aif2cloud-2026",
@@ -21,7 +21,7 @@
       "regions": "Global; 18+; void in Cuba, Iran, North Korea, Syria, Crimea, Russia",
       "windowStart": "2026-05-26",
       "windowEnd": "2026-09-30",
-      "status": "active",
+      "status": "expired",
       "recurring": {
         "isRecurring": false,
         "cadence": null,
@@ -36,7 +36,7 @@
       "notes": "Second deadline: CLF-C02 by 2026-11-30.",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-09-29T22:59:01.779Z"
+      "updatedAt": "2026-10-01T04:17:03.425Z"
     },
     {
       "id": "aws-emerging-talent-community-vouchers",
@@ -1404,13 +1404,25 @@
       "updatedAt": "2026-09-29T22:59:01.779Z"
     }
   ],
-  "events": [],
+  "events": [
+    {
+      "eventId": "01M3TTW6Y1BZ21ZXDWBEY7D0AJ",
+      "type": "offer.expired",
+      "occurredAt": "2026-10-01T04:17:03.425Z",
+      "offerId": "aws-aif2cloud-2026",
+      "payload": {
+        "name": "AWS Cloud Practitioner free after AI Practitioner (AIF2CLOUD)",
+        "vendor": "AWS",
+        "windowEnd": "2026-09-30"
+      }
+    }
+  ],
   "meta": {
-    "lastPollAt": null,
-    "lastStatusRunAt": null,
+    "lastPollAt": "2026-10-01T04:07:30.852Z",
+    "lastStatusRunAt": "2026-10-01T04:17:10.354Z",
     "sourceHealth": {
-      "total": 24,
-      "unhealthy": 0
+      "total": 19,
+      "unhealthy": 4
     }
   }
 }
