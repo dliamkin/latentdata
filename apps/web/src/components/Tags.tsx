@@ -1,5 +1,3 @@
-import { Tag } from 'primereact/tag';
-
 import type { CredentialWeight, Eligibility, OfferStatus, WhatIsFree } from '@cert-tracker/core';
 
 import {
@@ -7,11 +5,37 @@ import {
   STATUS_TAGS,
   WEIGHT_TAGS,
   WHAT_IS_FREE_TAGS,
+  countdownLabel,
   type TagSpec,
+  type Tone,
 } from '../lib/labels.ts';
 
-function SpecTag({ spec, label }: { spec: TagSpec; label?: string }) {
-  return <Tag value={label ?? spec.label} icon={spec.icon} severity={spec.severity} />;
+// a marker is an icon plus text in a tone colour; no pills, so the table reads as text
+export function Mark({
+  icon,
+  tone,
+  strong = false,
+  children,
+}: {
+  icon: string;
+  tone: Tone;
+  strong?: boolean;
+  children: string;
+}) {
+  return (
+    <span className={`mark mark--${tone}${strong ? ' mark--strong' : ''}`}>
+      <span className={`${icon} mark-icon`} aria-hidden="true" />
+      {children}
+    </span>
+  );
+}
+
+function SpecMark({ spec, label }: { spec: TagSpec; label?: string }) {
+  return (
+    <Mark icon={spec.icon} tone={spec.tone} strong={spec.strong === true}>
+      {label ?? spec.label}
+    </Mark>
+  );
 }
 
 export function StatusTag({
@@ -24,27 +48,29 @@ export function StatusTag({
   daysLeft?: number | null;
 }) {
   if (status === 'active' && expiringSoon && daysLeft !== null) {
-    const label =
-      daysLeft === 0 ? 'Ends today' : `Ends in ${String(daysLeft)} day${daysLeft === 1 ? '' : 's'}`;
-    return <Tag value={label} icon="pi pi-clock" severity="warning" />;
+    return (
+      <Mark icon="pi pi-clock" tone="deadline" strong>
+        {countdownLabel(daysLeft)}
+      </Mark>
+    );
   }
-  return <SpecTag spec={STATUS_TAGS[status]} />;
+  return <SpecMark spec={STATUS_TAGS[status]} />;
 }
 
 export function WhatIsFreeTag({ value }: { value: WhatIsFree }) {
-  return <SpecTag spec={WHAT_IS_FREE_TAGS[value]} />;
+  return <SpecMark spec={WHAT_IS_FREE_TAGS[value]} />;
 }
 
 export function WeightTag({ value }: { value: CredentialWeight }) {
-  return <SpecTag spec={WEIGHT_TAGS[value]} label={`${WEIGHT_TAGS[value].label} weight`} />;
+  return <SpecMark spec={WEIGHT_TAGS[value]} label={`${WEIGHT_TAGS[value].label} weight`} />;
 }
 
 export function EligibilityTags({ values }: { values: readonly Eligibility[] }) {
   return (
-    <ul className="tag-list" aria-label="Eligibility">
+    <ul className="eligibility" aria-label="Eligibility">
       {values.map((value) => (
         <li key={value}>
-          <SpecTag spec={ELIGIBILITY_TAGS[value]} />
+          <SpecMark spec={ELIGIBILITY_TAGS[value]} />
         </li>
       ))}
     </ul>
