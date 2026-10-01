@@ -1,12 +1,19 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-01T04:25:44.856Z",
+  "generatedAt": "2026-10-01T15:25:44.860Z",
   "offers": [
     {
       "id": "aws-aif2cloud-2026",
       "name": "AWS Cloud Practitioner free after AI Practitioner (AIF2CLOUD)",
       "vendor": "AWS",
       "category": "cloud",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "aws"
+      ],
       "certifications": [
         "AWS Certified AI Practitioner",
         "AWS Certified Cloud Practitioner"
@@ -36,13 +43,62 @@
       "notes": "Second deadline: CLF-C02 by 2026-11-30.",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-10-01T04:17:03.425Z"
+      "updatedAt": "2026-10-01T15:19:42.754Z"
+    },
+    {
+      "id": "aws-educate-digital-badges",
+      "name": "AWS Educate",
+      "vendor": "AWS",
+      "category": "cloud",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "aws"
+      ],
+      "certifications": [
+        "AWS Educate shareable digital badges"
+      ],
+      "examCode": null,
+      "whatIsFree": "training-and-badge",
+      "cost": null,
+      "credentialWeight": "low",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Register with an email address (minimum age 13) and complete the learning paths; no credit card needed.",
+      "url": "https://aws.amazon.com/education/awseducate/",
+      "sourceUrl": "https://aws.amazon.com/education/awseducate/",
+      "lastVerified": "2026-10-01",
+      "verificationNote": "Page says free, no credit card, open to any individual aged 13 or over, and that learners can earn shareable digital badges.",
+      "notes": "Which specific badges exist was not listed on the page.",
+      "addedBy": "manual",
+      "addedAt": "2026-10-01",
+      "updatedAt": "2026-10-01T15:19:42.754Z"
     },
     {
       "id": "aws-emerging-talent-community-vouchers",
       "name": "AWS Emerging Talent Community points-for-voucher",
       "vendor": "AWS",
       "category": "cloud",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "aws"
+      ],
       "certifications": [
         "Cloud Practitioner",
         "AI Practitioner",
@@ -74,13 +130,20 @@
       "notes": "Check the Rewards tab directly.",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-09-29T22:59:01.779Z"
+      "updatedAt": "2026-10-01T15:19:42.754Z"
     },
     {
       "id": "aws-reinvent-2026-registrant-voucher",
       "name": "AWS re:Invent 2026 registrant 50% exam voucher",
       "vendor": "AWS",
       "category": "cloud",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "aws"
+      ],
       "certifications": [
         "Any AWS Certification exam"
       ],
@@ -109,13 +172,61 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-29",
-      "updatedAt": "2026-09-29T22:59:01.779Z"
+      "updatedAt": "2026-10-01T15:19:42.754Z"
+    },
+    {
+      "id": "cisco-javascript-essentials-1",
+      "name": "JavaScript Essentials 1",
+      "vendor": "Cisco",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "javascript"
+      ],
+      "certifications": [
+        "JavaScript Essentials 1 digital badge (Cisco with OpenEDG JS Institute)"
+      ],
+      "examCode": null,
+      "whatIsFree": "training-and-badge",
+      "cost": null,
+      "credentialWeight": "low",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Create a free Skills for All account, complete the course and pass the course test to receive the Credly badge.",
+      "url": "https://www.netacad.com/courses/javascript-essentials-1",
+      "sourceUrl": "https://www.credly.com/org/cisco/badge/javascript-essentials-1",
+      "lastVerified": "2026-10-01",
+      "verificationNote": "Netacad course page is titled \"A Free Course from Cisco\". Credly badge page says earned by a passing score on a comprehensive test.",
+      "notes": "The separate OpenEDG JSE entry-level certification exam is not part of this offer and its price was not checked. Other Cisco programming courses (Python, C/C++) were not verified.",
+      "addedBy": "manual",
+      "addedAt": "2026-10-01",
+      "updatedAt": "2026-10-01T15:19:42.754Z"
     },
     {
       "id": "databricks-accreditations",
       "name": "Databricks Academy accreditations",
       "vendor": "Databricks",
       "category": "data",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "databricks"
+      ],
       "certifications": [
         "Databricks Fundamentals",
         "Generative AI Fundamentals",
@@ -147,13 +258,20 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-09-29T22:59:01.779Z"
+      "updatedAt": "2026-10-01T15:19:42.754Z"
     },
     {
       "id": "databricks-advanced-learning-festival-fall-2026",
       "name": "Databricks Advanced Learning Festival (fall 2026) — 50% certification voucher",
       "vendor": "Databricks",
       "category": "data",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "databricks"
+      ],
       "certifications": [
         "Any Databricks certification"
       ],
@@ -182,13 +300,21 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-29",
-      "updatedAt": "2026-09-29T22:59:01.779Z"
+      "updatedAt": "2026-10-01T15:19:42.754Z"
     },
     {
       "id": "datacamp-free-access-week",
       "name": "DataCamp Free Access Week (includes certifications)",
       "vendor": "DataCamp",
       "category": "data",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "python",
+        "sql",
+        "r"
+      ],
       "certifications": [
         "Data Analyst",
         "Data Scientist",
@@ -219,13 +345,17 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-09-29T22:59:01.779Z"
+      "updatedAt": "2026-10-01T15:19:42.754Z"
     },
     {
       "id": "fortinet-nse-fundamentals",
       "name": "Fortinet NSE 1/2 (formerly FCF) and FCA",
       "vendor": "Fortinet",
       "category": "security",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [],
       "certifications": [
         "Fortinet Certified Fundamentals (NSE 1/2)",
         "Fortinet Certified Associate"
@@ -255,13 +385,313 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-09-29T22:59:01.779Z"
+      "updatedAt": "2026-10-01T15:19:42.754Z"
+    },
+    {
+      "id": "freecodecamp-back-end-apis",
+      "name": "Back End Development and APIs Certification",
+      "vendor": "freeCodeCamp",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "nodejs",
+        "javascript"
+      ],
+      "certifications": [
+        "Back End Development and APIs Certification"
+      ],
+      "examCode": null,
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "credentialWeight": "low",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Complete the coursework and the five certification projects, then pass the proctored-style exam in freeCodeCamp's downloadable exam environment. One attempt per week.",
+      "url": "https://www.freecodecamp.org/learn",
+      "sourceUrl": "https://forum.freecodecamp.org/t/backend-certification-is-live/796858",
+      "lastVerified": "2026-10-01",
+      "verificationNote": "freeCodeCamp forum post dated 2026-08-05 says all six core certifications are live; curriculum structure on GitHub has an exam chapter for this one. Forum post of 2026-08-05 announces this one as the sixth.",
+      "notes": "freeCodeCamp is a charity and states its certifications are free. Legacy (pre-v9) certifications expire 2027-12-31.",
+      "addedBy": "manual",
+      "addedAt": "2026-10-01",
+      "updatedAt": "2026-10-01T15:19:42.754Z"
+    },
+    {
+      "id": "freecodecamp-foundational-csharp",
+      "name": "Foundational C# with Microsoft",
+      "vendor": "freeCodeCamp",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "csharp",
+        "dotnet"
+      ],
+      "certifications": [
+        "Foundational C# Certification"
+      ],
+      "examCode": null,
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "credentialWeight": "medium",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Finish the Microsoft Learn C# modules, submit the trophy links on freeCodeCamp, then pass the 80-question exam hosted on freeCodeCamp.",
+      "url": "https://www.freecodecamp.org/learn/foundational-c-sharp-with-microsoft/",
+      "sourceUrl": "https://devblogs.microsoft.com/dotnet/announcing-foundational-csharp-certification/",
+      "lastVerified": "2026-10-01",
+      "verificationNote": "Microsoft .NET Blog announcement says completely free and globally available, 35-hour Learn course plus 80-question exam on freeCodeCamp. Curriculum page still resolves (HTTP 200) on freeCodeCamp.",
+      "notes": "Announcement dates from 2023; no end date stated.",
+      "addedBy": "manual",
+      "addedAt": "2026-10-01",
+      "updatedAt": "2026-10-01T15:19:42.754Z"
+    },
+    {
+      "id": "freecodecamp-front-end-libraries",
+      "name": "Front End Development Libraries Certification",
+      "vendor": "freeCodeCamp",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "javascript",
+        "react"
+      ],
+      "certifications": [
+        "Front End Development Libraries Certification"
+      ],
+      "examCode": null,
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "credentialWeight": "low",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Complete the coursework and the five certification projects, then pass the proctored-style exam in freeCodeCamp's downloadable exam environment. One attempt per week.",
+      "url": "https://www.freecodecamp.org/learn",
+      "sourceUrl": "https://forum.freecodecamp.org/t/backend-certification-is-live/796858",
+      "lastVerified": "2026-10-01",
+      "verificationNote": "freeCodeCamp forum post dated 2026-08-05 says all six core certifications are live; curriculum structure on GitHub has an exam chapter for this one. Curriculum includes React; live date not read from a dedicated post.",
+      "notes": "freeCodeCamp is a charity and states its certifications are free. Legacy (pre-v9) certifications expire 2027-12-31.",
+      "addedBy": "manual",
+      "addedAt": "2026-10-01",
+      "updatedAt": "2026-10-01T15:19:42.754Z"
+    },
+    {
+      "id": "freecodecamp-javascript",
+      "name": "JavaScript Certification",
+      "vendor": "freeCodeCamp",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "javascript"
+      ],
+      "certifications": [
+        "JavaScript Certification"
+      ],
+      "examCode": null,
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "credentialWeight": "low",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Complete the coursework and the five certification projects, then pass the proctored-style exam in freeCodeCamp's downloadable exam environment. One attempt per week.",
+      "url": "https://www.freecodecamp.org/learn",
+      "sourceUrl": "https://forum.freecodecamp.org/t/backend-certification-is-live/796858",
+      "lastVerified": "2026-10-01",
+      "verificationNote": "freeCodeCamp forum post dated 2026-08-05 says all six core certifications are live; curriculum structure on GitHub has an exam chapter for this one. Announcement post dated 2025-12-08.",
+      "notes": "freeCodeCamp is a charity and states its certifications are free. Legacy (pre-v9) certifications expire 2027-12-31.",
+      "addedBy": "manual",
+      "addedAt": "2026-10-01",
+      "updatedAt": "2026-10-01T15:19:42.754Z"
+    },
+    {
+      "id": "freecodecamp-python",
+      "name": "Python Certification",
+      "vendor": "freeCodeCamp",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "python"
+      ],
+      "certifications": [
+        "Python Certification"
+      ],
+      "examCode": null,
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "credentialWeight": "low",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Complete the coursework and the five certification projects, then pass the proctored-style exam in freeCodeCamp's downloadable exam environment. One attempt per week.",
+      "url": "https://www.freecodecamp.org/learn",
+      "sourceUrl": "https://forum.freecodecamp.org/t/backend-certification-is-live/796858",
+      "lastVerified": "2026-10-01",
+      "verificationNote": "freeCodeCamp forum post dated 2026-08-05 says all six core certifications are live; curriculum structure on GitHub has an exam chapter for this one. Announcement post dated 2025-12-15 states 50-question exam and free.",
+      "notes": "freeCodeCamp is a charity and states its certifications are free. Legacy (pre-v9) certifications expire 2027-12-31.",
+      "addedBy": "manual",
+      "addedAt": "2026-10-01",
+      "updatedAt": "2026-10-01T15:19:42.754Z"
+    },
+    {
+      "id": "freecodecamp-relational-databases",
+      "name": "Relational Databases Certification",
+      "vendor": "freeCodeCamp",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "sql",
+        "git",
+        "linux"
+      ],
+      "certifications": [
+        "Relational Databases Certification"
+      ],
+      "examCode": null,
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "credentialWeight": "low",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Complete the coursework and the five certification projects, then pass the proctored-style exam in freeCodeCamp's downloadable exam environment. One attempt per week.",
+      "url": "https://www.freecodecamp.org/learn",
+      "sourceUrl": "https://forum.freecodecamp.org/t/backend-certification-is-live/796858",
+      "lastVerified": "2026-10-01",
+      "verificationNote": "freeCodeCamp forum post dated 2026-08-05 says all six core certifications are live; curriculum structure on GitHub has an exam chapter for this one. Dedicated \"now live\" post exists; covers Bash, SQL, Git.",
+      "notes": "freeCodeCamp is a charity and states its certifications are free. Legacy (pre-v9) certifications expire 2027-12-31.",
+      "addedBy": "manual",
+      "addedAt": "2026-10-01",
+      "updatedAt": "2026-10-01T15:19:42.754Z"
+    },
+    {
+      "id": "freecodecamp-responsive-web-design",
+      "name": "Responsive Web Design Certification",
+      "vendor": "freeCodeCamp",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "html-css"
+      ],
+      "certifications": [
+        "Responsive Web Design Certification"
+      ],
+      "examCode": null,
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "credentialWeight": "low",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Complete the coursework and the five certification projects, then pass the proctored-style exam in freeCodeCamp's downloadable exam environment. One attempt per week.",
+      "url": "https://www.freecodecamp.org/learn",
+      "sourceUrl": "https://forum.freecodecamp.org/t/backend-certification-is-live/796858",
+      "lastVerified": "2026-10-01",
+      "verificationNote": "freeCodeCamp forum post dated 2026-08-05 says all six core certifications are live; curriculum structure on GitHub has an exam chapter for this one. Announcement post dated 2025-12-02.",
+      "notes": "freeCodeCamp is a charity and states its certifications are free. Legacy (pre-v9) certifications expire 2027-12-31.",
+      "addedBy": "manual",
+      "addedAt": "2026-10-01",
+      "updatedAt": "2026-10-01T15:19:42.754Z"
     },
     {
       "id": "github-foundations-datacamp-student",
       "name": "GitHub Foundations via DataCamp (Student Developer Pack)",
       "vendor": "GitHub",
       "category": "dev",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "git",
+        "github"
+      ],
       "certifications": [
         "GitHub Foundations"
       ],
@@ -290,13 +720,20 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-09-29T22:59:01.779Z"
+      "updatedAt": "2026-10-01T15:19:42.754Z"
     },
     {
       "id": "github-student-pack-direct-voucher-2025-26",
       "name": "GitHub Student Pack direct exam voucher (Foundations or Copilot)",
       "vendor": "GitHub",
       "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "git",
+        "github"
+      ],
       "certifications": [
         "GitHub Foundations",
         "GitHub Copilot"
@@ -326,13 +763,17 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-09-29T22:59:01.779Z"
+      "updatedAt": "2026-10-01T15:19:42.754Z"
     },
     {
       "id": "github-universe-preview-gh700-voucher-2026",
       "name": "GitHub Universe 2026 Preview livestream — GH-700 beta exam discount code",
       "vendor": "GitHub",
       "category": "ai",
+      "tracks": [],
+      "technologies": [
+        "github"
+      ],
       "certifications": [
         "GH-700 Agentic AI for Business Professionals (beta)"
       ],
@@ -361,13 +802,101 @@
       "notes": "GitHub Universe (Oct 28–29) also sells a $30 exam-voucher add-on.",
       "addedBy": "manual",
       "addedAt": "2026-09-29",
-      "updatedAt": "2026-09-29T22:59:01.779Z"
+      "updatedAt": "2026-10-01T15:19:42.754Z"
+    },
+    {
+      "id": "google-cloud-generative-ai-leader-learning-path",
+      "name": "Generative AI Leader learning path",
+      "vendor": "Google Cloud",
+      "category": "ai",
+      "tracks": [],
+      "technologies": [
+        "gcp"
+      ],
+      "certifications": [
+        "Google Cloud Certified - Generative AI Leader (exam fee applies)"
+      ],
+      "examCode": null,
+      "whatIsFree": "training-only",
+      "cost": null,
+      "credentialWeight": "medium",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Sign in to Google Skills and complete the learning path. The exam is a separate $99 registration.",
+      "url": "https://www.skills.google/paths/1951",
+      "sourceUrl": "https://cloud.google.com/learn/certification/generative-ai-leader",
+      "lastVerified": "2026-10-01",
+      "verificationNote": "Google Cloud certification page lists the learning path as FREE and the exam registration fee as $99. Google Skills blog of 2025-10-21 also calls the path no-cost.",
+      "notes": "Path page itself shows no price text. Exam is not free.",
+      "addedBy": "manual",
+      "addedAt": "2026-10-01",
+      "updatedAt": "2026-10-01T15:19:42.754Z"
+    },
+    {
+      "id": "google-cloud-skills-starter-skill-badges",
+      "name": "Google Skills Starter plan: skill badges",
+      "vendor": "Google Cloud",
+      "category": "cloud",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "gcp"
+      ],
+      "certifications": [
+        "Google Cloud skill badges"
+      ],
+      "examCode": null,
+      "whatIsFree": "training-and-badge",
+      "cost": null,
+      "credentialWeight": "low",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Sign in to Google Skills with a Google account and developer profile. Labs spend monthly credits (35 free per month).",
+      "url": "https://www.skills.google/",
+      "sourceUrl": "https://www.skills.google/payments/new",
+      "lastVerified": "2026-10-01",
+      "verificationNote": "Plans page says the Starter plan is free with 35 credits every month and limited hands-on labs and skill badges. Pro is $29/month.",
+      "notes": "Not every badge fits inside 35 credits; the Starter plan is described as limited. Google Cloud customers get the full library at no cost per the Google blog of 2025-10-21.",
+      "addedBy": "manual",
+      "addedAt": "2026-10-01",
+      "updatedAt": "2026-10-01T15:19:42.754Z"
     },
     {
       "id": "google-gear-get-certified-ed1-2027",
       "name": "Google Cloud GEAR Get Certified — Edition 1 (2027)",
       "vendor": "Google Cloud",
       "category": "cloud",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "gcp"
+      ],
       "certifications": [
         "Generative AI Leader",
         "Associate Cloud Engineer",
@@ -398,13 +927,20 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-29",
-      "updatedAt": "2026-09-29T22:59:01.779Z"
+      "updatedAt": "2026-10-01T15:19:42.754Z"
     },
     {
       "id": "google-gear-get-certified-ed3-2026",
       "name": "Google Cloud GEAR Get Certified — Edition 3 (2026)",
       "vendor": "Google Cloud",
       "category": "cloud",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "gcp"
+      ],
       "certifications": [
         "Generative AI Leader",
         "Associate Cloud Engineer",
@@ -435,13 +971,15 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-09-29T22:59:01.779Z"
+      "updatedAt": "2026-10-01T15:19:42.754Z"
     },
     {
       "id": "google-skillshop",
       "name": "Google Skillshop certifications",
       "vendor": "Google",
       "category": "marketing",
+      "tracks": [],
+      "technologies": [],
       "certifications": [
         "Google Ads (Search/Display/Video/Apps/Creative)",
         "AI-Powered Performance Ads",
@@ -476,10 +1014,69 @@
       "updatedAt": "2026-09-29T22:59:01.779Z"
     },
     {
+      "id": "hackerrank-skills-certifications",
+      "name": "HackerRank Skills Certification",
+      "vendor": "HackerRank",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "javascript",
+        "react",
+        "angular",
+        "csharp",
+        "java",
+        "python",
+        "sql",
+        "go",
+        "nodejs",
+        "r",
+        "html-css"
+      ],
+      "certifications": [
+        "Skills certificates (Basic/Intermediate/Advanced by skill): JavaScript, React, Angular, C#, Java, Python, SQL, Go, Node.js, R, CSS, REST API, Problem Solving",
+        "Role-based: Frontend Developer (React), Software Engineer, Software Engineer Intern"
+      ],
+      "examCode": null,
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "credentialWeight": "low",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Create a HackerRank account and take a timed test (60 to 90 minutes). Retake after 30 days except for tests that allow one attempt.",
+      "url": "https://www.hackerrank.com/skills-verification",
+      "sourceUrl": "https://help.hackerrank.com/articles/2563639100-introduction-to-certification",
+      "lastVerified": "2026-10-01",
+      "verificationNote": "HackerRank help centre states certifications are free, timed assessments. Skill list read from skills-verification page. Retake rules read from the help centre FAQ.",
+      "notes": "Angular, C#, CSS, Node (Basic), Node.js (Intermediate), R, React and REST API tests allow one attempt only. Skills catalogue is a live page and may change.",
+      "addedBy": "manual",
+      "addedAt": "2026-10-01",
+      "updatedAt": "2026-10-01T15:19:42.754Z"
+    },
+    {
       "id": "hashiconf-2026-attendee-exams",
       "name": "HashiConf at IBM TechXchange 2026 — up to 2 free exam attempts",
       "vendor": "HashiCorp",
       "category": "dev",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "terraform"
+      ],
       "certifications": [
         "Terraform Associate / Authoring & Operations Pro",
         "Vault Associate / Operations Pro",
@@ -510,13 +1107,15 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-29",
-      "updatedAt": "2026-09-29T22:59:01.779Z"
+      "updatedAt": "2026-10-01T15:19:42.754Z"
     },
     {
       "id": "hubspot-academy",
       "name": "HubSpot Academy certifications",
       "vendor": "HubSpot",
       "category": "marketing",
+      "tracks": [],
+      "technologies": [],
       "certifications": [
         "Inbound",
         "Content Marketing",
@@ -552,10 +1151,56 @@
       "updatedAt": "2026-09-29T22:59:01.779Z"
     },
     {
+      "id": "huggingface-agents-course-certificate",
+      "name": "Hugging Face Agents Course certificates",
+      "vendor": "Hugging Face",
+      "category": "ai",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "python"
+      ],
+      "certifications": [
+        "Certification of fundamentals (finish Unit 1)",
+        "Certificate of completion (Unit 1, one use-case assignment, final challenge)"
+      ],
+      "examCode": null,
+      "whatIsFree": "training-and-badge",
+      "cost": null,
+      "credentialWeight": "low",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Do the course units; for the completion certificate also finish one use-case assignment and the final challenge.",
+      "url": "https://huggingface.co/learn/agents-course/unit0/introduction",
+      "sourceUrl": "https://huggingface.co/learn/agents-course/unit0/introduction",
+      "lastVerified": "2026-10-01",
+      "verificationNote": "Course intro says the certification process is completely free, has no deadline, and describes the two certificate levels.",
+      "notes": "Other Hugging Face courses (LLM, Deep RL, Audio) were not checked for certificates; the course index page names none.",
+      "addedBy": "manual",
+      "addedAt": "2026-10-01",
+      "updatedAt": "2026-10-01T15:19:42.754Z"
+    },
+    {
       "id": "isc2-cc-one-million-certified",
       "name": "ISC2 Certified in Cybersecurity — One Million Certified",
       "vendor": "ISC2",
       "category": "security",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [],
       "certifications": [
         "Certified in Cybersecurity (CC)"
       ],
@@ -584,13 +1229,102 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-09-29T22:59:01.779Z"
+      "updatedAt": "2026-10-01T15:19:42.754Z"
+    },
+    {
+      "id": "kaggle-learn-course-certificates",
+      "name": "Kaggle Learn course certificates",
+      "vendor": "Kaggle",
+      "category": "data",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "python",
+        "sql"
+      ],
+      "certifications": [
+        "Course completion certificate for each Kaggle Learn course (Python, Pandas, Intro to SQL, Intro to ML, others)"
+      ],
+      "examCode": null,
+      "whatIsFree": "training-and-badge",
+      "cost": null,
+      "credentialWeight": "low",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Create a free Kaggle account and finish a Learn course. The certificate appears under the Completed tab on kaggle.com/learn.",
+      "url": "https://www.kaggle.com/learn",
+      "sourceUrl": "https://www.kaggle.com/learn-course-certificates",
+      "lastVerified": "2026-10-01",
+      "verificationNote": "Kaggle search excerpts of kaggle.com pages state courses are at no cost and everyone who finishes a course receives a completion certificate. The announcement page itself would not render through the fetch tool.",
+      "notes": "Reading a Learn Guide does not give a certificate. Certificate text is not proctored.",
+      "addedBy": "manual",
+      "addedAt": "2026-10-01",
+      "updatedAt": "2026-10-01T15:19:42.754Z"
+    },
+    {
+      "id": "linux-foundation-introduction-to-linux",
+      "name": "Introduction to Linux (LFS101)",
+      "vendor": "Linux Foundation",
+      "category": "infrastructure",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [
+        "linux"
+      ],
+      "certifications": [
+        "Digital badge for LFS101"
+      ],
+      "examCode": null,
+      "whatIsFree": "training-and-badge",
+      "cost": null,
+      "credentialWeight": "low",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Enrol on the Linux Foundation training site (90 days of access). Retrieve the badge or completion certificate as the course instructs.",
+      "url": "https://training.linuxfoundation.org/training/introduction-to-linux/",
+      "sourceUrl": "https://training.linuxfoundation.org/training/introduction-to-linux/",
+      "lastVerified": "2026-10-01",
+      "verificationNote": "Course page shows $0, 60 hours of material, 90 days of access, and a \"Digital Badge\". Linux Foundation e-learning FAQ describes certificates of completion for free courses as separate from certifications.",
+      "notes": "Page does not say how the badge is awarded. A completion certificate is not a Linux Foundation certification (LFCS and others are paid).",
+      "addedBy": "manual",
+      "addedAt": "2026-10-01",
+      "updatedAt": "2026-10-01T15:19:42.754Z"
     },
     {
       "id": "microsoft-ai-agent-skills-sweepstakes-2026",
       "name": "Microsoft AI Agent Skills Sweepstakes (AB-100 / AB-900 / AB-620)",
       "vendor": "Microsoft",
       "category": "ai",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [
+        "power-platform"
+      ],
       "certifications": [
         "AB-100",
         "AB-900",
@@ -621,13 +1355,20 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-29",
-      "updatedAt": "2026-09-29T22:59:01.779Z"
+      "updatedAt": "2026-10-01T15:19:42.754Z"
     },
     {
       "id": "microsoft-ai-skills-fest-2026",
       "name": "Microsoft AI Skills Fest 2026 voucher",
       "vendor": "Microsoft",
       "category": "ai",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "azure"
+      ],
       "certifications": [
         "One Microsoft role-based exam"
       ],
@@ -656,13 +1397,20 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-09-29T22:59:01.779Z"
+      "updatedAt": "2026-10-01T15:19:42.754Z"
     },
     {
       "id": "microsoft-applied-skills",
       "name": "Microsoft Applied Skills",
       "vendor": "Microsoft",
       "category": "cloud",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "azure"
+      ],
       "certifications": [
         "Microsoft Applied Skills (various)"
       ],
@@ -691,13 +1439,21 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-09-29T22:59:01.779Z"
+      "updatedAt": "2026-10-01T15:19:42.754Z"
     },
     {
       "id": "microsoft-build-2026-voucher",
       "name": "Microsoft Build 2026 attendee voucher",
       "vendor": "Microsoft",
       "category": "cloud",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "azure",
+        "github"
+      ],
       "certifications": [
         "One Microsoft or GitHub exam"
       ],
@@ -726,13 +1482,19 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-09-29T22:59:01.779Z"
+      "updatedAt": "2026-10-01T15:19:42.754Z"
     },
     {
       "id": "microsoft-defender-challenge-sweepstakes-2026",
       "name": "Microsoft Defender Challenge Sweepstakes (SC-200 / SC-500)",
       "vendor": "Microsoft",
       "category": "security",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [
+        "azure"
+      ],
       "certifications": [
         "SC-200",
         "SC-500"
@@ -762,13 +1524,21 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-29",
-      "updatedAt": "2026-09-29T22:59:01.779Z"
+      "updatedAt": "2026-10-01T15:19:42.754Z"
     },
     {
       "id": "microsoft-fabric-data-days-2026",
       "name": "Microsoft 60 Days of Data & AI / Fabric Data Days — free DP-600/700/800",
       "vendor": "Microsoft",
       "category": "data",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "azure",
+        "sql"
+      ],
       "certifications": [
         "Fabric Analytics Engineer",
         "Fabric Data Engineer",
@@ -799,13 +1569,20 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-09-29T22:59:01.779Z"
+      "updatedAt": "2026-10-01T15:19:42.754Z"
     },
     {
       "id": "microsoft-ignite-challenge-2026",
       "name": "Microsoft Ignite 2026 Challenge sweepstakes",
       "vendor": "Microsoft",
       "category": "cloud",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "azure"
+      ],
       "certifications": [
         "One Microsoft role-based exam"
       ],
@@ -834,13 +1611,20 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-09-29T22:59:01.779Z"
+      "updatedAt": "2026-10-01T15:19:42.754Z"
     },
     {
       "id": "microsoft-levelup-frontier-vouchers-2026",
       "name": "Microsoft LevelUp Frontier Transformation Engineer vouchers",
       "vendor": "Microsoft",
       "category": "ai",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "azure",
+        "github"
+      ],
       "certifications": [
         "AB-100",
         "AI-103",
@@ -871,13 +1655,21 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-09-29T22:59:01.779Z"
+      "updatedAt": "2026-10-01T15:19:42.754Z"
     },
     {
       "id": "microsoft-partner-cert-week-fy27",
       "name": "Microsoft Partner Certification Week FY27 (all regional cohorts)",
       "vendor": "Microsoft",
       "category": "cloud",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "azure",
+        "github"
+      ],
       "certifications": [
         "SC-200",
         "SC-401",
@@ -921,13 +1713,15 @@
       "notes": "Public trackers say 'any work email'; the LevelUp T&Cs say MAICPP partner domains only.",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-09-29T22:59:01.779Z"
+      "updatedAt": "2026-10-01T15:19:42.754Z"
     },
     {
       "id": "microsoft-sales-cert-week-fy27",
       "name": "Microsoft Sales Certification Week FY27 (AB-730 / AB-731)",
       "vendor": "Microsoft",
       "category": "cloud",
+      "tracks": [],
+      "technologies": [],
       "certifications": [
         "AB-730",
         "AB-731"
@@ -964,6 +1758,14 @@
       "name": "Microsoft Virtual Training Days — 50% off Fundamentals exams",
       "vendor": "Microsoft",
       "category": "cloud",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "azure",
+        "power-platform"
+      ],
       "certifications": [
         "AZ-900",
         "AI-900 / AI-901",
@@ -997,13 +1799,140 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-29",
-      "updatedAt": "2026-09-29T22:59:01.779Z"
+      "updatedAt": "2026-10-01T15:19:42.754Z"
+    },
+    {
+      "id": "mongodb-student-free-certification",
+      "name": "MongoDB for Students: free certification",
+      "vendor": "MongoDB",
+      "category": "data",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "mongodb"
+      ],
+      "certifications": [
+        "MongoDB certification exam voucher for each completed MongoDB University certification learning path"
+      ],
+      "examCode": null,
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "credentialWeight": "medium",
+      "eligibility": [
+        "student"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Be enrolled in the GitHub Student Developer Pack, verify at mongodb.com/students, then complete and pass every course in a certification learning path to receive a voucher.",
+      "url": "https://www.mongodb.com/students",
+      "sourceUrl": "https://www.mongodb.com/students",
+      "lastVerified": "2026-10-01",
+      "verificationNote": "Students page lists free certification (valued at $150) with the requirements above and a 90-day voucher expiry.",
+      "notes": "One voucher per completed path, and the first must be finished before claiming another. No replacement voucher for a missed exam. Exam names and codes not listed on the page.",
+      "addedBy": "manual",
+      "addedAt": "2026-10-01",
+      "updatedAt": "2026-10-01T15:19:42.754Z"
+    },
+    {
+      "id": "mongodb-university-skill-badges",
+      "name": "MongoDB Skill Badges",
+      "vendor": "MongoDB",
+      "category": "data",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "mongodb"
+      ],
+      "certifications": [
+        "MongoDB skill badges via Credly (37+ topics, e.g. CRUD operations, data modeling, indexing)"
+      ],
+      "examCode": null,
+      "whatIsFree": "training-and-badge",
+      "cost": null,
+      "credentialWeight": "low",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Create a MongoDB University account, work through the video and lab content, pass a 10-question skill check, then claim the Credly badge.",
+      "url": "https://learn.mongodb.com/skills",
+      "sourceUrl": "https://learn.mongodb.com/skills",
+      "lastVerified": "2026-10-01",
+      "verificationNote": "Page states skill badges are free, earned via 10-question skill check, issued on Credly.",
+      "notes": "Badge count is from a search summary and may change.",
+      "addedBy": "manual",
+      "addedAt": "2026-10-01",
+      "updatedAt": "2026-10-01T15:19:42.754Z"
+    },
+    {
+      "id": "neo4j-graphacademy-certifications",
+      "name": "Neo4j GraphAcademy certifications",
+      "vendor": "Neo4j",
+      "category": "data",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [],
+      "certifications": [
+        "Neo4j Certified Professional",
+        "Neo4j & Generative AI Certification",
+        "Neo4j Graph Data Science Certification"
+      ],
+      "examCode": null,
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "credentialWeight": "low",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Create a GraphAcademy account and pass the 60-minute online exam with 80% or higher.",
+      "url": "https://graphacademy.neo4j.com/certification/",
+      "sourceUrl": "https://graphacademy.neo4j.com/certification/",
+      "lastVerified": "2026-10-01",
+      "verificationNote": "Certification page shows \"Free, instant results\", 80% pass mark, 60 minutes, 80 questions (Professional) or 50 (the other two). Homepage says all courses are 100% free.",
+      "notes": "Retake policy not checked.",
+      "addedBy": "manual",
+      "addedAt": "2026-10-01",
+      "updatedAt": "2026-10-01T15:19:42.754Z"
     },
     {
       "id": "openai-academy-certificates",
       "name": "OpenAI Academy certificates",
       "vendor": "OpenAI",
       "category": "ai",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [],
       "certifications": [
         "AI Foundations",
         "Applied AI Foundations",
@@ -1034,13 +1963,20 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-09-29T22:59:01.779Z"
+      "updatedAt": "2026-10-01T15:19:42.754Z"
     },
     {
       "id": "oracle-ai-world-2026-attendee-exams",
       "name": "Oracle AI World 2026 attendee benefit — up to 3 free exam attempts",
       "vendor": "Oracle",
       "category": "cloud",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "oci"
+      ],
       "certifications": [
         "Any Oracle Certification Program exam"
       ],
@@ -1069,13 +2005,19 @@
       "notes": "Only free if you already hold a pass.",
       "addedBy": "manual",
       "addedAt": "2026-09-29",
-      "updatedAt": "2026-09-29T22:59:01.779Z"
+      "updatedAt": "2026-10-01T15:19:42.754Z"
     },
     {
       "id": "oracle-foundations-free",
       "name": "Oracle Foundations-level certifications (all)",
       "vendor": "Oracle",
       "category": "cloud",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [
+        "oci"
+      ],
       "certifications": [
         "OCI Foundations",
         "OCI AI Foundations",
@@ -1110,13 +2052,60 @@
       "notes": "Multicloud Foundations (Sep 2026) and Exadata Database Service (Oct 2026) announced as upcoming.",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-09-29T22:59:01.779Z"
+      "updatedAt": "2026-10-01T15:19:42.754Z"
+    },
+    {
+      "id": "oracle-java-explorer-badge",
+      "name": "Oracle Java Explorer free training and badge",
+      "vendor": "Oracle",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "java"
+      ],
+      "certifications": [
+        "Oracle Java Explorer digital badge"
+      ],
+      "examCode": null,
+      "whatIsFree": "training-and-badge",
+      "cost": null,
+      "credentialWeight": "low",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Complete the 15 free Java modules and pass the assessment on Oracle University.",
+      "url": "https://dev.java/learn/ou/",
+      "sourceUrl": "https://dev.java/learn/ou/",
+      "lastVerified": "2026-10-01",
+      "verificationNote": "dev.java page describes 15 free modules and a digital Oracle Java Explorer badge on completing the assessment.",
+      "notes": "Entry-level badge only. Java SE certification exams are paid and were not found on any free list.",
+      "addedBy": "manual",
+      "addedAt": "2026-10-01",
+      "updatedAt": "2026-10-01T15:19:42.754Z"
     },
     {
       "id": "oracle-oci-architect-associate-free-2026",
       "name": "Oracle OCI Architect Associate (free)",
       "vendor": "Oracle",
       "category": "cloud",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [
+        "oci"
+      ],
       "certifications": [
         "Oracle Cloud Infrastructure 2026 Architect Associate"
       ],
@@ -1145,13 +2134,19 @@
       "notes": "First associate-level architect cert Oracle has made free. Professional-level exams are paid.",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-09-29T22:59:01.779Z"
+      "updatedAt": "2026-10-01T15:19:42.754Z"
     },
     {
       "id": "oracle-race-to-certification-2025",
       "name": "Oracle Race to Certification 2025",
       "vendor": "Oracle",
       "category": "cloud",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [
+        "oci"
+      ],
       "certifications": [
         "OCI, AI, Multicloud, Data Platform certifications"
       ],
@@ -1180,13 +2175,59 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-09-29T22:59:01.779Z"
+      "updatedAt": "2026-10-01T15:19:42.754Z"
+    },
+    {
+      "id": "redis-university-courses",
+      "name": "Redis University",
+      "vendor": "Redis",
+      "category": "data",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [],
+      "certifications": [
+        "Certificate of completion per course (Get Started with Redis, Redis Cloud, Redis Software, Operate Redis Cloud)"
+      ],
+      "examCode": null,
+      "whatIsFree": "training-and-badge",
+      "cost": null,
+      "credentialWeight": "low",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Create an account and pass every exam and quiz in a course at 80% or higher.",
+      "url": "https://university.redis.io/",
+      "sourceUrl": "https://redis.io/tutorials/university/",
+      "lastVerified": "2026-10-01",
+      "verificationNote": "Redis page (updated 2026-05-21) says all courses and learning paths are completely free and passing at 80% earns a certificate of completion.",
+      "notes": "The Redis Developer Certification was deprecated in June 2024 and has no replacement date.",
+      "addedBy": "manual",
+      "addedAt": "2026-10-01",
+      "updatedAt": "2026-10-01T15:19:42.754Z"
     },
     {
       "id": "salesforce-dreamforce-2026-exam",
       "name": "Salesforce on-site exam at Dreamforce 2026",
       "vendor": "Salesforce",
       "category": "cloud",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "salesforce"
+      ],
       "certifications": [
         "Any Salesforce certification priced up to $400"
       ],
@@ -1215,13 +2256,20 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-09-29T22:59:01.779Z"
+      "updatedAt": "2026-10-01T15:19:42.754Z"
     },
     {
       "id": "salesforce-free-ai-certs-2025",
       "name": "Salesforce free AI Associate / Agentforce Specialist exams",
       "vendor": "Salesforce",
       "category": "ai",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "salesforce"
+      ],
       "certifications": [
         "AI Associate",
         "Agentforce Specialist"
@@ -1251,13 +2299,20 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-09-29T22:59:01.779Z"
+      "updatedAt": "2026-10-01T15:19:42.754Z"
     },
     {
       "id": "salesforce-retake-promo-2026-27",
       "name": "Salesforce Certification Exam Retake Promotion 2026/2027",
       "vendor": "Salesforce",
       "category": "cloud",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "salesforce"
+      ],
       "certifications": [
         "Any $200 or $400 Salesforce exam (excludes CTA and Accredited Professional)"
       ],
@@ -1286,13 +2341,62 @@
       "notes": "Opt-in deadline is the same day as windowStart.",
       "addedBy": "manual",
       "addedAt": "2026-09-29",
-      "updatedAt": "2026-09-29T22:59:01.779Z"
+      "updatedAt": "2026-10-01T15:19:42.754Z"
+    },
+    {
+      "id": "salesforce-trailhead-developer-superbadges",
+      "name": "Trailhead developer superbadges",
+      "vendor": "Salesforce",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "salesforce"
+      ],
+      "certifications": [
+        "Apex-related superbadges (e.g. Apex for Agentforce, Apex Specialist, Apex Web Services)"
+      ],
+      "examCode": null,
+      "whatIsFree": "training-and-badge",
+      "cost": null,
+      "credentialWeight": "low",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Create a Trailhead account, use a free Trailhead Playground or Developer Edition org, and pass the hands-on challenge.",
+      "url": "https://trailhead.salesforce.com/",
+      "sourceUrl": "https://trailhead.salesforce.com/",
+      "lastVerified": "2026-10-01",
+      "verificationNote": "Trailhead home page states \"Learn for free\" and \"Real-world practice, 100% free\". Apex for Agentforce superbadge page lists it as Intermediate, Developer role.",
+      "notes": "Superbadge pages themselves state no price. Official Salesforce certifications (e.g. Platform Developer) are paid and not covered here.",
+      "addedBy": "manual",
+      "addedAt": "2026-10-01",
+      "updatedAt": "2026-10-01T15:19:42.754Z"
     },
     {
       "id": "snowflake-pearson-20-off-2026",
       "name": "Snowflake SnowPro 20% off vouchers (Pearson VUE store)",
       "vendor": "Snowflake",
       "category": "data",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "snowflake",
+        "sql"
+      ],
       "certifications": [
         "SnowPro Core",
         "SnowPro Specialty",
@@ -1323,13 +2427,21 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-29",
-      "updatedAt": "2026-09-29T22:59:01.779Z"
+      "updatedAt": "2026-10-01T15:19:42.754Z"
     },
     {
       "id": "snowflake-uk-get-tech-certified-2026",
       "name": "Snowflake UK Get Tech Certified programme (with DSIT)",
       "vendor": "Snowflake",
       "category": "data",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "snowflake",
+        "sql"
+      ],
       "certifications": [
         "SnowPro Core"
       ],
@@ -1359,13 +2471,21 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-29",
-      "updatedAt": "2026-09-29T22:59:01.779Z"
+      "updatedAt": "2026-10-01T15:19:42.754Z"
     },
     {
       "id": "yes-microsoft-ai-skills-south-africa-2026",
       "name": "YES × Microsoft AI Skills Initiative (South Africa) — 50,000 free Fundamentals vouchers",
       "vendor": "Microsoft",
       "category": "cloud",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "azure",
+        "github"
+      ],
       "certifications": [
         "AZ-900",
         "DP-900",
@@ -1401,7 +2521,1918 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-29",
-      "updatedAt": "2026-09-29T22:59:01.779Z"
+      "updatedAt": "2026-10-01T15:19:42.754Z"
+    }
+  ],
+  "catalog": [
+    {
+      "id": "aws-ai-practitioner",
+      "name": "AWS Certified AI Practitioner",
+      "vendor": "AWS",
+      "kind": "exam",
+      "category": "ai",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "aws"
+      ],
+      "examCode": "AIF-C01",
+      "listPriceUsd": 100,
+      "priceNote": "",
+      "aliases": [
+        "AI Practitioner",
+        "AIF-C01"
+      ],
+      "rank": 1,
+      "url": "https://aws.amazon.com/certification/certified-ai-practitioner/",
+      "lastVerified": "2026-10-01",
+      "notes": ""
+    },
+    {
+      "id": "aws-cloud-practitioner",
+      "name": "AWS Certified Cloud Practitioner",
+      "vendor": "AWS",
+      "kind": "exam",
+      "category": "cloud",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "aws"
+      ],
+      "examCode": "CLF-C02",
+      "listPriceUsd": 100,
+      "priceNote": "",
+      "aliases": [
+        "Cloud Practitioner",
+        "CLF-C02"
+      ],
+      "rank": 1,
+      "url": "https://aws.amazon.com/certification/certified-cloud-practitioner/",
+      "lastVerified": "2026-10-01",
+      "notes": "Passing grants 50% off the next AWS exam."
+    },
+    {
+      "id": "aws-data-engineer-associate",
+      "name": "AWS Certified Data Engineer – Associate",
+      "vendor": "AWS",
+      "kind": "exam",
+      "category": "data",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [
+        "aws",
+        "sql"
+      ],
+      "examCode": "DEA-C01",
+      "listPriceUsd": 150,
+      "priceNote": "",
+      "aliases": [
+        "Data Engineer Associate",
+        "DEA-C01"
+      ],
+      "rank": 6,
+      "url": "https://aws.amazon.com/certification/certified-data-engineer-associate/",
+      "lastVerified": "2026-10-01",
+      "notes": ""
+    },
+    {
+      "id": "aws-developer-associate",
+      "name": "AWS Certified Developer – Associate",
+      "vendor": "AWS",
+      "kind": "exam",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "aws"
+      ],
+      "examCode": "DVA-C02",
+      "listPriceUsd": 150,
+      "priceNote": "",
+      "aliases": [
+        "Developer Associate",
+        "DVA-C02",
+        "AWS Developer"
+      ],
+      "rank": 1,
+      "url": "https://aws.amazon.com/certification/certified-developer-associate/",
+      "lastVerified": "2026-10-01",
+      "notes": "AWS page says DVA-C03 launches 2026-10-27; recheck code after that."
+    },
+    {
+      "id": "aws-devops-engineer-professional",
+      "name": "AWS Certified DevOps Engineer – Professional",
+      "vendor": "AWS",
+      "kind": "exam",
+      "category": "dev",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "aws"
+      ],
+      "examCode": "DOP-C02",
+      "listPriceUsd": 300,
+      "priceNote": "",
+      "aliases": [
+        "DevOps Engineer Professional",
+        "DOP-C02"
+      ],
+      "rank": 14,
+      "url": "https://aws.amazon.com/certification/certified-devops-engineer-professional/",
+      "lastVerified": "2026-10-01",
+      "notes": ""
+    },
+    {
+      "id": "aws-machine-learning-engineer-associate",
+      "name": "AWS Certified Machine Learning Engineer – Associate",
+      "vendor": "AWS",
+      "kind": "exam",
+      "category": "ai",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "aws",
+        "python"
+      ],
+      "examCode": "MLA-C02",
+      "listPriceUsd": 150,
+      "priceNote": "MLA-C01 price; MLA-C02 beta listed at USD 75",
+      "aliases": [
+        "ML Engineer Associate",
+        "MLA-C01",
+        "MLA-C02"
+      ],
+      "rank": 5,
+      "url": "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
+      "lastVerified": "2026-10-01",
+      "notes": "AWS page: MLA-C01 English available through 2026-09-28; MLA-C02 beta registration from 2026-09-01. Final C02 list price not stated; recheck."
+    },
+    {
+      "id": "aws-security-specialty",
+      "name": "AWS Certified Security – Specialty",
+      "vendor": "AWS",
+      "kind": "exam",
+      "category": "security",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [
+        "aws"
+      ],
+      "examCode": "SCS-C03",
+      "listPriceUsd": 300,
+      "priceNote": "",
+      "aliases": [
+        "Security Specialty",
+        "SCS-C03",
+        "SCS-C02"
+      ],
+      "rank": 11,
+      "url": "https://aws.amazon.com/certification/certified-security-specialty/",
+      "lastVerified": "2026-10-01",
+      "notes": "AWS page now lists SCS-C03."
+    },
+    {
+      "id": "aws-solutions-architect-associate",
+      "name": "AWS Certified Solutions Architect – Associate",
+      "vendor": "AWS",
+      "kind": "exam",
+      "category": "cloud",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "aws"
+      ],
+      "examCode": "SAA-C03",
+      "listPriceUsd": 150,
+      "priceNote": "",
+      "aliases": [
+        "Solutions Architect Associate",
+        "SAA-C03",
+        "AWS SAA"
+      ],
+      "rank": 2,
+      "url": "https://aws.amazon.com/certification/certified-solutions-architect-associate/",
+      "lastVerified": "2026-10-01",
+      "notes": ""
+    },
+    {
+      "id": "aws-solutions-architect-professional",
+      "name": "AWS Certified Solutions Architect – Professional",
+      "vendor": "AWS",
+      "kind": "exam",
+      "category": "cloud",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "aws"
+      ],
+      "examCode": "SAP-C02",
+      "listPriceUsd": 300,
+      "priceNote": "",
+      "aliases": [
+        "Solutions Architect Professional",
+        "SAP-C02"
+      ],
+      "rank": 7,
+      "url": "https://aws.amazon.com/certification/certified-solutions-architect-professional/",
+      "lastVerified": "2026-10-01",
+      "notes": "AWS page says SAP-C03 registration opens 2026-10-27; recheck code after that."
+    },
+    {
+      "id": "cisco-ccna",
+      "name": "Cisco Certified Network Associate (CCNA)",
+      "vendor": "Cisco",
+      "kind": "exam",
+      "category": "infrastructure",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [],
+      "examCode": "200-301",
+      "listPriceUsd": 300,
+      "priceNote": "Or Cisco Learning Credits",
+      "aliases": [
+        "CCNA",
+        "200-301"
+      ],
+      "rank": 3,
+      "url": "https://www.cisco.com/site/us/en/learn/training-certifications/certifications/enterprise/ccna/index.html",
+      "lastVerified": "2026-10-01",
+      "notes": "On the Indeed list. Page title: Implementing and Administering Cisco Solutions (200-301 CCNA) v1.1."
+    },
+    {
+      "id": "cncf-cka",
+      "name": "Certified Kubernetes Administrator (CKA)",
+      "vendor": "CNCF",
+      "kind": "exam",
+      "category": "cloud",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [
+        "kubernetes",
+        "linux"
+      ],
+      "examCode": null,
+      "listPriceUsd": 445,
+      "priceNote": "Exam only; bundles with THRIVE-ONE (USD 625) or LFS258 course (USD 645)",
+      "aliases": [
+        "CKA",
+        "Kubernetes Administrator"
+      ],
+      "rank": 6,
+      "url": "https://training.linuxfoundation.org/certification/certified-kubernetes-administrator-cka/",
+      "lastVerified": "2026-10-01",
+      "notes": "Sold by Linux Foundation Training; includes one retake and killer.sh simulator."
+    },
+    {
+      "id": "cncf-ckad",
+      "name": "Certified Kubernetes Application Developer (CKAD)",
+      "vendor": "CNCF",
+      "kind": "exam",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "kubernetes",
+        "docker"
+      ],
+      "examCode": null,
+      "listPriceUsd": 445,
+      "priceNote": "Exam only; bundles with THRIVE-ONE (USD 625) or LFD259 course (USD 645)",
+      "aliases": [
+        "CKAD",
+        "Kubernetes Application Developer"
+      ],
+      "rank": 5,
+      "url": "https://training.linuxfoundation.org/certification/certified-kubernetes-application-developer-ckad/",
+      "lastVerified": "2026-10-01",
+      "notes": "Sold by Linux Foundation Training."
+    },
+    {
+      "id": "comptia-a-plus",
+      "name": "CompTIA A+",
+      "vendor": "CompTIA",
+      "kind": "exam",
+      "category": "infrastructure",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [],
+      "examCode": "220-1201 / 220-1202",
+      "listPriceUsd": null,
+      "priceNote": "Two exams (Core 1 and Core 2), one voucher each; price shown only in CompTIA's store",
+      "aliases": [
+        "A+",
+        "220-1201",
+        "220-1202",
+        "Core 1",
+        "Core 2"
+      ],
+      "rank": 1,
+      "url": "https://www.comptia.org/en-us/certifications/a/core-1-and-2-v15/",
+      "lastVerified": "2026-10-01",
+      "notes": "Price unconfirmed on vendor pages. Codes confirmed on the V15 page."
+    },
+    {
+      "id": "comptia-cysa-plus",
+      "name": "CompTIA CySA+",
+      "vendor": "CompTIA",
+      "kind": "exam",
+      "category": "security",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [],
+      "examCode": "CS0-004",
+      "listPriceUsd": 425,
+      "priceNote": "",
+      "aliases": [
+        "CySA+",
+        "CS0-004",
+        "CS0-003"
+      ],
+      "rank": 4,
+      "url": "https://www.comptia.org/en-us/certifications/cybersecurity-analyst/v4/",
+      "lastVerified": "2026-10-01",
+      "notes": "V4 launched 2026-06-23. Price from comptia.org search snippet; the page itself shows no cost. V3 (CS0-003) English exam retires 2026-12-22."
+    },
+    {
+      "id": "comptia-linux-plus",
+      "name": "CompTIA Linux+",
+      "vendor": "CompTIA",
+      "kind": "exam",
+      "category": "infrastructure",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [
+        "linux"
+      ],
+      "examCode": "XK0-006",
+      "listPriceUsd": null,
+      "priceNote": "Voucher price shown only in CompTIA's store",
+      "aliases": [
+        "Linux+",
+        "XK0-006"
+      ],
+      "rank": 5,
+      "url": "https://www.comptia.org/en-us/certifications/linux/",
+      "lastVerified": "2026-10-01",
+      "notes": "V8 launched 2025-07-15. Price unconfirmed on vendor pages."
+    },
+    {
+      "id": "comptia-network-plus",
+      "name": "CompTIA Network+",
+      "vendor": "CompTIA",
+      "kind": "exam",
+      "category": "infrastructure",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [],
+      "examCode": "N10-009",
+      "listPriceUsd": null,
+      "priceNote": "Voucher price shown only in CompTIA's store",
+      "aliases": [
+        "Network+",
+        "N10-009"
+      ],
+      "rank": 2,
+      "url": "https://www.comptia.org/en-us/certifications/network/",
+      "lastVerified": "2026-10-01",
+      "notes": "Price unconfirmed on vendor pages (resellers cite USD 399, not used)."
+    },
+    {
+      "id": "comptia-security-plus",
+      "name": "CompTIA Security+",
+      "vendor": "CompTIA",
+      "kind": "exam",
+      "category": "security",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [],
+      "examCode": "SY0-701",
+      "listPriceUsd": null,
+      "priceNote": "Voucher price is shown only in CompTIA's store",
+      "aliases": [
+        "Security+",
+        "SY0-701",
+        "Sec+"
+      ],
+      "rank": 1,
+      "url": "https://www.comptia.org/en-us/certifications/security/",
+      "lastVerified": "2026-10-01",
+      "notes": "Price unconfirmed: a comptia.org search snippet showed USD 404 but the page would not fetch. Page says V8 launches around 2026-11-17; new code not yet published."
+    },
+    {
+      "id": "databricks-data-engineer-associate",
+      "name": "Databricks Certified Data Engineer Associate",
+      "vendor": "Databricks",
+      "kind": "exam",
+      "category": "data",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [
+        "databricks",
+        "sql",
+        "python"
+      ],
+      "examCode": null,
+      "listPriceUsd": 200,
+      "priceNote": "",
+      "aliases": [
+        "Data Engineer Associate",
+        "Databricks Data Engineer"
+      ],
+      "rank": 5,
+      "url": "https://www.databricks.com/learn/certification/data-engineer-associate",
+      "lastVerified": "2026-10-01",
+      "notes": "No exam code on the page. Valid 2 years."
+    },
+    {
+      "id": "databricks-generative-ai-engineer-associate",
+      "name": "Databricks Certified Generative AI Engineer Associate",
+      "vendor": "Databricks",
+      "kind": "exam",
+      "category": "ai",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "databricks",
+        "python"
+      ],
+      "examCode": null,
+      "listPriceUsd": 200,
+      "priceNote": "",
+      "aliases": [
+        "Generative AI Engineer Associate",
+        "Databricks GenAI Engineer"
+      ],
+      "rank": 8,
+      "url": "https://www.databricks.com/learn/certification/genai-engineer-associate",
+      "lastVerified": "2026-10-01",
+      "notes": "No exam code on the page."
+    },
+    {
+      "id": "ec-council-ceh",
+      "name": "Certified Ethical Hacker (CEH v13)",
+      "vendor": "EC-Council",
+      "kind": "exam",
+      "category": "security",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [],
+      "examCode": null,
+      "listPriceUsd": 1199,
+      "priceNote": "Pearson VUE voucher; training separate",
+      "aliases": [
+        "CEH",
+        "CEH v13",
+        "CEH AI"
+      ],
+      "rank": 5,
+      "url": "https://www.eccouncil.org/train-certify/certified-ethical-hacker-ceh/",
+      "lastVerified": "2026-10-01",
+      "notes": "EC-Council store lists voucher code ECC000078; exam code not shown on the certification page. Eligibility check required for self-study. A snippet showed an RPS voucher at USD 950."
+    },
+    {
+      "id": "freecodecamp-foundational-csharp",
+      "name": "Foundational C# with Microsoft",
+      "vendor": "freeCodeCamp",
+      "kind": "course",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "csharp",
+        "dotnet"
+      ],
+      "examCode": null,
+      "listPriceUsd": 0,
+      "priceNote": "Free; about 35 hours of Microsoft Learn training plus an 80-question freeCodeCamp exam",
+      "aliases": [
+        "Foundational C#",
+        "freeCodeCamp C# certification"
+      ],
+      "rank": 19,
+      "url": "https://www.freecodecamp.org/learn/foundational-c-sharp-with-microsoft",
+      "lastVerified": "2026-10-01",
+      "notes": "freeCodeCamp page did not render on fetch; free status from search snippet of that page."
+    },
+    {
+      "id": "github-actions",
+      "name": "GitHub Actions",
+      "vendor": "GitHub",
+      "kind": "exam",
+      "category": "dev",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "github"
+      ],
+      "examCode": "GH-200",
+      "listPriceUsd": null,
+      "priceNote": "A search result said USD 99; not on a page I could fetch",
+      "aliases": [
+        "GH-200",
+        "GitHub Actions certification"
+      ],
+      "rank": 12,
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/github-actions/",
+      "lastVerified": "2026-10-01",
+      "notes": "Valid 2 years; price unconfirmed on vendor page."
+    },
+    {
+      "id": "github-advanced-security",
+      "name": "GitHub Advanced Security",
+      "vendor": "GitHub",
+      "kind": "exam",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "github"
+      ],
+      "examCode": "GH-500",
+      "listPriceUsd": null,
+      "priceNote": "A search result said USD 99; not on a page I could fetch",
+      "aliases": [
+        "GH-500",
+        "GHAS"
+      ],
+      "rank": 20,
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/github-advanced-security/",
+      "lastVerified": "2026-10-01",
+      "notes": "Domains renamed Secret Protection, Supply Chain Security, Code Security. Price unconfirmed on vendor page."
+    },
+    {
+      "id": "github-copilot",
+      "name": "GitHub Copilot",
+      "vendor": "GitHub",
+      "kind": "exam",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "github"
+      ],
+      "examCode": "GH-300",
+      "listPriceUsd": null,
+      "priceNote": "A search result said USD 99; not on a page I could fetch",
+      "aliases": [
+        "GH-300",
+        "GitHub Copilot certification"
+      ],
+      "rank": 11,
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/github-copilot/",
+      "lastVerified": "2026-10-01",
+      "notes": "Valid 2 years; price unconfirmed on vendor page."
+    },
+    {
+      "id": "github-foundations",
+      "name": "GitHub Foundations",
+      "vendor": "GitHub",
+      "kind": "exam",
+      "category": "dev",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "git",
+        "github"
+      ],
+      "examCode": "GH-900",
+      "listPriceUsd": null,
+      "priceNote": "A search result said USD 99; not on a page I could fetch",
+      "aliases": [
+        "GH-900",
+        "GitHub Foundations"
+      ],
+      "rank": 3,
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/github-foundations/",
+      "lastVerified": "2026-10-01",
+      "notes": "Now delivered through Microsoft Learn and Pearson VUE. Price unconfirmed on vendor page. No renewal required."
+    },
+    {
+      "id": "google-advanced-data-analytics-certificate",
+      "name": "Google Advanced Data Analytics Professional Certificate",
+      "vendor": "Google",
+      "kind": "course",
+      "category": "data",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [
+        "python"
+      ],
+      "examCode": null,
+      "listPriceUsd": null,
+      "priceNote": "Coursera subscription, about USD 49 a month in US and Canada; most finish under USD 300",
+      "aliases": [
+        "Advanced Data Analytics Certificate"
+      ],
+      "rank": 9,
+      "url": "https://www.coursera.org/professional-certificates/google-advanced-data-analytics",
+      "lastVerified": "2026-10-01",
+      "notes": "Still enrolling per Coursera page. Monthly subscription, no fixed price."
+    },
+    {
+      "id": "google-ai-essentials",
+      "name": "Google AI Essentials",
+      "vendor": "Google",
+      "kind": "course",
+      "category": "ai",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [],
+      "examCode": null,
+      "listPriceUsd": null,
+      "priceNote": "Coursera subscription, about USD 49 a month in US and Canada; under 10 hours",
+      "aliases": [
+        "AI Essentials"
+      ],
+      "rank": 4,
+      "url": "https://www.coursera.org/learn/google-ai-essentials",
+      "lastVerified": "2026-10-01",
+      "notes": "Monthly subscription, no fixed price."
+    },
+    {
+      "id": "google-cloud-associate-cloud-engineer",
+      "name": "Google Cloud Certified Associate Cloud Engineer",
+      "vendor": "Google Cloud",
+      "kind": "exam",
+      "category": "cloud",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [
+        "gcp"
+      ],
+      "examCode": null,
+      "listPriceUsd": 125,
+      "priceNote": "Renewal exam USD 75",
+      "aliases": [
+        "Associate Cloud Engineer",
+        "ACE"
+      ],
+      "rank": 5,
+      "url": "https://cloud.google.com/learn/certification/cloud-engineer",
+      "lastVerified": "2026-10-01",
+      "notes": "Google lists no exam code."
+    },
+    {
+      "id": "google-cloud-generative-ai-leader",
+      "name": "Google Cloud Generative AI Leader",
+      "vendor": "Google Cloud",
+      "kind": "exam",
+      "category": "ai",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "gcp"
+      ],
+      "examCode": null,
+      "listPriceUsd": 99,
+      "priceNote": "",
+      "aliases": [
+        "Generative AI Leader",
+        "Gen AI Leader"
+      ],
+      "rank": 3,
+      "url": "https://cloud.google.com/learn/certification/generative-ai-leader",
+      "lastVerified": "2026-10-01",
+      "notes": "No exam code listed. Valid 3 years, no prerequisites."
+    },
+    {
+      "id": "google-cloud-professional-cloud-architect",
+      "name": "Google Cloud Certified Professional Cloud Architect",
+      "vendor": "Google Cloud",
+      "kind": "exam",
+      "category": "cloud",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "gcp"
+      ],
+      "examCode": null,
+      "listPriceUsd": 200,
+      "priceNote": "Renewal exam USD 100",
+      "aliases": [
+        "Professional Cloud Architect",
+        "PCA"
+      ],
+      "rank": 8,
+      "url": "https://cloud.google.com/learn/certification/cloud-architect",
+      "lastVerified": "2026-10-01",
+      "notes": "Google lists no exam code."
+    },
+    {
+      "id": "google-cloud-professional-cloud-developer",
+      "name": "Google Cloud Certified Professional Cloud Developer",
+      "vendor": "Google Cloud",
+      "kind": "exam",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "gcp"
+      ],
+      "examCode": null,
+      "listPriceUsd": 200,
+      "priceNote": "",
+      "aliases": [
+        "Professional Cloud Developer",
+        "PCD"
+      ],
+      "rank": 15,
+      "url": "https://cloud.google.com/learn/certification/cloud-developer",
+      "lastVerified": "2026-10-01",
+      "notes": "Google lists no exam code."
+    },
+    {
+      "id": "google-cloud-professional-data-engineer",
+      "name": "Google Cloud Certified Professional Data Engineer",
+      "vendor": "Google Cloud",
+      "kind": "exam",
+      "category": "data",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [
+        "gcp",
+        "sql"
+      ],
+      "examCode": null,
+      "listPriceUsd": 200,
+      "priceNote": "Renewal exam USD 100",
+      "aliases": [
+        "Professional Data Engineer",
+        "PDE"
+      ],
+      "rank": 8,
+      "url": "https://cloud.google.com/learn/certification/data-engineer",
+      "lastVerified": "2026-10-01",
+      "notes": "Google lists no exam code."
+    },
+    {
+      "id": "google-cloud-professional-machine-learning-engineer",
+      "name": "Google Cloud Certified Professional Machine Learning Engineer",
+      "vendor": "Google Cloud",
+      "kind": "exam",
+      "category": "ai",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "gcp",
+        "python"
+      ],
+      "examCode": null,
+      "listPriceUsd": 200,
+      "priceNote": "",
+      "aliases": [
+        "Professional ML Engineer",
+        "PMLE"
+      ],
+      "rank": 7,
+      "url": "https://cloud.google.com/learn/certification/machine-learning-engineer",
+      "lastVerified": "2026-10-01",
+      "notes": "Google lists no exam code."
+    },
+    {
+      "id": "google-cybersecurity-certificate",
+      "name": "Google Cybersecurity Professional Certificate",
+      "vendor": "Google",
+      "kind": "course",
+      "category": "security",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [],
+      "examCode": null,
+      "listPriceUsd": null,
+      "priceNote": "Coursera subscription, about USD 49 a month in US and Canada; most finish under USD 300",
+      "aliases": [
+        "Google Cybersecurity Certificate"
+      ],
+      "rank": 3,
+      "url": "https://www.coursera.org/professional-certificates/google-cybersecurity",
+      "lastVerified": "2026-10-01",
+      "notes": "Monthly subscription, no fixed price."
+    },
+    {
+      "id": "google-data-analytics-certificate",
+      "name": "Google Data Analytics Professional Certificate",
+      "vendor": "Google",
+      "kind": "course",
+      "category": "data",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [
+        "sql",
+        "r"
+      ],
+      "examCode": null,
+      "listPriceUsd": null,
+      "priceNote": "Coursera subscription, about USD 49 a month in US and Canada; most finish under USD 300",
+      "aliases": [
+        "Google Data Analytics Certificate"
+      ],
+      "rank": 3,
+      "url": "https://www.coursera.org/professional-certificates/google-data-analytics",
+      "lastVerified": "2026-10-01",
+      "notes": "Monthly subscription, no fixed price."
+    },
+    {
+      "id": "google-digital-marketing-ecommerce-certificate",
+      "name": "Google Digital Marketing & E-commerce Professional Certificate",
+      "vendor": "Google",
+      "kind": "course",
+      "category": "marketing",
+      "tracks": [],
+      "technologies": [],
+      "examCode": null,
+      "listPriceUsd": null,
+      "priceNote": "Coursera subscription, about USD 49 a month in US and Canada; most finish under USD 300",
+      "aliases": [
+        "Google Digital Marketing Certificate"
+      ],
+      "rank": 1,
+      "url": "https://www.coursera.org/professional-certificates/google-digital-marketing-ecommerce",
+      "lastVerified": "2026-10-01",
+      "notes": "Monthly subscription, no fixed price."
+    },
+    {
+      "id": "google-it-support-certificate",
+      "name": "Google IT Support Professional Certificate",
+      "vendor": "Google",
+      "kind": "course",
+      "category": "infrastructure",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [
+        "linux"
+      ],
+      "examCode": null,
+      "listPriceUsd": null,
+      "priceNote": "Coursera subscription, about USD 49 a month in US and Canada (Google's certificates page); Coursera page states no price",
+      "aliases": [
+        "Google IT Support Certificate"
+      ],
+      "rank": 4,
+      "url": "https://www.coursera.org/professional-certificates/google-it-support",
+      "lastVerified": "2026-10-01",
+      "notes": "Monthly subscription, no fixed price."
+    },
+    {
+      "id": "google-project-management-certificate",
+      "name": "Google Project Management Professional Certificate",
+      "vendor": "Google",
+      "kind": "course",
+      "category": "pm",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [],
+      "examCode": null,
+      "listPriceUsd": null,
+      "priceNote": "Coursera subscription, about USD 49 a month in US and Canada; most finish under USD 300",
+      "aliases": [
+        "Google Project Management Certificate"
+      ],
+      "rank": 3,
+      "url": "https://www.coursera.org/professional-certificates/google-project-management",
+      "lastVerified": "2026-10-01",
+      "notes": "Monthly subscription, no fixed price."
+    },
+    {
+      "id": "hashicorp-terraform-associate",
+      "name": "HashiCorp Certified: Terraform Associate (004)",
+      "vendor": "HashiCorp",
+      "kind": "exam",
+      "category": "dev",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "terraform"
+      ],
+      "examCode": "004",
+      "listPriceUsd": 70.5,
+      "priceNote": "Plus local taxes and fees; no free retake",
+      "aliases": [
+        "Terraform Associate",
+        "Terraform Associate 004"
+      ],
+      "rank": 6,
+      "url": "https://developer.hashicorp.com/certifications/infrastructure-automation",
+      "lastVerified": "2026-10-01",
+      "notes": "Tests Terraform 1.12. Valid 2 years."
+    },
+    {
+      "id": "isaca-cism",
+      "name": "Certified Information Security Manager (CISM)",
+      "vendor": "ISACA",
+      "kind": "exam",
+      "category": "security",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [],
+      "examCode": null,
+      "listPriceUsd": 760,
+      "priceNote": "Member price USD 575; plus USD 50 application fee after passing",
+      "aliases": [
+        "CISM"
+      ],
+      "rank": 6,
+      "url": "https://www.isaca.org/credentialing/cism",
+      "lastVerified": "2026-10-01",
+      "notes": "Non-member price used as the standard price."
+    },
+    {
+      "id": "isc2-certified-in-cybersecurity",
+      "name": "ISC2 Certified in Cybersecurity (CC)",
+      "vendor": "ISC2",
+      "kind": "exam",
+      "category": "security",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [],
+      "examCode": null,
+      "listPriceUsd": 199,
+      "priceNote": "Per ISC2 pricing page; ISC2 has run free-exam campaigns",
+      "aliases": [
+        "CC",
+        "ISC2 CC",
+        "Certified in Cybersecurity"
+      ],
+      "rank": 7,
+      "url": "https://www.isc2.org/certifications/cc",
+      "lastVerified": "2026-10-01",
+      "notes": "Price from ISC2 exam pricing page. Check for a free-exam promotion."
+    },
+    {
+      "id": "isc2-cissp",
+      "name": "Certified Information Systems Security Professional (CISSP)",
+      "vendor": "ISC2",
+      "kind": "exam",
+      "category": "security",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [],
+      "examCode": null,
+      "listPriceUsd": 749,
+      "priceNote": "Americas and regions not priced separately; annual maintenance fee applies",
+      "aliases": [
+        "CISSP"
+      ],
+      "rank": 2,
+      "url": "https://www.isc2.org/certifications/cissp",
+      "lastVerified": "2026-10-01",
+      "notes": "Price from ISC2 exam pricing page (isc2.org/register-for-exam/isc2-exam-pricing). Full certification needs 5 years' experience."
+    },
+    {
+      "id": "linux-foundation-lfcs",
+      "name": "Linux Foundation Certified System Administrator (LFCS)",
+      "vendor": "Linux Foundation",
+      "kind": "exam",
+      "category": "infrastructure",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [
+        "linux"
+      ],
+      "examCode": null,
+      "listPriceUsd": 445,
+      "priceNote": "Exam only; with THRIVE-ONE USD 625; with LFS207 course USD 645",
+      "aliases": [
+        "LFCS"
+      ],
+      "rank": 8,
+      "url": "https://training.linuxfoundation.org/certification/linux-foundation-certified-sysadmin-lfcs/",
+      "lastVerified": "2026-10-01",
+      "notes": ""
+    },
+    {
+      "id": "meta-back-end-developer",
+      "name": "Meta Back-End Developer Professional Certificate",
+      "vendor": "Meta",
+      "kind": "course",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "python",
+        "sql",
+        "git"
+      ],
+      "examCode": null,
+      "listPriceUsd": null,
+      "priceNote": "Included with Coursera Plus; page states no figure",
+      "aliases": [
+        "Meta Back-End Developer"
+      ],
+      "rank": 18,
+      "url": "https://www.coursera.org/professional-certificates/meta-back-end-developer",
+      "lastVerified": "2026-10-01",
+      "notes": "Capstone builds a Django app."
+    },
+    {
+      "id": "meta-front-end-developer",
+      "name": "Meta Front-End Developer Professional Certificate",
+      "vendor": "Meta",
+      "kind": "course",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "javascript",
+        "react",
+        "html-css"
+      ],
+      "examCode": null,
+      "listPriceUsd": null,
+      "priceNote": "Coursera Plus subscription after 7-day trial; page states no figure",
+      "aliases": [
+        "Meta Front-End Developer"
+      ],
+      "rank": 17,
+      "url": "https://www.coursera.org/professional-certificates/meta-front-end-developer",
+      "lastVerified": "2026-10-01",
+      "notes": "Coursera page gives no fixed price."
+    },
+    {
+      "id": "microsoft-azure-administrator",
+      "name": "Microsoft Certified: Azure Administrator Associate",
+      "vendor": "Microsoft",
+      "kind": "exam",
+      "category": "cloud",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [
+        "azure"
+      ],
+      "examCode": "AZ-104",
+      "listPriceUsd": 165,
+      "priceNote": "Microsoft FAQ says typically USD 165; varies by country",
+      "aliases": [
+        "Azure Administrator",
+        "AZ-104"
+      ],
+      "rank": 4,
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-administrator/",
+      "lastVerified": "2026-10-01",
+      "notes": "Price from the Microsoft exam FAQ, not the exam page."
+    },
+    {
+      "id": "microsoft-azure-ai-apps-agents-developer",
+      "name": "Microsoft Certified: Azure AI Apps and Agents Developer Associate",
+      "vendor": "Microsoft",
+      "kind": "exam",
+      "category": "ai",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "azure",
+        "python"
+      ],
+      "examCode": "AI-103",
+      "listPriceUsd": 165,
+      "priceNote": "Microsoft FAQ says typically USD 165; varies by country",
+      "aliases": [
+        "AI-103",
+        "Azure AI Engineer Associate",
+        "AI-102"
+      ],
+      "rank": 6,
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-apps-and-agents-developer-associate/",
+      "lastVerified": "2026-10-01",
+      "notes": "Replaces Azure AI Engineer Associate (AI-102 retired 2026-06-30). Price from FAQ."
+    },
+    {
+      "id": "microsoft-azure-ai-cloud-developer-associate",
+      "name": "Microsoft Certified: Azure AI Cloud Developer Associate",
+      "vendor": "Microsoft",
+      "kind": "exam",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "azure",
+        "python"
+      ],
+      "examCode": "AI-200",
+      "listPriceUsd": 165,
+      "priceNote": "Microsoft FAQ says typically USD 165; varies by country",
+      "aliases": [
+        "AI-200",
+        "Azure Developer Associate"
+      ],
+      "rank": 2,
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-cloud-developer-associate/",
+      "lastVerified": "2026-10-01",
+      "notes": "Replaces Azure Developer Associate (AZ-204 retired 2026-07-31). Microsoft page says practice assessment not yet available. Price from FAQ."
+    },
+    {
+      "id": "microsoft-azure-ai-fundamentals",
+      "name": "Microsoft Certified: Azure AI Fundamentals",
+      "vendor": "Microsoft",
+      "kind": "exam",
+      "category": "ai",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "azure",
+        "python"
+      ],
+      "examCode": "AI-901",
+      "listPriceUsd": null,
+      "priceNote": "Price set per country on the exam page; not rendered in fetched text",
+      "aliases": [
+        "AI-901",
+        "AI-900",
+        "Azure AI Fundamentals"
+      ],
+      "rank": 2,
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-fundamentals/",
+      "lastVerified": "2026-10-01",
+      "notes": "Exam is now AI-901; English version updated 2026-04-15. Promotions may still say AI-900. Price unconfirmed."
+    },
+    {
+      "id": "microsoft-azure-fundamentals",
+      "name": "Microsoft Certified: Azure Fundamentals",
+      "vendor": "Microsoft",
+      "kind": "exam",
+      "category": "cloud",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "azure"
+      ],
+      "examCode": "AZ-900",
+      "listPriceUsd": null,
+      "priceNote": "Price set per country on the exam page; not rendered in fetched text",
+      "aliases": [
+        "Azure Fundamentals",
+        "AZ-900"
+      ],
+      "rank": 3,
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/",
+      "lastVerified": "2026-10-01",
+      "notes": "Price not confirmed: Microsoft FAQ gives a USD figure only for associate and expert exams."
+    },
+    {
+      "id": "microsoft-azure-solutions-architect-expert",
+      "name": "Microsoft Certified: Azure Solutions Architect Expert",
+      "vendor": "Microsoft",
+      "kind": "exam",
+      "category": "cloud",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "azure"
+      ],
+      "examCode": "AZ-305",
+      "listPriceUsd": 165,
+      "priceNote": "Microsoft FAQ says typically USD 165; varies by country",
+      "aliases": [
+        "Azure Solutions Architect",
+        "AZ-305"
+      ],
+      "rank": 9,
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-solutions-architect/",
+      "lastVerified": "2026-10-01",
+      "notes": "Requires Azure Administrator Associate. English version updated 2026-04-17. Price from FAQ."
+    },
+    {
+      "id": "microsoft-dp-900",
+      "name": "Microsoft Certified: Azure Data Fundamentals",
+      "vendor": "Microsoft",
+      "kind": "exam",
+      "category": "data",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [
+        "azure",
+        "sql"
+      ],
+      "examCode": "DP-900",
+      "listPriceUsd": null,
+      "priceNote": "Price set per country on the exam page; not rendered in fetched text",
+      "aliases": [
+        "DP-900",
+        "Azure Data Fundamentals"
+      ],
+      "rank": 2,
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-data-fundamentals/",
+      "lastVerified": "2026-10-01",
+      "notes": "Price unconfirmed (fundamentals)."
+    },
+    {
+      "id": "microsoft-fabric-data-engineer-associate",
+      "name": "Microsoft Certified: Fabric Data Engineer Associate",
+      "vendor": "Microsoft",
+      "kind": "exam",
+      "category": "data",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [
+        "azure",
+        "sql",
+        "python"
+      ],
+      "examCode": "DP-700",
+      "listPriceUsd": 165,
+      "priceNote": "Microsoft FAQ says typically USD 165; varies by country",
+      "aliases": [
+        "DP-700",
+        "Fabric Data Engineer"
+      ],
+      "rank": 7,
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/fabric-data-engineer-associate/",
+      "lastVerified": "2026-10-01",
+      "notes": "English version updates 2026-10-19. Price from FAQ."
+    },
+    {
+      "id": "microsoft-pl-300",
+      "name": "Microsoft Certified: Power BI Data Analyst Associate",
+      "vendor": "Microsoft",
+      "kind": "exam",
+      "category": "data",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [
+        "power-platform",
+        "sql"
+      ],
+      "examCode": "PL-300",
+      "listPriceUsd": 165,
+      "priceNote": "Microsoft FAQ says typically USD 165; varies by country",
+      "aliases": [
+        "PL-300",
+        "Power BI Data Analyst"
+      ],
+      "rank": 1,
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/data-analyst-associate/",
+      "lastVerified": "2026-10-01",
+      "notes": "Price from FAQ."
+    },
+    {
+      "id": "microsoft-power-platform-developer-associate",
+      "name": "Microsoft Certified: Power Platform Developer Associate",
+      "vendor": "Microsoft",
+      "kind": "exam",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "power-platform",
+        "javascript",
+        "typescript",
+        "csharp"
+      ],
+      "examCode": "AB-400",
+      "listPriceUsd": 165,
+      "priceNote": "Microsoft FAQ says typically USD 165; varies by country",
+      "aliases": [
+        "PL-400",
+        "AB-400",
+        "Power Platform Developer"
+      ],
+      "rank": 16,
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/power-platform-developer-associate/",
+      "lastVerified": "2026-10-01",
+      "notes": "PL-400 registration closes 2026-10-16 and PL-400 sittings end 2026-10-30; AB-400 is the exam from 2026-10-16 (page says registration open now). Promotions may still say PL-400. Price from FAQ."
+    },
+    {
+      "id": "microsoft-sc-200",
+      "name": "Microsoft Certified: Security Operations Analyst Associate",
+      "vendor": "Microsoft",
+      "kind": "exam",
+      "category": "security",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [
+        "azure"
+      ],
+      "examCode": "SC-200",
+      "listPriceUsd": 165,
+      "priceNote": "Microsoft FAQ says typically USD 165; varies by country",
+      "aliases": [
+        "SC-200",
+        "Security Operations Analyst"
+      ],
+      "rank": 10,
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/security-operations-analyst/",
+      "lastVerified": "2026-10-01",
+      "notes": "English version updates 2026-10-21. Price from FAQ."
+    },
+    {
+      "id": "microsoft-sc-900",
+      "name": "Microsoft Certified: Security, Compliance, and Identity Fundamentals",
+      "vendor": "Microsoft",
+      "kind": "exam",
+      "category": "security",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [
+        "azure"
+      ],
+      "examCode": "SC-900",
+      "listPriceUsd": null,
+      "priceNote": "Price set per country on the exam page; not rendered in fetched text",
+      "aliases": [
+        "SC-900",
+        "Security Compliance and Identity Fundamentals"
+      ],
+      "rank": 8,
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/security-compliance-and-identity-fundamentals/",
+      "lastVerified": "2026-10-01",
+      "notes": "English version updates 2026-10-21. Price unconfirmed (fundamentals)."
+    },
+    {
+      "id": "mongodb-associate-developer",
+      "name": "MongoDB Associate Developer",
+      "vendor": "MongoDB",
+      "kind": "exam",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "mongodb"
+      ],
+      "examCode": "C100DEV",
+      "listPriceUsd": 150,
+      "priceNote": "Learning path completion gives 50% off",
+      "aliases": [
+        "Associate Developer",
+        "C100DEV"
+      ],
+      "rank": 13,
+      "url": "https://learn.mongodb.com/pages/mongodb-associate-developer-exam",
+      "lastVerified": "2026-10-01",
+      "notes": "University pages did not render on fetch. Price and code from search snippet; versions exist per language (Node.js, Java, Python)."
+    },
+    {
+      "id": "nvidia-certified-associate-generative-ai-llm",
+      "name": "NVIDIA-Certified Associate: Generative AI LLM",
+      "vendor": "NVIDIA",
+      "kind": "exam",
+      "category": "ai",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "python"
+      ],
+      "examCode": "NCA-GENL",
+      "listPriceUsd": 125,
+      "priceNote": "",
+      "aliases": [
+        "NCA-GENL",
+        "NVIDIA Generative AI LLM"
+      ],
+      "rank": 9,
+      "url": "https://www.nvidia.com/en-us/learn/certification/",
+      "lastVerified": "2026-10-01",
+      "notes": "NVIDIA also lists NCA-GENM (USD 125), NCP-GENL and NCP-AAI (USD 200 each)."
+    },
+    {
+      "id": "offsec-oscp",
+      "name": "OffSec Certified Professional (OSCP+)",
+      "vendor": "OffSec",
+      "kind": "exam",
+      "category": "security",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [
+        "linux"
+      ],
+      "examCode": "PEN-200",
+      "listPriceUsd": 1699,
+      "priceNote": "Standalone exam attempt; PEN-200 course plus cert bundle USD 1,749",
+      "aliases": [
+        "OSCP",
+        "OSCP+",
+        "PEN-200"
+      ],
+      "rank": 9,
+      "url": "https://www.offsec.com/courses/pen-200/",
+      "lastVerified": "2026-10-01",
+      "notes": "PEN-200 is the course; the exam is the OSCP. OSCP+ expires after 3 years."
+    },
+    {
+      "id": "oracle-java-se-25-developer",
+      "name": "Oracle Certified Professional: Java SE 25 Developer",
+      "vendor": "Oracle",
+      "kind": "exam",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "java"
+      ],
+      "examCode": "1Z0-831",
+      "listPriceUsd": 245,
+      "priceNote": "",
+      "aliases": [
+        "OCP Java",
+        "Java SE 25 Developer",
+        "1Z0-831",
+        "Java SE 21 Developer 1Z0-830"
+      ],
+      "rank": 4,
+      "url": "https://education.oracle.com/products/trackp_JSE25OCP",
+      "lastVerified": "2026-10-01",
+      "notes": "education.oracle.com timed out on fetch. Code and price from search snippet of Oracle's track page. Java SE 21 exam 1Z0-830 (USD 245) also exists. Indeed's Oracle Certified Associate Java is not verified as current."
+    },
+    {
+      "id": "oracle-oci-architect-associate",
+      "name": "Oracle Cloud Infrastructure 2026 Certified Architect Associate",
+      "vendor": "Oracle",
+      "kind": "exam",
+      "category": "cloud",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [
+        "oci"
+      ],
+      "examCode": "1Z0-1072-26",
+      "listPriceUsd": 245,
+      "priceNote": "",
+      "aliases": [
+        "OCI Architect Associate",
+        "1Z0-1072"
+      ],
+      "rank": 10,
+      "url": "https://education.oracle.com/products/trackp_OCI25CAA",
+      "lastVerified": "2026-10-01",
+      "notes": "education.oracle.com timed out on fetch. Code and price from search snippets (2025 edition 1Z0-1072-25 at USD 245 on Oracle site). Oracle re-issues yearly; confirm the 2026 code."
+    },
+    {
+      "id": "peoplecert-itil-4-foundation",
+      "name": "ITIL 4 Foundation",
+      "vendor": "PeopleCert",
+      "kind": "exam",
+      "category": "infrastructure",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [],
+      "examCode": null,
+      "listPriceUsd": 690,
+      "priceNote": "Exam bundle (eBook, voucher, learning kit), includes VAT",
+      "aliases": [
+        "ITIL 4",
+        "ITIL Foundation",
+        "ITIL 4 Foundation"
+      ],
+      "rank": 7,
+      "url": "https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-4-foundation-2565",
+      "lastVerified": "2026-10-01",
+      "notes": "Price is the bundle, not an exam-only voucher; VAT-inclusive."
+    },
+    {
+      "id": "peoplecert-prince2-7-foundation",
+      "name": "PRINCE2 7 Foundation",
+      "vendor": "PeopleCert",
+      "kind": "exam",
+      "category": "pm",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [],
+      "examCode": null,
+      "listPriceUsd": 701,
+      "priceNote": "Exam bundle (eBook, voucher, learning kit), includes VAT",
+      "aliases": [
+        "PRINCE2 Foundation",
+        "PRINCE2 7"
+      ],
+      "rank": 7,
+      "url": "https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-2/PRINCE2-7-foundation-3579",
+      "lastVerified": "2026-10-01",
+      "notes": "Price is the bundle, not an exam-only voucher; VAT-inclusive."
+    },
+    {
+      "id": "pmi-acp",
+      "name": "PMI Agile Certified Practitioner (PMI-ACP)",
+      "vendor": "PMI",
+      "kind": "exam",
+      "category": "pm",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [],
+      "examCode": null,
+      "listPriceUsd": null,
+      "priceNote": "PMI site blocks automated fetch (HTTP 403)",
+      "aliases": [
+        "PMI-ACP",
+        "ACP"
+      ],
+      "rank": 6,
+      "url": "https://www.pmi.org/certifications/agile-acp",
+      "lastVerified": "2026-10-01",
+      "notes": "Price unconfirmed on the PMI site. A search snippet of PMI material showed USD 435 member and USD 495 non-member; not used."
+    },
+    {
+      "id": "pmi-capm",
+      "name": "Certified Associate in Project Management (CAPM)",
+      "vendor": "PMI",
+      "kind": "exam",
+      "category": "pm",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [],
+      "examCode": null,
+      "listPriceUsd": null,
+      "priceNote": "PMI site blocks automated fetch (HTTP 403)",
+      "aliases": [
+        "CAPM"
+      ],
+      "rank": 4,
+      "url": "https://www.pmi.org/certifications/certified-associate-in-project-management",
+      "lastVerified": "2026-10-01",
+      "notes": "Price unconfirmed on the PMI site. A search snippet of a PMI PDF showed USD 225 for members online-proctored; not used."
+    },
+    {
+      "id": "pmi-pmp",
+      "name": "Project Management Professional (PMP)",
+      "vendor": "PMI",
+      "kind": "exam",
+      "category": "pm",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [],
+      "examCode": null,
+      "listPriceUsd": null,
+      "priceNote": "PMI site blocks automated fetch (HTTP 403)",
+      "aliases": [
+        "PMP"
+      ],
+      "rank": 1,
+      "url": "https://www.pmi.org/certifications/project-management-pmp",
+      "lastVerified": "2026-10-01",
+      "notes": "Price unconfirmed. Third-party sites report an August 2026 increase to USD 445 member and USD 675 non-member; not verified. Requires work experience."
+    },
+    {
+      "id": "python-institute-pcap",
+      "name": "PCAP – Certified Associate Python Programmer",
+      "vendor": "Python Institute",
+      "kind": "exam",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "python"
+      ],
+      "examCode": "PCAP-31-03",
+      "listPriceUsd": 295,
+      "priceNote": "Bundle with retake from USD 345",
+      "aliases": [
+        "PCAP",
+        "PCAP-31-03"
+      ],
+      "rank": 8,
+      "url": "https://pythoninstitute.org/pcap",
+      "lastVerified": "2026-10-01",
+      "notes": ""
+    },
+    {
+      "id": "python-institute-pcep",
+      "name": "PCEP – Certified Entry-Level Python Programmer",
+      "vendor": "Python Institute",
+      "kind": "exam",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "python"
+      ],
+      "examCode": "PCEP-30-02",
+      "listPriceUsd": 69,
+      "priceNote": "From USD 69; with retake from USD 86",
+      "aliases": [
+        "PCEP",
+        "PCEP-30-02"
+      ],
+      "rank": 9,
+      "url": "https://pythoninstitute.org/pcep",
+      "lastVerified": "2026-10-01",
+      "notes": "Page gives 'from' prices."
+    },
+    {
+      "id": "red-hat-rhcsa",
+      "name": "Red Hat Certified System Administrator (RHCSA)",
+      "vendor": "Red Hat",
+      "kind": "exam",
+      "category": "infrastructure",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [
+        "linux"
+      ],
+      "examCode": "EX200",
+      "listPriceUsd": 500,
+      "priceNote": "Regional pricing; cart shows the exact figure",
+      "aliases": [
+        "RHCSA",
+        "EX200"
+      ],
+      "rank": 6,
+      "url": "https://www.redhat.com/en/services/training/ex200-red-hat-certified-system-administrator-rhcsa-exam",
+      "lastVerified": "2026-10-01",
+      "notes": "Exam is on RHEL 10. Price is Red Hat's generic list price from a search snippet; the exam page shows none."
+    },
+    {
+      "id": "salesforce-javascript-developer-i",
+      "name": "Salesforce Certified JavaScript Developer I",
+      "vendor": "Salesforce",
+      "kind": "exam",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "salesforce",
+        "javascript",
+        "nodejs"
+      ],
+      "examCode": null,
+      "listPriceUsd": 200,
+      "priceNote": "Retake USD 100; plus local taxes",
+      "aliases": [
+        "JavaScript Developer I",
+        "JS Dev I"
+      ],
+      "rank": 10,
+      "url": "https://trailhead.salesforce.com/credentials/javascriptdeveloper",
+      "lastVerified": "2026-10-01",
+      "notes": "Trailhead page text did not render; price from search snippet of Salesforce pages."
+    },
+    {
+      "id": "salesforce-platform-administrator",
+      "name": "Salesforce Certified Platform Administrator",
+      "vendor": "Salesforce",
+      "kind": "exam",
+      "category": "other",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [
+        "salesforce"
+      ],
+      "examCode": null,
+      "listPriceUsd": 200,
+      "priceNote": "Retake USD 100; plus local taxes",
+      "aliases": [
+        "Salesforce Administrator",
+        "Platform Administrator",
+        "Plat-Admn-201",
+        "ADM 201"
+      ],
+      "rank": 1,
+      "url": "https://trailhead.salesforce.com/credentials/administrator",
+      "lastVerified": "2026-10-01",
+      "notes": "On the Indeed list as Salesforce Administrator Certification. Trailhead page text did not render; price from search snippet of Salesforce pages."
+    },
+    {
+      "id": "salesforce-platform-developer-i",
+      "name": "Salesforce Certified Platform Developer",
+      "vendor": "Salesforce",
+      "kind": "exam",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "salesforce"
+      ],
+      "examCode": null,
+      "listPriceUsd": 200,
+      "priceNote": "Retake USD 100; plus local taxes",
+      "aliases": [
+        "Platform Developer I",
+        "PD1",
+        "Plat-Dev-201"
+      ],
+      "rank": 7,
+      "url": "https://trailhead.salesforce.com/credentials/platformdeveloperi",
+      "lastVerified": "2026-10-01",
+      "notes": "Trailhead page text did not render; price from search snippet of Salesforce pages. No exam code found."
+    },
+    {
+      "id": "scaled-agile-safe-agilist",
+      "name": "AI-Empowered SAFe Agilist (SA)",
+      "vendor": "Scaled Agile",
+      "kind": "course",
+      "category": "pm",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [],
+      "examCode": null,
+      "listPriceUsd": null,
+      "priceNote": "Course fee set by training partner; first two exam attempts included",
+      "aliases": [
+        "SAFe Agilist",
+        "SA",
+        "Leading SAFe",
+        "Certified SAFe Agilist"
+      ],
+      "rank": 8,
+      "url": "https://scaledagile.com/certification/safe-agilist/",
+      "lastVerified": "2026-10-01",
+      "notes": "Price not on the Scaled Agile page. 45 questions, 90 minutes, 80% pass."
+    },
+    {
+      "id": "scrum-alliance-csm",
+      "name": "Certified ScrumMaster (CSM)",
+      "vendor": "Scrum Alliance",
+      "kind": "course",
+      "category": "pm",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [],
+      "examCode": null,
+      "listPriceUsd": null,
+      "priceNote": "Scrum Alliance page: USD 250 to USD 2,495, set by the trainer; includes two exam attempts",
+      "aliases": [
+        "CSM",
+        "Certified Scrum Master"
+      ],
+      "rank": 2,
+      "url": "https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrummaster",
+      "lastVerified": "2026-10-01",
+      "notes": "Course required before the exam, so price varies by trainer. Renewal USD 100 every 2 years (search snippet)."
+    },
+    {
+      "id": "scrum-org-psd-i",
+      "name": "Professional Scrum Developer I (PSD I)",
+      "vendor": "Scrum.org",
+      "kind": "exam",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [],
+      "examCode": null,
+      "listPriceUsd": 200,
+      "priceNote": "",
+      "aliases": [
+        "PSD I",
+        "PSD"
+      ],
+      "rank": 21,
+      "url": "https://www.scrum.org/assessments/professional-scrum-developer-certification",
+      "lastVerified": "2026-10-01",
+      "notes": "Scrum.org pages returned no text on fetch; price from search snippet of the Scrum.org page. 80 questions, 85% pass."
+    },
+    {
+      "id": "scrum-org-psm-i",
+      "name": "Professional Scrum Master I (PSM I)",
+      "vendor": "Scrum.org",
+      "kind": "exam",
+      "category": "pm",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [],
+      "examCode": null,
+      "listPriceUsd": 200,
+      "priceNote": "",
+      "aliases": [
+        "PSM I",
+        "PSM1",
+        "Professional Scrum Master"
+      ],
+      "rank": 5,
+      "url": "https://www.scrum.org/assessments/professional-scrum-master-i-certification",
+      "lastVerified": "2026-10-01",
+      "notes": "Scrum.org pages returned no text on fetch; price from search snippet of the Scrum.org page. Lifetime certification, 85% pass."
+    },
+    {
+      "id": "snowflake-snowpro-core",
+      "name": "SnowPro Core Certification",
+      "vendor": "Snowflake",
+      "kind": "exam",
+      "category": "data",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [
+        "snowflake",
+        "sql"
+      ],
+      "examCode": "COF-C03",
+      "listPriceUsd": 175,
+      "priceNote": "Per attempt",
+      "aliases": [
+        "SnowPro Core",
+        "COF-C03",
+        "COF-C02"
+      ],
+      "rank": 4,
+      "url": "https://learn.snowflake.com/en/certifications/snowpro-core-c03/",
+      "lastVerified": "2026-10-01",
+      "notes": ""
+    },
+    {
+      "id": "unity-certified-associate-game-developer",
+      "name": "Unity Certified Associate: Game Developer",
+      "vendor": "Unity",
+      "kind": "exam",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "csharp"
+      ],
+      "examCode": null,
+      "listPriceUsd": null,
+      "priceNote": "Sold through Pearson VUE; price not on the Unity page",
+      "aliases": [
+        "Unity Certified Associate",
+        "Unity Associate Game Developer"
+      ],
+      "rank": 22,
+      "url": "https://unity.com/products/unity-certifications/associate-game-developer",
+      "lastVerified": "2026-10-01",
+      "notes": "Price not shown on the Unity page. Unity also sells Professional: Programmer."
     }
   ],
   "events": [
@@ -1418,11 +4449,11 @@
     }
   ],
   "meta": {
-    "lastPollAt": "2026-10-01T04:07:30.852Z",
+    "lastPollAt": "2026-10-01T15:07:38.257Z",
     "lastStatusRunAt": "2026-10-01T04:17:10.354Z",
     "sourceHealth": {
-      "total": 19,
-      "unhealthy": 4
+      "total": 32,
+      "unhealthy": 0
     }
   }
 }
