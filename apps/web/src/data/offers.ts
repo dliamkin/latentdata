@@ -120,6 +120,21 @@ export function technologyCounts(
   }));
 }
 
+export function matchesVendor(row: Pick<OfferRow, 'vendor'>, vendors: readonly string[]): boolean {
+  return vendors.length === 0 || vendors.includes(row.vendor);
+}
+
+// every vendor present in these rows, the ones with the most offers first, ties alphabetical
+export function vendorCounts(
+  rows: readonly Pick<OfferRow, 'vendor'>[],
+): { vendor: string; count: number }[] {
+  const counts = new Map<string, number>();
+  for (const row of rows) counts.set(row.vendor, (counts.get(row.vendor) ?? 0) + 1);
+  return [...counts.entries()]
+    .map(([vendor, count]) => ({ vendor, count }))
+    .sort((a, b) => b.count - a.count || a.vendor.localeCompare(b.vendor));
+}
+
 export type QuickFilter = 'active' | 'expiring' | 'upcoming' | 'evergreen' | 'new';
 
 export function matchesQuickFilter(

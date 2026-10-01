@@ -18,7 +18,30 @@ function bodyRows() {
     .filter((row) => row.querySelector('[data-offer-id]') !== null);
 }
 
+function chip(name: string) {
+  return screen.getByRole('button', { name: new RegExp(`^${name}`) });
+}
+
 describe('OffersTable', () => {
+  it('filters by vendor from the chips, adding one vendor at a time', async () => {
+    const user = userEvent.setup();
+    renderWithProviders(
+      <OffersTable rows={rows} quickFilter={null} newIds={none} initialReveal={null} />,
+    );
+    expect(bodyRows()).toHaveLength(6);
+
+    await user.click(chip('Fixture Cloud'));
+    expect(bodyRows()).toHaveLength(1);
+    expect(bodyRows()[0]).toHaveTextContent('Fixture Cloud Architect exam voucher');
+
+    // a second vendor widens the result rather than replacing the first
+    await user.click(chip('Fixture AI'));
+    expect(bodyRows()).toHaveLength(2);
+
+    await user.click(screen.getByRole('button', { name: 'All vendors' }));
+    expect(bodyRows()).toHaveLength(6);
+  });
+
   it('hides expired offers until asked, and searches', async () => {
     const user = userEvent.setup();
     renderWithProviders(

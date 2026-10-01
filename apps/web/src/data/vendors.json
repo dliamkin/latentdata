@@ -1,17 +1,26 @@
 {
   "AWS": "aws",
+  "Cisco": "cisco",
   "DataCamp": "datacamp",
   "Databricks": "databricks",
   "Fortinet": "fortinet",
   "GitHub": "github",
   "Google Cloud": "google-cloud",
   "Google": "google",
+  "HackerRank": "hackerrank",
   "HashiCorp": "hashicorp",
   "HubSpot": "hubspot",
+  "Hugging Face": "hugging-face",
   "ISC2": "isc2",
+  "Kaggle": "kaggle",
+  "Linux Foundation": "linux-foundation",
   "Microsoft": "microsoft",
+  "MongoDB": "mongodb",
+  "Neo4j": "neo4j",
   "OpenAI": "openai",
   "Oracle": "oracle",
+  "Redis": "redis",
   "Salesforce": "salesforce",
-  "Snowflake": "snowflake"
+  "Snowflake": "snowflake",
+  "freeCodeCamp": "freecodecamp"
 }
