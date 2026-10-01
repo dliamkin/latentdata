@@ -12,15 +12,13 @@ describe('App', () => {
     expect(screen.getByRole('banner')).toBeInTheDocument();
     expect(screen.getByRole('main')).toBeInTheDocument();
     expect(
-      screen.getByRole('heading', { level: 1, name: 'Cert Promo Tracker' }),
+      screen.getByRole('heading', { level: 1, name: 'LatentData Cert Promo Tracker' }),
     ).toBeInTheDocument();
-    expect(screen.getAllByRole('tab').map((tab) => tab.textContent)).toEqual([
-      'Offers',
-      'Calendar',
-      'Watch list',
-      'Activity',
-    ]);
-    expect(screen.queryByRole('tab', { name: 'Review' })).not.toBeInTheDocument();
+    // Offers and Watch list carry a count after the label
+    expect(screen.getAllByRole('tab').map((tab) => tab.textContent.replace(/[0-9]+$/, ''))).toEqual(
+      ['Offers', 'Calendar', 'Watch list', 'Activity'],
+    );
+    expect(screen.queryByRole('tab', { name: /Review/ })).not.toBeInTheDocument();
     expect(await axe(container)).toHaveNoViolations();
   });
 
@@ -31,9 +29,11 @@ describe('App', () => {
       window.dispatchEvent(new HashChangeEvent('hashchange'));
       await Promise.resolve();
     });
-    expect(screen.getByRole('tab', { name: 'Watch list', selected: true })).toBeInTheDocument();
-    // the tab's chunk is lazy, so the list arrives a tick later
-    expect(await screen.findByRole('list', { name: 'Watch list' })).toBeInTheDocument();
+    expect(screen.getByRole('tab', { name: /Watch list/, selected: true })).toBeInTheDocument();
+    // the tab's chunk is lazy, so the section arrives a tick later
+    expect(
+      await screen.findByRole('heading', { level: 2, name: /To keep an eye on/ }),
+    ).toBeInTheDocument();
   });
 
   it('opens the admin dialog on Shift+A twice and cancels back', async () => {
@@ -42,12 +42,12 @@ describe('App', () => {
     const toggle = screen.getByTestId('theme-toggle');
     toggle.focus();
     await user.keyboard('{Shift>}A{/Shift}{Shift>}A{/Shift}');
-    const dialog = await screen.findByRole('dialog', { name: 'Admin mode' });
+    const dialog = await screen.findByRole('dialog', { name: 'Enter admin mode' });
     expect(dialog).toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: 'Cancel' }));
     // the dialog leaves through a CSS transition, so it unmounts a beat later
     await waitFor(() => {
-      expect(screen.queryByRole('dialog', { name: 'Admin mode' })).not.toBeInTheDocument();
+      expect(screen.queryByRole('dialog', { name: 'Enter admin mode' })).not.toBeInTheDocument();
     });
   });
 
@@ -57,7 +57,7 @@ describe('App', () => {
     render(<App />);
     await user.type(screen.getByLabelText('Admin token'), 'secret');
     await user.click(screen.getByRole('button', { name: 'Enter admin mode' }));
-    expect(screen.getByRole('tab', { name: 'Review' })).toBeInTheDocument();
+    expect(screen.getByRole('tab', { name: /Review/ })).toBeInTheDocument();
     expect(window.sessionStorage.getItem('cert-tracker:admin-token:v1')).toBe('secret');
     window.history.replaceState(null, '', '/');
   });

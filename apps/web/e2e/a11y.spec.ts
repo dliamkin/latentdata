@@ -28,7 +28,7 @@ test('an expanded row and the admin dialog have no serious axe violations', asyn
 
   await page.keyboard.press('Shift+A');
   await page.keyboard.press('Shift+A');
-  await expect(page.getByRole('dialog', { name: 'Admin mode' })).toBeVisible();
+  await expect(page.getByRole('dialog', { name: 'Enter admin mode' })).toBeVisible();
   expect(await seriousViolations(page)).toEqual([]);
 });
 
