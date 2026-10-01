@@ -8,14 +8,20 @@ export function themeHref(mode: ThemeMode): string {
   return `/themes/lara-${mode}-blue/theme.css`;
 }
 
+// the logo files are named by the theme they sit on, not by their own colour
+export function logoSrc(mode: ThemeMode): string {
+  return `/logo-${mode}.png`;
+}
+
+// dark unless the visitor chose light; the OS preference is not consulted (index.html agrees)
 export function initialMode(): ThemeMode {
   try {
     const stored = localStorage.getItem(THEME_KEY);
     if (stored === 'light' || stored === 'dark') return stored;
   } catch {
-    // storage blocked; fall through to the system preference
+    // storage blocked; the default applies
   }
-  return matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  return 'dark';
 }
 
 export function persistMode(mode: ThemeMode): void {

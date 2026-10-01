@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- the graduation cap from the logo, gold on dark browser chrome -->
+  <g transform="rotate(12 16 16)">
+    <polygon points="9,14 23,14 23,21 16,25 9,21" fill="#b9861a"/>
+    <polygon points="16,4 30,12 16,20 2,12" fill="#f0b429"/>
+    <path d="M29,12.6 q1.1,1.6 0.4,3.4" fill="none" stroke="#f0b429" stroke-width="1.2" stroke-linecap="round"/>
+    <polygon points="28.5,16 30.4,16 30.8,18.4 28.1,18.4" fill="#b8c7db"/>
+  </g>
+</svg>

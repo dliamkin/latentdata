@@ -1,7 +1,10 @@
+import '@fontsource-variable/albert-sans';
+import '@fontsource-variable/source-code-pro';
 import 'primeicons/primeicons.css';
 import 'primereact/resources/primereact.min.css';
+import './styles/tokens.css';
+import './styles/primereact.css';
 import './styles/app.css';
-import './styles/theme-overrides.css';
 
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';

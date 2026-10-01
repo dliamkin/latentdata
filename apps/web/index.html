@@ -8,9 +8,14 @@
       content="Free and discounted IT certification exams from Microsoft, AWS, Google Cloud, Oracle, Salesforce and more. Each promotion is checked against the vendor's own page, with dates and eligibility."
     />
     <meta name="color-scheme" content="light dark" />
-    <meta name="theme-color" content="#f9fafb" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#141a16" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link
+      rel="icon"
+      href="/favicon-dark.svg"
+      type="image/svg+xml"
+      media="(prefers-color-scheme: dark)"
+    />
     <link rel="apple-touch-icon" href="/pwa-192.png" />
     <!-- ?offer= deep links show the same table, so they all point back to the root -->
     <link rel="canonical" href="https://latentdata.org/" />
@@ -30,8 +35,8 @@
     <meta name="twitter:card" content="summary" />
     <title>Free IT Certification Vouchers &amp; Promos · Cert Promo Tracker</title>
     <script>
-      // pick the theme before first paint so dark mode doesn't flash white, and start fetching
-      // its stylesheet now rather than after the app bundle has run
+      // pick the theme before first paint so the page doesn't flash the wrong colour, and start
+      // fetching its stylesheet now rather than after the app bundle has run
       (function () {
         var mode;
         try {
@@ -39,9 +44,8 @@
         } catch (e) {
           mode = null;
         }
-        if (mode !== 'light' && mode !== 'dark') {
-          mode = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        }
+        // dark is the house default; the OS preference is not consulted (theme.ts agrees)
+        if (mode !== 'light' && mode !== 'dark') mode = 'dark';
         document.documentElement.dataset.theme = mode;
         var link = document.createElement('link');
         link.id = 'theme-link';
@@ -52,12 +56,12 @@
     </script>
     <style>
       html[data-theme='light'] {
-        background: #f9fafb;
-        color: #1f2937;
+        background: #f4f5f1;
+        color: #1f2a1f;
       }
       html[data-theme='dark'] {
-        background: #111827;
-        color: #f9fafb;
+        background: #141a16;
+        color: #d5dde9;
       }
     </style>
   </head>

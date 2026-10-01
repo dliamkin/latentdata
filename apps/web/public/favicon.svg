@@ -1,7 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="12" fill="#1d4ed8"/>
-  <rect x="14" y="16" width="36" height="32" rx="3" fill="#ffffff"/>
-  <rect x="20" y="24" width="24" height="4" rx="2" fill="#1d4ed8"/>
-  <rect x="20" y="32" width="16" height="4" rx="2" fill="#1d4ed8"/>
-  <circle cx="42" cy="41" r="5" fill="#f59e0b"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- the graduation cap from the logo, green on light browser chrome -->
+  <g transform="rotate(12 16 16)">
+    <polygon points="9,14 23,14 23,21 16,25 9,21" fill="#d9a21b"/>
+    <polygon points="16,4 30,12 16,20 2,12" fill="#3b5b3a"/>
+    <path d="M29,12.6 q1.1,1.6 0.4,3.4" fill="none" stroke="#d9a21b" stroke-width="1.2" stroke-linecap="round"/>
+    <polygon points="28.5,16 30.4,16 30.8,18.4 28.1,18.4" fill="#d9a21b"/>
+  </g>
 </svg>
