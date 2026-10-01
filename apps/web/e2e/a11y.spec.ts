@@ -11,7 +11,7 @@ async function seriousViolations(page: Page) {
 }
 
 for (const theme of ['light', 'dark'] as const) {
-  for (const tab of ['offers', 'calendar', 'watchlist', 'activity'] as const) {
+  for (const tab of ['offers', 'calendar', 'watchlist', 'catalog', 'activity'] as const) {
     test(`${tab} tab has no serious axe violations (${theme})`, async ({ page }) => {
       await page.emulateMedia({ colorScheme: theme });
       await page.goto(`/#${tab}`);

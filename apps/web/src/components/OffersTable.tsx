@@ -13,7 +13,7 @@ import { createPortal } from 'react-dom';
 import { FilterMatchMode, FilterService } from 'primereact/api';
 import { Column, type ColumnFilterElementTemplateOptions } from 'primereact/column';
 import { DataTable, type DataTableFilterMeta, type DataTableSortMeta } from 'primereact/datatable';
-import { Dropdown, type DropdownProps } from 'primereact/dropdown';
+import { Dropdown } from 'primereact/dropdown';
 import { InputText } from 'primereact/inputtext';
 import type {
   PaginatorRowsPerPageDropdownOptions,
@@ -28,11 +28,14 @@ import {
   WHAT_IS_FREE,
   type CredentialWeight,
   type OfferCategory,
+  type Technology,
 } from '@cert-tracker/core';
 
 import { useAnnouncer } from '../a11y/announcerContext.ts';
+import { dropdownA11y } from '../a11y/dropdown.ts';
 import {
   matchesQuickFilter,
+  technologyCounts,
   type OfferGroup,
   type OfferRow,
   type QuickFilter,
@@ -41,6 +44,7 @@ import { plural, windowLabel } from '../lib/format.ts';
 import {
   CATEGORY_LABELS,
   STATUS_TAGS,
+  TECHNOLOGY_LABELS,
   WEIGHT_TAGS,
   WHAT_IS_FREE_TAGS,
   toOptions,
@@ -79,27 +83,20 @@ const GROUP_LABELS: Record<OfferGroup, { label: string; tone: Tone }> = {
 const GROUP_SORT: DataTableSortMeta = { field: 'groupRank', order: 1 };
 const DEFAULT_SORT: DataTableSortMeta[] = [{ field: 'windowEndSort', order: 1 }];
 
-// PrimeReact's Dropdown has three things a screen reader can land on (a hidden input, a hidden
-// <select>, the trigger) and only the first picks up a plain aria-label; the others need pt
-function dropdownA11y(label: string): Pick<DropdownProps, 'aria-label' | 'pt'> {
-  return {
-    'aria-label': label,
-    pt: { select: { 'aria-label': label }, trigger: { 'aria-label': label } },
-  };
-}
-
-// the Offer column folds three filters into one popover; null means "no constraint"
+// the Offer column folds four filters into one popover; null means "no constraint"
 interface OfferFilter {
   name: string | null;
   category: OfferCategory | null;
   weight: CredentialWeight | null;
+  technology: Technology | null;
 }
 
 function normalizeOfferFilter(value: OfferFilter): OfferFilter | null {
-  return value.name === null && value.category === null && value.weight === null ? null : value;
+  return Object.values(value).every((part) => part === null) ? null : value;
 }
 
-// a custom filter only sees its own cell, so each row carries the three fields as one value
+// a custom filter only sees its own cell, so each row carries the filterable fields as one
+// value; technology is a list on the row, so the cell keeps the one the filter is testing
 interface TableRow extends OfferRow {
   offerKey: OfferFilter;
 }
@@ -109,6 +106,7 @@ FilterService.register('custom_offerKey', (value: OfferFilter, filter: OfferFilt
   if (filter === null) return true;
   if (filter.category !== null && value.category !== filter.category) return false;
   if (filter.weight !== null && value.weight !== filter.weight) return false;
+  if (filter.technology !== null && value.technology !== filter.technology) return false;
   if (filter.name !== null && !(value.name ?? '').toLowerCase().includes(filter.name.toLowerCase()))
     return false;
   return true;
@@ -309,7 +307,12 @@ export function OffersTable({
         )
         .map((row): TableRow => ({
           ...row,
-          offerKey: { name: row.name, category: row.category, weight: row.credentialWeight },
+          offerKey: {
+            name: row.name,
+            category: row.category,
+            weight: row.credentialWeight,
+            technology: null,
+          },
         })),
     [rows, state.showExpired, quickFilter, newIds],
   );
@@ -326,9 +329,22 @@ export function OffersTable({
     () => ({
       category: countBy(visible, (r) => r.category),
       weight: countBy(visible, (r) => r.credentialWeight),
+      technology: Object.fromEntries(
+        technologyCounts(visible).map(({ technology, count }) => [technology, count]),
+      ),
       whatIsFree: countBy(visible, (r) => r.whatIsFree),
       status: countBy(visible, (r) => r.derivedStatus),
     }),
+    [visible],
+  );
+
+  // the long technology list is cut to what the visible rows actually carry
+  const technologyOptions = useMemo(
+    () =>
+      technologyCounts(visible).map(({ technology }) => ({
+        value: technology,
+        label: TECHNOLOGY_LABELS[technology],
+      })),
     [visible],
   );
 
@@ -402,6 +418,7 @@ export function OffersTable({
       name: null,
       category: null,
       weight: null,
+      technology: null,
     };
     const apply = (patch: Partial<OfferFilter>): void => {
       opts.filterApplyCallback(normalizeOfferFilter({ ...current, ...patch }));
@@ -438,6 +455,18 @@ export function OffersTable({
           label="Filter by weight"
           onChange={(value) => {
             apply({ weight: value as CredentialWeight | null });
+          }}
+        />
+        <span className="field-label" aria-hidden="true">
+          Technology
+        </span>
+        <CountedDropdown
+          value={current.technology}
+          options={technologyOptions}
+          counts={valueCounts.technology}
+          label="Filter by technology"
+          onChange={(value) => {
+            apply({ technology: value as Technology | null });
           }}
         />
       </div>

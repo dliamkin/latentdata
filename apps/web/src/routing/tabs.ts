@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { withViewTransition } from '../lib/viewTransition.ts';
 
-export const PUBLIC_TABS = ['offers', 'calendar', 'watchlist', 'activity'] as const;
+export const PUBLIC_TABS = ['offers', 'calendar', 'watchlist', 'catalog', 'activity'] as const;
 export const ALL_TABS = [...PUBLIC_TABS, 'review'] as const;
 export type TabId = (typeof ALL_TABS)[number];
 

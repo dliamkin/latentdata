@@ -2,6 +2,8 @@ import { Suspense, lazy, useCallback, useEffect, useMemo, useState } from 'react
 
 import { PrimeReactProvider } from 'primereact/api';
 
+import type { Track } from '@cert-tracker/core';
+
 import { AnnouncerProvider } from './a11y/Announcer.tsx';
 import { SkipLink } from './a11y/SkipLink.tsx';
 import { AdminProvider } from './admin/AdminProvider.tsx';
@@ -11,8 +13,14 @@ import { SummaryStrip, type StripSelection } from './components/SummaryStrip.tsx
 import { TabBar, TabPanel, type TabSpec } from './components/TabBar.tsx';
 import { TopBar } from './components/TopBar.tsx';
 import { UpdatePrompt } from './components/UpdatePrompt.tsx';
-import { matchesQuickFilter, summarize, type QuickFilter } from './data/offers.ts';
-import { useEvents, useGeneratedAt, useNewOfferIds, useOffers } from './data/useOffers.ts';
+import { matchesAudience, matchesQuickFilter, summarize, type QuickFilter } from './data/offers.ts';
+import {
+  useCatalog,
+  useEvents,
+  useGeneratedAt,
+  useNewOfferIds,
+  useOffers,
+} from './data/useOffers.ts';
 import { pageMeta, useDocumentMeta } from './lib/pageMeta.ts';
 import {
   ALL_TABS,
@@ -33,6 +41,9 @@ const CalendarView = lazy(() =>
 const WatchList = lazy(() =>
   import('./components/WatchList.tsx').then((m) => ({ default: m.WatchList })),
 );
+const CatalogView = lazy(() =>
+  import('./components/CatalogView.tsx').then((m) => ({ default: m.CatalogView })),
+);
 const ActivityFeed = lazy(() =>
   import('./components/ActivityFeed.tsx').then((m) => ({ default: m.ActivityFeed })),
 );
@@ -52,7 +63,7 @@ interface Reveal {
 const loading = <p className="empty-state">Loading…</p>;
 
 function Shell() {
-  const rows = useOffers();
+  const allRows = useOffers();
   const events = useEvents();
   const newIds = useNewOfferIds();
   const generatedAt = useGeneratedAt();
@@ -65,6 +76,8 @@ function Shell() {
   // a deep link always lands on the Offers tab, whatever the hash says
   const [tab, setTab] = useHashTab(reveal === null ? undefined : 'offers');
   const [selection, setSelection] = useState<StripSelection>(null);
+  // the audience lens: every tab below shows one track's offers, or all of them
+  const [audience, setAudience] = useState<Track | null>(null);
   const [aboutOpen, setAboutOpen] = useState(false);
   const [aboutMounted, setAboutMounted] = useState(false);
   // the Offers table portals its search box into the tab row; state, not a ref, so the table
@@ -84,6 +97,23 @@ function Shell() {
     };
   }, []);
 
+  const rows = useMemo(
+    () => allRows.filter((row) => matchesAudience(row, audience)),
+    [allRows, audience],
+  );
+  const catalog = useCatalog(rows);
+  const catalogRows = useMemo(
+    () => catalog.filter((row) => matchesAudience(row, audience)),
+    [catalog, audience],
+  );
+  const audienceCounts = useMemo(
+    () => ({
+      all: allRows.length,
+      software: allRows.filter((row) => matchesAudience(row, 'software')).length,
+      it: allRows.filter((row) => matchesAudience(row, 'it')).length,
+    }),
+    [allRows],
+  );
   const counts = useMemo(() => summarize(rows, newIds), [rows, newIds]);
   const quickFilter: QuickFilter | null = selection === 'watchlist' ? null : selection;
   const offerCount = useMemo(
@@ -103,19 +133,23 @@ function Shell() {
           return { id, label: 'Calendar' };
         case 'watchlist':
           return { id, label: 'Watch list', count: counts.watch };
+        case 'catalog':
+          return { id, label: 'Certifications', count: catalogRows.length };
         case 'activity':
           return { id, label: 'Activity' };
         case 'review':
           return { id, label: 'Review', badge: 'Admin' };
       }
     });
-  }, [adminActive, offerCount, counts.watch]);
+  }, [adminActive, offerCount, counts.watch, catalogRows.length]);
   const revealedOffer = reveal === null ? null : (rows.find((row) => row.id === reveal.id) ?? null);
   useDocumentMeta(pageMeta(tab, revealedOffer), counts.expiring);
 
   const revealOffer = useCallback(
     (offerId: string) => {
       setSelection(null);
+      // a reveal must not land on a row the lens would hide
+      setAudience(null);
       writeOfferParam(offerId);
       setReveal((current) => ({ id: offerId, seq: (current?.seq ?? 0) + 1 }));
       setTab('offers');
@@ -141,7 +175,14 @@ function Shell() {
         }}
       />
       <main id="main" tabIndex={-1}>
-        <SummaryStrip counts={counts} selected={selection} onSelect={onSelect} />
+        <SummaryStrip
+          counts={counts}
+          selected={selection}
+          onSelect={onSelect}
+          audience={audience}
+          audienceCounts={audienceCounts}
+          onAudience={setAudience}
+        />
         <div className="content">
           <TabBar
             tabs={tabs}
@@ -169,6 +210,11 @@ function Shell() {
           <TabPanel id="watchlist" active={tab}>
             <Suspense fallback={loading}>
               <WatchList rows={rows} onReveal={revealOffer} />
+            </Suspense>
+          </TabPanel>
+          <TabPanel id="catalog" active={tab}>
+            <Suspense fallback={loading}>
+              <CatalogView rows={catalogRows} onReveal={revealOffer} />
             </Suspense>
           </TabPanel>
           <TabPanel id="activity" active={tab}>
