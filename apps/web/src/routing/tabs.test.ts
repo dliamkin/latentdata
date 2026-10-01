@@ -1,18 +1,33 @@
 import { describe, expect, it } from 'vitest';
 
-import { offerIdFromSearch, tabFromHash } from './tabs.ts';
+import { offerIdFromSearch, routeFromHash, type Route } from './tabs.ts';
 
-describe('tabFromHash', () => {
-  it.each([
+describe('routeFromHash', () => {
+  it.each<[string, Route]>([
     ['', 'offers'],
     ['#offers', 'offers'],
     ['#calendar', 'calendar'],
     ['#watchlist', 'watchlist'],
+    ['#catalog', 'catalog'],
     ['#activity', 'activity'],
     ['#review', 'review'],
+    ['#architecture', 'architecture'],
+    ['#privacy', 'privacy'],
     ['#nope', 'offers'],
   ])('%s -> %s', (hash, expected) => {
-    expect(tabFromHash(hash)).toBe(expected);
+    expect(routeFromHash(hash)).toBe(expected);
+  });
+
+  // the skip link is href="#main", so an in-page anchor must not navigate away from the page it
+  // was meant to skip into
+  it('leaves the route alone for an in-page anchor', () => {
+    expect(routeFromHash('#main', 'calendar')).toBe('calendar');
+    expect(routeFromHash('#main', 'privacy')).toBe('privacy');
+    expect(routeFromHash('#nope', 'architecture')).toBe('architecture');
+  });
+
+  it('still falls back to offers when there is no current route', () => {
+    expect(routeFromHash('#main')).toBe('offers');
   });
 });
 

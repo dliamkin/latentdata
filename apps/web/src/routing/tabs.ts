@@ -6,6 +6,19 @@ export const PUBLIC_TABS = ['offers', 'calendar', 'watchlist', 'catalog', 'activ
 export const ALL_TABS = [...PUBLIC_TABS, 'review'] as const;
 export type TabId = (typeof ALL_TABS)[number];
 
+// pages reached only from the footer: never in the tab bar, but linkable like any tab. They are
+// a separate union from TabId on purpose, so the exhaustive switches over tabs stay exhaustive.
+export const DOC_PAGES = ['architecture', 'privacy'] as const;
+export type DocPageId = (typeof DOC_PAGES)[number];
+
+export type Route = TabId | DocPageId;
+
+const ROUTES: readonly string[] = [...ALL_TABS, ...DOC_PAGES];
+
+export function isDocPage(route: Route): route is DocPageId {
+  return (DOC_PAGES as readonly string[]).includes(route);
+}
+
 export function tabElementId(id: TabId): string {
   return `tab-${id}`;
 }
@@ -14,32 +27,45 @@ export function panelElementId(id: TabId): string {
   return `panel-${id}`;
 }
 
-export function tabFromHash(hash: string): TabId {
+// an empty hash is the default route; a hash that names a route selects it; anything else is an
+// in-page anchor (the skip link's #main) and must leave the route alone, or "Skip to content"
+// would navigate away from the page it was meant to skip into
+export function routeFromHash(hash: string, current: Route = 'offers'): Route {
   const id = hash.replace(/^#/, '');
-  return (ALL_TABS as readonly string[]).includes(id) ? (id as TabId) : 'offers';
+  if (id === '') return 'offers';
+  return ROUTES.includes(id) ? (id as Route) : current;
 }
 
-// the hash is the source of truth so tabs are linkable and the back button walks through them;
+// the hash is the source of truth so routes are linkable and the back button walks through them;
 // `override` wins on the first render (a deep link) and is written back to the hash
-export function useHashTab(override?: TabId): [TabId, (tab: TabId) => void] {
-  const [tab, setTabState] = useState<TabId>(() => override ?? tabFromHash(window.location.hash));
-  // the tab setTab already switched to, so the hashchange it causes doesn't start a second
+export function useHashRoute(override?: Route): [Route, (route: Route) => void] {
+  const [route, setRouteState] = useState<Route>(
+    () => override ?? routeFromHash(window.location.hash),
+  );
+  // the route setRoute already switched to, so the hashchange it causes doesn't start a second
   // transition (which would cancel the first)
-  const settled = useRef<TabId | null>(null);
+  const settled = useRef<Route | null>(null);
+  // the listener is registered once, so it reads the live route from here rather than closing
+  // over a stale one
+  const latest = useRef<Route>(route);
+  useEffect(() => {
+    latest.current = route;
+  }, [route]);
 
   useEffect(() => {
     if (override !== undefined && window.location.hash !== `#${override}`) {
       window.history.replaceState(null, '', `#${override}`);
     }
     const onHashChange = (): void => {
-      const next = tabFromHash(window.location.hash);
+      const next = routeFromHash(window.location.hash, latest.current);
+      if (next === latest.current) return;
       if (settled.current === next) {
         settled.current = null;
-        setTabState(next);
+        setRouteState(next);
         return;
       }
       void withViewTransition('tabs', () => {
-        setTabState(next);
+        setRouteState(next);
       });
     };
     window.addEventListener('hashchange', onHashChange);
@@ -52,9 +78,9 @@ export function useHashTab(override?: TabId): [TabId, (tab: TabId) => void] {
 
   // the state is set here, inside the transition, rather than waiting for hashchange (which
   // fires later and would miss the snapshot); the listener then sees the same value
-  const setTab = useCallback((next: TabId) => {
+  const setRoute = useCallback((next: Route) => {
     void withViewTransition('tabs', () => {
-      setTabState(next);
+      setRouteState(next);
     });
     if (window.location.hash !== `#${next}`) {
       settled.current = next;
@@ -62,7 +88,7 @@ export function useHashTab(override?: TabId): [TabId, (tab: TabId) => void] {
     }
   }, []);
 
-  return [tab, setTab];
+  return [route, setRoute];
 }
 
 export function offerIdFromSearch(search: string): string | null {

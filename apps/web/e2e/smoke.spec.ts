@@ -108,3 +108,24 @@ test('the audience lens narrows every tab at once', async ({ page }) => {
   await page.getByRole('tab', { name: /Certifications/ }).click();
   await expect(page.getByRole('heading', { name: /What people ask for/ })).toContainText('3');
 });
+
+test('the footer opens the doc pages and the back button returns', async ({ page }) => {
+  await page.goto('/');
+  const footer = page.getByRole('contentinfo');
+  await expect(footer).toContainText('Copyright © 2026');
+
+  await footer.getByRole('link', { name: 'Privacy' }).click();
+  await expect(page).toHaveURL(/#privacy$/);
+  await expect(page.getByRole('heading', { level: 2, name: 'Privacy' })).toBeVisible();
+  // a doc page replaces the tab bar rather than sitting inside it
+  await expect(page.getByRole('tab')).toHaveCount(0);
+
+  await page.goBack();
+  await expect(page.getByRole('tab', { name: 'Offers', selected: true })).toBeVisible();
+  await expect(page.getByRole('table')).toBeVisible();
+
+  await footer.getByRole('link', { name: 'How it works' }).click();
+  await expect(page).toHaveURL(/#architecture$/);
+  await expect(page.getByRole('heading', { level: 2, name: 'How it works' })).toBeVisible();
+  await expect(page.getByRole('img', { name: /top-to-bottom pipeline/ })).toBeVisible();
+});

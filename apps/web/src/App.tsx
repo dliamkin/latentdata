@@ -11,6 +11,7 @@ import { useAdmin } from './admin/adminContext.ts';
 import { OffersTable } from './components/OffersTable.tsx';
 import { SummaryStrip, type StripSelection } from './components/SummaryStrip.tsx';
 import { TabBar, TabPanel, type TabSpec } from './components/TabBar.tsx';
+import { SiteFooter } from './components/SiteFooter.tsx';
 import { TopBar } from './components/TopBar.tsx';
 import { UpdatePrompt } from './components/UpdatePrompt.tsx';
 import { matchesAudience, matchesQuickFilter, summarize, type QuickFilter } from './data/offers.ts';
@@ -25,8 +26,9 @@ import { pageMeta, useDocumentMeta } from './lib/pageMeta.ts';
 import {
   ALL_TABS,
   PUBLIC_TABS,
+  isDocPage,
   offerIdFromSearch,
-  useHashTab,
+  useHashRoute,
   writeOfferParam,
   type TabId,
 } from './routing/tabs.ts';
@@ -54,6 +56,9 @@ const AdminDialog = lazy(() =>
   import('./admin/AdminDialog.tsx').then((m) => ({ default: m.AdminDialog })),
 );
 const AdminPanel = lazy(() => import('./admin/AdminPanel.tsx'));
+// the footer pages: diagrams and prose, never part of the first paint
+const ArchitecturePage = lazy(() => import('./pages/ArchitecturePage.tsx'));
+const PrivacyPage = lazy(() => import('./pages/PrivacyPage.tsx'));
 
 interface Reveal {
   id: string;
@@ -74,7 +79,11 @@ function Shell() {
     return id === null ? null : { id, seq: 0 };
   });
   // a deep link always lands on the Offers tab, whatever the hash says
-  const [tab, setTab] = useHashTab(reveal === null ? undefined : 'offers');
+  const [route, setRoute] = useHashRoute(reveal === null ? undefined : 'offers');
+  // the tab bar only ever shows a tab; on a doc page it is not rendered at all
+  const docPage = isDocPage(route) ? route : null;
+  const tab: TabId = docPage === null ? (route as TabId) : 'offers';
+  const setTab = setRoute;
   const [selection, setSelection] = useState<StripSelection>(null);
   // the audience lens: every tab below shows one track's offers, or all of them
   const [audience, setAudience] = useState<Track | null>(null);
@@ -143,7 +152,7 @@ function Shell() {
     });
   }, [adminActive, offerCount, counts.watch, catalogRows.length]);
   const revealedOffer = reveal === null ? null : (rows.find((row) => row.id === reveal.id) ?? null);
-  useDocumentMeta(pageMeta(tab, revealedOffer), counts.expiring);
+  useDocumentMeta(pageMeta(route, revealedOffer), docPage === null ? counts.expiring : 0);
 
   const revealOffer = useCallback(
     (offerId: string) => {
@@ -175,66 +184,79 @@ function Shell() {
         }}
       />
       <main id="main" tabIndex={-1}>
-        <SummaryStrip
-          counts={counts}
-          selected={selection}
-          onSelect={onSelect}
-          audience={audience}
-          audienceCounts={audienceCounts}
-          onAudience={setAudience}
-        />
-        <div className="content">
-          <TabBar
-            tabs={tabs}
-            active={tab}
-            onChange={setTab}
-            slot={
-              tab === 'offers' ? <div ref={setToolbarSlot} className="toolbar-slot" /> : undefined
-            }
-          />
-          <TabPanel id="offers" active={tab}>
-            <OffersTable
-              key={reveal?.seq ?? -1}
-              rows={rows}
-              quickFilter={quickFilter}
-              newIds={newIds}
-              initialReveal={reveal?.id ?? null}
-              toolbarSlot={toolbarSlot}
+        {docPage !== null ? (
+          <div className="content">
+            <Suspense fallback={loading}>
+              {docPage === 'architecture' ? <ArchitecturePage /> : <PrivacyPage />}
+            </Suspense>
+          </div>
+        ) : (
+          <>
+            <SummaryStrip
+              counts={counts}
+              selected={selection}
+              onSelect={onSelect}
+              audience={audience}
+              audienceCounts={audienceCounts}
+              onAudience={setAudience}
             />
-          </TabPanel>
-          <TabPanel id="calendar" active={tab}>
-            <Suspense fallback={loading}>
-              <CalendarView rows={rows} onReveal={revealOffer} />
-            </Suspense>
-          </TabPanel>
-          <TabPanel id="watchlist" active={tab}>
-            <Suspense fallback={loading}>
-              <WatchList rows={rows} onReveal={revealOffer} />
-            </Suspense>
-          </TabPanel>
-          <TabPanel id="catalog" active={tab}>
-            <Suspense fallback={loading}>
-              <CatalogView rows={catalogRows} onReveal={revealOffer} />
-            </Suspense>
-          </TabPanel>
-          <TabPanel id="activity" active={tab}>
-            <Suspense fallback={loading}>
-              <ActivityFeed events={events} onReveal={revealOffer} />
-            </Suspense>
-          </TabPanel>
-          {adminActive && (
-            <TabPanel id="review" active={tab}>
-              <Suspense fallback={loading}>
-                <AdminPanel
-                  onLeave={() => {
-                    setTab('offers');
-                  }}
+            <div className="content">
+              <TabBar
+                tabs={tabs}
+                active={tab}
+                onChange={setTab}
+                slot={
+                  tab === 'offers' ? (
+                    <div ref={setToolbarSlot} className="toolbar-slot" />
+                  ) : undefined
+                }
+              />
+              <TabPanel id="offers" active={tab}>
+                <OffersTable
+                  key={reveal?.seq ?? -1}
+                  rows={rows}
+                  quickFilter={quickFilter}
+                  newIds={newIds}
+                  initialReveal={reveal?.id ?? null}
+                  toolbarSlot={toolbarSlot}
                 />
-              </Suspense>
-            </TabPanel>
-          )}
-        </div>
+              </TabPanel>
+              <TabPanel id="calendar" active={tab}>
+                <Suspense fallback={loading}>
+                  <CalendarView rows={rows} onReveal={revealOffer} />
+                </Suspense>
+              </TabPanel>
+              <TabPanel id="watchlist" active={tab}>
+                <Suspense fallback={loading}>
+                  <WatchList rows={rows} onReveal={revealOffer} />
+                </Suspense>
+              </TabPanel>
+              <TabPanel id="catalog" active={tab}>
+                <Suspense fallback={loading}>
+                  <CatalogView rows={catalogRows} onReveal={revealOffer} />
+                </Suspense>
+              </TabPanel>
+              <TabPanel id="activity" active={tab}>
+                <Suspense fallback={loading}>
+                  <ActivityFeed events={events} onReveal={revealOffer} />
+                </Suspense>
+              </TabPanel>
+              {adminActive && (
+                <TabPanel id="review" active={tab}>
+                  <Suspense fallback={loading}>
+                    <AdminPanel
+                      onLeave={() => {
+                        setTab('offers');
+                      }}
+                    />
+                  </Suspense>
+                </TabPanel>
+              )}
+            </div>
+          </>
+        )}
       </main>
+      <SiteFooter onNavigate={setRoute} />
       {dialogMounted && (
         <Suspense fallback={null}>
           <AdminDialog />
