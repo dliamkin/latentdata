@@ -8,6 +8,7 @@ describe('key builders', () => {
     ['candidate', keys.candidateKey('01A'), { PK: 'CAND#01A', SK: 'META' }],
     ['signal', keys.signalKey('rss-a', 'abc'), { PK: 'SIG#rss-a', SK: 'abc' }],
     ['source', keys.sourceKey('rss-a'), { PK: 'SOURCE#rss-a', SK: 'META' }],
+    ['catalog entry', keys.catalogKey('aws-x'), { PK: 'CERT#aws-x', SK: 'META' }],
     [
       'event',
       keys.eventKey('2026-09-29T04:17:00.000Z', '01E'),
@@ -38,6 +39,10 @@ describe('key builders', () => {
       GSI1SK: '2026-09-29T00:00:00.000Z',
     });
     expect(keys.sourceGsi1('rss-a')).toEqual({ GSI1PK: 'SOURCES', GSI1SK: 'rss-a' });
+    expect(keys.catalogGsi1('dev', 7, 'aws-x')).toEqual({
+      GSI1PK: 'CATALOG',
+      GSI1SK: 'dev#007#aws-x',
+    });
     expect(keys.eventGsi1('public', '2026-09-29T00:00:00.000Z').GSI1PK).toBe('EVENTS#public');
     expect(keys.subscriberGsi1('active', 'ntfy', '01S')).toEqual({
       GSI1PK: 'SUBS#active',

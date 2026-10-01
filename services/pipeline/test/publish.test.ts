@@ -10,9 +10,9 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { MONTHLY_COMMIT_CAP, runPublish, type PublishDeps } from '../src/handlers/publish.ts';
 import type { SnapshotStore } from '../src/lib/github.ts';
-import { offerToItem, sourceToItem } from '../src/lib/repo/index.ts';
+import { catalogEntryToItem, offerToItem, sourceToItem } from '../src/lib/repo/index.ts';
 import { buildSnapshot, serializeSnapshot } from '../src/lib/snapshot.ts';
-import { TABLE, awsError, docMock, offer, source } from './helpers.ts';
+import { TABLE, awsError, catalogEntry, docMock, offer, source } from './helpers.ts';
 
 const NOW = new Date('2026-09-29T12:00:00.000Z');
 const { doc, mock } = docMock();
@@ -47,6 +47,8 @@ function arrange(meta: Record<string, unknown>): void {
           return { Items: [offerToItem(offer())] };
         case 'SOURCES':
           return { Items: [sourceToItem(source())] };
+        case 'CATALOG':
+          return { Items: [catalogEntryToItem(catalogEntry())] };
         default:
           return { Items: [] };
       }
@@ -114,6 +116,7 @@ describe('runPublish', () => {
     const same = serializeSnapshot(
       buildSnapshot({
         offers: [offer()],
+        catalog: [catalogEntry()],
         events: [],
         sources: [source()],
         meta: { lastPollAt: null, lastStatusRunAt: null },
@@ -138,7 +141,11 @@ describe('runPublish', () => {
     const [content, message, sha] = s.write.mock.calls[0] as [string, string, string];
     expect(message).toBe(`data: snapshot ${NOW.toISOString()}`);
     expect(sha).toBe('old-sha');
-    expect(JSON.parse(content)).toMatchObject({ schemaVersion: 1, offers: [{ id: offer().id }] });
+    expect(JSON.parse(content)).toMatchObject({
+      schemaVersion: 1,
+      offers: [{ id: offer().id }],
+      catalog: [{ id: catalogEntry().id }],
+    });
     expect(content.endsWith('\n')).toBe(true);
 
     expect(

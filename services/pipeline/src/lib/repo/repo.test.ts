@@ -11,6 +11,7 @@ import { beforeEach, describe, expect, it } from 'vitest';
 import {
   TABLE,
   awsError,
+  catalogEntry,
   docMock,
   offer,
   source,
@@ -18,18 +19,25 @@ import {
 } from '../../../test/helpers.ts';
 import {
   acquireLock,
+  catalogEntryToItem,
   changeTransaction,
+  deleteCatalogEntry,
   getOffer,
   getSystemMeta,
+  itemToCatalogEntry,
   itemToOffer,
+  listCatalog,
   listOffers,
   listPublicEventsSince,
   newEvent,
   offerStatusUpdateItem,
   offerToItem,
+  putCatalogEntry,
   putOfferIfAbsent,
   putSourceIfAbsent,
   releaseLock,
+  setOfferTaxonomy,
+  setSourceKeywords,
   setSystemMeta,
   sourceHealth,
   writeChange,
@@ -92,6 +100,33 @@ describe('offers', () => {
     await expect(putOfferIfAbsent(doc, TABLE, offer())).rejects.toThrow();
   });
 
+  it('reads an item stored before the taxonomy existed as unclassified', () => {
+    const old: Record<string, unknown> = { ...offerToItem(offer()) };
+    delete old.tracks;
+    delete old.technologies;
+    expect(itemToOffer(old)).toMatchObject({ tracks: [], technologies: [] });
+  });
+
+  it('backfills the taxonomy on an existing offer only', async () => {
+    mock.on(UpdateCommand).resolves({});
+    await setOfferTaxonomy(
+      doc,
+      TABLE,
+      'a',
+      { tracks: ['software'], technologies: ['csharp'] },
+      NOW,
+    );
+    expect(mock.commandCalls(UpdateCommand)[0]?.args[0].input).toMatchObject({
+      Key: { PK: 'OFFER#a', SK: 'META' },
+      ConditionExpression: 'attribute_exists(PK)',
+      ExpressionAttributeValues: {
+        ':tracks': ['software'],
+        ':technologies': ['csharp'],
+        ':now': NOW.toISOString(),
+      },
+    });
+  });
+
   it('builds a conditional status update', () => {
     const item = offerStatusUpdateItem(TABLE, {
       id: 'a',
@@ -122,6 +157,61 @@ describe('sources', () => {
         source({ sourceId: 'c', enabled: false, state: { consecutiveFailures: 9 } }),
       ]),
     ).toEqual({ total: 2, unhealthy: 1 });
+  });
+});
+
+describe('source keywords', () => {
+  it('sets both lists and nothing else', async () => {
+    mock.on(UpdateCommand).resolves({});
+    await setSourceKeywords(doc, TABLE, 'rss-a', {
+      keywordsInclude: ['voucher', 'free course'],
+      keywordsExclude: ['dumps'],
+    });
+    expect(mock.commandCalls(UpdateCommand)[0]?.args[0].input).toMatchObject({
+      Key: { PK: 'SOURCE#rss-a', SK: 'META' },
+      UpdateExpression: 'SET keywordsInclude = :include, keywordsExclude = :exclude',
+      ConditionExpression: 'attribute_exists(PK)',
+    });
+  });
+});
+
+describe('catalog', () => {
+  it('round-trips an entry through its item', () => {
+    const item = catalogEntryToItem(catalogEntry({ rank: 12 }));
+    expect(item).toMatchObject({
+      PK: 'CERT#vendor-associate',
+      SK: 'META',
+      GSI1PK: 'CATALOG',
+      GSI1SK: 'cloud#012#vendor-associate',
+      entity: 'CATALOG',
+    });
+    expect(itemToCatalogEntry(item)).toEqual(catalogEntry({ rank: 12 }));
+  });
+
+  it('lists every page of the CATALOG partition', async () => {
+    mock
+      .on(QueryCommand)
+      .resolvesOnce({
+        Items: [catalogEntryToItem(catalogEntry({ id: 'a' }))],
+        LastEvaluatedKey: { PK: 'x' },
+      })
+      .resolvesOnce({ Items: [catalogEntryToItem(catalogEntry({ id: 'b' }))] });
+    expect((await listCatalog(doc, TABLE)).map((entry) => entry.id)).toEqual(['a', 'b']);
+    expect(mock.commandCalls(QueryCommand)[0]?.args[0].input.ExpressionAttributeValues).toEqual({
+      ':pk': 'CATALOG',
+    });
+  });
+
+  it('overwrites on put and deletes by id', async () => {
+    mock.on(PutCommand).resolves({});
+    mock.on(DeleteCommand).resolves({});
+    await putCatalogEntry(doc, TABLE, catalogEntry());
+    await deleteCatalogEntry(doc, TABLE, 'gone');
+    expect(mock.commandCalls(PutCommand)[0]?.args[0].input.ConditionExpression).toBeUndefined();
+    expect(mock.commandCalls(DeleteCommand)[0]?.args[0].input.Key).toEqual({
+      PK: 'CERT#gone',
+      SK: 'META',
+    });
   });
 });
 

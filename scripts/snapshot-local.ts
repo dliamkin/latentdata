@@ -5,6 +5,7 @@ import { dirname } from 'node:path';
 import { z } from 'zod';
 
 import {
+  CatalogEntrySchema,
   OfferSchema,
   SnapshotSchema,
   SourceSchema,
@@ -13,10 +14,11 @@ import {
   type SnapshotEvent,
 } from '@cert-tracker/core';
 
-import { offersSeedPath, snapshotPath, sourcesSeedPath } from './lib/paths.ts';
+import { catalogSeedPath, offersSeedPath, snapshotPath, sourcesSeedPath } from './lib/paths.ts';
 
 // stands in for the publish Lambda until M2: same schema, same file, no DynamoDB
 const OffersSeed = z.object({ offers: z.array(OfferSchema) });
+const CatalogSeed = z.object({ entries: z.array(CatalogEntrySchema) });
 const SourcesSeed = z.object({
   sources: z.array(SourceSchema.pick({ sourceId: true, enabled: true })),
 });
@@ -25,6 +27,7 @@ const readJson = (path: string): unknown => JSON.parse(readFileSync(path, 'utf8'
 
 const { offers } = OffersSeed.parse(readJson(offersSeedPath));
 const { sources } = SourcesSeed.parse(readJson(sourcesSeedPath));
+const { entries: catalog } = CatalogSeed.parse(readJson(catalogSeedPath));
 
 // seeded offers were discovered on their addedAt day; ids are derived from the offer id so
 // regenerating the snapshot doesn't churn the file
@@ -45,6 +48,7 @@ const snapshot: Snapshot = SnapshotSchema.parse({
   schemaVersion: 1,
   generatedAt: new Date().toISOString(),
   offers,
+  catalog,
   events,
   meta: {
     lastPollAt: null,
@@ -56,5 +60,5 @@ const snapshot: Snapshot = SnapshotSchema.parse({
 mkdirSync(dirname(snapshotPath), { recursive: true });
 writeFileSync(snapshotPath, `${JSON.stringify(snapshot, null, 2)}\n`);
 console.log(
-  `wrote ${snapshotPath}: ${String(snapshot.offers.length)} offers, ${String(snapshot.events.length)} events`,
+  `wrote ${snapshotPath}: ${String(snapshot.offers.length)} offers, ${String(snapshot.catalog.length)} catalog entries, ${String(snapshot.events.length)} events`,
 );
