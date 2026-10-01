@@ -79,3 +79,32 @@ test('the theme toggle swaps the stylesheet and persists', async ({ page }) => {
   await page.reload();
   expect(await page.locator('html').getAttribute('data-theme')).toBe(after);
 });
+
+test('the certifications tab prices credentials and links the offer that covers one', async ({
+  page,
+}) => {
+  await page.goto('/#catalog');
+  const cloud = page.getByRole('region', { name: 'Cloud' });
+  await expect(cloud.getByText('Free now')).toBeVisible();
+  await expect(cloud.getByText('$200', { exact: true })).toBeVisible();
+  await expect(cloud.getByText('Saves $200 today')).toBeVisible();
+
+  await cloud.getByRole('button', { name: /Fixture Cloud Architect exam voucher/ }).click();
+  await expect(page.getByRole('tab', { name: 'Offers', selected: true })).toBeVisible();
+  await expect(
+    page.getByRole('region', { name: /Details for Fixture Cloud Architect/ }),
+  ).toBeVisible();
+});
+
+test('the audience lens narrows every tab at once', async ({ page }) => {
+  await page.goto('/');
+  const rows = page.locator('tr:has([data-offer-id])');
+  await expect(rows).toHaveCount(6);
+
+  await page.getByRole('group', { name: 'Who the offers are for' }).getByText('Software').click();
+  await expect(rows).toHaveCount(3);
+  await expect(page.getByRole('tab', { name: /Certifications/ })).toContainText('3');
+
+  await page.getByRole('tab', { name: /Certifications/ }).click();
+  await expect(page.getByRole('heading', { name: /What people ask for/ })).toContainText('3');
+});

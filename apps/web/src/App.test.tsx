@@ -1,6 +1,6 @@
 import { act, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { axe } from 'vitest-axe';
 
 import App from './App.tsx';
@@ -16,7 +16,7 @@ describe('App', () => {
     ).toBeInTheDocument();
     // Offers and Watch list carry a count after the label
     expect(screen.getAllByRole('tab').map((tab) => tab.textContent.replace(/[0-9]+$/, ''))).toEqual(
-      ['Offers', 'Calendar', 'Watch list', 'Activity'],
+      ['Offers', 'Calendar', 'Watch list', 'Certifications', 'Activity'],
     );
     expect(screen.queryByRole('tab', { name: /Review/ })).not.toBeInTheDocument();
     expect(await axe(container)).toHaveNoViolations();
@@ -41,7 +41,11 @@ describe('App', () => {
     render(<App />);
     const toggle = screen.getByTestId('theme-toggle');
     toggle.focus();
+    // the shortcut only counts two presses inside 800ms of wall clock, which a loaded test
+    // machine can blow through between the two renders
+    const clock = vi.spyOn(Date, 'now').mockReturnValue(1_000);
     await user.keyboard('{Shift>}A{/Shift}{Shift>}A{/Shift}');
+    clock.mockRestore();
     const dialog = await screen.findByRole('dialog', { name: 'Enter admin mode' });
     expect(dialog).toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: 'Cancel' }));

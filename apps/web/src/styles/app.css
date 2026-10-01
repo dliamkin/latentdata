@@ -1855,3 +1855,118 @@ html[data-theme] .p-button.p-button-contrast {
     flex: 1 1 100%;
   }
 }
+
+/* the audience lens sits above the numbers it changes, on the content grid */
+.summary-lens {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 10px var(--gutter) 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.catalog-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.catalog-group {
+  margin-top: 22px;
+}
+
+.catalog-group .group-label {
+  margin-bottom: 10px;
+}
+
+.catalog-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.catalog-row {
+  display: grid;
+  grid-template-columns: minmax(0, 2.1fr) minmax(0, 0.9fr) minmax(0, 1.5fr) 2rem;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.catalog-row + .catalog-row {
+  margin-top: 8px;
+}
+
+.catalog-price,
+.catalog-coverage {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+  font-size: 13px;
+}
+
+.catalog-price .mono {
+  font-size: 13px;
+}
+
+.catalog-coverage .text-link {
+  font-size: 12.5px;
+  text-align: left;
+}
+
+.catalog-coverage .faint,
+.catalog-price .faint {
+  font-size: 11.5px;
+  line-height: 1.35;
+}
+
+/* says "Course" next to a credential that is not an exam */
+.kind-badge {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 2px 5px;
+  border-radius: 3px;
+  background: var(--subtle);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  vertical-align: middle;
+}
+
+@media (max-width: 767px) {
+  .summary-lens {
+    justify-content: flex-start;
+    overflow-x: auto;
+  }
+
+  .summary-lens .segmented button {
+    padding: 6px 9px;
+  }
+
+  .catalog-row {
+    grid-template-columns: minmax(0, 1fr) 2rem;
+    row-gap: 10px;
+  }
+
+  .catalog-row .offer-cell {
+    grid-column: 1;
+  }
+
+  .catalog-row .icon-link {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: start;
+  }
+
+  .catalog-price,
+  .catalog-coverage {
+    grid-column: 1 / -1;
+  }
+}

@@ -1,4 +1,8 @@
+import type { Track } from '@cert-tracker/core';
+
 import type { QuickFilter, SummaryCounts } from '../data/offers.ts';
+import { TRACK_TAGS } from '../lib/labels.ts';
+import { Segmented } from './Segmented.tsx';
 
 export type StripSelection = QuickFilter | 'watchlist' | null;
 
@@ -14,14 +18,26 @@ interface Item {
   hint: string;
 }
 
+export interface AudienceCounts {
+  all: number;
+  software: number;
+  it: number;
+}
+
 export function SummaryStrip({
   counts,
   selected,
   onSelect,
+  audience,
+  audienceCounts,
+  onAudience,
 }: {
   counts: SummaryCounts;
   selected: StripSelection;
   onSelect: (selection: StripSelection) => void;
+  audience: Track | null;
+  audienceCounts: AudienceCounts;
+  onAudience: (audience: Track | null) => void;
 }) {
   const items: Item[] = [
     {
@@ -71,34 +87,54 @@ export function SummaryStrip({
   ];
 
   return (
-    <nav className="summary-strip" aria-label="Summary filters">
-      <ul>
-        {items.map((item) => {
-          const pressed = selected === item.id;
-          return (
-            <li key={item.id}>
-              <button
-                type="button"
-                aria-pressed={pressed}
-                title={pressed ? 'Clear this filter' : item.hint}
-                className={item.tone === undefined ? undefined : `strip--${item.tone}`}
-                onClick={() => {
-                  onSelect(pressed ? null : item.id);
-                }}
-              >
-                <span className="count">{item.count}</span>{' '}
-                <span className="label">
-                  <span className={item.icon} aria-hidden="true" /> {item.label}
-                  {item.jump === true && (
-                    <span className="pi pi-arrow-right strip-arrow" aria-hidden="true" />
-                  )}
-                  {pressed && <span className="strip-clear" aria-hidden="true" />}
-                </span>
-              </button>
-            </li>
-          );
-        })}
-      </ul>
-    </nav>
+    <div className="summary-row">
+      <div className="summary-lens">
+        <Segmented
+          label="Who the offers are for"
+          value={audience ?? 'all'}
+          onChange={(value) => {
+            onAudience(value === 'all' ? null : value);
+          }}
+          options={[
+            { value: 'all', label: 'Everything', count: audienceCounts.all },
+            {
+              value: 'software',
+              label: TRACK_TAGS.software.label,
+              count: audienceCounts.software,
+            },
+            { value: 'it', label: TRACK_TAGS.it.label, count: audienceCounts.it },
+          ]}
+        />
+      </div>
+      <nav className="summary-strip" aria-label="Summary filters">
+        <ul>
+          {items.map((item) => {
+            const pressed = selected === item.id;
+            return (
+              <li key={item.id}>
+                <button
+                  type="button"
+                  aria-pressed={pressed}
+                  title={pressed ? 'Clear this filter' : item.hint}
+                  className={item.tone === undefined ? undefined : `strip--${item.tone}`}
+                  onClick={() => {
+                    onSelect(pressed ? null : item.id);
+                  }}
+                >
+                  <span className="count">{item.count}</span>{' '}
+                  <span className="label">
+                    <span className={item.icon} aria-hidden="true" /> {item.label}
+                    {item.jump === true && (
+                      <span className="pi pi-arrow-right strip-arrow" aria-hidden="true" />
+                    )}
+                    {pressed && <span className="strip-clear" aria-hidden="true" />}
+                  </span>
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
+    </div>
   );
 }

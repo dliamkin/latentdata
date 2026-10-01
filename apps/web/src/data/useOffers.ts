@@ -3,6 +3,7 @@ import { useMemo } from 'react';
 import type { SnapshotEvent } from '@cert-tracker/core';
 
 import { useToday } from '../lib/today.ts';
+import { toCatalogRows, type CatalogRow } from './catalog.ts';
 import { newOfferIds, toRows, type OfferRow } from './offers.ts';
 import { snapshot } from './snapshot.ts';
 
@@ -10,6 +11,11 @@ import { snapshot } from './snapshot.ts';
 export function useOffers(): OfferRow[] {
   const today = useToday();
   return useMemo(() => toRows(snapshot.offers, today), [today]);
+}
+
+// the catalog is the same credentials every visit; only the offers covering them move
+export function useCatalog(offers: readonly OfferRow[]): CatalogRow[] {
+  return useMemo(() => toCatalogRows(snapshot.catalog, offers), [offers]);
 }
 
 export function useEvents(): SnapshotEvent[] {

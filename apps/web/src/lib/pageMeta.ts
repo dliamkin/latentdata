@@ -24,6 +24,11 @@ const TAB_META: Record<Exclude<TabId, 'offers'>, PageMeta> = {
     description:
       'Recurring IT certification promotions that are between windows, with when the next one is expected.',
   },
+  catalog: {
+    title: `Certifications · ${SITE_NAME}`,
+    description:
+      'The certifications most asked for in software and IT, with their list price and whether a free or discounted offer covers one right now.',
+  },
   activity: {
     title: `Activity · ${SITE_NAME}`,
     description: 'Recently added, changed and expired IT certification promotions, newest first.',
