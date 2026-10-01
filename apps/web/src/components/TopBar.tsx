@@ -108,6 +108,7 @@ export function TopBar({
             icon={mode === 'dark' ? 'pi pi-sun' : 'pi pi-moon'}
             label={mode === 'dark' ? 'Light' : 'Dark'}
             aria-label={`Switch to ${nextMode} theme`}
+            title={`Switch to the ${nextMode} theme`}
             onClick={onToggleTheme}
             data-testid="theme-toggle"
           />
@@ -117,6 +118,7 @@ export function TopBar({
             size="small"
             icon="pi pi-ellipsis-v"
             aria-label="More options"
+            title="Export or import tracking, admin, about"
             aria-haspopup="menu"
             aria-controls={MENU_ID}
             onClick={(event) => menu.current?.toggle(event)}

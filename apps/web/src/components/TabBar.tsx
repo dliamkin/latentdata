@@ -64,6 +64,7 @@ export function TabBar({
               {tab.label}
               {tab.count !== undefined && <span className="tab-count">{tab.count}</span>}
               {tab.badge !== undefined && <span className="tab-badge">{tab.badge}</span>}
+              {selected && <span className="tab-indicator" aria-hidden="true" />}
             </button>
           );
         })}

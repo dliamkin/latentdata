@@ -1,4 +1,6 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+
+import { withViewTransition } from '../lib/viewTransition.ts';
 
 export const PUBLIC_TABS = ['offers', 'calendar', 'watchlist', 'activity'] as const;
 export const ALL_TABS = [...PUBLIC_TABS, 'review'] as const;
@@ -21,13 +23,24 @@ export function tabFromHash(hash: string): TabId {
 // `override` wins on the first render (a deep link) and is written back to the hash
 export function useHashTab(override?: TabId): [TabId, (tab: TabId) => void] {
   const [tab, setTabState] = useState<TabId>(() => override ?? tabFromHash(window.location.hash));
+  // the tab setTab already switched to, so the hashchange it causes doesn't start a second
+  // transition (which would cancel the first)
+  const settled = useRef<TabId | null>(null);
 
   useEffect(() => {
     if (override !== undefined && window.location.hash !== `#${override}`) {
       window.history.replaceState(null, '', `#${override}`);
     }
     const onHashChange = (): void => {
-      setTabState(tabFromHash(window.location.hash));
+      const next = tabFromHash(window.location.hash);
+      if (settled.current === next) {
+        settled.current = null;
+        setTabState(next);
+        return;
+      }
+      void withViewTransition('tabs', () => {
+        setTabState(next);
+      });
     };
     window.addEventListener('hashchange', onHashChange);
     return () => {
@@ -37,10 +50,14 @@ export function useHashTab(override?: TabId): [TabId, (tab: TabId) => void] {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // the state is set here, inside the transition, rather than waiting for hashchange (which
+  // fires later and would miss the snapshot); the listener then sees the same value
   const setTab = useCallback((next: TabId) => {
-    if (window.location.hash === `#${next}`) {
+    void withViewTransition('tabs', () => {
       setTabState(next);
-    } else {
+    });
+    if (window.location.hash !== `#${next}`) {
+      settled.current = next;
       window.location.hash = next;
     }
   }, []);

@@ -7,6 +7,7 @@ import type { OfferRow } from '../data/offers.ts';
 import { formatDate, plural } from '../lib/format.ts';
 import { STATUS_TAGS, WHAT_IS_FREE_TAGS, countdownLabel } from '../lib/labels.ts';
 import { useTracking } from '../tracking/trackingContext.ts';
+import { WindowBar } from './WindowBar.tsx';
 
 const SAVE_DELAY_MS = 600;
 
@@ -75,6 +76,18 @@ export function OfferExpansion({ row }: { row: OfferRow }) {
     [],
   );
 
+  // the ?offer= deep link, so a row can be shared without the tab or filters
+  const copyLink = async (): Promise<void> => {
+    const url = new URL(window.location.origin);
+    url.searchParams.set('offer', row.id);
+    try {
+      await navigator.clipboard.writeText(url.toString());
+      announce('Link copied');
+    } catch {
+      announce('Could not copy the link');
+    }
+  };
+
   const onNotesChange = (value: string): void => {
     setDraft(value);
     if (timer.current !== null) clearTimeout(timer.current);
@@ -99,6 +112,9 @@ export function OfferExpansion({ row }: { row: OfferRow }) {
                   {fact.value}
                 </span>
                 <span className="fact-note">{fact.note}</span>
+                {fact.deadline === true && row.windowProgress !== null && (
+                  <WindowBar progress={row.windowProgress} daysLeft={row.daysLeft} />
+                )}
               </dd>
             </div>
           ))}
@@ -143,6 +159,16 @@ export function OfferExpansion({ row }: { row: OfferRow }) {
           }}
         />
         <small id={helpId}>Saved automatically, in this browser only.</small>
+        <button
+          type="button"
+          className="text-link copy-link"
+          title="Copies a link that opens straight to this offer"
+          onClick={() => {
+            void copyLink();
+          }}
+        >
+          <span className="pi pi-link" aria-hidden="true" /> Copy link to this offer
+        </button>
       </div>
     </div>
   );

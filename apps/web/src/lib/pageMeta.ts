@@ -55,10 +55,11 @@ const initial: PageMeta = {
   description: descriptionTag()?.content ?? '',
 };
 
-export function useDocumentMeta(meta: PageMeta | null): void {
+// `badge` is the number of offers ending soon; a pinned tab reads "(2) …" at a glance
+export function useDocumentMeta(meta: PageMeta | null, badge = 0): void {
   const { title, description } = meta ?? initial;
   useEffect(() => {
-    document.title = title;
+    document.title = badge > 0 ? `(${String(badge)}) ${title}` : title;
     descriptionTag()?.setAttribute('content', description);
-  }, [title, description]);
+  }, [title, description, badge]);
 }

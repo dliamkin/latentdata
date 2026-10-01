@@ -1,6 +1,7 @@
 import {
   addDays,
   compareIsoDates,
+  daysBetween,
   daysUntilEnd,
   deriveStatus,
   isExpiringSoon,
@@ -46,11 +47,22 @@ export interface OfferRow extends Offer {
   isNew: boolean;
   watch: boolean;
   group: OfferGroup;
+  // share of a dated window already elapsed (0..1); null without both dates or outside them
+  windowProgress: number | null;
   // sort keys: the table sorts by these, the cells render the enum
   groupRank: number;
   windowEndSort: string;
   weightRank: number;
   whatIsFreeRank: number;
+}
+
+function windowProgress(offer: Offer, today: string): number | null {
+  if (offer.windowStart === null || offer.windowEnd === null) return null;
+  const total = daysBetween(offer.windowStart, offer.windowEnd);
+  if (total <= 0) return null;
+  const elapsed = daysBetween(offer.windowStart, today);
+  if (elapsed < 0 || elapsed > total) return null;
+  return elapsed / total;
 }
 
 export function toRows(offers: readonly Offer[], today: string): OfferRow[] {
@@ -67,6 +79,7 @@ export function toRows(offers: readonly Offer[], today: string): OfferRow[] {
       isNew: compareIsoDates(offer.addedAt, newSince) >= 0,
       watch: isWatchList(offer, today),
       group,
+      windowProgress: windowProgress(offer, today),
       groupRank: OFFER_GROUPS.indexOf(group),
       windowEndSort: offer.windowEnd ?? '9999-12-31',
       weightRank: WEIGHT_RANK[offer.credentialWeight],

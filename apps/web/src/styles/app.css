@@ -68,6 +68,84 @@ main:focus {
   }
 }
 
+/* ---- motion ---- */
+
+/* a theme change crossfades the whole page; a tab change moves only the tab indicator */
+::view-transition-group(root) {
+  animation-duration: 0.35s;
+}
+
+/* theme wave: a ring of gold then accent sweeps down the page after a theme change
+   (themeWave.ts sets --wave-delay from each element's position) */
+.wave {
+  animation: theme-wave 0.7s cubic-bezier(0.4, 0, 0.2, 1) var(--wave-delay, 0ms) both;
+}
+
+@keyframes theme-wave {
+  0% {
+    box-shadow: inset 0 0 0 0 transparent;
+  }
+
+  35% {
+    box-shadow:
+      inset 0 0 0 1px var(--gold),
+      0 0 0 3px rgb(var(--accent-rgb) / 0.25);
+  }
+
+  70% {
+    box-shadow:
+      inset 0 0 0 1px var(--accent),
+      0 0 0 7px rgb(var(--accent-rgb) / 0);
+  }
+
+  100% {
+    box-shadow: inset 0 0 0 0 transparent;
+  }
+}
+
+/* table rows can't carry a box-shadow, so their cells pulse a tint instead */
+html[data-theme] .p-datatable .p-datatable-tbody > tr.wave > td {
+  animation: theme-wave-row 0.7s cubic-bezier(0.4, 0, 0.2, 1) var(--wave-delay, 0ms) both;
+}
+
+@keyframes theme-wave-row {
+  0% {
+    background-color: transparent;
+  }
+
+  35% {
+    background-color: var(--deadline-tint);
+  }
+
+  70% {
+    background-color: var(--accent-tint);
+  }
+
+  100% {
+    background-color: transparent;
+  }
+}
+
+html[data-vt='tabs'] {
+  view-transition-name: none;
+}
+
+::view-transition-group(tab-indicator) {
+  animation-duration: 0.22s;
+  animation-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* an expanded row grows open and shrinks closed (Reveal.tsx animates the height) */
+.reveal {
+  display: block;
+}
+
+/* room for the sticky layers when an opened row scrolls into view */
+html[data-theme] .p-datatable .p-datatable-tbody > tr.p-datatable-row-expansion {
+  scroll-margin-top: var(--sticky-stack, 136px);
+  scroll-margin-bottom: 24px;
+}
+
 /* ---- shared bits ---- */
 
 .mono {
@@ -312,15 +390,45 @@ main:focus {
 
 /* ---- top bar ---- */
 
+/* flat and borderless at the top so header, gap and strip read as one surface; once the
+   page scrolls it becomes a compact sticky bar with its own surface and shadow */
 .topbar {
+  position: sticky;
+  top: 0;
+  z-index: 6;
+  background: var(--page);
+  border-bottom: 1px solid transparent;
+  transition:
+    background-color 0.25s,
+    border-color 0.25s,
+    box-shadow 0.25s;
+}
+
+html[data-scrolled] .topbar {
   background: var(--panel);
-  border-bottom: 1px solid var(--border);
+  border-bottom-color: var(--border);
+  box-shadow: var(--shadow-nav);
+}
+
+html[data-scrolled] .topbar-inner {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+html[data-scrolled] .brand-logo img {
+  height: 36px;
+}
+
+html[data-scrolled] .tagline,
+html[data-scrolled] .brand-divider {
+  opacity: 0;
 }
 
 .topbar-inner {
   max-width: var(--content-max);
   margin: 0 auto;
   padding: 6px var(--gutter);
+  transition: padding 0.25s;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -344,6 +452,7 @@ main:focus {
   height: 55px;
   width: auto;
   display: block;
+  transition: height 0.25s;
 }
 
 .brand-divider {
@@ -351,12 +460,14 @@ main:focus {
   height: 18px;
   background: var(--border);
   margin: 0 4px;
+  transition: opacity 0.2s;
 }
 
 .tagline {
   margin: 0;
   font-size: 13px;
   color: var(--muted);
+  transition: opacity 0.2s;
 }
 
 .topbar-tools {
@@ -389,7 +500,6 @@ html[data-theme] .p-menu .p-menuitem-link {
 /* ---- summary strip ---- */
 
 .summary-strip {
-  margin-top: 20px;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   background: var(--panel);
@@ -427,6 +537,12 @@ html[data-theme] .p-menu .p-menuitem-link {
 
 .summary-strip li:last-child button {
   padding-right: var(--gutter);
+}
+
+.summary-strip button {
+  transition:
+    background-color 0.2s,
+    color 0.2s;
 }
 
 .summary-strip button:hover {
@@ -496,12 +612,16 @@ html[data-theme] .p-menu .p-menuitem-link {
 }
 
 .tabbar {
+  position: sticky;
+  top: var(--topbar-h);
+  z-index: 5;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   gap: 16px;
   margin-top: 22px;
   border-bottom: 1px solid var(--border);
+  background: var(--page);
 }
 
 .tabbar-tabs {
@@ -512,9 +632,9 @@ html[data-theme] .p-menu .p-menuitem-link {
 }
 
 .tab {
+  position: relative;
   padding: 8px 0 10px;
   border: 0;
-  border-bottom: 2px solid transparent;
   margin-bottom: -1px;
   background: none;
   font: inherit;
@@ -532,7 +652,16 @@ html[data-theme] .p-menu .p-menuitem-link {
 .tab--active {
   color: var(--ink);
   font-weight: 600;
-  border-bottom-color: var(--accent);
+}
+
+.tab-indicator {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--accent);
+  view-transition-name: tab-indicator;
 }
 
 .tab:focus-visible {
@@ -598,6 +727,23 @@ html[data-theme] .search-field .p-inputtext {
 
 /* ---- offers table ---- */
 
+/* below the tab bar, which is sticky too (the wrapper's overflow is cleared in OffersTable) */
+@media (min-width: 768px) {
+  html[data-theme] .p-datatable .p-datatable-thead > tr > th {
+    position: sticky;
+    top: calc(var(--topbar-h) + var(--tabbar-h));
+    z-index: 2;
+  }
+}
+
+html[data-theme] .p-datatable .p-datatable-tbody > tr.data-row > td {
+  transition: background-color 0.15s;
+}
+
+html[data-theme] .p-datatable .p-datatable-tbody > tr.data-row:hover > td {
+  background: var(--subtle);
+}
+
 .offers tr[hidden] {
   display: none;
 }
@@ -608,11 +754,126 @@ html[data-theme] .search-field .p-inputtext {
   border-radius: var(--radius-lg);
 }
 
+.offer-cell {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 0;
+}
+
 .offer-name {
   display: flex;
   flex-direction: column;
   gap: 2px;
   min-width: 0;
+}
+
+/* the vendor column hugs the Offer column: no right padding, sort icon flush */
+html[data-theme] .p-datatable .p-datatable-thead > tr > th:nth-child(2),
+html[data-theme] .p-datatable .p-datatable-tbody > tr.data-row > td:nth-child(2) {
+  padding-right: 0;
+}
+
+html[data-theme] .p-datatable .p-datatable-thead > tr > th:nth-child(2) .p-sortable-column-icon {
+  margin-left: 0;
+}
+
+/* the vendor's favicon on a white tile; favicons are drawn for light backgrounds */
+.vendor-mark {
+  flex: none;
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+  border-radius: 7px;
+  background: #fff;
+  border: 1px solid var(--border);
+  box-sizing: border-box;
+}
+
+.vendor-mark img {
+  display: block;
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+/* vendor monogram (fallback): hue from the vendor name, lightness from the theme */
+.monogram {
+  flex: none;
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+  border-radius: 7px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: hsl(var(--mono-h) 70% 30%);
+  background: hsl(var(--mono-h) 80% 90%);
+}
+
+html[data-theme='dark'] .monogram {
+  color: hsl(var(--mono-h) 85% 78%);
+  background: hsl(var(--mono-h) 55% 24%);
+}
+
+.window-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* the share of a window that is left, draining toward the deadline colour */
+.window-bar {
+  display: block;
+  width: 100%;
+  max-width: 140px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--deadline-line);
+  overflow: hidden;
+}
+
+.window-bar-fill {
+  display: block;
+  height: 100%;
+  border-radius: 2px;
+  background: var(--deadline);
+  transition: width 0.4s ease-out;
+}
+
+.fact-card .window-bar {
+  max-width: none;
+  margin-top: 8px;
+}
+
+.search-kbd {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 1px 6px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--faint);
+  pointer-events: none;
+}
+
+.search-field .p-inputtext:focus ~ .search-kbd {
+  display: none;
+}
+
+.copy-link {
+  align-self: flex-start;
+  margin-top: 6px;
 }
 
 .offer-title {
@@ -947,6 +1208,14 @@ html[data-theme] .p-datepicker table td > span.p-highlight .cal-today {
   background: var(--panel);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
+  transition:
+    transform 0.15s ease-out,
+    box-shadow 0.15s ease-out;
+}
+
+.watch-card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-card);
 }
 
 .watch-card-top {
@@ -1323,10 +1592,27 @@ html[data-theme] .p-button.p-button-contrast {
     gap: 4px;
   }
 
+  .topbar {
+    position: static;
+  }
+
   .tabbar {
+    position: static;
     flex-direction: column;
     align-items: stretch;
     gap: 8px;
+  }
+
+  .monogram,
+  .vendor-mark {
+    width: 24px;
+    height: 24px;
+    font-size: 9.5px;
+  }
+
+  .vendor-mark img {
+    width: 15px;
+    height: 15px;
   }
 
   .tabbar-tabs {
@@ -1472,7 +1758,7 @@ html[data-theme] .p-button.p-button-contrast {
     .p-datatable.p-datatable-responsive-stack
     .p-datatable-tbody
     > tr.data-row
-    > td:nth-child(2)
+    > td:nth-child(3)
     > .p-column-title {
     display: none;
   }
@@ -1515,8 +1801,17 @@ html[data-theme] .p-button.p-button-contrast {
     .p-datatable.p-datatable-responsive-stack
     .p-datatable-tbody
     > tr.data-row
-    > td:nth-child(2) {
+    > td:nth-child(3) {
     padding-right: 80px;
+  }
+
+  /* the vendor name is in the meta line; the tile would be a lone row here */
+  html[data-theme]
+    .p-datatable.p-datatable-responsive-stack
+    .p-datatable-tbody
+    > tr.data-row
+    > td:nth-child(2) {
+    display: none;
   }
 
   html[data-theme]

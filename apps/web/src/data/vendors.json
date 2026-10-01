@@ -1,0 +1,17 @@
+{
+  "AWS": "aws",
+  "DataCamp": "datacamp",
+  "Databricks": "databricks",
+  "Fortinet": "fortinet",
+  "GitHub": "github",
+  "Google Cloud": "google-cloud",
+  "Google": "google",
+  "HashiCorp": "hashicorp",
+  "HubSpot": "hubspot",
+  "ISC2": "isc2",
+  "Microsoft": "microsoft",
+  "OpenAI": "openai",
+  "Oracle": "oracle",
+  "Salesforce": "salesforce",
+  "Snowflake": "snowflake"
+}

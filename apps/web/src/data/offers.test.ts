@@ -42,6 +42,26 @@ describe('toRows', () => {
     expect(byId('fx-active-long').weightRank).toBeLessThan(byId('fx-expired').weightRank);
     expect(byId('fx-evergreen').windowEndSort).toBe('9999-12-31');
   });
+
+  it('groups rows by what to act on first', () => {
+    expect(byId('fx-active-long').group).toBe('open');
+    expect(byId('fx-upcoming').group).toBe('later');
+    expect(byId('fx-evergreen').group).toBe('always');
+    expect(byId('fx-unverified').group).toBe('check');
+    expect(byId('fx-expired').group).toBe('expired');
+    expect(
+      toRows(snapshot.offers, '2099-12-20').find((r) => r.id === 'fx-active-long')?.group,
+    ).toBe('ending');
+  });
+
+  it('measures how much of a dated window has elapsed', () => {
+    // fx-expired runs Jan 10 – Feb 10 2020: 31 days
+    const mid = toRows(snapshot.offers, '2020-01-20').find((r) => r.id === 'fx-expired');
+    expect(mid?.windowProgress).toBeCloseTo(10 / 31);
+    expect(byId('fx-expired').windowProgress).toBeNull(); // past the end
+    expect(byId('fx-upcoming').windowProgress).toBeNull(); // before the start
+    expect(byId('fx-evergreen').windowProgress).toBeNull(); // no dates
+  });
 });
 
 describe('matchesQuickFilter', () => {

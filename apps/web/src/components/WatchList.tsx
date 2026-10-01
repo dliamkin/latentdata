@@ -4,6 +4,7 @@ import { localIsoDate } from '@cert-tracker/core';
 
 import { watchListOrder, type OfferRow } from '../data/offers.ts';
 import { formatDate, plural, relativeTime } from '../lib/format.ts';
+import { VendorMark } from './VendorMark.tsx';
 import { Segmented } from './Segmented.tsx';
 import { StatusTag } from './Tags.tsx';
 
@@ -127,11 +128,14 @@ export function WatchList({
                         : ''}
                   </span>
                 </div>
-                <div className="offer-name">
-                  <span className="offer-title">{row.name}</span>
-                  <span className="offer-meta">
-                    {row.vendor} · {plural(row.certifications.length, 'certification')}
-                  </span>
+                <div className="offer-cell">
+                  <VendorMark vendor={row.vendor} />
+                  <div className="offer-name">
+                    <span className="offer-title">{row.name}</span>
+                    <span className="offer-meta">
+                      {row.vendor} · {plural(row.certifications.length, 'certification')}
+                    </span>
+                  </div>
                 </div>
                 <p className="watch-card-text">{description(row)}</p>
                 <div className="watch-card-foot">

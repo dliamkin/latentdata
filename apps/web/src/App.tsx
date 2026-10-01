@@ -1,4 +1,4 @@
-import { Suspense, lazy, useCallback, useMemo, useState } from 'react';
+import { Suspense, lazy, useCallback, useEffect, useMemo, useState } from 'react';
 
 import { PrimeReactProvider } from 'primereact/api';
 
@@ -71,6 +71,19 @@ function Shell() {
   // re-renders once the slot exists
   const [toolbarSlot, setToolbarSlot] = useState<HTMLElement | null>(null);
 
+  // the top bar turns into a compact sticky strip once the page has scrolled
+  useEffect(() => {
+    const update = (): void => {
+      document.documentElement.toggleAttribute('data-scrolled', window.scrollY > 8);
+    };
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', update);
+      document.documentElement.removeAttribute('data-scrolled');
+    };
+  }, []);
+
   const counts = useMemo(() => summarize(rows, newIds), [rows, newIds]);
   const quickFilter: QuickFilter | null = selection === 'watchlist' ? null : selection;
   const offerCount = useMemo(
@@ -98,7 +111,7 @@ function Shell() {
     });
   }, [adminActive, offerCount, counts.watch]);
   const revealedOffer = reveal === null ? null : (rows.find((row) => row.id === reveal.id) ?? null);
-  useDocumentMeta(pageMeta(tab, revealedOffer));
+  useDocumentMeta(pageMeta(tab, revealedOffer), counts.expiring);
 
   const revealOffer = useCallback(
     (offerId: string) => {
