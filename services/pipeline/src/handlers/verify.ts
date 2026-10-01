@@ -143,6 +143,9 @@ function toCandidate(
     name: extraction.name,
     vendor: extraction.vendor,
     category: extraction.category,
+    // the model may repeat itself; the lists are sets
+    tracks: [...new Set(extraction.tracks)],
+    technologies: [...new Set(extraction.technologies)],
     certifications: extraction.certifications,
     examCode: extraction.examCode,
     whatIsFree: extraction.whatIsFree,
@@ -211,6 +214,8 @@ export function offerFromCandidate(
     name: candidate.name,
     vendor: candidate.vendor,
     category: candidate.category,
+    tracks: candidate.tracks,
+    technologies: candidate.technologies,
     certifications: candidate.certifications,
     examCode: candidate.examCode,
     whatIsFree: candidate.whatIsFree,

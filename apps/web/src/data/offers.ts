@@ -1,4 +1,5 @@
 import {
+  TECHNOLOGIES,
   addDays,
   compareIsoDates,
   daysBetween,
@@ -9,6 +10,8 @@ import {
   type Offer,
   type OfferStatus,
   type SnapshotEvent,
+  type Technology,
+  type Track,
 } from '@cert-tracker/core';
 
 export const NEW_DAYS = 7;
@@ -86,6 +89,35 @@ export function toRows(offers: readonly Offer[], today: string): OfferRow[] {
       whatIsFreeRank: WHAT_IS_FREE_RANK[offer.whatIsFree],
     };
   });
+}
+
+// the audience lens: every tab shows one track's offers, or all of them
+export function matchesAudience(row: Pick<OfferRow, 'tracks'>, audience: Track | null): boolean {
+  return audience === null || row.tracks.includes(audience);
+}
+
+export function matchesTechnology(
+  row: Pick<OfferRow, 'technologies'>,
+  technology: Technology | null,
+): boolean {
+  return technology === null || row.technologies.includes(technology);
+}
+
+// technologies that actually appear in the data, in the order the core list declares them,
+// each with how many of these rows carry it
+export function technologyCounts(
+  rows: readonly Pick<OfferRow, 'technologies'>[],
+): { technology: Technology; count: number }[] {
+  const counts = new Map<Technology, number>();
+  for (const row of rows) {
+    for (const technology of row.technologies) {
+      counts.set(technology, (counts.get(technology) ?? 0) + 1);
+    }
+  }
+  return TECHNOLOGIES.filter((technology) => counts.has(technology)).map((technology) => ({
+    technology,
+    count: counts.get(technology) ?? 0,
+  }));
 }
 
 export type QuickFilter = 'active' | 'expiring' | 'upcoming' | 'evergreen' | 'new';

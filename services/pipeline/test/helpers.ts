@@ -2,7 +2,7 @@ import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
 import { mockClient, type AwsClientStub } from 'aws-sdk-client-mock';
 
-import type { Offer, Source } from '@cert-tracker/core';
+import type { CatalogEntry, Offer, Source } from '@cert-tracker/core';
 
 import { createDocClient, type DocClient } from '../src/lib/repo/client.ts';
 
@@ -14,6 +14,8 @@ export function offer(overrides: Partial<Offer> = {}): Offer {
     name: 'Vendor free exam',
     vendor: 'Vendor',
     category: 'cloud',
+    tracks: ['it'],
+    technologies: [],
     certifications: ['Vendor Associate'],
     examCode: 'VA-100',
     whatIsFree: 'full-exam',
@@ -38,6 +40,27 @@ export function offer(overrides: Partial<Offer> = {}): Offer {
     notes: '',
     addedBy: 'manual',
     addedAt: '2026-09-05',
+    ...overrides,
+  };
+}
+
+export function catalogEntry(overrides: Partial<CatalogEntry> = {}): CatalogEntry {
+  return {
+    id: 'vendor-associate',
+    name: 'Vendor Certified Associate',
+    vendor: 'Vendor',
+    kind: 'exam',
+    category: 'cloud',
+    tracks: ['it'],
+    technologies: [],
+    examCode: 'VA-100',
+    listPriceUsd: 150,
+    priceNote: '',
+    aliases: ['Vendor Associate'],
+    rank: 1,
+    url: 'https://vendor.example/certification/associate',
+    lastVerified: '2026-10-01',
+    notes: '',
     ...overrides,
   };
 }

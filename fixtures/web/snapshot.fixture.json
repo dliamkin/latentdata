@@ -7,6 +7,8 @@
       "name": "Fixture Cloud Architect exam voucher",
       "vendor": "Fixture Cloud",
       "category": "cloud",
+      "tracks": ["software", "it"],
+      "technologies": ["kubernetes"],
       "certifications": ["Fixture Cloud Architect"],
       "examCode": "FX-100",
       "whatIsFree": "full-exam",
@@ -37,6 +39,8 @@
       "name": "Fixture Security Analyst half-price exam",
       "vendor": "Fixture Security",
       "category": "security",
+      "tracks": ["it"],
+      "technologies": ["linux"],
       "certifications": ["Fixture Security Analyst"],
       "examCode": "FX-SEC",
       "whatIsFree": "partial",
@@ -67,6 +71,8 @@
       "name": "Fixture Data Engineer free exam (2020)",
       "vendor": "Fixture Data",
       "category": "data",
+      "tracks": ["it"],
+      "technologies": ["sql"],
       "certifications": ["Fixture Data Engineer"],
       "examCode": null,
       "whatIsFree": "full-exam",
@@ -97,6 +103,8 @@
       "name": "Fixture AI Fundamentals badge",
       "vendor": "Fixture AI",
       "category": "ai",
+      "tracks": ["software"],
+      "technologies": ["python"],
       "certifications": ["Fixture AI Fundamentals"],
       "examCode": null,
       "whatIsFree": "training-and-badge",
@@ -127,6 +135,8 @@
       "name": "Fixture Developer exam voucher (scan)",
       "vendor": "Fixture Dev",
       "category": "dev",
+      "tracks": ["software"],
+      "technologies": ["javascript", "react"],
       "certifications": ["Fixture Developer Associate"],
       "examCode": "FX-DEV",
       "whatIsFree": "full-exam",
@@ -157,6 +167,8 @@
       "name": "Fixture Marketing Academy",
       "vendor": "Fixture Marketing",
       "category": "marketing",
+      "tracks": [],
+      "technologies": [],
       "certifications": ["Fixture Inbound Marketing"],
       "examCode": null,
       "whatIsFree": "training-only",
@@ -187,6 +199,8 @@
       "name": "Fixture PM conference attendee exam",
       "vendor": "Fixture PM",
       "category": "pm",
+      "tracks": [],
+      "technologies": [],
       "certifications": ["Fixture Project Manager"],
       "examCode": null,
       "whatIsFree": "full-exam",
@@ -217,6 +231,8 @@
       "name": "Fixture Other cohort registration",
       "vendor": "Fixture Other",
       "category": "other",
+      "tracks": ["it"],
+      "technologies": [],
       "certifications": ["Fixture Other Practitioner"],
       "examCode": null,
       "whatIsFree": "full-exam",
@@ -243,13 +259,103 @@
       "addedAt": "2020-01-08"
     }
   ],
+  "catalog": [
+    {
+      "id": "fx-cert-cloud-architect",
+      "name": "Fixture Cloud Architect",
+      "vendor": "Fixture Cloud",
+      "kind": "exam",
+      "category": "cloud",
+      "tracks": ["software", "it"],
+      "technologies": ["kubernetes"],
+      "examCode": "FX-100",
+      "listPriceUsd": 200,
+      "priceNote": "",
+      "aliases": ["Cloud Architect"],
+      "rank": 1,
+      "url": "https://example.com/fixture-cloud/certification",
+      "lastVerified": "2026-09-01",
+      "notes": ""
+    },
+    {
+      "id": "fx-cert-security-analyst",
+      "name": "Fixture Security Analyst",
+      "vendor": "Fixture Security",
+      "kind": "exam",
+      "category": "security",
+      "tracks": ["it"],
+      "technologies": ["linux"],
+      "examCode": "FX-SEC",
+      "listPriceUsd": 350,
+      "priceNote": "",
+      "aliases": [],
+      "rank": 1,
+      "url": "https://example.com/fixture-security/certification",
+      "lastVerified": "2026-09-01",
+      "notes": ""
+    },
+    {
+      "id": "fx-cert-developer-associate",
+      "name": "Fixture Developer Associate",
+      "vendor": "Fixture Dev",
+      "kind": "exam",
+      "category": "dev",
+      "tracks": ["software"],
+      "technologies": ["javascript", "react"],
+      "examCode": "FX-DEV",
+      "listPriceUsd": 150,
+      "priceNote": "",
+      "aliases": ["Developer Associate"],
+      "rank": 1,
+      "url": "https://example.com/fixture-dev/certification",
+      "lastVerified": "2026-09-01",
+      "notes": ""
+    },
+    {
+      "id": "fx-cert-python-essentials",
+      "name": "Fixture Python Essentials",
+      "vendor": "Fixture Academy",
+      "kind": "course",
+      "category": "dev",
+      "tracks": ["software"],
+      "technologies": ["python"],
+      "examCode": null,
+      "listPriceUsd": 0,
+      "priceNote": "Always free, badge included",
+      "aliases": [],
+      "rank": 2,
+      "url": "https://example.com/fixture-academy/python",
+      "lastVerified": "2026-09-01",
+      "notes": ""
+    },
+    {
+      "id": "fx-cert-project-manager",
+      "name": "Fixture Project Manager",
+      "vendor": "Fixture PM",
+      "kind": "exam",
+      "category": "pm",
+      "tracks": [],
+      "technologies": [],
+      "examCode": null,
+      "listPriceUsd": null,
+      "priceNote": "Member price only",
+      "aliases": [],
+      "rank": 1,
+      "url": "https://example.com/fixture-pm/certification",
+      "lastVerified": "2026-09-01",
+      "notes": "Price not published outside the member portal."
+    }
+  ],
   "events": [
     {
       "eventId": "01ARZ3NDEKTSV4RRFFQ69G5FA1",
       "type": "offer.discovered",
       "occurredAt": "2020-01-01T09:00:00.000Z",
       "offerId": "fx-active-long",
-      "payload": { "name": "Fixture Cloud Architect exam voucher", "vendor": "Fixture Cloud" }
+      "payload": {
+        "name": "Fixture Cloud Architect exam voucher",
+        "vendor": "Fixture Cloud"
+      }
     },
     {
       "eventId": "01ARZ3NDEKTSV4RRFFQ69G5FA2",
@@ -266,19 +372,28 @@
       "type": "offer.expired",
       "occurredAt": "2020-02-11T04:17:00.000Z",
       "offerId": "fx-expired",
-      "payload": { "name": "Fixture Data Engineer free exam (2020)", "vendor": "Fixture Data" }
+      "payload": {
+        "name": "Fixture Data Engineer free exam (2020)",
+        "vendor": "Fixture Data"
+      }
     },
     {
       "eventId": "01ARZ3NDEKTSV4RRFFQ69G5FA4",
       "type": "offer.window_opened",
       "occurredAt": "2020-03-01T04:17:00.000Z",
       "offerId": "fx-recurring-expired",
-      "payload": { "name": "Fixture PM conference attendee exam", "vendor": "Fixture PM" }
+      "payload": {
+        "name": "Fixture PM conference attendee exam",
+        "vendor": "Fixture PM"
+      }
     }
   ],
   "meta": {
     "lastPollAt": null,
     "lastStatusRunAt": null,
-    "sourceHealth": { "total": 3, "unhealthy": 0 }
+    "sourceHealth": {
+      "total": 3,
+      "unhealthy": 0
+    }
   }
 }

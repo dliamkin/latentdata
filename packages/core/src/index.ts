@@ -1,3 +1,5 @@
+export { catalogMatch } from './catalog.ts';
+export type { CatalogMatch } from './catalog.ts';
 export {
   addDays,
   compareIsoDates,
