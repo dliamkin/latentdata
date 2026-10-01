@@ -478,7 +478,7 @@ html[data-theme] .p-menu .p-menuitem-link {
 
 .summary-strip button[aria-pressed='true'],
 .summary-strip button[aria-pressed='true']:hover {
-  background: var(--accent);
+  background: var(--accent-strip);
   color: var(--on-accent-strip);
 }
 
