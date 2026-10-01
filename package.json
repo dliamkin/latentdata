@@ -26,6 +26,7 @@
     "e2e": "npm run e2e -w apps/web",
     "lhci": "npm run lhci -w apps/web",
     "pwa:icons": "node scripts/pwa-icons.ts",
+    "og:image": "node scripts/og-image.ts",
     "dev": "npm run dev -w apps/web",
     "seed:import": "node scripts/seed-import.ts",
     "cdk": "npm run cdk -w infra --",

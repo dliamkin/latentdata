@@ -114,6 +114,8 @@ export default defineConfig(({ mode }) => {
         injectManifest: {
           // the icon font's legacy formats are never requested and don't belong in the precache
           globPatterns: ['**/*.{js,css,html,png,woff2}'],
+          // only link-preview crawlers fetch this; no reason to ship it to every install
+          globIgnores: ['**/node_modules/**', 'og-image.png'],
         },
       }),
     ],
