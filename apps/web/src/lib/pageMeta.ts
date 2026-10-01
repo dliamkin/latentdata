@@ -1,37 +1,39 @@
 import { useEffect } from 'react';
 
-import type { Offer } from '@cert-tracker/core';
+import type { Offer, WhatIsFree } from '@cert-tracker/core';
 
 import type { TabId } from '../routing/tabs.ts';
 import { windowLabel } from './format.ts';
-import { WHAT_IS_FREE_TAGS } from './labels.ts';
 
 export interface PageMeta {
   title: string;
   description: string;
 }
 
-const SITE_NAME = 'Cert Promo Tracker';
+const SITE_NAME = 'LatentData';
+// Google cuts snippets off around here; better to end on a word than mid-word
+const DESCRIPTION_MAX = 160;
 
 const TAB_META: Record<Exclude<TabId, 'offers'>, PageMeta> = {
   calendar: {
     title: `Calendar · ${SITE_NAME}`,
     description:
-      'Start and end dates of free and discounted IT certification promotions, laid out on a calendar.',
+      'When free and discounted IT certification offers open and close, on a month calendar, so you can book the exam before the window ends.',
   },
   watchlist: {
     title: `Watch list · ${SITE_NAME}`,
     description:
-      'Recurring IT certification promotions that are between windows, with when the next one is expected.',
+      'Recurring IT certification promotions between windows, and offers still waiting on verification, with when the next window is expected.',
   },
   catalog: {
     title: `Certifications · ${SITE_NAME}`,
     description:
-      'The certifications most asked for in software and IT, with their list price and whether a free or discounted offer covers one right now.',
+      'The most in-demand software and IT certifications with their list prices, and which ones a free or discounted offer covers right now.',
   },
   activity: {
     title: `Activity · ${SITE_NAME}`,
-    description: 'Recently added, changed and expired IT certification promotions, newest first.',
+    description:
+      'New, changed and expired IT certification offers, newest first, as the tracker finds and verifies them.',
   },
   review: {
     title: `Review · ${SITE_NAME}`,
@@ -39,14 +41,29 @@ const TAB_META: Record<Exclude<TabId, 'offers'>, PageMeta> = {
   },
 };
 
+const WHAT_IS_FREE_PHRASE: Record<WhatIsFree, string> = {
+  'full-exam': 'Free exam voucher',
+  partial: 'Exam discount',
+  'training-and-badge': 'Free training and badge',
+  'training-only': 'Free training',
+};
+
+export function clip(text: string, max = DESCRIPTION_MAX): string {
+  if (text.length <= max) return text;
+  const cut = text.slice(0, max - 1);
+  const space = cut.lastIndexOf(' ');
+  return `${(space > 0 ? cut.slice(0, space) : cut).replace(/[s,.;:–-]+$/, '')}…`;
+}
+
 // null means the static head in index.html already says the right thing
 export function pageMeta(tab: TabId, offer: Offer | null): PageMeta | null {
   if (tab !== 'offers') return TAB_META[tab];
   if (offer === null) return null;
-  const what = WHAT_IS_FREE_TAGS[offer.whatIsFree].label.toLowerCase();
+  const phrase = WHAT_IS_FREE_PHRASE[offer.whatIsFree];
+  const dates = windowLabel(offer.windowStart, offer.windowEnd);
   return {
     title: `${offer.name} · ${SITE_NAME}`,
-    description: `${offer.vendor}: ${what}, ${windowLabel(offer.windowStart, offer.windowEnd)}. ${offer.requirements}`,
+    description: clip(`${phrase} from ${offer.vendor}. ${dates}. ${offer.requirements}`),
   };
 }
 

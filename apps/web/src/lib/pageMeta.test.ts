@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 
 import { snapshot } from '../data/snapshot.ts';
 import type { TabId } from '../routing/tabs.ts';
-import { pageMeta, useDocumentMeta } from './pageMeta.ts';
+import { clip, pageMeta, useDocumentMeta } from './pageMeta.ts';
 
 const offer = snapshot.offers.find((o) => o.id === 'fx-active-long') ?? null;
 
@@ -13,16 +13,34 @@ describe('pageMeta', () => {
   });
 
   it('names the tab', () => {
-    expect(pageMeta('calendar', null)?.title).toBe('Calendar · Cert Promo Tracker');
-    expect(pageMeta('activity', offer)?.title).toBe('Activity · Cert Promo Tracker');
+    expect(pageMeta('calendar', null)?.title).toBe('Calendar · LatentData');
+    expect(pageMeta('activity', offer)?.title).toBe('Activity · LatentData');
   });
 
   it('describes a deep-linked offer', () => {
     expect(pageMeta('offers', offer)).toEqual({
-      title: 'Fixture Cloud Architect exam voucher · Cert Promo Tracker',
+      title: 'Fixture Cloud Architect exam voucher · LatentData',
       description:
-        'Fixture Cloud: full exam, Jan 1, 2020 – Dec 31, 2099. Register with a work email.',
+        'Free exam voucher from Fixture Cloud. Jan 1, 2020 – Dec 31, 2099. Register with a work email.',
     });
+  });
+});
+
+describe('clip', () => {
+  it('keeps short text as is', () => {
+    expect(clip('Register with a work email.', 40)).toBe('Register with a work email.');
+  });
+
+  it('ends long text on a whole word', () => {
+    expect(clip('Register with a work email, then book the exam.', 30)).toBe(
+      'Register with a work email…',
+    );
+  });
+
+  it('keeps every tab description inside the limit', () => {
+    for (const tab of ['calendar', 'watchlist', 'catalog', 'activity'] as const) {
+      expect(pageMeta(tab, null)?.description.length).toBeLessThanOrEqual(160);
+    }
   });
 });
 
@@ -39,8 +57,8 @@ describe('useDocumentMeta', () => {
       },
       { initialProps },
     );
-    expect(document.title).toBe('Calendar · Cert Promo Tracker');
-    expect(tag.content).toMatch(/on a calendar/);
+    expect(document.title).toBe('Calendar · LatentData');
+    expect(tag.content).toMatch(/on a month calendar/);
 
     rerender({ tab: 'offers' });
     expect(document.title).toBe('');
