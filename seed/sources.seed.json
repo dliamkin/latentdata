@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-29",
+  "generatedAt": "2026-10-01",
   "note": "Initial signal sources. Feed URLs must be verified on day one (M3) and recorded fixtures committed under fixtures/sources/. A source that cannot be fetched from AWS IPs stays enabled:false with a reason.",
   "defaults": {
     "pollIntervalMinutes": 120,
@@ -17,9 +17,29 @@
       "learning festival",
       "cloud skills challenge",
       "exam offer",
-      "free training and certification"
+      "free training and certification",
+      "free certificate",
+      "free course",
+      "certificate of completion",
+      "earn a certificate",
+      "free training",
+      "free retake",
+      "% off",
+      "offer ends"
     ],
-    "keywordsExclude": ["dumps", "braindump", "exam answers", "hiring", "job opening", "for sale"]
+    "keywordsExclude": [
+      "dumps",
+      "braindump",
+      "exam answers",
+      "hiring",
+      "job opening",
+      "for sale",
+      "udemy coupon",
+      "torrent",
+      "cracked",
+      "giveaway winner",
+      "sponsored post"
+    ]
   },
   "sources": [
     {
@@ -162,7 +182,7 @@
       "pollIntervalMinutes": 180,
       "enabled": true,
       "tags": ["tracker"],
-      "notes": "cloudcommunity/Free-Certifications 404s; the repository lives under ArslanYM (2026-09-30)."
+      "notes": "cloudcommunity/Free-Certifications 404s; the repository lives under ArslanYM (2026-09-30). Dormant since its last push on 2025-02-02 — drop it if it stays quiet."
     },
     {
       "sourceId": "page-ms-learn-cert-offers",
@@ -257,7 +277,184 @@
       "pollIntervalMinutes": 720,
       "enabled": false,
       "tags": ["vendor-page"],
-      "notes": "Returned 404 on 2026-09-29; re-enable if the page returns."
+      "notes": "Dead: /offers/ 301s to the homepage and so does its robots.txt (2026-10-01). Replaced by rss-linuxfoundation-training."
+    },
+    {
+      "sourceId": "rss-freecodecamp-certification",
+      "kind": "rss",
+      "vendor": "freeCodeCamp",
+      "url": "https://www.freecodecamp.org/news/tag/certification/rss/",
+      "pollIntervalMinutes": 720,
+      "enabled": true,
+      "tags": ["community"],
+      "notes": "Tag feed (15 items, low volume). The main /news/rss/ feed is 10 tutorials/day and would flood the prefilter."
+    },
+    {
+      "sourceId": "rss-classcentral-report",
+      "kind": "rss",
+      "vendor": null,
+      "url": "https://www.classcentral.com/report/feed/",
+      "pollIntervalMinutes": 360,
+      "enabled": true,
+      "tags": ["community", "deals"],
+      "notes": "Class Central free-certificate and course roundups; ~10 posts per 2 weeks. No tag-specific feed exists (tag URLs redirect to HTML)."
+    },
+    {
+      "sourceId": "rss-coursera-blog",
+      "kind": "rss",
+      "vendor": "Coursera",
+      "url": "https://blog.coursera.org/feed/",
+      "pollIntervalMinutes": 360,
+      "enabled": true,
+      "tags": ["vendor-blog"],
+      "notes": "Corporate announcements; offers appear occasionally (Plus promos, free certificate programs)."
+    },
+    {
+      "sourceId": "rss-google-education-blog",
+      "kind": "rss",
+      "vendor": "Google",
+      "url": "https://blog.google/products-and-platforms/products/education/rss/",
+      "pollIntervalMinutes": 360,
+      "enabled": true,
+      "tags": ["vendor-blog"],
+      "keywordsInclude": ["free training", "free ai", "career certificate", "google skills"],
+      "notes": "Old URL /outreach-initiatives/education/rss/ redirects here. Covers Grow with Google, Google Skills and educator AI training."
+    },
+    {
+      "sourceId": "rss-github-blog",
+      "kind": "rss",
+      "vendor": "GitHub",
+      "url": "https://github.blog/feed/",
+      "pollIntervalMinutes": 360,
+      "enabled": true,
+      "tags": ["vendor-blog"],
+      "keywordsInclude": ["certification", "certificate", "github foundations", "exam"],
+      "notes": "Whole-blog feed (10 items per ~10 days); /education/feed/ is 404. Mostly engineering posts, so rely on the prefilter."
+    },
+    {
+      "sourceId": "rss-dotnet-blog",
+      "kind": "rss",
+      "vendor": "Microsoft",
+      "url": "https://devblogs.microsoft.com/dotnet/feed/",
+      "pollIntervalMinutes": 720,
+      "enabled": true,
+      "tags": ["vendor-blog"],
+      "keywordsInclude": ["certification", "certificate", "free course", "learn path"],
+      "notes": "Rarely carries offers; kept as a low-cost sweep for .NET certification/training announcements."
+    },
+    {
+      "sourceId": "rss-jetbrains-education",
+      "kind": "rss",
+      "vendor": "JetBrains",
+      "url": "https://blog.jetbrains.com/education/feed/",
+      "pollIntervalMinutes": 720,
+      "enabled": true,
+      "tags": ["vendor-blog"],
+      "notes": "JetBrains Academy digests and free-course posts; about 1 post per 2-4 weeks."
+    },
+    {
+      "sourceId": "rss-linuxfoundation-training",
+      "kind": "rss",
+      "vendor": "Linux Foundation",
+      "url": "https://training.linuxfoundation.org/feed/",
+      "pollIntervalMinutes": 180,
+      "enabled": true,
+      "tags": ["vendor-blog"],
+      "keywordsInclude": ["cyber monday", "black friday", "bundle", "just launched"],
+      "notes": "WordPress feed for training.linuxfoundation.org (CKA/CKAD/LFCS sales and launches). /offers/ and /robots.txt there 301 to the homepage, so the disabled page-linuxfoundation-offers source is dead; this feed replaces it."
+    },
+    {
+      "sourceId": "rss-cncf-blog",
+      "kind": "rss",
+      "vendor": "CNCF",
+      "url": "https://www.cncf.io/feed/",
+      "pollIntervalMinutes": 360,
+      "enabled": true,
+      "tags": ["vendor-blog"],
+      "keywordsInclude": ["kubestronaut", "kubecon", "cka", "ckad", "cks"],
+      "notes": "Event and certification news; 10 items cover about 10 days."
+    },
+    {
+      "sourceId": "rss-cisco-learning-blog",
+      "kind": "rss",
+      "vendor": "Cisco",
+      "url": "https://blogs.cisco.com/learning/feed",
+      "pollIntervalMinutes": 360,
+      "enabled": true,
+      "tags": ["vendor-blog"],
+      "notes": "Learn with Cisco blog; about 4-5 posts per month (recert, CCNA, promo news)."
+    },
+    {
+      "sourceId": "rss-hashicorp-blog",
+      "kind": "rss",
+      "vendor": "HashiCorp",
+      "url": "https://www.hashicorp.com/blog/feed.xml",
+      "pollIntervalMinutes": 720,
+      "enabled": true,
+      "tags": ["vendor-blog"],
+      "notes": "Atom, 20 entries. Vercel bot protection answered 429 on the /en/blog/feed.xml variant and on /certification; this path worked from a home IP but may be challenged from AWS IPs. Disable if it fails from Lambda."
+    },
+    {
+      "sourceId": "reddit-pmp",
+      "kind": "reddit",
+      "vendor": "PMI",
+      "url": "https://www.reddit.com/r/pmp/new.rss",
+      "pollIntervalMinutes": 120,
+      "enabled": true,
+      "tags": ["community", "experimental"],
+      "notes": "Atom, 25 entries; PMP promo-code threads do appear."
+    },
+    {
+      "sourceId": "reddit-cissp",
+      "kind": "reddit",
+      "vendor": "ISC2",
+      "url": "https://www.reddit.com/r/CISSP/new.rss",
+      "pollIntervalMinutes": 180,
+      "enabled": true,
+      "tags": ["community", "experimental"],
+      "notes": "Atom, 25 entries; occasional ISC2 discount/voucher threads. Answered 429 on the first burst of requests, 200 when spaced."
+    },
+    {
+      "sourceId": "reddit-kubernetes",
+      "kind": "reddit",
+      "vendor": "CNCF",
+      "url": "https://www.reddit.com/r/kubernetes/new.rss",
+      "pollIntervalMinutes": 360,
+      "enabled": true,
+      "tags": ["community", "experimental"],
+      "keywordsInclude": ["cka", "ckad", "kubestronaut"],
+      "notes": "High volume, few offer posts; slow interval. Answered 429 on bursts, 200 when spaced."
+    },
+    {
+      "sourceId": "page-pearsonvue-cisco-promos",
+      "kind": "page-diff",
+      "vendor": "Cisco",
+      "url": "https://www.pearsonvue.com/us/en/cisco.html",
+      "pollIntervalMinutes": 180,
+      "enabled": true,
+      "tags": ["vendor-page"],
+      "keywordsInclude": ["% off", "free retake", "offer ends"],
+      "notes": "Carousel banners carry live promos (CCNA 40% off, free retake window, Sept 2026). robots.txt for * does not disallow /us/en/cisco.html."
+    },
+    {
+      "sourceId": "page-pearsonvue-comptia-promos",
+      "kind": "page-diff",
+      "vendor": "CompTIA",
+      "url": "https://www.pearsonvue.com/us/en/comptia.html",
+      "pollIntervalMinutes": 360,
+      "enabled": true,
+      "tags": ["vendor-page"],
+      "notes": "Static voucher help text today; promo banners appear here when Pearson VUE runs CompTIA campaigns. Path allowed by robots.txt."
+    },
+    {
+      "sourceId": "page-pearsonvue-pmi-promos",
+      "kind": "page-diff",
+      "vendor": "PMI",
+      "url": "https://www.pearsonvue.com/us/en/pmi.html",
+      "pollIntervalMinutes": 360,
+      "enabled": true,
+      "tags": ["vendor-page"],
+      "notes": "www.pmi.org itself sits behind a Cloudflare challenge (403), so Pearson VUE is the reachable surface. Path allowed by robots.txt."
     }
   ]
 }
