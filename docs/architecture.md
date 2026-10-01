@@ -15,7 +15,7 @@
   │   (every 60 min)             │        (LLM: Haiku)             (LLM: Sonnet, fetch) │                 │
   │                              ▼                                                     ▼                 │
   │                        DynamoDB single table  ◀─────────── api (HTTP API + Lambda) ◀── admin UI      │
-  │                        offers · candidates · signals · sources · events · subs                        │
+  │                        offers · catalog · candidates · signals · sources · events · subs              │
   │                              │ Streams (outbox, one consumer)                                        │
   │                              ▼                                                                       │
   │                           outbox ──▶ SNS events topic ──┬─▶ SQS ──▶ notify ──▶ ntfy · Web Push · SES │
@@ -35,6 +35,7 @@
 | Table, events topic, queues, shared DLQ | M2    |
 | `publish`, `status`                     | M2    |
 | `poll`, `triage`, `verify`              | live  |
+| Credential catalog, audience lens       | live  |
 | Admin API and review UI                 | M4    |
 | `outbox`, `notify`, `digest`            | M5    |
 
@@ -55,6 +56,9 @@
 - **The database is the truth, the snapshot is a view.** Nothing reads the snapshot back as data.
 - **Status is derived, not stored.** `deriveStatus()` in `packages/core` decides from the dates;
   the stored status is a hint for the undated cases and an index key.
+- **The catalog's join is computed too.** `catalogMatch()` pairs a credential with the offers that
+  cover it, in the browser, on every render. Nothing records that an offer covers a credential, so a
+  new offer needs no migration to light one up and a wrong match is one publish away from fixed.
 - **Every write that must not repeat carries an idempotency key** and a condition expression.
   Every Lambda invocation is assumed to be retried.
 - **Every external call goes through an adapter** with a timeout, bounded retries with jitter
