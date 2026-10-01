@@ -17,6 +17,7 @@ export default defineConfig(
     '**/dev-dist/',
     '**/playwright-report/',
     '**/test-results/',
+    'ui-redesign/',
   ]),
   js.configs.recommended,
   tseslint.configs.strictTypeChecked,
