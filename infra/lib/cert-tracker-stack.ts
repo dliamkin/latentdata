@@ -2,6 +2,8 @@ import { CfnOutput, Stack, type StackProps } from 'aws-cdk-lib';
 import type { Construct } from 'constructs';
 
 import { type GitHubRepo, type Stage, type StageConfig } from './config.ts';
+import { AdminApi } from './constructs/admin-api.ts';
+import { AdminIdentity } from './constructs/admin-identity.ts';
 import { Budgets } from './constructs/budgets.ts';
 import { DataTable } from './constructs/data-table.ts';
 import { Events } from './constructs/events.ts';
@@ -20,6 +22,8 @@ export class CertTrackerStack extends Stack {
   readonly data: DataTable;
   readonly events: Events;
   readonly functions: PipelineFunctions;
+  readonly identity: AdminIdentity;
+  readonly adminApi: AdminApi;
   readonly observability: Observability;
 
   constructor(scope: Construct, id: string, props: CertTrackerStackProps) {
@@ -36,6 +40,18 @@ export class CertTrackerStack extends Stack {
       events: this.events,
       secrets,
       github: props.github,
+    });
+
+    this.identity = new AdminIdentity(this, 'AdminIdentity', {
+      stage,
+      siteOrigins: props.config.siteOrigins,
+    });
+
+    this.adminApi = new AdminApi(this, 'AdminApi', {
+      stage,
+      handler: this.functions.api,
+      identity: this.identity,
+      siteOrigins: props.config.siteOrigins,
     });
 
     this.observability = new Observability(this, 'Observability', {
@@ -65,5 +81,12 @@ export class CertTrackerStack extends Stack {
     new CfnOutput(this, 'TableName', { value: this.data.table.tableName });
     new CfnOutput(this, 'EventsTopicArn', { value: this.events.topic.topicArn });
     new CfnOutput(this, 'DeadLetterQueueUrl', { value: this.events.deadLetterQueue.queueUrl });
+    // the four values the runbook and the web app's build need; none of them is a secret
+    new CfnOutput(this, 'AdminApiUrl', { value: this.adminApi.url });
+    new CfnOutput(this, 'AdminHostedUiUrl', { value: this.identity.hostedUiUrl });
+    new CfnOutput(this, 'AdminUserPoolId', { value: this.identity.userPool.userPoolId });
+    new CfnOutput(this, 'AdminUserPoolClientId', {
+      value: this.identity.client.userPoolClientId,
+    });
   }
 }

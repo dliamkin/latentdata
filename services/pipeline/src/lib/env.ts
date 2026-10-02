@@ -36,3 +36,12 @@ export function readPublishEnv(source: Source = process.env): PublishEnv {
     snapshotPath: source.SNAPSHOT_PATH ?? 'apps/web/src/data/snapshot.json',
   };
 }
+
+export interface ApiEnv extends BaseEnv {
+  // the Cognito group a token must be in; the pool and this name are set together in infra
+  adminGroup: string;
+}
+
+export function readApiEnv(source: Source = process.env): ApiEnv {
+  return { ...readBaseEnv(source), adminGroup: required(source, 'ADMIN_GROUP') };
+}

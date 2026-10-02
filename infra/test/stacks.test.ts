@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 
 import { App } from 'aws-cdk-lib';
-import { Template } from 'aws-cdk-lib/assertions';
+import { Match, Template } from 'aws-cdk-lib/assertions';
 import { describe, expect, it } from 'vitest';
 
 import { CertTrackerStack } from '../lib/cert-tracker-stack.ts';
@@ -87,7 +87,7 @@ describe('table', () => {
 describe('functions', () => {
   it('are all arm64 on nodejs24.x with source maps on', () => {
     const functions = resources(prod, 'AWS::Lambda::Function');
-    expect(functions.length).toBe(5);
+    expect(functions.length).toBe(6);
     for (const fn of functions) {
       expect(fn.Properties).toMatchObject({
         Runtime: 'nodejs24.x',
@@ -103,8 +103,13 @@ describe('functions', () => {
     }
   });
 
-  it('all have somewhere for failures to go', () => {
+  it('all have somewhere for failures to go, bar the one that answers a caller', () => {
     for (const fn of resources(prod, 'AWS::Lambda::Function')) {
+      // the api function is invoked synchronously by API Gateway, which gets the 500 itself
+      if (fn.Properties.FunctionName === 'cert-tracker-prod-api') {
+        expect(fn.Properties.DeadLetterConfig).toBeUndefined();
+        continue;
+      }
       expect(fn.Properties.DeadLetterConfig).toBeDefined();
     }
   });
@@ -216,6 +221,114 @@ describe('events', () => {
     });
     prod.hasResourceProperties('AWS::Lambda::EventSourceMapping', {
       ScalingConfig: { MaximumConcurrency: 2 },
+    });
+  });
+});
+
+describe('admin access', () => {
+  it('lets nobody sign themselves up, and makes the one account use TOTP', () => {
+    prod.hasResourceProperties('AWS::Cognito::UserPool', {
+      AdminCreateUserConfig: { AllowAdminCreateUserOnly: true },
+      MfaConfiguration: 'ON',
+      EnabledMfas: ['SOFTWARE_TOKEN_MFA'],
+      Policies: { PasswordPolicy: { MinimumLength: 16, RequireSymbols: true } },
+    });
+  });
+
+  it('stays on the tier that bills nothing', () => {
+    prod.hasResourceProperties('AWS::Cognito::UserPool', { UserPoolTier: 'LITE' });
+  });
+
+  it('keeps the pool when the prod stack goes away', () => {
+    prod.hasResource('AWS::Cognito::UserPool', { DeletionPolicy: 'Retain' });
+    dev.hasResource('AWS::Cognito::UserPool', { DeletionPolicy: 'Delete' });
+  });
+
+  it('offers the browser the code grant and nothing else', () => {
+    const [client] = resources(prod, 'AWS::Cognito::UserPoolClient');
+    const props = client?.Properties as {
+      AllowedOAuthFlows: string[];
+      AllowedOAuthScopes: string[];
+      ExplicitAuthFlows: string[];
+      GenerateSecret?: boolean;
+      PreventUserExistenceErrors: string;
+      EnableTokenRevocation: boolean;
+      CallbackURLs: string[];
+    };
+    // the implicit grant returns tokens in the URL fragment; CDK turns it on unless told not to
+    expect(props.AllowedOAuthFlows).toEqual(['code']);
+    // CDK's default scope set includes this one, which would let a token edit its own user
+    expect(props.AllowedOAuthScopes).not.toContain('aws.cognito.signin.user.admin');
+    // with authFlows left out, CloudFormation would also allow SRP and custom auth
+    expect(props.ExplicitAuthFlows).toEqual(['ALLOW_REFRESH_TOKEN_AUTH']);
+    expect(props.GenerateSecret).not.toBe(true);
+    expect(props.PreventUserExistenceErrors).toBe('ENABLED');
+    expect(props.EnableTokenRevocation).toBe(true);
+    expect(props.CallbackURLs).toEqual(['https://latentdata.org/admin/callback']);
+  });
+
+  it('authorises by group membership, which the handler checks', () => {
+    prod.hasResourceProperties('AWS::Cognito::UserPoolGroup', { GroupName: 'admins' });
+  });
+
+  it('serves the classic hosted pages, which need no branding style to work', () => {
+    prod.hasResourceProperties('AWS::Cognito::UserPoolDomain', { ManagedLoginVersion: 1 });
+  });
+
+  it('puts the authorizer on every admin route and leaves health open', () => {
+    const routes = resources(prod, 'AWS::ApiGatewayV2::Route');
+    const byKey = new Map(
+      routes.map((route) => [String(route.Properties.RouteKey), route.Properties]),
+    );
+    expect(byKey.size).toBeGreaterThan(0);
+    for (const [key, props] of byKey) {
+      if (key.includes('/admin')) {
+        expect(props.AuthorizationType).toBe('JWT');
+        expect(props.AuthorizerId).toBeDefined();
+      } else {
+        expect(props.AuthorizerId).toBeUndefined();
+      }
+    }
+    expect(byKey.has('GET /health')).toBe(true);
+    expect(byKey.has('GET /admin/candidates')).toBe(true);
+  });
+
+  it('validates the token in API Gateway, before any of my code runs', () => {
+    prod.hasResourceProperties('AWS::ApiGatewayV2::Authorizer', {
+      AuthorizerType: 'JWT',
+      IdentitySource: ['$request.header.Authorization'],
+    });
+  });
+
+  it('logs who called which route, and throttles the endpoint', () => {
+    prod.hasResourceProperties('AWS::ApiGatewayV2::Stage', {
+      AccessLogSettings: { DestinationArn: Match.anyValue() },
+      DefaultRouteSettings: { ThrottlingBurstLimit: 20, ThrottlingRateLimit: 10 },
+    });
+  });
+
+  it('cannot write to the table while it only reads', () => {
+    const policies = Object.entries(
+      prod.findResources('AWS::IAM::Policy') as Record<string, Resource>,
+    );
+    const apiPolicy = policies.find(([id]) => /apiFunction/i.test(id))?.[1];
+    expect(apiPolicy).toBeDefined();
+    const statements = (
+      apiPolicy?.Properties.PolicyDocument as { Statement: { Action: string | string[] }[] }
+    ).Statement;
+    const actions = statements.flatMap((s) => (Array.isArray(s.Action) ? s.Action : [s.Action]));
+    for (const write of ['dynamodb:PutItem', 'dynamodb:UpdateItem', 'dynamodb:DeleteItem']) {
+      expect(actions).not.toContain(write);
+    }
+    expect(actions).toContain('dynamodb:Query');
+  });
+
+  it('only lets the site origin call the api from a browser', () => {
+    prod.hasResourceProperties('AWS::ApiGatewayV2::Api', {
+      CorsConfiguration: {
+        AllowOrigins: ['https://latentdata.org'],
+        AllowHeaders: ['authorization', 'content-type'],
+      },
     });
   });
 });

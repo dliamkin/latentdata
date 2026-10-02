@@ -12,6 +12,7 @@ import type { Queue } from 'aws-cdk-lib/aws-sqs';
 import { Construct } from 'constructs';
 
 import { resourceName, stageSettings, type GitHubRepo, type Stage } from '../config.ts';
+import { ADMIN_GROUP } from './admin-identity.ts';
 import type { Events } from './events.ts';
 import {
   GITHUB_APP_PARAMETERS,
@@ -40,6 +41,8 @@ interface FunctionSpec {
   timeout: Duration;
   memoryMb: number;
   environment?: Record<string, string>;
+  // API Gateway invokes synchronously, where a DLQ and retry count mean nothing
+  sync?: boolean;
 }
 
 export class PipelineFunctions extends Construct {
@@ -48,6 +51,7 @@ export class PipelineFunctions extends Construct {
   readonly verify: NodejsFunction;
   readonly publish: NodejsFunction;
   readonly status: NodejsFunction;
+  readonly api: NodejsFunction;
   readonly all: NodejsFunction[];
 
   private readonly stage: Stage;
@@ -142,7 +146,18 @@ export class PipelineFunctions extends Construct {
       ScheduleExpression.cron({ minute: '17', hour: '4', day: '*', month: '*', year: '*' }),
     );
 
-    this.all = [this.poll, this.triage, this.verify, this.publish, this.status];
+    this.api = this.pipelineFunction({
+      name: 'api',
+      // API Gateway gives up at 29 seconds; a read that slow is a bug worth seeing as a 500
+      timeout: Duration.seconds(10),
+      memoryMb: 256,
+      environment: { ADMIN_GROUP },
+      sync: true,
+    });
+    // read-only while the admin API only reads. The decision routes bring their own grant.
+    table.grantReadData(this.api);
+
+    this.all = [this.poll, this.triage, this.verify, this.publish, this.status, this.api];
   }
 
   private pipelineFunction(spec: FunctionSpec): NodejsFunction {
@@ -184,8 +199,7 @@ export class PipelineFunctions extends Construct {
       }),
       tracing: settings.isProd ? Tracing.ACTIVE : Tracing.DISABLED,
       // async invocations that exhaust their retries land in the shared DLQ
-      deadLetterQueue: this.deadLetterQueue,
-      retryAttempts: 2,
+      ...(spec.sync === true ? {} : { deadLetterQueue: this.deadLetterQueue, retryAttempts: 2 }),
     });
   }
 
