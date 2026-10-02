@@ -2,7 +2,7 @@ import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
 import { mockClient, type AwsClientStub } from 'aws-sdk-client-mock';
 
-import type { CatalogEntry, Offer, Source } from '@cert-tracker/core';
+import type { Candidate, CatalogEntry, Offer, Source } from '@cert-tracker/core';
 
 import { createDocClient, type DocClient } from '../src/lib/repo/client.ts';
 
@@ -101,4 +101,46 @@ export function transactionCancelled(codes: string[]): Error {
   return awsError('TransactionCanceledException', {
     CancellationReasons: codes.map((Code) => ({ Code })),
   });
+}
+
+export function candidate(overrides: Partial<Candidate> = {}): Candidate {
+  return {
+    candidateId: '01J9Z0G6V2QK8X7N3B4C5D6E7F',
+    name: 'Vendor free exam',
+    vendor: 'Vendor',
+    category: 'cloud',
+    tracks: ['it'],
+    technologies: [],
+    certifications: ['Vendor Associate'],
+    examCode: 'VA-100',
+    whatIsFree: 'full-exam',
+    cost: null,
+    credentialWeight: 'high',
+    eligibility: ['public'],
+    regions: 'Global',
+    windowStart: '2026-09-01',
+    windowEnd: '2026-12-31',
+    status: 'active',
+    recurring: {
+      isRecurring: false,
+      cadence: null,
+      expectedNextWindow: null,
+      expectedNextWindowDate: null,
+    },
+    requirements: 'Register.',
+    url: 'https://vendor.example/offer',
+    sourceUrl: 'https://vendor.example/terms',
+    lastVerified: '2026-09-29',
+    verificationNote: '',
+    notes: '',
+    stage: 'verified',
+    confidence: 'high',
+    matchesExistingId: null,
+    signalIds: ['01J9Z0G6V2QK8X7N3B4C5D6E7G'],
+    promptVersion: 'v1',
+    model: 'model-under-test',
+    llmRationale: 'the page states the exam is free',
+    createdAt: '2026-09-29T04:17:00.000Z',
+    ...overrides,
+  };
 }
