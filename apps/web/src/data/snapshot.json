@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-01T15:25:44.860Z",
+  "generatedAt": "2026-10-03T06:40:44.706Z",
   "offers": [
     {
       "id": "aws-aif2cloud-2026",
@@ -2474,6 +2474,50 @@
       "updatedAt": "2026-10-01T15:19:42.754Z"
     },
     {
+      "id": "university-of-helsinki-full-stack-open",
+      "name": "Full Stack Open",
+      "vendor": "University of Helsinki",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "javascript",
+        "typescript",
+        "react",
+        "nodejs"
+      ],
+      "certifications": [
+        "Full Stack Open course certificate"
+      ],
+      "examCode": null,
+      "whatIsFree": "training-and-badge",
+      "cost": null,
+      "credentialWeight": "medium",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Submit enough exercises for a passing grade, then download the certificate from the My submissions tab of the submission system. Assumes prior programming, basic web and Git knowledge.",
+      "url": "https://fullstackopen.com/en/",
+      "sourceUrl": "https://fullstackopen.com/en/part0/general_info",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "Covers React, Node.js, TypeScript, GraphQL, React Native and containers. The job-interview promise is for residents of Finland only.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T06:38:00.384Z"
+    },
+    {
       "id": "yes-microsoft-ai-skills-south-africa-2026",
       "name": "YES × Microsoft AI Skills Initiative (South Africa) — 50,000 free Fundamentals vouchers",
       "vendor": "Microsoft",
@@ -4446,14 +4490,25 @@
         "vendor": "AWS",
         "windowEnd": "2026-09-30"
       }
+    },
+    {
+      "eventId": "01M407QQP07S5TJE6514G3QDJ4",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T06:38:00.384Z",
+      "offerId": "university-of-helsinki-full-stack-open",
+      "payload": {
+        "name": "Full Stack Open",
+        "vendor": "University of Helsinki",
+        "status": "evergreen"
+      }
     }
   ],
   "meta": {
-    "lastPollAt": "2026-10-01T15:07:38.257Z",
-    "lastStatusRunAt": "2026-10-01T04:17:10.354Z",
+    "lastPollAt": "2026-10-03T06:07:32.152Z",
+    "lastStatusRunAt": "2026-10-03T04:17:10.764Z",
     "sourceHealth": {
-      "total": 32,
-      "unhealthy": 0
+      "total": 30,
+      "unhealthy": 2
     }
   }
 }
