@@ -8,6 +8,7 @@ import { AnnouncerProvider } from './a11y/Announcer.tsx';
 import { SkipLink } from './a11y/SkipLink.tsx';
 import { AdminProvider } from './admin/AdminProvider.tsx';
 import { useAdmin } from './admin/adminContext.ts';
+import { Banner } from './components/Banner.tsx';
 import { OffersTable } from './components/OffersTable.tsx';
 import { SummaryStrip, type StripSelection } from './components/SummaryStrip.tsx';
 import { TabBar, TabPanel, type TabSpec } from './components/TabBar.tsx';
@@ -196,6 +197,7 @@ function Shell() {
           </div>
         ) : (
           <>
+            <Banner />
             <SummaryStrip
               counts={counts}
               selected={selection}

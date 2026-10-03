@@ -25,6 +25,9 @@ html[data-theme='light'] {
   --on-accent: #fff;
   --accent-strip: var(--accent);
   --on-accent-strip: #fff;
+  --banner: #2f4a30;
+  --on-banner: #fff;
+  --banner-line: #cfe0cc;
   --accent-tint: #e6ede4;
   --accent-tint-text: #2f4a30;
   --accent-line: #d4dfd1;
@@ -63,6 +66,9 @@ html[data-theme='dark'] {
   --on-accent: #0f1612;
   --accent-strip: #3f7a55;
   --on-accent-strip: #fff;
+  --banner: #1f3a2a;
+  --on-banner: #e6edf5;
+  --banner-line: #9fd4b0;
   --accent-tint: #1f3a2a;
   --accent-tint-text: #9fd4b0;
   --accent-line: #28402f;
