@@ -2,11 +2,13 @@ import {
   TECHNOLOGIES,
   addDays,
   compareIsoDates,
+  costToYouOf,
   daysBetween,
   daysUntilEnd,
   deriveStatus,
   isExpiringSoon,
   isWatchList,
+  type CostToYou,
   type Offer,
   type OfferStatus,
   type SnapshotEvent,
@@ -17,6 +19,12 @@ import {
 export const NEW_DAYS = 7;
 
 const WEIGHT_RANK = { high: 0, medium: 1, low: 2 } as const;
+const COST_RANK = {
+  nothing: 0,
+  'purchase-first': 1,
+  'reduced-price': 2,
+  'certificate-fee': 3,
+} as const;
 const WHAT_IS_FREE_RANK = {
   'full-exam': 0,
   partial: 1,
@@ -44,6 +52,8 @@ export function offerGroup(status: OfferStatus, expiringSoon: boolean): OfferGro
 }
 
 export interface OfferRow extends Offer {
+  // always present on a row: the stored value, or what whatIsFree implies for older offers
+  costToYou: CostToYou;
   derivedStatus: OfferStatus;
   expiringSoon: boolean;
   daysLeft: number | null;
@@ -56,6 +66,7 @@ export interface OfferRow extends Offer {
   groupRank: number;
   windowEndSort: string;
   weightRank: number;
+  // what costs nothing first, and within that an exam before a course
   whatIsFreeRank: number;
 }
 
@@ -74,8 +85,10 @@ export function toRows(offers: readonly Offer[], today: string): OfferRow[] {
     const derivedStatus = deriveStatus(offer, today);
     const expiringSoon = isExpiringSoon(offer, today);
     const group = offerGroup(derivedStatus, expiringSoon);
+    const costToYou = costToYouOf(offer);
     return {
       ...offer,
+      costToYou,
       derivedStatus,
       expiringSoon,
       daysLeft: daysUntilEnd(offer, today),
@@ -86,7 +99,7 @@ export function toRows(offers: readonly Offer[], today: string): OfferRow[] {
       groupRank: OFFER_GROUPS.indexOf(group),
       windowEndSort: offer.windowEnd ?? '9999-12-31',
       weightRank: WEIGHT_RANK[offer.credentialWeight],
-      whatIsFreeRank: WHAT_IS_FREE_RANK[offer.whatIsFree],
+      whatIsFreeRank: COST_RANK[costToYou] * 10 + WHAT_IS_FREE_RANK[offer.whatIsFree],
     };
   });
 }

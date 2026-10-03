@@ -1,13 +1,15 @@
 {
   "AWS": "aws",
   "Cisco": "cisco",
-  "DataCamp": "datacamp",
   "Databricks": "databricks",
+  "DataCamp": "datacamp",
   "Fortinet": "fortinet",
+  "freeCodeCamp": "freecodecamp",
   "GitHub": "github",
-  "Google Cloud": "google-cloud",
   "Google": "google",
+  "Google Cloud": "google-cloud",
   "HackerRank": "hackerrank",
+  "Harvard CS50": "harvard-cs50",
   "HashiCorp": "hashicorp",
   "HubSpot": "hubspot",
   "Hugging Face": "hugging-face",
@@ -22,5 +24,5 @@
   "Redis": "redis",
   "Salesforce": "salesforce",
   "Snowflake": "snowflake",
-  "freeCodeCamp": "freecodecamp"
+  "University of Helsinki": "university-of-helsinki"
 }

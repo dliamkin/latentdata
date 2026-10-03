@@ -967,6 +967,201 @@ html[data-theme='dark'] .monogram {
   color: var(--muted);
 }
 
+/* what you get: the table's one filled badge. Colour backs up the icon and the words. */
+.free-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--subtle);
+  color: var(--muted);
+  font-size: 12.5px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.free-badge--full-exam {
+  background: var(--accent-tint);
+  border-color: var(--accent-line);
+  color: var(--accent-tint-text);
+  font-weight: 600;
+}
+
+.free-badge--partial {
+  background: var(--deadline-tint);
+  border-color: var(--deadline-line);
+  color: var(--deadline);
+}
+
+.free-badge--training-and-badge {
+  border-color: var(--upcoming-line);
+  color: var(--upcoming);
+}
+
+.free-cell {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.free-cell .mark {
+  font-size: 12px;
+}
+
+/* recognition: three bars and the word */
+.meter {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.meter--high {
+  font-weight: 600;
+}
+
+.meter--low {
+  color: var(--muted);
+}
+
+.meter-bars {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 14px;
+}
+
+.meter-bar {
+  width: 4px;
+  border-radius: 1px;
+  background: var(--border);
+}
+
+.meter-bar:nth-child(1) {
+  height: 6px;
+}
+
+.meter-bar:nth-child(2) {
+  height: 10px;
+}
+
+.meter-bar:nth-child(3) {
+  height: 14px;
+}
+
+.meter-bar.is-on {
+  background: var(--accent);
+}
+
+.meter--low .meter-bar.is-on {
+  background: var(--grey);
+}
+
+/* what is narrowing the table right now, said in one place whichever control set it */
+.active-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
+  margin: 0 0 10px;
+  padding: 8px 12px;
+  border: 1px solid var(--accent-line);
+  border-radius: var(--radius-lg);
+  background: var(--accent-tint);
+  font-size: 13px;
+}
+
+.active-filters-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent-tint-text);
+  font-weight: 600;
+}
+
+.filter-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 9px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--panel);
+  color: var(--ink);
+  font: inherit;
+  font-size: 12.5px;
+  cursor: pointer;
+}
+
+.filter-pill .pi {
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.filter-pill:hover {
+  border-color: var(--accent);
+}
+
+.link-button {
+  padding: 2px 4px;
+  border: 0;
+  background: none;
+  color: var(--accent-tint-text);
+  font: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+.active-filters .link-button {
+  margin-left: auto;
+}
+
+.table-key {
+  margin: 0 0 10px;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+.table-key summary {
+  width: fit-content;
+  cursor: pointer;
+}
+
+.table-key-body {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 6px 32px;
+  margin-top: 8px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--panel);
+}
+
+.table-key dl {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  margin: 0;
+}
+
+.table-key dl > div {
+  display: grid;
+  grid-template-columns: 9.5rem 1fr;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.table-key dd {
+  margin: 0;
+}
+
 .new-badge {
   display: inline-block;
   margin-left: 6px;

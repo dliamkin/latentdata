@@ -223,6 +223,9 @@ function Shell() {
                   newIds={newIds}
                   initialReveal={reveal?.id ?? null}
                   toolbarSlot={toolbarSlot}
+                  onClearQuickFilter={() => {
+                    setSelection(null);
+                  }}
                 />
               </TabPanel>
               <TabPanel id="calendar" active={tab}>
