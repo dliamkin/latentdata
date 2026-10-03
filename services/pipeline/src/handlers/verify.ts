@@ -149,6 +149,7 @@ function toCandidate(
     examCode: extraction.examCode,
     whatIsFree: extraction.whatIsFree,
     cost: extraction.cost,
+    costToYou: extraction.costToYou,
     credentialWeight: extraction.credentialWeight,
     eligibility: extraction.eligibility,
     regions: extraction.regions,

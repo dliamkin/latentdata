@@ -1,4 +1,6 @@
 export { catalogMatch } from './catalog.ts';
+export { costToYouOf, isTotallyFree } from './cost.ts';
+export type { CostInput } from './cost.ts';
 export type { CatalogMatch } from './catalog.ts';
 export {
   addDays,

@@ -41,6 +41,7 @@ export {
   offerStatusUpdateItem,
   offerToItem,
   putOfferIfAbsent,
+  setOfferCostToYou,
   setOfferTaxonomy,
   type OfferStatusChange,
 } from './offers.ts';

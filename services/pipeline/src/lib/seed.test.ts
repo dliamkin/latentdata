@@ -12,6 +12,7 @@ import {
   normalizeOffers,
   normalizeSources,
   planCatalogSync,
+  planCostBackfill,
   planKeywordTopUp,
   planTaxonomyBackfill,
 } from './seed.ts';
@@ -91,6 +92,33 @@ describe('planTaxonomyBackfill', () => {
 
   it('has nothing to do the second time', () => {
     expect(planTaxonomyBackfill(seeded, seeded)).toEqual([]);
+  });
+});
+
+describe('planCostBackfill', () => {
+  const seeded = [
+    offer({ id: 'ticketed', costToYou: 'purchase-first' }),
+    offer({ id: 'free', costToYou: 'nothing' }),
+  ];
+
+  it('fills offers stored before the field existed, from the seed only', () => {
+    const stored = [offer({ id: 'ticketed' }), offer({ id: 'free' }), offer({ id: 'scanned' })];
+    expect(planCostBackfill(stored, seeded)).toEqual([
+      { id: 'ticketed', costToYou: 'purchase-first' },
+      { id: 'free', costToYou: 'nothing' },
+    ]);
+  });
+
+  it('never overwrites a value already in the table', () => {
+    const stored = [offer({ id: 'ticketed', costToYou: 'nothing' }), seeded[1] ?? offer()];
+    expect(planCostBackfill(stored, seeded)).toEqual([]);
+  });
+});
+
+describe('the seed file', () => {
+  it('states what every offer costs, so nothing on the site rests on a guess', () => {
+    const { offers } = OffersSeedSchema.parse(seed('offers'));
+    expect(offers.filter((o) => o.costToYou === undefined).map((o) => o.id)).toEqual([]);
   });
 });
 

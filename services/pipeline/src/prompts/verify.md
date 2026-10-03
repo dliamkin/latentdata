@@ -1,5 +1,5 @@
 ---
-version: 2
+version: 3
 modelClass: sonnet
 ---
 
@@ -17,6 +17,7 @@ Rules:
 - technologies: only ids from this list, and only the ones the credential is actually about, not every tool the page mentions: javascript, typescript, python, java, csharp, cpp, go, rust, php, ruby, kotlin, swift, sql, r, html-css, dotnet, react, angular, vue, nodejs, spring, android, ios, aws, azure, gcp, oci, kubernetes, docker, terraform, linux, git, github, salesforce, databricks, snowflake, mongodb, power-platform. An empty list when none fits.
 - whatIsFree: full-exam when the exam itself is free, partial when a discount or a free retake, training-and-badge when free training ends in a credential that is not an exam, training-only when the training is free but the certificate still costs money.
 - cost: what the person still pays, only when whatIsFree is partial; otherwise null.
+- costToYou: what the person still pays, judged separately from whatIsFree. nothing when no money changes hands at any point. purchase-first when the offer is only open to people who have paid for something else: a conference ticket, a paid subscription, a paid course, another exam; a free online event, a free account or being a student does not count. reduced-price when whatIsFree is partial and the remaining fee is the only cost. certificate-fee when whatIsFree is training-only. When a discount also needs a purchase first, use purchase-first. Never nothing for partial or training-only.
 - credentialWeight: high for exams that appear on job requirements (professional and associate cloud, security, data engineering), medium for foundational vendor certifications, low for badges, course certificates and vendor training credentials.
 - eligibility: every group that qualifies, from public, partner, student, customer, event-attendee, need-based.
 - windowStart and windowEnd: ISO dates (YYYY-MM-DD) exactly as the text supports them, else null. Never infer a date from a year alone. A standing offer with no dates leaves both null.

@@ -197,7 +197,11 @@ describe('runVerify', () => {
   });
 
   it('files a candidate for review when confidence is not high', async () => {
-    const d = deps({ llm: fakeLlm({ extractions: [extraction({ confidence: 'medium' })] }) });
+    const d = deps({
+      llm: fakeLlm({
+        extractions: [extraction({ confidence: 'medium', costToYou: 'purchase-first' })],
+      }),
+    });
     expect(await runVerify(d, message)).toBe('candidate');
     const put = mock
       .commandCalls(PutCommand)
@@ -205,6 +209,8 @@ describe('runVerify', () => {
     expect(put?.args[0].input.Item).toMatchObject({
       stage: 'verified',
       confidence: 'medium',
+      // the model's judgement of what is still to pay reaches the reviewer
+      costToYou: 'purchase-first',
       signalIds: [message.signalId],
     });
     const event =

@@ -78,6 +78,7 @@ export function extraction(overrides: Partial<Extraction> = {}): Extraction {
     examCode: 'AZ-900',
     whatIsFree: 'full-exam',
     cost: null,
+    costToYou: 'nothing',
     credentialWeight: 'medium',
     eligibility: ['public'],
     regions: 'Global',
