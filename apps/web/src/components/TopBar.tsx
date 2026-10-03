@@ -90,10 +90,6 @@ export function TopBar({
           <h1 className="brand-logo">
             <img src={logoSrc(mode)} alt="LatentData Cert Promo Tracker" width={123} height={40} />
           </h1>
-          <span className="brand-divider" aria-hidden="true" />
-          <p className="tagline">
-            Free and discounted IT certification exams, checked against each vendor&apos;s own page.
-          </p>
         </div>
         <div className="topbar-tools">
           <p className="data-as-of">

@@ -419,11 +419,6 @@ html[data-scrolled] .brand-logo img {
   height: 36px;
 }
 
-html[data-scrolled] .tagline,
-html[data-scrolled] .brand-divider {
-  opacity: 0;
-}
-
 .topbar-inner {
   max-width: var(--content-max);
   margin: 0 auto;
@@ -455,21 +450,6 @@ html[data-scrolled] .brand-divider {
   transition: height 0.25s;
 }
 
-.brand-divider {
-  width: 1px;
-  height: 18px;
-  background: var(--border);
-  margin: 0 4px;
-  transition: opacity 0.2s;
-}
-
-.tagline {
-  margin: 0;
-  font-size: 13px;
-  color: var(--muted);
-  transition: opacity 0.2s;
-}
-
 .topbar-tools {
   display: flex;
   align-items: center;
@@ -495,6 +475,73 @@ html[data-theme] .p-menu .p-menuitem-link {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+/* ---- banner ---- */
+
+/* full-bleed band under the top bar: the site's one-line promise on certificate-paper green,
+   with a guilloché rosette (the engraved seal on a diploma) bleeding off the right edge */
+.banner {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      ellipse 55% 140% at 100% 50%,
+      color-mix(in srgb, var(--banner-line) 18%, transparent),
+      transparent
+    ),
+    var(--banner);
+  color: var(--on-banner);
+}
+
+.banner-inner {
+  position: relative;
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 40px var(--gutter);
+}
+
+.banner-text {
+  max-width: 21em;
+  margin: 0;
+  font-size: clamp(22px, 3.1vw, 36px);
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.banner-text strong {
+  font-weight: 600;
+}
+
+.banner-text .pi {
+  margin-right: 0.3em;
+  font-size: 0.72em;
+  color: var(--gold);
+}
+
+.banner-rosette {
+  position: absolute;
+  top: 50%;
+  right: max(-60px, calc((100vw - var(--content-max)) / 2 - 60px));
+  width: 440px;
+  height: 440px;
+  translate: 0 -50%;
+  fill: none;
+  stroke: var(--banner-line);
+  stroke-width: 0.4;
+  opacity: 0.5;
+  pointer-events: none;
+  /* one turn in four minutes: slow enough to notice only on a second look; the global
+     reduced-motion rule stops it */
+  animation: banner-rosette-turn 240s linear infinite;
+}
+
+@keyframes banner-rosette-turn {
+  to {
+    rotate: 360deg;
+  }
 }
 
 /* ---- summary strip ---- */
@@ -1899,9 +1946,16 @@ html[data-theme] .p-button.p-button-contrast {
     padding: 4px var(--gutter);
   }
 
-  .tagline,
-  .brand-divider {
-    display: none;
+  .banner-inner {
+    padding: 24px var(--gutter);
+  }
+
+  /* mostly off the edge, so the lines never run behind the text */
+  .banner-rosette {
+    right: -190px;
+    width: 300px;
+    height: 300px;
+    opacity: 0.35;
   }
 
   .topbar-tools {
