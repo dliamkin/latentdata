@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-03T16:40:44.745Z",
+  "generatedAt": "2026-10-03T19:55:44.740Z",
   "offers": [
     {
       "id": "aws-aif2cloud-2026",
@@ -21,6 +21,7 @@
       "examCode": "AIF-C01 / CLF-C02",
       "whatIsFree": "partial",
       "cost": "~$50 (50% off AIF-C01); CLF-C02 then free",
+      "costToYou": "reduced-price",
       "credentialWeight": "medium",
       "eligibility": [
         "public"
@@ -63,6 +64,7 @@
       "examCode": null,
       "whatIsFree": "training-and-badge",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "low",
       "eligibility": [
         "public"
@@ -108,6 +110,7 @@
       "examCode": null,
       "whatIsFree": "full-exam",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "high",
       "eligibility": [
         "public"
@@ -150,6 +153,7 @@
       "examCode": null,
       "whatIsFree": "partial",
       "cost": "50% of exam price; requires in-person re:Invent registration",
+      "costToYou": "purchase-first",
       "credentialWeight": "high",
       "eligibility": [
         "event-attendee"
@@ -191,6 +195,7 @@
       "examCode": null,
       "whatIsFree": "training-and-badge",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "low",
       "eligibility": [
         "public"
@@ -318,6 +323,7 @@
       "examCode": null,
       "whatIsFree": "training-and-badge",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "low",
       "eligibility": [
         "public"
@@ -360,6 +366,7 @@
       "examCode": null,
       "whatIsFree": "partial",
       "cost": "50% voucher for any Databricks certification, plus 20% Academy Labs coupon",
+      "costToYou": "reduced-price",
       "credentialWeight": "high",
       "eligibility": [
         "public"
@@ -405,6 +412,7 @@
       "examCode": null,
       "whatIsFree": "full-exam",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "low",
       "eligibility": [
         "public"
@@ -445,6 +453,7 @@
       "examCode": null,
       "whatIsFree": "full-exam",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "low",
       "eligibility": [
         "public"
@@ -487,6 +496,7 @@
       "examCode": null,
       "whatIsFree": "full-exam",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "low",
       "eligibility": [
         "public"
@@ -570,6 +580,7 @@
       "examCode": null,
       "whatIsFree": "full-exam",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "medium",
       "eligibility": [
         "public"
@@ -612,6 +623,7 @@
       "examCode": null,
       "whatIsFree": "full-exam",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "low",
       "eligibility": [
         "public"
@@ -653,6 +665,7 @@
       "examCode": null,
       "whatIsFree": "full-exam",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "low",
       "eligibility": [
         "public"
@@ -694,6 +707,7 @@
       "examCode": null,
       "whatIsFree": "full-exam",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "low",
       "eligibility": [
         "public"
@@ -737,6 +751,7 @@
       "examCode": null,
       "whatIsFree": "full-exam",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "low",
       "eligibility": [
         "public"
@@ -778,6 +793,7 @@
       "examCode": null,
       "whatIsFree": "full-exam",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "low",
       "eligibility": [
         "public"
@@ -821,6 +837,7 @@
       "examCode": null,
       "whatIsFree": "full-exam",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "medium",
       "eligibility": [
         "student"
@@ -864,6 +881,7 @@
       "examCode": null,
       "whatIsFree": "full-exam",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "medium",
       "eligibility": [
         "student"
@@ -903,6 +921,7 @@
       "examCode": "GH-700",
       "whatIsFree": "partial",
       "cost": "Discount code revealed at the end of the broadcast; amount undisclosed (Microsoft beta norm is 80% off for the first 300)",
+      "costToYou": "reduced-price",
       "credentialWeight": "low",
       "eligibility": [
         "public"
@@ -942,6 +961,7 @@
       "examCode": null,
       "whatIsFree": "training-only",
       "cost": null,
+      "costToYou": "certificate-fee",
       "credentialWeight": "medium",
       "eligibility": [
         "public"
@@ -984,6 +1004,7 @@
       "examCode": null,
       "whatIsFree": "training-and-badge",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "low",
       "eligibility": [
         "public"
@@ -1028,6 +1049,7 @@
       "examCode": null,
       "whatIsFree": "full-exam",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "high",
       "eligibility": [
         "customer"
@@ -1072,6 +1094,7 @@
       "examCode": null,
       "whatIsFree": "full-exam",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "high",
       "eligibility": [
         "customer"
@@ -1112,6 +1135,7 @@
       "examCode": null,
       "whatIsFree": "full-exam",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "low",
       "eligibility": [
         "public"
@@ -1164,6 +1188,7 @@
       "examCode": null,
       "whatIsFree": "full-exam",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "low",
       "eligibility": [
         "public"
@@ -1293,6 +1318,7 @@
       "examCode": null,
       "whatIsFree": "full-exam",
       "cost": null,
+      "costToYou": "purchase-first",
       "credentialWeight": "high",
       "eligibility": [
         "event-attendee"
@@ -1334,6 +1360,7 @@
       "examCode": null,
       "whatIsFree": "full-exam",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "low",
       "eligibility": [
         "public"
@@ -1376,6 +1403,7 @@
       "examCode": null,
       "whatIsFree": "training-and-badge",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "low",
       "eligibility": [
         "public"
@@ -1415,6 +1443,7 @@
       "examCode": "CC",
       "whatIsFree": "full-exam",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "high",
       "eligibility": [
         "public"
@@ -1457,6 +1486,7 @@
       "examCode": null,
       "whatIsFree": "training-and-badge",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "low",
       "eligibility": [
         "public"
@@ -1539,6 +1569,7 @@
       "examCode": null,
       "whatIsFree": "training-and-badge",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "low",
       "eligibility": [
         "public"
@@ -1582,6 +1613,7 @@
       "examCode": "AB-100 / AB-900 / AB-620",
       "whatIsFree": "full-exam",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "medium",
       "eligibility": [
         "public"
@@ -1624,6 +1656,7 @@
       "examCode": null,
       "whatIsFree": "full-exam",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "high",
       "eligibility": [
         "public"
@@ -1666,6 +1699,7 @@
       "examCode": null,
       "whatIsFree": "full-exam",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "medium",
       "eligibility": [
         "public"
@@ -1751,6 +1785,7 @@
       "examCode": null,
       "whatIsFree": "full-exam",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "high",
       "eligibility": [
         "event-attendee"
@@ -1793,6 +1828,7 @@
       "examCode": "SC-200 / SC-500",
       "whatIsFree": "partial",
       "cost": "50% voucher (500 available)",
+      "costToYou": "reduced-price",
       "credentialWeight": "high",
       "eligibility": [
         "public"
@@ -1838,6 +1874,7 @@
       "examCode": "DP-600 / DP-700 / DP-800",
       "whatIsFree": "full-exam",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "high",
       "eligibility": [
         "public"
@@ -1880,6 +1917,7 @@
       "examCode": null,
       "whatIsFree": "partial",
       "cost": "2025 prize was a 50% voucher (5,000 available); 2026 terms not yet published",
+      "costToYou": "reduced-price",
       "credentialWeight": "high",
       "eligibility": [
         "public"
@@ -1924,6 +1962,7 @@
       "examCode": "AB-100 / AI-103 / GH-300",
       "whatIsFree": "full-exam",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "medium",
       "eligibility": [
         "partner"
@@ -1982,6 +2021,7 @@
       "examCode": null,
       "whatIsFree": "full-exam",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "high",
       "eligibility": [
         "partner"
@@ -2020,6 +2060,7 @@
       "examCode": "AB-730 / AB-731",
       "whatIsFree": "full-exam",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "medium",
       "eligibility": [
         "partner"
@@ -2068,6 +2109,7 @@
       "examCode": null,
       "whatIsFree": "partial",
       "cost": "50% of exam price",
+      "costToYou": "reduced-price",
       "credentialWeight": "low",
       "eligibility": [
         "public"
@@ -2109,6 +2151,7 @@
       "examCode": null,
       "whatIsFree": "full-exam",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "medium",
       "eligibility": [
         "student"
@@ -2150,6 +2193,7 @@
       "examCode": null,
       "whatIsFree": "training-and-badge",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "low",
       "eligibility": [
         "public"
@@ -2191,6 +2235,7 @@
       "examCode": null,
       "whatIsFree": "full-exam",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "low",
       "eligibility": [
         "public"
@@ -2232,6 +2277,7 @@
       "examCode": null,
       "whatIsFree": "training-and-badge",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "low",
       "eligibility": [
         "public"
@@ -2274,6 +2320,7 @@
       "examCode": null,
       "whatIsFree": "full-exam",
       "cost": null,
+      "costToYou": "purchase-first",
       "credentialWeight": "high",
       "eligibility": [
         "event-attendee"
@@ -2321,6 +2368,7 @@
       "examCode": "1Z0-1085-26, 1Z0-1122-26, 1Z0-1195-26, 1Z0-1157-26, 1Z0-1145-1, 1Z0-1160-1, 1Z0-1163-1, 1Z0-1153-1",
       "whatIsFree": "full-exam",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "low",
       "eligibility": [
         "public"
@@ -2362,6 +2410,7 @@
       "examCode": null,
       "whatIsFree": "training-and-badge",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "low",
       "eligibility": [
         "public"
@@ -2403,6 +2452,7 @@
       "examCode": "1Z0-1072-26",
       "whatIsFree": "full-exam",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "high",
       "eligibility": [
         "public"
@@ -2444,6 +2494,7 @@
       "examCode": null,
       "whatIsFree": "full-exam",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "medium",
       "eligibility": [
         "public"
@@ -2483,6 +2534,7 @@
       "examCode": null,
       "whatIsFree": "training-and-badge",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "low",
       "eligibility": [
         "public"
@@ -2525,6 +2577,7 @@
       "examCode": null,
       "whatIsFree": "full-exam",
       "cost": null,
+      "costToYou": "purchase-first",
       "credentialWeight": "high",
       "eligibility": [
         "event-attendee"
@@ -2568,6 +2621,7 @@
       "examCode": null,
       "whatIsFree": "full-exam",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "high",
       "eligibility": [
         "public"
@@ -2610,6 +2664,7 @@
       "examCode": null,
       "whatIsFree": "partial",
       "cost": "Full exam price ($200/$400); one free retake 2027-01-04 to 2027-04-07 if you fail",
+      "costToYou": "reduced-price",
       "credentialWeight": "high",
       "eligibility": [
         "public"
@@ -2651,6 +2706,7 @@
       "examCode": null,
       "whatIsFree": "training-and-badge",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "low",
       "eligibility": [
         "public"
@@ -2822,6 +2878,7 @@
       "examCode": null,
       "whatIsFree": "partial",
       "cost": "Core $140 (was $175), Specialty $180, Advanced $300",
+      "costToYou": "reduced-price",
       "credentialWeight": "medium",
       "eligibility": [
         "public"
@@ -2865,6 +2922,7 @@
       "examCode": null,
       "whatIsFree": "full-exam",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "medium",
       "eligibility": [
         "public",
@@ -3001,6 +3059,7 @@
       "examCode": null,
       "whatIsFree": "full-exam",
       "cost": null,
+      "costToYou": "nothing",
       "credentialWeight": "low",
       "eligibility": [
         "public"
@@ -5083,10 +5142,10 @@
     }
   ],
   "meta": {
-    "lastPollAt": "2026-10-03T16:07:33.348Z",
+    "lastPollAt": "2026-10-03T19:07:35.947Z",
     "lastStatusRunAt": "2026-10-03T04:17:10.764Z",
     "sourceHealth": {
-      "total": 30,
+      "total": 40,
       "unhealthy": 2
     }
   }
