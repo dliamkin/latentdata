@@ -22,13 +22,16 @@ import type {
 import { ToggleButton } from 'primereact/togglebutton';
 
 import {
+  COSTS_TO_YOU,
   CREDENTIAL_WEIGHTS,
   OFFER_CATEGORIES,
   OFFER_STATUSES,
   WHAT_IS_FREE,
   type CredentialWeight,
   type OfferCategory,
+  type OfferStatus,
   type Technology,
+  type WhatIsFree,
 } from '@cert-tracker/core';
 
 import { useAnnouncer } from '../a11y/announcerContext.ts';
@@ -45,6 +48,7 @@ import {
 import { plural, windowLabel } from '../lib/format.ts';
 import {
   CATEGORY_LABELS,
+  COST_TAGS,
   STATUS_TAGS,
   TECHNOLOGY_LABELS,
   WEIGHT_TAGS,
@@ -60,7 +64,7 @@ import { VendorMark } from './VendorMark.tsx';
 import { OfferExpansion } from './OfferExpansion.tsx';
 import { Reveal } from './Reveal.tsx';
 import { WindowBar } from './WindowBar.tsx';
-import { EligibilityTags, StatusTag, WhatIsFreeTag } from './Tags.tsx';
+import { CostTag, EligibilityTags, RecognitionMeter, StatusTag, WhatIsFreeTag } from './Tags.tsx';
 
 const PAGE_SIZES = [25, 50, 100];
 const DEFAULT_PAGE_SIZE = 25;
@@ -117,6 +121,8 @@ FilterService.register('custom_offerKey', (value: OfferFilter, filter: OfferFilt
 
 interface TableState {
   showExpired: boolean;
+  // only offers where no money changes hands at any point
+  freeOnly: boolean;
   // chosen vendors; empty means every vendor
   vendors: readonly string[];
   globalFilter: string;
@@ -130,6 +136,8 @@ interface TableState {
 
 type TableAction =
   | { type: 'showExpired'; value: boolean }
+  | { type: 'freeOnly'; value: boolean }
+  | { type: 'reset' }
   | { type: 'toggleVendor'; vendor: string }
   | { type: 'clearVendors' }
   | { type: 'globalFilter'; value: string }
@@ -158,6 +166,7 @@ function defaultOrder(a: OfferRow, b: OfferRow): number {
 function initialState(target: OfferRow | null, index: number): TableState {
   return {
     showExpired: target?.derivedStatus === 'expired',
+    freeOnly: false,
     vendors: [],
     globalFilter: '',
     filters: initialFilters(),
@@ -172,6 +181,18 @@ function reducer(state: TableState, action: TableAction): TableState {
   switch (action.type) {
     case 'showExpired':
       return { ...state, showExpired: action.value, first: 0 };
+    case 'freeOnly':
+      return { ...state, freeOnly: action.value, first: 0 };
+    case 'reset':
+      // everything that narrows the list; "show expired" widens it, so it stays as it is
+      return {
+        ...state,
+        freeOnly: false,
+        vendors: [],
+        globalFilter: '',
+        filters: initialFilters(),
+        first: 0,
+      };
     case 'toggleVendor':
       return {
         ...state,
@@ -206,6 +227,27 @@ function reducer(state: TableState, action: TableAction): TableState {
     case 'sort':
       return { ...state, multiSortMeta: action.value.filter((m) => m.field !== GROUP_SORT.field) };
   }
+}
+
+// the summary strip's filters, named the way the strip names them
+const QUICK_FILTER_LABELS: Record<QuickFilter, string> = {
+  active: 'Active',
+  expiring: 'Ends ≤ 14 days',
+  upcoming: 'Upcoming',
+  evergreen: 'Evergreen',
+  new: 'New this week',
+};
+
+// one thing currently narrowing the table, and how to take it away
+interface ActiveFilter {
+  key: string;
+  label: string;
+  clear: () => void;
+}
+
+function filterValue(filters: DataTableFilterMeta, field: string): unknown {
+  const meta = filters[field];
+  return meta !== undefined && 'value' in meta ? (meta.value as unknown) : null;
 }
 
 type Counts = Readonly<Record<string, number>>;
@@ -289,6 +331,8 @@ export interface OffersTableProps {
   // where the search box and the expired toggle render (the tab row); null until it mounts,
   // undefined to keep them above the table
   toolbarSlot?: HTMLElement | null;
+  // the quick filter lives in the summary strip, so only the parent can take it off
+  onClearQuickFilter?: () => void;
 }
 
 export function OffersTable({
@@ -297,6 +341,7 @@ export function OffersTable({
   newIds,
   initialReveal,
   toolbarSlot,
+  onClearQuickFilter,
 }: OffersTableProps) {
   const revealTarget =
     initialReveal === null ? null : (rows.find((r) => r.id === initialReveal) ?? null);
@@ -322,9 +367,10 @@ export function OffersTable({
       rows.filter(
         (row) =>
           (state.showExpired || row.derivedStatus !== 'expired') &&
+          (!state.freeOnly || row.costToYou === 'nothing') &&
           matchesQuickFilter(row, quickFilter, newIds),
       ),
-    [rows, state.showExpired, quickFilter, newIds],
+    [rows, state.showExpired, state.freeOnly, quickFilter, newIds],
   );
   const vendors = useMemo(() => vendorCounts(scoped), [scoped]);
 
@@ -473,13 +519,13 @@ export function OffersTable({
           }}
         />
         <span className="field-label" aria-hidden="true">
-          Weight
+          Recognition
         </span>
         <CountedDropdown
           value={current.weight}
           options={weightOptions}
           counts={valueCounts.weight}
-          label="Filter by weight"
+          label="Filter by recognition"
           onChange={(value) => {
             apply({ weight: value as CredentialWeight | null });
           }}
@@ -498,6 +544,78 @@ export function OffersTable({
         />
       </div>
     );
+  };
+
+  // every filter in force, wherever it was set: the strip, the toolbar, the chips, a column.
+  // Shown above the table so a filter set in one place is not forgotten while using another.
+  const setColumnFilter = (field: string, value: unknown): void => {
+    const meta = state.filters[field];
+    if (meta === undefined) return;
+    dispatch({ type: 'filters', value: { ...state.filters, [field]: { ...meta, value } } });
+  };
+  const offerKey = filterValue(state.filters, 'offerKey') as OfferFilter | null;
+  const clearOfferPart = (part: keyof OfferFilter): void => {
+    if (offerKey === null) return;
+    setColumnFilter('offerKey', normalizeOfferFilter({ ...offerKey, [part]: null }));
+  };
+  const whatIsFreeFilter = filterValue(state.filters, 'whatIsFree') as WhatIsFree | null;
+  const statusFilter = filterValue(state.filters, 'derivedStatus') as OfferStatus | null;
+  const activeFilters: ActiveFilter[] = [];
+  const narrowing = (key: string, label: string, clear: () => void): void => {
+    activeFilters.push({ key, label, clear });
+  };
+  if (quickFilter !== null) {
+    narrowing('quick', QUICK_FILTER_LABELS[quickFilter], () => onClearQuickFilter?.());
+  }
+  if (state.freeOnly) {
+    narrowing('free', '100% free only', () => {
+      dispatch({ type: 'freeOnly', value: false });
+    });
+  }
+  for (const vendor of state.vendors) {
+    narrowing(`vendor:${vendor}`, vendor, () => {
+      dispatch({ type: 'toggleVendor', vendor });
+    });
+  }
+  if (state.globalFilter !== '') {
+    narrowing('search', `Search: “${state.globalFilter}”`, () => {
+      dispatch({ type: 'globalFilter', value: '' });
+    });
+  }
+  if (offerKey?.name != null) {
+    narrowing('name', `Name: “${offerKey.name}”`, () => {
+      clearOfferPart('name');
+    });
+  }
+  if (offerKey?.category != null) {
+    narrowing('category', CATEGORY_LABELS[offerKey.category], () => {
+      clearOfferPart('category');
+    });
+  }
+  if (offerKey?.weight != null) {
+    narrowing('weight', `${WEIGHT_TAGS[offerKey.weight].label} recognition`, () => {
+      clearOfferPart('weight');
+    });
+  }
+  if (offerKey?.technology != null) {
+    narrowing('technology', TECHNOLOGY_LABELS[offerKey.technology], () => {
+      clearOfferPart('technology');
+    });
+  }
+  if (whatIsFreeFilter !== null) {
+    narrowing('whatIsFree', WHAT_IS_FREE_TAGS[whatIsFreeFilter].label, () => {
+      setColumnFilter('whatIsFree', null);
+    });
+  }
+  if (statusFilter !== null) {
+    narrowing('status', `Status: ${STATUS_TAGS[statusFilter].label}`, () => {
+      setColumnFilter('derivedStatus', null);
+    });
+  }
+  const resetFilters = (): void => {
+    dispatch({ type: 'reset' });
+    onClearQuickFilter?.();
+    announce('Filters reset');
   };
 
   const toolbar = (
@@ -521,6 +639,18 @@ export function OffersTable({
           /
         </kbd>
       </span>
+      <ToggleButton
+        className="free-toggle"
+        checked={state.freeOnly}
+        onLabel="100% free only"
+        offLabel="100% free only"
+        onIcon="pi pi-check-circle"
+        offIcon="pi pi-circle"
+        aria-label="Show only offers that cost nothing"
+        onChange={(event) => {
+          dispatch({ type: 'freeOnly', value: event.value });
+        }}
+      />
       <ToggleButton
         checked={state.showExpired}
         onLabel="Hide expired"
@@ -547,6 +677,54 @@ export function OffersTable({
           dispatch({ type: 'clearVendors' });
         }}
       />
+      <details className="table-key">
+        <summary>What the labels mean</summary>
+        <div className="table-key-body">
+          <dl aria-label="Cost">
+            {COSTS_TO_YOU.map((cost) => (
+              <div key={cost}>
+                <dt>
+                  <CostTag value={cost} />
+                </dt>
+                <dd>{COST_TAGS[cost].explain}</dd>
+              </div>
+            ))}
+          </dl>
+          <dl aria-label="Recognition">
+            {CREDENTIAL_WEIGHTS.map((weight) => (
+              <div key={weight}>
+                <dt>
+                  <RecognitionMeter value={weight} />
+                </dt>
+                <dd>{WEIGHT_TAGS[weight].explain}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </details>
+      {activeFilters.length > 0 && (
+        <div className="active-filters" role="group" aria-label="Active filters">
+          <span className="active-filters-label">
+            <span className="pi pi-filter-fill" aria-hidden="true" /> Showing only
+          </span>
+          {activeFilters.map((filter) => (
+            <button
+              key={filter.key}
+              type="button"
+              className="filter-pill"
+              aria-label={`Remove filter: ${filter.label}`}
+              title="Remove this filter"
+              onClick={filter.clear}
+            >
+              {filter.label}
+              <span className="pi pi-times" aria-hidden="true" />
+            </button>
+          ))}
+          <button type="button" className="link-button" onClick={resetFilters}>
+            Reset filters
+          </button>
+        </div>
+      )}
       <div ref={tableRef} className="offers">
         {toolbarSlot === undefined
           ? toolbar
@@ -631,7 +809,18 @@ export function OffersTable({
           // eslint-disable-next-line @typescript-eslint/no-deprecated
           responsiveLayout="stack"
           breakpoint="767px"
-          emptyMessage="No offers match."
+          emptyMessage={
+            activeFilters.length === 0 ? (
+              'No offers match.'
+            ) : (
+              <span className="empty-filtered">
+                No offers match these filters.{' '}
+                <button type="button" className="link-button" onClick={resetFilters}>
+                  Reset my filters
+                </button>
+              </span>
+            )
+          }
         >
           <Column
             expander
@@ -667,8 +856,7 @@ export function OffersTable({
                   {row.isNew && <span className="new-badge">NEW</span>}
                 </span>
                 <span className="offer-meta">
-                  {row.vendor} · {CATEGORY_LABELS[row.category]} ·{' '}
-                  {WEIGHT_TAGS[row.credentialWeight].label} weight
+                  {row.vendor} · {CATEGORY_LABELS[row.category]}
                 </span>
               </div>
             )}
@@ -677,7 +865,7 @@ export function OffersTable({
             field="whatIsFreeRank"
             filterField="whatIsFree"
             header="What's free"
-            headerStyle={{ width: '9rem' }}
+            headerStyle={{ width: '8.75rem' }}
             sortable
             filter
             filterHeader="Filter · What's free"
@@ -696,11 +884,23 @@ export function OffersTable({
             showFilterOperator={false}
             showAddButton={false}
             pt={{ filterMenuButton: { title: 'Filter this column' } }}
-            body={(row: OfferRow) => <WhatIsFreeTag value={row.whatIsFree} />}
+            body={(row: OfferRow) => (
+              <span className="free-cell">
+                <WhatIsFreeTag value={row.whatIsFree} />
+                <CostTag value={row.costToYou} detail={row.cost} />
+              </span>
+            )}
+          />
+          <Column
+            field="weightRank"
+            header="Recognition"
+            headerStyle={{ width: '7.25rem' }}
+            sortable
+            body={(row: OfferRow) => <RecognitionMeter value={row.credentialWeight} />}
           />
           <Column
             header="Eligibility"
-            headerStyle={{ width: '8.5rem' }}
+            headerStyle={{ width: '7rem' }}
             body={(row: OfferRow) => <EligibilityTags values={row.eligibility} />}
           />
           <Column

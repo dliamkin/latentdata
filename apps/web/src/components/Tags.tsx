@@ -1,6 +1,13 @@
-import type { CredentialWeight, Eligibility, OfferStatus, WhatIsFree } from '@cert-tracker/core';
+import type {
+  CostToYou,
+  CredentialWeight,
+  Eligibility,
+  OfferStatus,
+  WhatIsFree,
+} from '@cert-tracker/core';
 
 import {
+  COST_TAGS,
   ELIGIBILITY_TAGS,
   STATUS_TAGS,
   WEIGHT_TAGS,
@@ -57,12 +64,47 @@ export function StatusTag({
   return <SpecMark spec={STATUS_TAGS[status]} />;
 }
 
+// the one place the table uses a filled badge: what you get is the first thing to read in a
+// row, and the four kinds are told apart by icon and wording as well as by colour
 export function WhatIsFreeTag({ value }: { value: WhatIsFree }) {
-  return <SpecMark spec={WHAT_IS_FREE_TAGS[value]} />;
+  const spec = WHAT_IS_FREE_TAGS[value];
+  return (
+    <span className={`free-badge free-badge--${value}`}>
+      <span className={`${spec.icon} mark-icon`} aria-hidden="true" />
+      {spec.label}
+    </span>
+  );
 }
 
-export function WeightTag({ value }: { value: CredentialWeight }) {
-  return <SpecMark spec={WEIGHT_TAGS[value]} label={`${WEIGHT_TAGS[value].label} weight`} />;
+// whether money changes hands; `detail` is the offer's own wording of what is still due
+export function CostTag({ value, detail = null }: { value: CostToYou; detail?: string | null }) {
+  const spec = COST_TAGS[value];
+  return (
+    <span
+      className={`mark mark--${spec.tone}${spec.strong === true ? ' mark--strong' : ''}`}
+      title={detail === null ? spec.explain : `${spec.explain} ${detail}`}
+    >
+      <span className={`${spec.icon} mark-icon`} aria-hidden="true" />
+      {spec.label}
+    </span>
+  );
+}
+
+const WEIGHT_BARS: Record<CredentialWeight, number> = { high: 3, medium: 2, low: 1 };
+
+// three bars, filled by weight, with the word beside them so the bars are never the only cue
+export function RecognitionMeter({ value }: { value: CredentialWeight }) {
+  const spec = WEIGHT_TAGS[value];
+  return (
+    <span className={`meter meter--${value}`} title={spec.explain}>
+      <span className="meter-bars" aria-hidden="true">
+        {[1, 2, 3].map((bar) => (
+          <span key={bar} className={bar <= WEIGHT_BARS[value] ? 'meter-bar is-on' : 'meter-bar'} />
+        ))}
+      </span>
+      {spec.label}
+    </span>
+  );
 }
 
 export function EligibilityTags({ values }: { values: readonly Eligibility[] }) {

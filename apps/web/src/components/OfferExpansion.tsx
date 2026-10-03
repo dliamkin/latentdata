@@ -5,7 +5,7 @@ import { InputTextarea } from 'primereact/inputtextarea';
 import { useAnnouncer } from '../a11y/announcerContext.ts';
 import type { OfferRow } from '../data/offers.ts';
 import { formatDate, plural } from '../lib/format.ts';
-import { STATUS_TAGS, WHAT_IS_FREE_TAGS, countdownLabel } from '../lib/labels.ts';
+import { COST_TAGS, STATUS_TAGS, WHAT_IS_FREE_TAGS, countdownLabel } from '../lib/labels.ts';
 import { useTracking } from '../tracking/trackingContext.ts';
 import { WindowBar } from './WindowBar.tsx';
 
@@ -48,8 +48,8 @@ function facts(row: OfferRow): Fact[] {
   return [
     {
       label: 'Cost',
-      value: row.cost ?? (row.whatIsFree === 'full-exam' ? 'Free' : 'Not specified'),
-      note: WHAT_IS_FREE_TAGS[row.whatIsFree].label,
+      value: row.cost ?? COST_TAGS[row.costToYou].label,
+      note: `${WHAT_IS_FREE_TAGS[row.whatIsFree].label} · ${COST_TAGS[row.costToYou].explain}`,
     },
     deadline,
     {

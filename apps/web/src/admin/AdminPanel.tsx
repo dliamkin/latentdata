@@ -2,10 +2,10 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { Button } from 'primereact/button';
 
-import type { Candidate } from '@cert-tracker/core';
+import { costToYouOf, type Candidate } from '@cert-tracker/core';
 
 import { useAnnouncer } from '../a11y/announcerContext.ts';
-import { Mark } from '../components/Tags.tsx';
+import { CostTag, Mark } from '../components/Tags.tsx';
 import { relativeTime, windowLabel } from '../lib/format.ts';
 import { ELIGIBILITY_TAGS, WHAT_IS_FREE_TAGS, type Tone } from '../lib/labels.ts';
 import { useAdmin } from './adminContext.ts';
@@ -58,6 +58,12 @@ function CandidateCard({
           <dd>
             {free.label}
             {candidate.cost !== null && ` · ${candidate.cost}`}
+          </dd>
+        </div>
+        <div>
+          <dt>Cost to you</dt>
+          <dd>
+            <CostTag value={costToYouOf(candidate)} detail={candidate.cost} />
           </dd>
         </div>
         <div>

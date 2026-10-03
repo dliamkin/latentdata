@@ -48,6 +48,20 @@ describe('toRows', () => {
     expect(byId('fx-evergreen').windowEndSort).toBe('9999-12-31');
   });
 
+  it('gives every row a cost, stored or implied, and sorts what is free first', () => {
+    const byId = new Map(toRows(snapshot.offers, '2026-09-29').map((row) => [row.id, row]));
+    expect(byId.get('fx-active-long')?.costToYou).toBe('nothing');
+    expect(byId.get('fx-upcoming')?.costToYou).toBe('reduced-price');
+    expect(byId.get('fx-training-only')?.costToYou).toBe('certificate-fee');
+    // stored on the offer: nothing about a free exam says a purchase comes first
+    expect(byId.get('fx-recurring-undated')?.costToYou).toBe('purchase-first');
+    const rank = (id: string): number => byId.get(id)?.whatIsFreeRank ?? -1;
+    expect(rank('fx-active-long')).toBeLessThan(rank('fx-evergreen'));
+    expect(rank('fx-evergreen')).toBeLessThan(rank('fx-recurring-undated'));
+    expect(rank('fx-recurring-undated')).toBeLessThan(rank('fx-upcoming'));
+    expect(rank('fx-upcoming')).toBeLessThan(rank('fx-training-only'));
+  });
+
   it('groups rows by what to act on first', () => {
     expect(byId('fx-active-long').group).toBe('open');
     expect(byId('fx-upcoming').group).toBe('later');

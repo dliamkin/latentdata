@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "prebuild": "node ../../scripts/validate-snapshot.ts",
+    "prebuild": "node ../../scripts/validate-snapshot.ts && node ../../scripts/vendor-icons.ts --build",
     "build": "vite build",
     "preview": "vite preview",
     "e2e": "playwright test",

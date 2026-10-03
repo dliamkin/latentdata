@@ -1,6 +1,6 @@
 import { screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { axe } from 'vitest-axe';
 
 import { toRows } from '../data/offers.ts';
@@ -59,6 +59,97 @@ describe('OffersTable', () => {
     await user.type(search, 'Fixture AI');
     expect(bodyRows()).toHaveLength(1);
     expect(bodyRows()[0]).toHaveTextContent('Fixture AI Fundamentals badge');
+  });
+
+  it('keeps only what costs nothing when asked for 100% free', async () => {
+    const user = userEvent.setup();
+    renderWithProviders(
+      <OffersTable rows={rows} quickFilter={null} newIds={none} initialReveal={null} />,
+    );
+    await user.click(screen.getByRole('checkbox', { name: 'Show only offers that cost nothing' }));
+    // gone: the discount, the paid certificate, and the free exam that needs a purchase first
+    expect(
+      bodyRows()
+        .map((row) => row.querySelector('[data-offer-id]')?.getAttribute('data-offer-id'))
+        .sort(),
+    ).toEqual(['fx-active-long', 'fx-evergreen', 'fx-unverified']);
+    for (const row of bodyRows()) expect(row).toHaveTextContent('100% free');
+  });
+
+  it('names every filter in force above the table and takes one off at a time', async () => {
+    const user = userEvent.setup();
+    const onClearQuickFilter = vi.fn();
+    renderWithProviders(
+      <OffersTable
+        rows={rows}
+        quickFilter="upcoming"
+        newIds={none}
+        initialReveal={null}
+        onClearQuickFilter={onClearQuickFilter}
+      />,
+    );
+    await user.click(chip('Fixture Security'));
+    const bar = screen.getByRole('group', { name: 'Active filters' });
+    expect(
+      within(bar)
+        .getAllByRole('button', { name: /^Remove filter/ })
+        .map((pill) => pill.textContent),
+    ).toEqual(['Upcoming', 'Fixture Security']);
+
+    await user.click(within(bar).getByRole('button', { name: 'Remove filter: Fixture Security' }));
+    expect(bodyRows()).toHaveLength(2);
+    // the strip's filter belongs to the parent, so the table asks for it to be cleared
+    await user.click(within(bar).getByRole('button', { name: 'Remove filter: Upcoming' }));
+    expect(onClearQuickFilter).toHaveBeenCalledTimes(1);
+  });
+
+  it('offers a way out when the filters leave nothing to show', async () => {
+    const user = userEvent.setup();
+    const onClearQuickFilter = vi.fn();
+    renderWithProviders(
+      <OffersTable
+        rows={rows}
+        quickFilter="upcoming"
+        newIds={none}
+        initialReveal={null}
+        onClearQuickFilter={onClearQuickFilter}
+      />,
+    );
+    // neither upcoming offer is free: one is a discount, the other needs a purchase first
+    await user.click(screen.getByRole('checkbox', { name: 'Show only offers that cost nothing' }));
+    expect(bodyRows()).toHaveLength(0);
+    expect(screen.getByText(/No offers match these filters/)).toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: 'Reset my filters' }));
+    expect(onClearQuickFilter).toHaveBeenCalledTimes(1);
+    expect(
+      screen.getByRole('checkbox', { name: 'Show only offers that cost nothing' }),
+    ).not.toBeChecked();
+    expect(bodyRows()).toHaveLength(2);
+  });
+
+  it('shows no filter bar when nothing is narrowing the table', () => {
+    renderWithProviders(
+      <OffersTable rows={rows} quickFilter={null} newIds={none} initialReveal={null} />,
+    );
+    expect(screen.queryByRole('group', { name: 'Active filters' })).not.toBeInTheDocument();
+  });
+
+  it('says what you get, what it costs and how much it counts on every row', () => {
+    renderWithProviders(
+      <OffersTable rows={rows} quickFilter={null} newIds={none} initialReveal={null} />,
+    );
+    const row = (id: string): HTMLElement => {
+      const found = bodyRows().find((r) => r.querySelector(`[data-offer-id="${id}"]`) !== null);
+      if (found === undefined) throw new Error(`no row for ${id}`);
+      return found;
+    };
+    expect(row('fx-active-long')).toHaveTextContent(/Free exam.*100% free.*High/);
+    expect(row('fx-upcoming')).toHaveTextContent(/Exam discount.*You pay part.*Medium/);
+    expect(row('fx-training-only')).toHaveTextContent(/Course only.*Paid certificate.*Low/);
+    // a free exam is not free when something has to be bought first
+    expect(row('fx-recurring-undated')).toHaveTextContent(/Free exam.*Purchase needed/);
+    expect(screen.getByRole('columnheader', { name: /Recognition/ })).toHaveAttribute('aria-sort');
   });
 
   it('applies the quick filter and mutes training-only rows', () => {

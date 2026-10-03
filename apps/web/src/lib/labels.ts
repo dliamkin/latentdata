@@ -1,5 +1,6 @@
 import type {
   CatalogKind,
+  CostToYou,
   CredentialWeight,
   Eligibility,
   EventType,
@@ -33,17 +34,70 @@ export const STATUS_TAGS: Record<OfferStatus, TagSpec> = {
   unverified: { label: 'Unverified', icon: 'pi pi-question-circle', tone: 'deadline' },
 };
 
+// said the way a visitor would: what they walk away with, not how the vendor files it
 export const WHAT_IS_FREE_TAGS: Record<WhatIsFree, TagSpec> = {
-  'full-exam': { label: 'Full exam', icon: 'pi pi-star', tone: 'ink', strong: true },
-  partial: { label: 'Partial', icon: 'pi pi-percentage', tone: 'ink' },
-  'training-and-badge': { label: 'Training + badge', icon: 'pi pi-bookmark', tone: 'ink' },
-  'training-only': { label: 'Training only', icon: 'pi pi-book', tone: 'muted' },
+  'full-exam': { label: 'Free exam', icon: 'pi pi-star-fill', tone: 'ink', strong: true },
+  partial: { label: 'Exam discount', icon: 'pi pi-percentage', tone: 'ink' },
+  'training-and-badge': { label: 'Course + badge', icon: 'pi pi-bookmark-fill', tone: 'ink' },
+  'training-only': { label: 'Course only', icon: 'pi pi-book', tone: 'muted' },
 };
 
-export const WEIGHT_TAGS: Record<CredentialWeight, TagSpec> = {
-  high: { label: 'High', icon: 'pi pi-arrow-up', tone: 'ink', strong: true },
-  medium: { label: 'Medium', icon: 'pi pi-minus', tone: 'ink' },
-  low: { label: 'Low', icon: 'pi pi-arrow-down', tone: 'muted' },
+export interface ExplainedTag extends TagSpec {
+  // one plain sentence, shown as the hover text and in the key under the table
+  explain: string;
+}
+
+// the question every visitor has first: will this cost me anything?
+export const COST_TAGS: Record<CostToYou, ExplainedTag> = {
+  nothing: {
+    label: '100% free',
+    icon: 'pi pi-check-circle',
+    tone: 'accent',
+    strong: true,
+    explain: 'Nothing to pay at any point.',
+  },
+  'purchase-first': {
+    label: 'Purchase needed',
+    icon: 'pi pi-shopping-cart',
+    tone: 'deadline',
+    explain:
+      'Only after buying something else first: an event ticket, a subscription or another exam.',
+  },
+  'reduced-price': {
+    label: 'You pay part',
+    icon: 'pi pi-wallet',
+    tone: 'deadline',
+    explain: 'A discount. The rest of the exam fee is still yours to pay.',
+  },
+  'certificate-fee': {
+    label: 'Paid certificate',
+    icon: 'pi pi-credit-card',
+    tone: 'grey',
+    explain: 'The course is free. The certificate or exam is sold separately.',
+  },
+};
+
+// how much the credential counts with an employer; three bars, three words
+export const WEIGHT_TAGS: Record<CredentialWeight, ExplainedTag> = {
+  high: {
+    label: 'High',
+    icon: 'pi pi-arrow-up',
+    tone: 'ink',
+    strong: true,
+    explain: 'Exams employers name in job ads.',
+  },
+  medium: {
+    label: 'Medium',
+    icon: 'pi pi-minus',
+    tone: 'ink',
+    explain: 'Entry-level certifications from a known vendor.',
+  },
+  low: {
+    label: 'Low',
+    icon: 'pi pi-arrow-down',
+    tone: 'muted',
+    explain: 'Course certificates and badges.',
+  },
 };
 
 export const ELIGIBILITY_TAGS: Record<Eligibility, TagSpec> = {
