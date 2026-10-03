@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-03T16:25:44.779Z",
+  "generatedAt": "2026-10-03T16:40:44.745Z",
   "offers": [
     {
       "id": "aws-aif2cloud-2026",
@@ -43,7 +43,7 @@
       "notes": "Second deadline: CLF-C02 by 2026-11-30.",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "aws-educate-digital-badges",
@@ -85,7 +85,7 @@
       "notes": "Which specific badges exist was not listed on the page.",
       "addedBy": "manual",
       "addedAt": "2026-10-01",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "aws-emerging-talent-community-vouchers",
@@ -130,7 +130,7 @@
       "notes": "Check the Rewards tab directly.",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "aws-reinvent-2026-registrant-voucher",
@@ -172,7 +172,7 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-29",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "cisco-javascript-essentials-1",
@@ -213,7 +213,7 @@
       "notes": "The separate OpenEDG JSE entry-level certification exam is not part of this offer and its price was not checked. Other Cisco programming courses (Python, C/C++) were not verified.",
       "addedBy": "manual",
       "addedAt": "2026-10-01",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "cisco-python-essentials-1",
@@ -340,7 +340,7 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "databricks-advanced-learning-festival-fall-2026",
@@ -382,7 +382,7 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-29",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "datacamp-free-access-week",
@@ -427,7 +427,7 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "fortinet-nse-fundamentals",
@@ -467,7 +467,7 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "freecodecamp-back-end-apis",
@@ -509,7 +509,7 @@
       "notes": "freeCodeCamp is a charity and states its certifications are free. Legacy (pre-v9) certifications expire 2027-12-31.",
       "addedBy": "manual",
       "addedAt": "2026-10-01",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "freecodecamp-data-analysis-with-python-certification",
@@ -592,7 +592,7 @@
       "notes": "Announcement dates from 2023; no end date stated.",
       "addedBy": "manual",
       "addedAt": "2026-10-01",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "freecodecamp-front-end-libraries",
@@ -634,7 +634,7 @@
       "notes": "freeCodeCamp is a charity and states its certifications are free. Legacy (pre-v9) certifications expire 2027-12-31.",
       "addedBy": "manual",
       "addedAt": "2026-10-01",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "freecodecamp-javascript",
@@ -675,7 +675,7 @@
       "notes": "freeCodeCamp is a charity and states its certifications are free. Legacy (pre-v9) certifications expire 2027-12-31.",
       "addedBy": "manual",
       "addedAt": "2026-10-01",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "freecodecamp-python",
@@ -716,7 +716,7 @@
       "notes": "freeCodeCamp is a charity and states its certifications are free. Legacy (pre-v9) certifications expire 2027-12-31.",
       "addedBy": "manual",
       "addedAt": "2026-10-01",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "freecodecamp-relational-databases",
@@ -759,7 +759,7 @@
       "notes": "freeCodeCamp is a charity and states its certifications are free. Legacy (pre-v9) certifications expire 2027-12-31.",
       "addedBy": "manual",
       "addedAt": "2026-10-01",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "freecodecamp-responsive-web-design",
@@ -800,7 +800,7 @@
       "notes": "freeCodeCamp is a charity and states its certifications are free. Legacy (pre-v9) certifications expire 2027-12-31.",
       "addedBy": "manual",
       "addedAt": "2026-10-01",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "github-foundations-datacamp-student",
@@ -843,7 +843,7 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "github-student-pack-direct-voucher-2025-26",
@@ -886,7 +886,7 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "github-universe-preview-gh700-voucher-2026",
@@ -925,7 +925,7 @@
       "notes": "GitHub Universe (Oct 28–29) also sells a $30 exam-voucher add-on.",
       "addedBy": "manual",
       "addedAt": "2026-09-29",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "google-cloud-generative-ai-leader-learning-path",
@@ -964,7 +964,7 @@
       "notes": "Path page itself shows no price text. Exam is not free.",
       "addedBy": "manual",
       "addedAt": "2026-10-01",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "google-cloud-skills-starter-skill-badges",
@@ -1006,7 +1006,7 @@
       "notes": "Not every badge fits inside 35 credits; the Starter plan is described as limited. Google Cloud customers get the full library at no cost per the Google blog of 2025-10-21.",
       "addedBy": "manual",
       "addedAt": "2026-10-01",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "google-gear-get-certified-ed1-2027",
@@ -1050,7 +1050,7 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-29",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "google-gear-get-certified-ed3-2026",
@@ -1094,7 +1094,7 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "google-skillshop",
@@ -1134,7 +1134,7 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-09-29T22:59:01.779Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "hackerrank-skills-certifications",
@@ -1186,7 +1186,7 @@
       "notes": "Angular, C#, CSS, Node (Basic), Node.js (Intermediate), R, React and REST API tests allow one attempt only. Skills catalogue is a live page and may change.",
       "addedBy": "manual",
       "addedAt": "2026-10-01",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "harvard-cs50-cs50p-introduction-to-programming-with-python",
@@ -1315,7 +1315,7 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-29",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "hubspot-academy",
@@ -1356,7 +1356,7 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-09-29T22:59:01.779Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "huggingface-agents-course-certificate",
@@ -1398,7 +1398,7 @@
       "notes": "Other Hugging Face courses (LLM, Deep RL, Audio) were not checked for certificates; the course index page names none.",
       "addedBy": "manual",
       "addedAt": "2026-10-01",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "isc2-cc-one-million-certified",
@@ -1437,7 +1437,7 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "kaggle-learn-course-certificates",
@@ -1479,7 +1479,7 @@
       "notes": "Reading a Learn Guide does not give a certificate. Certificate text is not proctored.",
       "addedBy": "manual",
       "addedAt": "2026-10-01",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "linux-foundation-getting-started-with-rust-lfel1002",
@@ -1561,7 +1561,7 @@
       "notes": "Page does not say how the badge is awarded. A completion certificate is not a Linux Foundation certification (LFCS and others are paid).",
       "addedBy": "manual",
       "addedAt": "2026-10-01",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "microsoft-ai-agent-skills-sweepstakes-2026",
@@ -1604,7 +1604,7 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-29",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "microsoft-ai-skills-fest-2026",
@@ -1646,7 +1646,7 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "microsoft-applied-skills",
@@ -1688,7 +1688,7 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "microsoft-applied-skills-get-started-with-classes-properties",
@@ -1773,7 +1773,7 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "microsoft-defender-challenge-sweepstakes-2026",
@@ -1815,7 +1815,7 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-29",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "microsoft-fabric-data-days-2026",
@@ -1860,7 +1860,7 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "microsoft-ignite-challenge-2026",
@@ -1902,7 +1902,7 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "microsoft-levelup-frontier-vouchers-2026",
@@ -1946,7 +1946,7 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "microsoft-partner-cert-week-fy27",
@@ -2004,7 +2004,7 @@
       "notes": "Public trackers say 'any work email'; the LevelUp T&Cs say MAICPP partner domains only.",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "microsoft-sales-cert-week-fy27",
@@ -2042,7 +2042,7 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-29",
-      "updatedAt": "2026-09-29T22:59:01.779Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "microsoft-virtual-training-days-50",
@@ -2090,7 +2090,7 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-29",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "mongodb-student-free-certification",
@@ -2131,7 +2131,7 @@
       "notes": "One voucher per completed path, and the first must be finished before claiming another. No replacement voucher for a missed exam. Exam names and codes not listed on the page.",
       "addedBy": "manual",
       "addedAt": "2026-10-01",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "mongodb-university-skill-badges",
@@ -2172,7 +2172,7 @@
       "notes": "Badge count is from a search summary and may change.",
       "addedBy": "manual",
       "addedAt": "2026-10-01",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "neo4j-graphacademy-certifications",
@@ -2213,7 +2213,7 @@
       "notes": "Retake policy not checked.",
       "addedBy": "manual",
       "addedAt": "2026-10-01",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "openai-academy-certificates",
@@ -2254,7 +2254,7 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "oracle-ai-world-2026-attendee-exams",
@@ -2296,7 +2296,7 @@
       "notes": "Only free if you already hold a pass.",
       "addedBy": "manual",
       "addedAt": "2026-09-29",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "oracle-foundations-free",
@@ -2343,7 +2343,7 @@
       "notes": "Multicloud Foundations (Sep 2026) and Exadata Database Service (Oct 2026) announced as upcoming.",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "oracle-java-explorer-badge",
@@ -2384,7 +2384,7 @@
       "notes": "Entry-level badge only. Java SE certification exams are paid and were not found on any free list.",
       "addedBy": "manual",
       "addedAt": "2026-10-01",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "oracle-oci-architect-associate-free-2026",
@@ -2425,7 +2425,7 @@
       "notes": "First associate-level architect cert Oracle has made free. Professional-level exams are paid.",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "oracle-race-to-certification-2025",
@@ -2466,7 +2466,7 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "redis-university-courses",
@@ -2505,7 +2505,7 @@
       "notes": "The Redis Developer Certification was deprecated in June 2024 and has no replacement date.",
       "addedBy": "manual",
       "addedAt": "2026-10-01",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "salesforce-dreamforce-2026-exam",
@@ -2547,7 +2547,7 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "salesforce-free-ai-certs-2025",
@@ -2590,7 +2590,7 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "salesforce-retake-promo-2026-27",
@@ -2632,7 +2632,7 @@
       "notes": "Opt-in deadline is the same day as windowStart.",
       "addedBy": "manual",
       "addedAt": "2026-09-29",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "salesforce-trailhead-developer-superbadges",
@@ -2673,7 +2673,7 @@
       "notes": "Superbadge pages themselves state no price. Official Salesforce certifications (e.g. Platform Developer) are paid and not covered here.",
       "addedBy": "manual",
       "addedAt": "2026-10-01",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "scholarhat-asp-net-core-free-course-with-certificate",
@@ -2844,7 +2844,7 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-29",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "snowflake-uk-get-tech-certified-2026",
@@ -2888,7 +2888,7 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-29",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
       "id": "university-of-helsinki-full-stack-open",
@@ -3023,7 +3023,7 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-29",
-      "updatedAt": "2026-10-01T15:19:42.754Z"
+      "updatedAt": "2026-10-03T16:28:01.565Z"
     }
   ],
   "catalog": [
