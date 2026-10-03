@@ -11,7 +11,7 @@ and parts the milestones still owe, are drawn dashed and grey, and figure 2 is a
 
 ```mermaid
 flowchart LR
-  SRC["42 sources, 37 enabled<br/>18 RSS · 13 page-diff · 9 Reddit · 2 GitHub commits<br/>each with its own pollIntervalMinutes, 60–720"]
+  SRC["52 sources, 47 enabled<br/>18 RSS · 23 page-diff · 9 Reddit · 2 GitHub commits<br/>each with its own pollIntervalMinutes, 60–720"]
 
   S1(["Scheduler<br/>cron 7 * * * ? *"])
   POLL["poll<br/>512 MB · 5 min · lease 300 s"]

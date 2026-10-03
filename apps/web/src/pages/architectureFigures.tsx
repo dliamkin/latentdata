@@ -78,10 +78,10 @@ export function SpineFigure() {
 
       <rect className="box" x="655" y="36" width="205" height="60" rx="6" />
       <text className="t" x="757" y="56" textAnchor="middle">
-        42 sources, 37 enabled
+        52 sources, 47 enabled
       </text>
       <text className="ts" x="757" y="72" textAnchor="middle">
-        18 RSS · 13 page-diff
+        18 RSS · 23 page-diff
       </text>
       <text className="ts" x="757" y="86" textAnchor="middle">
         9 Reddit · 2 GitHub

@@ -168,10 +168,10 @@ describe('the committed seed files', () => {
 
   it('pass the schemas the importer uses', () => {
     expect(offers).toHaveLength(59);
-    expect(sources).toHaveLength(42);
+    expect(sources).toHaveLength(52);
     expect(catalog).toHaveLength(79);
     expect(new Set(offers.map((o) => o.id)).size).toBe(59);
-    expect(new Set(sources.map((s) => s.sourceId)).size).toBe(42);
+    expect(new Set(sources.map((s) => s.sourceId)).size).toBe(52);
     expect(new Set(catalog.map((c) => c.id)).size).toBe(79);
     expect(sources.every((s) => s.keywordsInclude.includes('voucher'))).toBe(true);
   });
