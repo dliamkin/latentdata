@@ -30,7 +30,7 @@ export class AdminApi extends Construct {
       apiName: resourceName(props.stage, 'admin-api'),
       corsPreflight: {
         allowOrigins: props.siteOrigins,
-        allowMethods: [CorsHttpMethod.GET, CorsHttpMethod.POST, CorsHttpMethod.PATCH],
+        allowMethods: [CorsHttpMethod.GET, CorsHttpMethod.POST],
         // the token rides in Authorization; no cookies, so allowCredentials stays off
         allowHeaders: ['authorization', 'content-type'],
         maxAge: Duration.hours(1),
@@ -49,12 +49,15 @@ export class AdminApi extends Construct {
       jwtAudience: [props.identity.client.userPoolClientId],
     });
 
-    this.api.addRoutes({
-      path: '/admin/candidates',
-      methods: [HttpMethod.GET],
-      integration,
-      authorizer,
-    });
+    // one list, so a route cannot be added under /admin without the authorizer on it
+    const adminRoutes: [HttpMethod, string][] = [
+      [HttpMethod.GET, '/admin/candidates'],
+      [HttpMethod.POST, '/admin/candidates/{id}/approve'],
+      [HttpMethod.POST, '/admin/candidates/{id}/dismiss'],
+    ];
+    for (const [method, path] of adminRoutes) {
+      this.api.addRoutes({ path, methods: [method], integration, authorizer });
+    }
 
     // access logs are the audit trail for admin reads and decisions, and the only record of an
     // authorizer refusal. The $default stage is created for me, so this reaches in and sets it.

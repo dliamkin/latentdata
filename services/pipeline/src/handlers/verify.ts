@@ -2,13 +2,11 @@ import type { SQSBatchResponse, SQSEvent } from 'aws-lambda';
 
 import {
   CandidateSchema,
-  OfferSchema,
   VENDOR_DOMAINS,
   deriveStatus,
   isVendorDomain,
   slugForOffer,
   ulid,
-  uniqueSlug,
   utcIsoDate,
   type Candidate,
   type Offer,
@@ -24,6 +22,7 @@ import { readLlmConfig } from '../lib/llm/config.ts';
 import type { Extraction } from '../lib/llm/schemas.ts';
 import { VerifyMessageSchema, type VerifyMessage } from '../lib/messages.ts';
 import { politeHttp } from '../lib/polite.ts';
+import { promoteCandidate } from '../lib/promote.ts';
 import {
   candidatePutItem,
   createDocClient,
@@ -205,38 +204,15 @@ export function offerFromCandidate(
   signalUrl: string,
   now: Date,
 ): Offer {
-  const taken = new Set(existing.map((offer) => offer.id));
-  const today = utcIsoDate(now);
-  return OfferSchema.parse({
-    id: uniqueSlug(slugForOffer(candidate.vendor, candidate.name, candidate.windowEnd), (s) =>
-      taken.has(s),
-    ),
-    name: candidate.name,
-    vendor: candidate.vendor,
-    category: candidate.category,
-    tracks: candidate.tracks,
-    technologies: candidate.technologies,
-    certifications: candidate.certifications,
-    examCode: candidate.examCode,
-    whatIsFree: candidate.whatIsFree,
-    cost: candidate.cost,
-    credentialWeight: candidate.credentialWeight,
-    eligibility: candidate.eligibility,
-    regions: candidate.regions,
-    windowStart: candidate.windowStart,
-    windowEnd: candidate.windowEnd,
-    status: 'unverified',
-    recurring: candidate.recurring,
-    requirements: candidate.requirements,
-    url: candidate.url,
-    sourceUrl: candidate.sourceUrl,
-    lastVerified: today,
-    verificationNote: `auto-accepted from ${signalUrl}; not yet checked by a person`,
-    notes: candidate.notes,
-    addedBy: 'scan',
-    addedAt: today,
-    updatedAt: now.toISOString(),
-  });
+  return promoteCandidate(
+    candidate,
+    existing,
+    {
+      status: 'unverified',
+      verificationNote: `auto-accepted from ${signalUrl}; not yet checked by a person`,
+    },
+    now,
+  );
 }
 
 export async function runVerify(deps: VerifyDeps, message: VerifyMessage): Promise<VerifyOutcome> {

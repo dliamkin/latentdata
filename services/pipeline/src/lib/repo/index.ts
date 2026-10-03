@@ -1,7 +1,10 @@
 export { addDailyUsage, getDailyBudget, type DailyBudget } from './budget.ts';
 export {
+  candidateDecisionItem,
   candidatePutItem,
   candidateToItem,
+  decideCandidate,
+  getCandidate,
   itemToCandidate,
   listCandidatesByStage,
   putCandidateIfAbsent,
