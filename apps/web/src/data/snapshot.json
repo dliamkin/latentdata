@@ -1,7 +1,48 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-03T19:55:44.740Z",
+  "generatedAt": "2026-10-03T21:25:44.806Z",
   "offers": [
+    {
+      "id": "atlassian-certificate-holder-ach-credentials",
+      "name": "Atlassian Certificate Holder (ACH) credentials",
+      "vendor": "Atlassian",
+      "category": "other",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [],
+      "certifications": [
+        "Atlassian Certificate Holder (ACH) certificates"
+      ],
+      "examCode": null,
+      "whatIsFree": "training-and-badge",
+      "cost": null,
+      "costToYou": "nothing",
+      "credentialWeight": "low",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Complete the learning and assessment for an ACH credential through Atlassian Learning.",
+      "url": "https://community.atlassian.com/learning/certifications",
+      "sourceUrl": "https://community.atlassian.com/learning/certifications",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "The page does not list the individual ACH credentials or the exact steps; open the link and confirm before approving. Associate and Professional exams are paid and not part of this.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T21:15:14.873Z"
+    },
     {
       "id": "aws-aif2cloud-2026",
       "name": "AWS Cloud Practitioner free after AI Practitioner (AIF2CLOUD)",
@@ -45,6 +86,49 @@
       "addedBy": "manual",
       "addedAt": "2026-09-05",
       "updatedAt": "2026-10-03T16:28:01.565Z"
+    },
+    {
+      "id": "aws-certified-benefit-50-off-your-next-exam",
+      "name": "AWS Certified benefit: 50% off your next exam",
+      "vendor": "AWS",
+      "category": "cloud",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "aws"
+      ],
+      "certifications": [
+        "Any AWS Certification exam, including recertification"
+      ],
+      "examCode": null,
+      "whatIsFree": "partial",
+      "cost": "50% of the exam fee",
+      "costToYou": "purchase-first",
+      "credentialWeight": "high",
+      "eligibility": [
+        "customer"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Hold an active AWS Certification. The discount voucher appears among the benefits in your AWS Certification account.",
+      "url": "https://aws.amazon.com/certification/benefits/",
+      "sourceUrl": "https://aws.amazon.com/certification/benefits/",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "Only open to people who have already passed (and paid for) an AWS exam, hence purchase-first. The page does not say how long the voucher stays valid.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T21:14:36.296Z"
     },
     {
       "id": "aws-educate-digital-badges",
@@ -136,6 +220,50 @@
       "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
+      "id": "aws-re-start",
+      "name": "AWS re/Start",
+      "vendor": "AWS",
+      "category": "cloud",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [
+        "aws",
+        "linux",
+        "python"
+      ],
+      "certifications": [
+        "AWS Certification exam (the page says \"full exams\" without naming which)"
+      ],
+      "examCode": null,
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "costToYou": "nothing",
+      "credentialWeight": "medium",
+      "eligibility": [
+        "need-based"
+      ],
+      "regions": "Offered through local collaborating organisations; availability differs by country.",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Be 18 or older and unemployed or underemployed, able to attend the full-time training set by the local organisation and to look for a job afterwards. Apply through the country list on the how-to-apply page.",
+      "url": "https://aws.amazon.com/training/restart/how-to-apply/",
+      "sourceUrl": "https://aws.amazon.com/training/restart/",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "The exam is widely understood to be AWS Certified Cloud Practitioner, but the page read does not name it; credentialWeight assumes that. The how-to-apply link was taken from the page and not opened.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T21:15:19.414Z"
+    },
+    {
       "id": "aws-reinvent-2026-registrant-voucher",
       "name": "AWS re:Invent 2026 registrant 50% exam voucher",
       "vendor": "AWS",
@@ -221,6 +349,46 @@
       "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
+      "id": "cisco-live-melbourne-2026-free-certification-exam-2026",
+      "name": "Cisco Live Melbourne 2026: free certification exam",
+      "vendor": "Cisco",
+      "category": "infrastructure",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [],
+      "certifications": [
+        "One Cisco certification exam taken on site"
+      ],
+      "examCode": null,
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "costToYou": "purchase-first",
+      "credentialWeight": "high",
+      "eligibility": [
+        "event-attendee"
+      ],
+      "regions": "In person in Melbourne, Australia.",
+      "windowStart": "2026-11-09",
+      "windowEnd": "2026-11-12",
+      "status": "upcoming",
+      "recurring": {
+        "isRecurring": true,
+        "cadence": "yearly",
+        "expectedNextWindow": "Cisco Live Melbourne 2027",
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Hold a Full Conference or IT Leadership pass. Book in your Cisco Certification profile under the test centre \"Cisco Live Melbourne - Event Attendees Only\"; the price drops to 0 at checkout. Free bookings close on 8 November as space allows; from 9 November other on-site registrations get 50% off.",
+      "url": "https://www.pearsonvue.com/us/en/cisco/live/australia.html",
+      "sourceUrl": "https://www.pearsonvue.com/us/en/cisco/live/australia.html",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "A USD 40 no-show fee may be charged. The pass price was not on this page. Cisco's own exam page lists no other promotions today.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T21:14:56.589Z"
+    },
+    {
       "id": "cisco-python-essentials-1",
       "name": "Python Essentials 1",
       "vendor": "Cisco",
@@ -262,6 +430,49 @@
       "updatedAt": "2026-10-03T06:48:00.046Z"
     },
     {
+      "id": "cncf-kubestronaut-five-50-off-certification-coupons-a-year",
+      "name": "Kubestronaut: five 50%-off certification coupons a year",
+      "vendor": "CNCF",
+      "category": "cloud",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "kubernetes"
+      ],
+      "certifications": [
+        "CNCF and Linux Foundation certifications"
+      ],
+      "examCode": null,
+      "whatIsFree": "partial",
+      "cost": "50% of the exam fee",
+      "costToYou": "purchase-first",
+      "credentialWeight": "high",
+      "eligibility": [
+        "customer"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Hold all five CNCF Kubernetes certifications at once: CKA, CKAD, CKS, KCNA and KCSA. The coupons can be used yourself or shared.",
+      "url": "https://www.cncf.io/training/kubestronaut/",
+      "sourceUrl": "https://www.cncf.io/training/kubestronaut/",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "Only reachable after paying for and passing five exams, hence purchase-first. Because the coupons can be shared, a Kubestronaut colleague is a legitimate source of a 50% code.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T21:15:01.394Z"
+    },
+    {
       "id": "coddy-rust-certification",
       "name": "Coddy Rust Certification",
       "vendor": "Coddy",
@@ -301,6 +512,46 @@
       "addedBy": "scan",
       "addedAt": "2026-10-03",
       "updatedAt": "2026-10-03T16:13:27.779Z"
+    },
+    {
+      "id": "comptia-academic-store-student-discount",
+      "name": "CompTIA academic store student discount",
+      "vendor": "CompTIA",
+      "category": "infrastructure",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [],
+      "certifications": [
+        "CompTIA certification exam vouchers (A+, Network+, Security+ and others)"
+      ],
+      "examCode": null,
+      "whatIsFree": "partial",
+      "cost": "Student price of the voucher; the amount is not stated on the help page",
+      "costToYou": "reduced-price",
+      "credentialWeight": "high",
+      "eligibility": [
+        "student"
+      ],
+      "regions": "USA, Canada and the United Kingdom; the academic store is not available in all countries.",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Be an active student at a degree-granting institution listed in SheerID. Create a CompTIA account, verify enrolment through SheerID with a dated school document, then buy from the certifications shop. Limit: two of each exam type every six months.",
+      "url": "https://help.comptia.org/hc/en-us/articles/13934022730772-How-Can-My-Students-Purchase-CompTIA-Products-at-a-Discount",
+      "sourceUrl": "https://help.comptia.org/hc/en-us/articles/13934022730772-How-Can-My-Students-Purchase-CompTIA-Products-at-a-Discount",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "The discount percentage is not in the article; it appears in the store after verification. Read through the help centre API because the page blocks plain fetches.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T21:15:27.576Z"
     },
     {
       "id": "databricks-accreditations",
@@ -392,6 +643,48 @@
       "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
+      "id": "databricks-university-alliance-25-off-certification",
+      "name": "Databricks University Alliance: 25% off certification",
+      "vendor": "Databricks",
+      "category": "data",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "databricks"
+      ],
+      "certifications": [
+        "Databricks certifications"
+      ],
+      "examCode": null,
+      "whatIsFree": "partial",
+      "cost": "75% of the exam fee",
+      "costToYou": "reduced-price",
+      "credentialWeight": "high",
+      "eligibility": [
+        "student"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Sign up for the Databricks University Alliance student programme and successfully complete a Databricks course.",
+      "url": "https://www.databricks.com/university",
+      "sourceUrl": "https://www.databricks.com/university",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "The page does not say which courses count or how the code is delivered. The 50% Learning Festival voucher already on the site is a larger discount while it runs.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T21:15:03.315Z"
+    },
+    {
       "id": "datacamp-free-access-week",
       "name": "DataCamp Free Access Week (includes certifications)",
       "vendor": "DataCamp",
@@ -438,6 +731,86 @@
       "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
+      "id": "ec-council-c-ct-cyber-career-starter-scholarship",
+      "name": "EC-Council C|CT Cyber Career Starter Scholarship",
+      "vendor": "EC-Council",
+      "category": "security",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [],
+      "certifications": [
+        "Certified Cybersecurity Technician (C|CT)"
+      ],
+      "examCode": null,
+      "whatIsFree": "partial",
+      "cost": "USD 199 proctoring and technology fee",
+      "costToYou": "reduced-price",
+      "credentialWeight": "medium",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Apply on the scholarship page; verification takes three weeks or less. Accept and pay the non-refundable USD 199 fee within seven days of approval.",
+      "url": "https://campaigns.eccouncil.org/cyber-career-starter-scholarship",
+      "sourceUrl": "https://campaigns.eccouncil.org/cyber-career-starter-scholarship",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "Open to students, career starters and working professionals with no experience required. No end date is stated; the page still takes applications today.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T21:15:22.237Z"
+    },
+    {
+      "id": "ec-council-essentials-series-scholarship-us-academia",
+      "name": "EC-Council Essentials Series scholarship (US academia)",
+      "vendor": "EC-Council",
+      "category": "security",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [],
+      "certifications": [
+        "EC-Council Essentials Series certifications"
+      ],
+      "examCode": null,
+      "whatIsFree": "partial",
+      "cost": "USD 75.99 administrative fee for the certification bundle with exam voucher",
+      "costToYou": "reduced-price",
+      "credentialWeight": "low",
+      "eligibility": [
+        "student"
+      ],
+      "regions": "United States, its territories and commonwealths; US citizens only.",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Students, faculty and staff of a US academic institution, and military service members and their dependents, aged 14 or older. Submit the application, wait up to 15 days for approval, then redeem the voucher code.",
+      "url": "https://www.eccouncil.org/cybersecurity-workforce-pledge/",
+      "sourceUrl": "https://www.eccouncil.org/cybersecurity-workforce-pledge/",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "The page also says full-scholarship recipients pay USD 0.00 and can add a certificate of completion for USD 9.99; how full and partial awards are decided is not explained. No deadline is stated.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T21:15:24.087Z"
+    },
+    {
       "id": "fortinet-nse-fundamentals",
       "name": "Fortinet NSE 1/2 (formerly FCF) and FCA",
       "vendor": "Fortinet",
@@ -477,6 +850,46 @@
       "addedBy": "manual",
       "addedAt": "2026-09-05",
       "updatedAt": "2026-10-03T16:28:01.565Z"
+    },
+    {
+      "id": "fortinet-veterans-program",
+      "name": "Fortinet Veterans Program",
+      "vendor": "Fortinet",
+      "category": "security",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [],
+      "certifications": [
+        "Fortinet Certified Professional (FCP) certifications"
+      ],
+      "examCode": null,
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "costToYou": "nothing",
+      "credentialWeight": "high",
+      "eligibility": [
+        "need-based"
+      ],
+      "regions": "United States, Canada, United Kingdom and Australia, and elsewhere through partners.",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Active and former military transitioning into cybersecurity, and military spouses. Enrol through one of Fortinet's veteran organisation partners, or write to veterans@fortinet.com.",
+      "url": "https://www.fortinet.com/training/veterans-program",
+      "sourceUrl": "https://www.fortinet.com/training/veterans-program",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "The number of vouchers per person is not on the page. Military status is recorded as need-based because the closed list has no military value.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T21:15:05.934Z"
     },
     {
       "id": "freecodecamp-back-end-apis",
@@ -907,6 +1320,50 @@
       "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
+      "id": "github-universe-2026-usd-30-certification-voucher-2026",
+      "name": "GitHub Universe 2026: USD 30 certification voucher",
+      "vendor": "GitHub",
+      "category": "dev",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "github",
+        "git"
+      ],
+      "certifications": [
+        "GitHub Certification exam (one voucher)"
+      ],
+      "examCode": null,
+      "whatIsFree": "partial",
+      "cost": "USD 30 for the exam voucher",
+      "costToYou": "reduced-price",
+      "credentialWeight": "medium",
+      "eligibility": [
+        "event-attendee"
+      ],
+      "regions": "San Francisco in person, and virtual.",
+      "windowStart": "2026-10-28",
+      "windowEnd": "2026-10-29",
+      "status": "upcoming",
+      "recurring": {
+        "isRecurring": true,
+        "cadence": "yearly",
+        "expectedNextWindow": "GitHub Universe 2027",
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Add the GitHub Certification Voucher to your GitHub Universe 2026 registration.",
+      "url": "https://githubuniverse.com/",
+      "sourceUrl": "https://githubuniverse.com/",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "The page does not say whether the add-on can be bought with the free virtual pass or only with a paid pass; if only paid, costToYou should be purchase-first. Voucher expiry and eligible exams are not stated. Separate from the GH-700 beta code already on the site.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T21:15:12.554Z"
+    },
+    {
       "id": "github-universe-preview-gh700-voucher-2026",
       "name": "GitHub Universe 2026 Preview livestream — GH-700 beta exam discount code",
       "vendor": "GitHub",
@@ -945,6 +1402,93 @@
       "addedBy": "manual",
       "addedAt": "2026-09-29",
       "updatedAt": "2026-10-03T16:28:01.565Z"
+    },
+    {
+      "id": "google-cloud-career-launchpad-50-off-ace-or-cdl",
+      "name": "Google Cloud Career Launchpad: 50% off ACE or CDL",
+      "vendor": "Google Cloud",
+      "category": "cloud",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "gcp"
+      ],
+      "certifications": [
+        "Associate Cloud Engineer",
+        "Cloud Digital Leader"
+      ],
+      "examCode": null,
+      "whatIsFree": "partial",
+      "cost": "50% of the exam fee",
+      "costToYou": "reduced-price",
+      "credentialWeight": "high",
+      "eligibility": [
+        "student"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Be a student in a Google Cloud Career Launchpad cohort and complete the whole learning path for the chosen exam (the Google Cloud Engineer Certificate path for ACE, the Cloud Digital Leader path for CDL).",
+      "url": "https://support.google.com/cloud-certification/answer/10055456?hl=en",
+      "sourceUrl": "https://support.google.com/cloud-certification/answer/10055456?hl=en",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "The help page does not say how to join a Career Launchpad cohort or when cohorts run; that needs a link before approving.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T21:15:20.477Z"
+    },
+    {
+      "id": "google-cloud-certification-renewal-50-discount",
+      "name": "Google Cloud certification renewal: 50% discount",
+      "vendor": "Google Cloud",
+      "category": "cloud",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "gcp"
+      ],
+      "certifications": [
+        "Google Cloud certification renewal exam"
+      ],
+      "examCode": null,
+      "whatIsFree": "partial",
+      "cost": "50% of the exam fee",
+      "costToYou": "purchase-first",
+      "credentialWeight": "high",
+      "eligibility": [
+        "customer"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Hold a Google Cloud certification. The code is in the Benefits section of your CM Connect account and applies to your renewal attempt.",
+      "url": "https://support.google.com/cloud-certification/answer/10055456?hl=en",
+      "sourceUrl": "https://support.google.com/cloud-certification/answer/10055456?hl=en",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "Only for people who already hold (and paid for) a certification, hence purchase-first.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T21:15:06.970Z"
     },
     {
       "id": "google-cloud-generative-ai-leader-learning-path",
@@ -1429,6 +1973,47 @@
       "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
+      "id": "ibm-techxchange-2026-two-free-certification-exams-2026",
+      "name": "IBM TechXchange 2026: two free certification exams",
+      "vendor": "IBM",
+      "category": "cloud",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [],
+      "certifications": [
+        "IBM certification exams offered on site (the list is not on the page)"
+      ],
+      "examCode": null,
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "costToYou": "purchase-first",
+      "credentialWeight": "high",
+      "eligibility": [
+        "event-attendee"
+      ],
+      "regions": "In person in Atlanta, Georgia, USA.",
+      "windowStart": "2026-10-26",
+      "windowEnd": "2026-10-29",
+      "status": "upcoming",
+      "recurring": {
+        "isRecurring": true,
+        "cadence": "yearly",
+        "expectedNextWindow": "IBM TechXchange 2027",
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Hold an IBM TechXchange 2026 conference pass and sit the exams on site during the event.",
+      "url": "https://www.ibm.com/events/techxchange",
+      "sourceUrl": "https://www.ibm.com/events/techxchange/experience",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "The asterisked terms and the list of exams were not on the pages read. The HashiCorp exams at the same event are already on the site as a separate offer.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T21:15:09.698Z"
+    },
+    {
       "id": "isc2-cc-one-million-certified",
       "name": "ISC2 Certified in Cybersecurity — One Million Certified",
       "vendor": "ISC2",
@@ -1467,6 +2052,53 @@
       "addedBy": "manual",
       "addedAt": "2026-09-05",
       "updatedAt": "2026-10-03T16:28:01.565Z"
+    },
+    {
+      "id": "juniper-networks-juniper-open-learning-75-off-certification",
+      "name": "Juniper Open Learning: 75% off certification exams",
+      "vendor": "Juniper Networks",
+      "category": "infrastructure",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [],
+      "certifications": [
+        "JNCIA-Junos",
+        "JNCIA-Cloud",
+        "JNCIA-SEC",
+        "JNCIA-MistAI",
+        "JNCIA-Design",
+        "JNCIA-DevOps",
+        "JNCIA-DC",
+        "JNCIS and JNCIP tracks (Enterprise Routing and Switching, Service Provider, Security, Mist AI Wireless)"
+      ],
+      "examCode": null,
+      "whatIsFree": "partial",
+      "cost": "25% of the exam fee: USD 50 associate (regularly 200), USD 75 specialist (regularly 300), USD 100 professional (regularly 400)",
+      "costToYou": "reduced-price",
+      "credentialWeight": "high",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Complete all modules of the free Open Learning course and pass its Voucher Assessment Test with 70% or higher. The Pearson VUE voucher is valid for 30 days, so schedule and sit the exam inside that window.",
+      "url": "https://learningportal.juniper.net/juniper/user_activity_info.aspx?id=11478",
+      "sourceUrl": "https://learningportal.juniper.net/juniper/user_activity_info.aspx?id=11478",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "Juniper is now part of HPE and the page is branded HPE Networking. Course materials stay open for six months. The old juniper.net/training/open-learning page returns 404; use the learning portal link.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T21:14:45.516Z"
     },
     {
       "id": "kaggle-learn-course-certificates",
@@ -1593,6 +2225,90 @@
       "addedBy": "manual",
       "addedAt": "2026-10-01",
       "updatedAt": "2026-10-03T16:28:01.565Z"
+    },
+    {
+      "id": "linux-foundation-kubecon-cloudnativecon-na-2026-40-off-certi",
+      "name": "KubeCon + CloudNativeCon NA 2026: 40% off certifications",
+      "vendor": "Linux Foundation",
+      "category": "cloud",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "kubernetes"
+      ],
+      "certifications": [
+        "CNCF certifications (CKA, CKAD, CKS, KCNA, KCSA and others)",
+        "Cloud native training and bundles"
+      ],
+      "examCode": null,
+      "whatIsFree": "partial",
+      "cost": "60% of the list price",
+      "costToYou": "purchase-first",
+      "credentialWeight": "high",
+      "eligibility": [
+        "event-attendee"
+      ],
+      "regions": "Global; the event is in Salt Lake City, Utah.",
+      "windowStart": "2026-11-09",
+      "windowEnd": null,
+      "status": "upcoming",
+      "recurring": {
+        "isRecurring": true,
+        "cadence": "yearly",
+        "expectedNextWindow": "KubeCon + CloudNativeCon North America 2027",
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Register for KubeCon + CloudNativeCon North America 2026 (9-12 November 2026). The coupon is emailed to registered attendees during the event. New purchases only; cannot be combined with another promotion.",
+      "url": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/register/",
+      "sourceUrl": "https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/register/",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "windowStart is the first day coupons are sent; the page does not say when the coupon expires. Open Source Summit Japan (7-9 December 2026) has the same attendee discount wording but states no percentage, so it was left out.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T21:14:49.462Z"
+    },
+    {
+      "id": "mendix-rapid-developer-certification",
+      "name": "Mendix Rapid Developer certification",
+      "vendor": "Mendix",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [],
+      "certifications": [
+        "Mendix Rapid Developer"
+      ],
+      "examCode": null,
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "costToYou": "nothing",
+      "credentialWeight": "medium",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Create a free Mendix Academy account and register for the online multiple-choice exam there.",
+      "url": "https://academy.mendix.com/link/certifications",
+      "sourceUrl": "https://www.mendix.com/evaluation-guide/evaluation-learning/certification-talent/",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "Only the entry-level exam is free. The Academy link was taken from the Mendix page and was not opened separately.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T21:14:53.503Z"
     },
     {
       "id": "microsoft-ai-agent-skills-sweepstakes-2026",
@@ -1809,6 +2525,49 @@
       "addedBy": "manual",
       "addedAt": "2026-09-05",
       "updatedAt": "2026-10-03T16:28:01.565Z"
+    },
+    {
+      "id": "microsoft-certification-student-discounts",
+      "name": "Microsoft Certification student discounts",
+      "vendor": "Microsoft",
+      "category": "cloud",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "azure"
+      ],
+      "certifications": [
+        "Microsoft Certification exams (academic pricing)"
+      ],
+      "examCode": null,
+      "whatIsFree": "partial",
+      "cost": "Academic price of the exam; the amount varies by country and is not stated on the page",
+      "costToYou": "reduced-price",
+      "credentialWeight": "high",
+      "eligibility": [
+        "student"
+      ],
+      "regions": "Most countries and regions; India and China are excluded.",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Mark yourself as a student in the Learn profile interest survey (Career Paths, then Student) and verify your academic status. The discount is then applied when you register for an exam.",
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/student-discounts",
+      "sourceUrl": "https://learn.microsoft.com/en-us/credentials/certifications/student-discounts",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "The size of the discount is not on the page; it shows at checkout after verification. Page metadata says it was last updated in June 2025.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T21:15:08.640Z"
     },
     {
       "id": "microsoft-defender-challenge-sweepstakes-2026",
@@ -2135,6 +2894,48 @@
       "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
+      "id": "microsoft-women-in-cloud-microsoft-cybersecurity-scholarship",
+      "name": "Women in Cloud Microsoft Cybersecurity Scholarship (SC-900)",
+      "vendor": "Microsoft",
+      "category": "security",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [
+        "azure"
+      ],
+      "certifications": [
+        "Microsoft Certified: Security, Compliance, and Identity Fundamentals"
+      ],
+      "examCode": "SC-900",
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "costToYou": "nothing",
+      "credentialWeight": "medium",
+      "eligibility": [
+        "need-based"
+      ],
+      "regions": "Residents of the United States.",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Apply for the scholarship. Approved recipients get Coursera access and must complete the whole Microsoft Cybersecurity Analyst Professional Certificate to receive the SC-900 exam voucher. Open to all genders, with priority for women and under-represented communities.",
+      "url": "https://womenincloud.com/cybersecurity/",
+      "sourceUrl": "https://womenincloud.com/cybersecurity/",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "The page gives no application deadline or cohort dates, so whether a round is open today is unconfirmed. The source is the partner organisation's page, not a microsoft.com page.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T21:15:25.654Z"
+    },
+    {
       "id": "mongodb-student-free-certification",
       "name": "MongoDB for Students: free certification",
       "vendor": "MongoDB",
@@ -2259,6 +3060,89 @@
       "addedBy": "manual",
       "addedAt": "2026-10-01",
       "updatedAt": "2026-10-03T16:28:01.565Z"
+    },
+    {
+      "id": "nvidia-gtc-berlin-2026-free-certification-exams-2026",
+      "name": "NVIDIA GTC Berlin 2026: free certification exams",
+      "vendor": "NVIDIA",
+      "category": "ai",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [],
+      "certifications": [
+        "NVIDIA certification exams",
+        "NVIDIA Certified Associate: AI Model and Application Development (new)"
+      ],
+      "examCode": null,
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "costToYou": "purchase-first",
+      "credentialWeight": "medium",
+      "eligibility": [
+        "event-attendee"
+      ],
+      "regions": "In person in Berlin, Germany.",
+      "windowStart": "2026-10-21",
+      "windowEnd": "2026-10-22",
+      "status": "upcoming",
+      "recurring": {
+        "isRecurring": true,
+        "cadence": "yearly",
+        "expectedNextWindow": "Next NVIDIA GTC event",
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Attend GTC Berlin on site with a conference pass and reserve an exam session in the session catalog. Exams are only available during the conference.",
+      "url": "https://www.nvidia.com/en-eu/gtc/session-catalog/?sessionTypes=Certification",
+      "sourceUrl": "https://www.nvidia.com/en-eu/gtc/training/",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "The pass price was not on the page read. The main GTC Berlin page gives the event as 20-22 October; the window here is the two days the training page names.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T21:14:55.194Z"
+    },
+    {
+      "id": "nvidia-gtc-washington-d-c-2026-free-certification-exams-2026",
+      "name": "NVIDIA GTC Washington, D.C. 2026: free certification exams",
+      "vendor": "NVIDIA",
+      "category": "ai",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [],
+      "certifications": [
+        "NVIDIA certification exams"
+      ],
+      "examCode": null,
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "costToYou": "purchase-first",
+      "credentialWeight": "medium",
+      "eligibility": [
+        "event-attendee"
+      ],
+      "regions": "In person in Washington, D.C., USA.",
+      "windowStart": "2026-12-01",
+      "windowEnd": "2026-12-03",
+      "status": "upcoming",
+      "recurring": {
+        "isRecurring": true,
+        "cadence": "yearly",
+        "expectedNextWindow": "Next NVIDIA GTC event",
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Attend GTC Washington, D.C. on site. Exam sessions have not been published yet; reserve one when they appear.",
+      "url": "https://www.nvidia.com/gtc/dc/training/",
+      "sourceUrl": "https://www.nvidia.com/gtc/dc/training/",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "Which pass is required and how to book are not yet on the page. Re-check once exam sessions are listed.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T21:15:11.293Z"
     },
     {
       "id": "openai-academy-certificates",
@@ -2520,6 +3404,47 @@
       "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
+      "id": "qlik-academic-program",
+      "name": "Qlik Academic Program",
+      "vendor": "Qlik",
+      "category": "data",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [],
+      "certifications": [
+        "Qlik certifications in Data Literacy and Analytics"
+      ],
+      "examCode": null,
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "costToYou": "nothing",
+      "credentialWeight": "medium",
+      "eligibility": [
+        "student"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "University students, educators and researchers apply through the Academic Program application form and wait for approval.",
+      "url": "https://qlikacademicprogram.qlik.com/student-application-form",
+      "sourceUrl": "https://www.qlik.com/us/company/academic-program",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "The page does not name the exact exams or say how many attempts are included; confirm on the application site before approving.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T21:15:18.135Z"
+    },
+    {
       "id": "redis-university-courses",
       "name": "Redis University",
       "vendor": "Redis",
@@ -2647,6 +3572,92 @@
       "updatedAt": "2026-10-03T16:28:01.565Z"
     },
     {
+      "id": "salesforce-military",
+      "name": "Salesforce Military",
+      "vendor": "Salesforce",
+      "category": "cloud",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "salesforce"
+      ],
+      "certifications": [
+        "Up to 20 Salesforce certifications, with one retake voucher per certification"
+      ],
+      "examCode": null,
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "costToYou": "nothing",
+      "credentialWeight": "high",
+      "eligibility": [
+        "need-based"
+      ],
+      "regions": "United States, Australia, Canada, United Kingdom and New Zealand.",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Current and transitioning service members, their spouses, and veterans (plus Gold Star children in the US). Register, verify military status through Military Connect, choose a career path and follow its learning path to unlock the vouchers.",
+      "url": "https://trailhead.salesforce.com/salesforce-military",
+      "sourceUrl": "https://trailhead.salesforce.com/salesforce-military",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "Military status is recorded as need-based because the closed list has no military value.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T21:14:57.914Z"
+    },
+    {
+      "id": "salesforce-partner-program-certification-vouchers-2027",
+      "name": "Salesforce Partner Program certification vouchers",
+      "vendor": "Salesforce",
+      "category": "cloud",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [
+        "salesforce"
+      ],
+      "certifications": [
+        "Any Salesforce certification exam except the Certified Technical Architect evaluations"
+      ],
+      "examCode": null,
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "costToYou": "nothing",
+      "credentialWeight": "high",
+      "eligibility": [
+        "partner"
+      ],
+      "regions": "Global",
+      "windowStart": "2026-04-27",
+      "windowEnd": "2027-03-01",
+      "status": "active",
+      "recurring": {
+        "isRecurring": true,
+        "cadence": "yearly",
+        "expectedNextWindow": "Next partner programme year",
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Work for a Consulting, Cloud Reseller or AppExchange ISV partner at a qualifying tier. Your partner admin opens a Partner Community case titled \"Partner Program Benefit: Certification Exam Voucher Benefit\". Separately, a 25-30% discount code can be requested once per person per calendar month.",
+      "url": "https://help.salesforce.com/s/articleView?id=000391154&language=en_US&type=1",
+      "sourceUrl": "https://help.salesforce.com/s/articleView?id=000391154&language=en_US&type=1",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "Registered ISV and Provisional Consulting tiers get none. The vouchers belong to the partner company, which decides who uses them.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T21:14:51.475Z"
+    },
+    {
       "id": "salesforce-retake-promo-2026-27",
       "name": "Salesforce Certification Exam Retake Promotion 2026/2027",
       "vendor": "Salesforce",
@@ -2730,6 +3741,88 @@
       "addedBy": "manual",
       "addedAt": "2026-10-01",
       "updatedAt": "2026-10-03T16:28:01.565Z"
+    },
+    {
+      "id": "sap-learning-hub-student-edition",
+      "name": "SAP Learning Hub, student edition",
+      "vendor": "SAP",
+      "category": "other",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [],
+      "certifications": [
+        "SAP Certification exams (two attempts included)"
+      ],
+      "examCode": null,
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "costToYou": "nothing",
+      "credentialWeight": "high",
+      "eligibility": [
+        "student"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Be actively enrolled at a university (students and faculty). Create an SAP Universal ID with your university email and verify your status; verification takes up to one business day. Access lasts twelve months and can be renewed while enrolled.",
+      "url": "https://learning.sap.com/free-student-edition",
+      "sourceUrl": "https://learning.sap.com/helpcenter/learninghub-student-edition",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "The page states no country restrictions. Also includes practice systems and live sessions.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T21:14:59.348Z"
+    },
+    {
+      "id": "sap-teched-2026-attendee-offer-25-off-sap-certification-2026",
+      "name": "SAP TechEd 2026 attendee offer: 25% off SAP Certification",
+      "vendor": "SAP",
+      "category": "other",
+      "tracks": [
+        "software",
+        "it"
+      ],
+      "technologies": [],
+      "certifications": [
+        "SAP Certification exam (two-attempts booking)"
+      ],
+      "examCode": null,
+      "whatIsFree": "partial",
+      "cost": "75% of the two-attempts exam booking price",
+      "costToYou": "reduced-price",
+      "credentialWeight": "high",
+      "eligibility": [
+        "event-attendee"
+      ],
+      "regions": "Global",
+      "windowStart": "2026-08-18",
+      "windowEnd": "2026-12-31",
+      "status": "active",
+      "recurring": {
+        "isRecurring": true,
+        "cadence": "yearly",
+        "expectedNextWindow": "SAP TechEd 2027",
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Register for SAP TechEd 2026 or a Tour stop. The promotional code is in the registration confirmation email. Attendees also get free access to SAP Learning Hub, event edition.",
+      "url": "https://learning.sap.com/teched",
+      "sourceUrl": "https://learning.sap.com/teched",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "Whether free virtual registration qualifies, or only paid in-person passes, was not stated on the page; if only paid, costToYou should be purchase-first. The list price of the booking was not checked.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T21:15:13.822Z"
     },
     {
       "id": "scholarhat-asp-net-core-free-course-with-certificate",
@@ -2947,6 +4040,46 @@
       "addedBy": "manual",
       "addedAt": "2026-09-29",
       "updatedAt": "2026-10-03T16:28:01.565Z"
+    },
+    {
+      "id": "syracuse-university-ivmf-onward-to-opportunity-o2o-one-free",
+      "name": "Onward to Opportunity (O2O): one free certification exam",
+      "vendor": "Syracuse University IVMF",
+      "category": "other",
+      "tracks": [
+        "it"
+      ],
+      "technologies": [],
+      "certifications": [
+        "One industry certification from the O2O learning pathways (the page names PMP as an example)"
+      ],
+      "examCode": null,
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "costToYou": "nothing",
+      "credentialWeight": "high",
+      "eligibility": [
+        "need-based"
+      ],
+      "regions": "United States military community.",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "For transitioning service members, and for military spouses or veterans who are currently unemployed. Submit the interest form, complete the online assessment and orientation, then finish the coursework and practice exam requirements.",
+      "url": "https://ivmf.syracuse.edu/programs/career-training/getting-started/",
+      "sourceUrl": "https://ivmf.syracuse.edu/programs/career-training/getting-started/",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "The full list of IT pathways (CompTIA, AWS and others are widely reported) is on a separate Learning Pathways page that was not read. Military status is recorded as need-based because the closed list has no military value.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T21:15:16.082Z"
     },
     {
       "id": "university-of-helsinki-full-stack-open",
@@ -5139,10 +6272,307 @@
         "vendor": "Microsoft",
         "status": "evergreen"
       }
+    },
+    {
+      "eventId": "01M41SWTW8BHCT5H8H2E877BCJ",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T21:14:36.296Z",
+      "offerId": "aws-certified-benefit-50-off-your-next-exam",
+      "payload": {
+        "name": "AWS Certified benefit: 50% off your next exam",
+        "vendor": "AWS",
+        "status": "evergreen"
+      }
+    },
+    {
+      "eventId": "01M41SX3WCV8NM0KRN4G9BX0R6",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T21:14:45.516Z",
+      "offerId": "juniper-networks-juniper-open-learning-75-off-certification",
+      "payload": {
+        "name": "Juniper Open Learning: 75% off certification exams",
+        "vendor": "Juniper Networks",
+        "status": "evergreen"
+      }
+    },
+    {
+      "eventId": "01M41SX7QPWD7V8VK2STPTG4J7",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T21:14:49.462Z",
+      "offerId": "linux-foundation-kubecon-cloudnativecon-na-2026-40-off-certi",
+      "payload": {
+        "name": "KubeCon + CloudNativeCon NA 2026: 40% off certifications",
+        "vendor": "Linux Foundation",
+        "status": "upcoming"
+      }
+    },
+    {
+      "eventId": "01M41SX9PKSX12ERK4XMZTV3NK",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T21:14:51.475Z",
+      "offerId": "salesforce-partner-program-certification-vouchers-2027",
+      "payload": {
+        "name": "Salesforce Partner Program certification vouchers",
+        "vendor": "Salesforce",
+        "status": "active"
+      }
+    },
+    {
+      "eventId": "01M41SXBNZQ5HCEV8N2D53SC9G",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T21:14:53.503Z",
+      "offerId": "mendix-rapid-developer-certification",
+      "payload": {
+        "name": "Mendix Rapid Developer certification",
+        "vendor": "Mendix",
+        "status": "evergreen"
+      }
+    },
+    {
+      "eventId": "01M41SXDAT42F9HQS54FVKCFX1",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T21:14:55.194Z",
+      "offerId": "nvidia-gtc-berlin-2026-free-certification-exams-2026",
+      "payload": {
+        "name": "NVIDIA GTC Berlin 2026: free certification exams",
+        "vendor": "NVIDIA",
+        "status": "upcoming"
+      }
+    },
+    {
+      "eventId": "01M41SXEPDGQVXCZ9Y2FZRM53Q",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T21:14:56.589Z",
+      "offerId": "cisco-live-melbourne-2026-free-certification-exam-2026",
+      "payload": {
+        "name": "Cisco Live Melbourne 2026: free certification exam",
+        "vendor": "Cisco",
+        "status": "upcoming"
+      }
+    },
+    {
+      "eventId": "01M41SXFZT1Z01TQTHNH1N87TP",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T21:14:57.914Z",
+      "offerId": "salesforce-military",
+      "payload": {
+        "name": "Salesforce Military",
+        "vendor": "Salesforce",
+        "status": "evergreen"
+      }
+    },
+    {
+      "eventId": "01M41SXHCMA5TZXQH9P87CQG63",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T21:14:59.348Z",
+      "offerId": "sap-learning-hub-student-edition",
+      "payload": {
+        "name": "SAP Learning Hub, student edition",
+        "vendor": "SAP",
+        "status": "evergreen"
+      }
+    },
+    {
+      "eventId": "01M41SXKCJR9V5QFYRGT1FNPDA",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T21:15:01.394Z",
+      "offerId": "cncf-kubestronaut-five-50-off-certification-coupons-a-year",
+      "payload": {
+        "name": "Kubestronaut: five 50%-off certification coupons a year",
+        "vendor": "CNCF",
+        "status": "evergreen"
+      }
+    },
+    {
+      "eventId": "01M41SXN8KH82R0VGJ7N0158XG",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T21:15:03.315Z",
+      "offerId": "databricks-university-alliance-25-off-certification",
+      "payload": {
+        "name": "Databricks University Alliance: 25% off certification",
+        "vendor": "Databricks",
+        "status": "evergreen"
+      }
+    },
+    {
+      "eventId": "01M41SXQTEVPPH1VFQQJZZZ5Y0",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T21:15:05.934Z",
+      "offerId": "fortinet-veterans-program",
+      "payload": {
+        "name": "Fortinet Veterans Program",
+        "vendor": "Fortinet",
+        "status": "evergreen"
+      }
+    },
+    {
+      "eventId": "01M41SXRTTFGKJNXJ52KA1M2JY",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T21:15:06.970Z",
+      "offerId": "google-cloud-certification-renewal-50-discount",
+      "payload": {
+        "name": "Google Cloud certification renewal: 50% discount",
+        "vendor": "Google Cloud",
+        "status": "evergreen"
+      }
+    },
+    {
+      "eventId": "01M41SXTF0CSJA7M0BZ3CBAGWN",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T21:15:08.640Z",
+      "offerId": "microsoft-certification-student-discounts",
+      "payload": {
+        "name": "Microsoft Certification student discounts",
+        "vendor": "Microsoft",
+        "status": "evergreen"
+      }
+    },
+    {
+      "eventId": "01M41SXVG21FCKDC93S4XV38GH",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T21:15:09.698Z",
+      "offerId": "ibm-techxchange-2026-two-free-certification-exams-2026",
+      "payload": {
+        "name": "IBM TechXchange 2026: two free certification exams",
+        "vendor": "IBM",
+        "status": "upcoming"
+      }
+    },
+    {
+      "eventId": "01M41SXX1XNN4HRR7MSQTG22BD",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T21:15:11.293Z",
+      "offerId": "nvidia-gtc-washington-d-c-2026-free-certification-exams-2026",
+      "payload": {
+        "name": "NVIDIA GTC Washington, D.C. 2026: free certification exams",
+        "vendor": "NVIDIA",
+        "status": "upcoming"
+      }
+    },
+    {
+      "eventId": "01M41SXY9ABFGNQMVD70ND1XSW",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T21:15:12.554Z",
+      "offerId": "github-universe-2026-usd-30-certification-voucher-2026",
+      "payload": {
+        "name": "GitHub Universe 2026: USD 30 certification voucher",
+        "vendor": "GitHub",
+        "status": "upcoming"
+      }
+    },
+    {
+      "eventId": "01M41SXZGY2MJMFHY6DR7ZPSFW",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T21:15:13.822Z",
+      "offerId": "sap-teched-2026-attendee-offer-25-off-sap-certification-2026",
+      "payload": {
+        "name": "SAP TechEd 2026 attendee offer: 25% off SAP Certification",
+        "vendor": "SAP",
+        "status": "active"
+      }
+    },
+    {
+      "eventId": "01M41SY0HSCWB7C873ZE24MNNV",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T21:15:14.873Z",
+      "offerId": "atlassian-certificate-holder-ach-credentials",
+      "payload": {
+        "name": "Atlassian Certificate Holder (ACH) credentials",
+        "vendor": "Atlassian",
+        "status": "evergreen"
+      }
+    },
+    {
+      "eventId": "01M41SY1QJ91N57T6Y0PJMJXQX",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T21:15:16.082Z",
+      "offerId": "syracuse-university-ivmf-onward-to-opportunity-o2o-one-free",
+      "payload": {
+        "name": "Onward to Opportunity (O2O): one free certification exam",
+        "vendor": "Syracuse University IVMF",
+        "status": "evergreen"
+      }
+    },
+    {
+      "eventId": "01M41SY3QQZ9CSCFZT7DCKK0JK",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T21:15:18.135Z",
+      "offerId": "qlik-academic-program",
+      "payload": {
+        "name": "Qlik Academic Program",
+        "vendor": "Qlik",
+        "status": "evergreen"
+      }
+    },
+    {
+      "eventId": "01M41SY4ZPBAFT2HNJYRCQGYAV",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T21:15:19.414Z",
+      "offerId": "aws-re-start",
+      "payload": {
+        "name": "AWS re/Start",
+        "vendor": "AWS",
+        "status": "evergreen"
+      }
+    },
+    {
+      "eventId": "01M41SY60XBQVP4G7NB8Z7WGNX",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T21:15:20.477Z",
+      "offerId": "google-cloud-career-launchpad-50-off-ace-or-cdl",
+      "payload": {
+        "name": "Google Cloud Career Launchpad: 50% off ACE or CDL",
+        "vendor": "Google Cloud",
+        "status": "evergreen"
+      }
+    },
+    {
+      "eventId": "01M41SY7QXJ402FTNP65ZGJ01V",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T21:15:22.237Z",
+      "offerId": "ec-council-c-ct-cyber-career-starter-scholarship",
+      "payload": {
+        "name": "EC-Council C|CT Cyber Career Starter Scholarship",
+        "vendor": "EC-Council",
+        "status": "evergreen"
+      }
+    },
+    {
+      "eventId": "01M41SY9HQP4Q21NE3X0X57CPN",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T21:15:24.087Z",
+      "offerId": "ec-council-essentials-series-scholarship-us-academia",
+      "payload": {
+        "name": "EC-Council Essentials Series scholarship (US academia)",
+        "vendor": "EC-Council",
+        "status": "evergreen"
+      }
+    },
+    {
+      "eventId": "01M41SYB2PGBA41E4F92KG2F65",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T21:15:25.654Z",
+      "offerId": "microsoft-women-in-cloud-microsoft-cybersecurity-scholarship",
+      "payload": {
+        "name": "Women in Cloud Microsoft Cybersecurity Scholarship (SC-900)",
+        "vendor": "Microsoft",
+        "status": "evergreen"
+      }
+    },
+    {
+      "eventId": "01M41SYCYRFVM8RS7TDE8SQWR5",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T21:15:27.576Z",
+      "offerId": "comptia-academic-store-student-discount",
+      "payload": {
+        "name": "CompTIA academic store student discount",
+        "vendor": "CompTIA",
+        "status": "evergreen"
+      }
     }
   ],
   "meta": {
-    "lastPollAt": "2026-10-03T19:07:35.947Z",
+    "lastPollAt": "2026-10-03T21:07:41.051Z",
     "lastStatusRunAt": "2026-10-03T04:17:10.764Z",
     "sourceHealth": {
       "total": 40,
