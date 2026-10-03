@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-03T06:40:44.706Z",
+  "generatedAt": "2026-10-03T06:55:44.803Z",
   "offers": [
     {
       "id": "aws-aif2cloud-2026",
@@ -216,6 +216,47 @@
       "updatedAt": "2026-10-01T15:19:42.754Z"
     },
     {
+      "id": "cisco-python-essentials-1",
+      "name": "Python Essentials 1",
+      "vendor": "Cisco",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "python"
+      ],
+      "certifications": [
+        "Python Essentials 1 digital badge (Cisco with OpenEDG Python Institute)"
+      ],
+      "examCode": null,
+      "whatIsFree": "training-and-badge",
+      "cost": null,
+      "credentialWeight": "low",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Create a free Networking Academy account, complete the course and pass the course test to receive the Credly badge.",
+      "url": "https://www.netacad.com/courses/python-essentials-1",
+      "sourceUrl": "https://www.credly.com/org/cisco/badge/python-essentials-1.1",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "The separate OpenEDG PCEP certification exam is not part of this offer and its price was not checked.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T06:48:00.046Z"
+    },
+    {
       "id": "databricks-accreditations",
       "name": "Databricks Academy accreditations",
       "vendor": "Databricks",
@@ -428,6 +469,47 @@
       "addedBy": "manual",
       "addedAt": "2026-10-01",
       "updatedAt": "2026-10-01T15:19:42.754Z"
+    },
+    {
+      "id": "freecodecamp-data-analysis-with-python-certification",
+      "name": "Data Analysis with Python Certification",
+      "vendor": "freeCodeCamp",
+      "category": "data",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "python"
+      ],
+      "certifications": [
+        "Data Analysis with Python Certification"
+      ],
+      "examCode": null,
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "credentialWeight": "medium",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Complete the five required projects (NumPy, Pandas, Matplotlib, Seaborn).",
+      "url": "https://www.freecodecamp.org/learn/data-analysis-with-python/",
+      "sourceUrl": "https://www.freecodecamp.org/news/freecodecamp-certifications/",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "freeCodeCamp has reorganised its curriculum since the article; open the curriculum link and confirm the certification is still offered under this name before approving.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T06:48:02.266Z"
     },
     {
       "id": "freecodecamp-foundational-csharp",
@@ -1064,6 +1146,91 @@
       "addedBy": "manual",
       "addedAt": "2026-10-01",
       "updatedAt": "2026-10-01T15:19:42.754Z"
+    },
+    {
+      "id": "harvard-cs50-cs50p-introduction-to-programming-with-python",
+      "name": "CS50P: Introduction to Programming with Python",
+      "vendor": "Harvard CS50",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "python"
+      ],
+      "certifications": [
+        "CS50 Certificate (CS50P)"
+      ],
+      "examCode": null,
+      "whatIsFree": "training-and-badge",
+      "cost": null,
+      "credentialWeight": "medium",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Submit every problem and the final project and score at least 70% on each.",
+      "url": "https://cs50.harvard.edu/python/",
+      "sourceUrl": "https://cs50.harvard.edu/python/certificate/",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "The edX verified certificate for the same course is a separate, paid option.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T06:46:45.307Z"
+    },
+    {
+      "id": "harvard-cs50-cs50w-web-programming-with-python-and-javascrip",
+      "name": "CS50W: Web Programming with Python and JavaScript",
+      "vendor": "Harvard CS50",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "python",
+        "javascript",
+        "react",
+        "sql"
+      ],
+      "certifications": [
+        "CS50 Certificate (CS50W)"
+      ],
+      "examCode": null,
+      "whatIsFree": "training-and-badge",
+      "cost": null,
+      "credentialWeight": "medium",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Submit every project, including the final project, and score at least 70% on each. CS50x or prior programming experience is expected.",
+      "url": "https://cs50.harvard.edu/web/",
+      "sourceUrl": "https://cs50.harvard.edu/web/certificate/",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "Uses Django, React and Bootstrap. The edX verified certificate is a separate, paid option.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T06:47:57.366Z"
     },
     {
       "id": "hashiconf-2026-attendee-exams",
@@ -2516,6 +2683,47 @@
       "addedBy": "scan",
       "addedAt": "2026-10-03",
       "updatedAt": "2026-10-03T06:38:00.384Z"
+    },
+    {
+      "id": "university-of-helsinki-python-programming-mooc-2026",
+      "name": "Python Programming MOOC 2026",
+      "vendor": "University of Helsinki",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "python"
+      ],
+      "certifications": [
+        "Course certificate (not confirmed on the course page)"
+      ],
+      "examCode": null,
+      "whatIsFree": "training-and-badge",
+      "cost": null,
+      "credentialWeight": "low",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": "2026-12-31",
+      "status": "active",
+      "recurring": {
+        "isRecurring": true,
+        "cadence": "yearly",
+        "expectedNextWindow": "2027 edition",
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Complete the programming exercises and take part in an exam.",
+      "url": "https://programming-26.mooc.fi/",
+      "sourceUrl": "https://programming-26.mooc.fi/",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "Whether a certificate is issued, and whether it is free, was not confirmed. Dismiss unless the course's FAQ says so.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T06:48:03.688Z"
     },
     {
       "id": "yes-microsoft-ai-skills-south-africa-2026",
@@ -4500,6 +4708,61 @@
         "name": "Full Stack Open",
         "vendor": "University of Helsinki",
         "status": "evergreen"
+      }
+    },
+    {
+      "eventId": "01M4087R9VF8M4NM870824S52A",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T06:46:45.307Z",
+      "offerId": "harvard-cs50-cs50p-introduction-to-programming-with-python",
+      "payload": {
+        "name": "CS50P: Introduction to Programming with Python",
+        "vendor": "Harvard CS50",
+        "status": "evergreen"
+      }
+    },
+    {
+      "eventId": "01M4089YNPT3XH6KFETTXS3EXS",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T06:47:57.366Z",
+      "offerId": "harvard-cs50-cs50w-web-programming-with-python-and-javascrip",
+      "payload": {
+        "name": "CS50W: Web Programming with Python and JavaScript",
+        "vendor": "Harvard CS50",
+        "status": "evergreen"
+      }
+    },
+    {
+      "eventId": "01M408A19E5XVKP385G2Z07DEX",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T06:48:00.046Z",
+      "offerId": "cisco-python-essentials-1",
+      "payload": {
+        "name": "Python Essentials 1",
+        "vendor": "Cisco",
+        "status": "evergreen"
+      }
+    },
+    {
+      "eventId": "01M408A3ET8B7Q05N4JE04JHA3",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T06:48:02.266Z",
+      "offerId": "freecodecamp-data-analysis-with-python-certification",
+      "payload": {
+        "name": "Data Analysis with Python Certification",
+        "vendor": "freeCodeCamp",
+        "status": "evergreen"
+      }
+    },
+    {
+      "eventId": "01M408A4V86ZPYD0Q5BTXKM6T6",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T06:48:03.688Z",
+      "offerId": "university-of-helsinki-python-programming-mooc-2026",
+      "payload": {
+        "name": "Python Programming MOOC 2026",
+        "vendor": "University of Helsinki",
+        "status": "active"
       }
     }
   ],
