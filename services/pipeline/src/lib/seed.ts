@@ -5,6 +5,7 @@ import {
   OfferSchema,
   SourceSchema,
   type CatalogEntry,
+  type CostToYou,
   type Offer,
   type Source,
   type Technology,
@@ -79,6 +80,25 @@ export function planTaxonomyBackfill(
       continue;
     }
     plan.push({ id: offer.id, tracks: from.tracks, technologies: from.technologies });
+  }
+  return plan;
+}
+
+export interface CostBackfill {
+  id: string;
+  costToYou: CostToYou;
+}
+
+// offers stored before costToYou existed take the seed's value; one already set in the table is
+// never overwritten by a re-import
+export function planCostBackfill(stored: readonly Offer[], seed: readonly Offer[]): CostBackfill[] {
+  const wanted = new Map(seed.map((offer) => [offer.id, offer.costToYou]));
+  const plan: CostBackfill[] = [];
+  for (const offer of stored) {
+    const costToYou = wanted.get(offer.id);
+    if (offer.costToYou === undefined && costToYou !== undefined) {
+      plan.push({ id: offer.id, costToYou });
+    }
   }
   return plan;
 }

@@ -2,6 +2,7 @@ import { GetCommand, PutCommand, QueryCommand, UpdateCommand } from '@aws-sdk/li
 
 import {
   OfferSchema,
+  type CostToYou,
   type Offer,
   type OfferStatus,
   type Technology,
@@ -93,6 +94,25 @@ export async function setOfferTaxonomy(
 }
 
 // a Put for a transaction: the auto-accept path creates the offer alongside its candidate
+export async function setOfferCostToYou(
+  doc: DocClient,
+  table: string,
+  id: string,
+  costToYou: CostToYou,
+  now: Date,
+): Promise<void> {
+  await doc.send(
+    new UpdateCommand({
+      TableName: table,
+      Key: offerKey(id),
+      UpdateExpression: 'SET costToYou = :cost, updatedAt = :now',
+      // only fills a gap: a value set since the plan was made stays
+      ConditionExpression: 'attribute_exists(PK) AND attribute_not_exists(costToYou)',
+      ExpressionAttributeValues: { ':cost': costToYou, ':now': now.toISOString() },
+    }),
+  );
+}
+
 export function offerPutItem(table: string, offer: Offer): Record<string, unknown> {
   return {
     Put: {

@@ -237,6 +237,7 @@
       "examCode": null,
       "whatIsFree": "full-exam",
       "cost": null,
+      "costToYou": "purchase-first",
       "credentialWeight": "medium",
       "eligibility": ["need-based", "customer"],
       "regions": "Global",

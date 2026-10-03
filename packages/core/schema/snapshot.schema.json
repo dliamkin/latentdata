@@ -129,6 +129,15 @@
               "null"
             ]
           },
+          "costToYou": {
+            "type": "string",
+            "enum": [
+              "nothing",
+              "purchase-first",
+              "reduced-price",
+              "certificate-fee"
+            ]
+          },
           "credentialWeight": {
             "type": "string",
             "enum": [

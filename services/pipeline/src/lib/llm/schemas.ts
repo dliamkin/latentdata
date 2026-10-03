@@ -2,6 +2,7 @@ import { z } from 'zod';
 
 import {
   CONFIDENCES,
+  COSTS_TO_YOU,
   CREDENTIAL_WEIGHTS,
   ELIGIBILITIES,
   OFFER_CATEGORIES,
@@ -37,6 +38,7 @@ export const ExtractionSchema = z.object({
   examCode: z.string().nullable(),
   whatIsFree: z.enum(WHAT_IS_FREE),
   cost: z.string().nullable(),
+  costToYou: z.enum(COSTS_TO_YOU),
   credentialWeight: z.enum(CREDENTIAL_WEIGHTS),
   eligibility: z.array(z.enum(ELIGIBILITIES)),
   regions: z.string(),

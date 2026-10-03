@@ -71,6 +71,19 @@ export const WHAT_IS_FREE = [
   'training-and-badge',
   'training-only',
 ] as const;
+// what the person still pays, the part whatIsFree cannot say: a free exam for conference
+// attendees is not free when the ticket is not
+//   nothing         no money changes hands at any point
+//   purchase-first  free or discounted only after buying something else: an event ticket, a
+//                   subscription, another exam
+//   reduced-price   a discount; the rest of the fee is still due
+//   certificate-fee the training is free and the certificate is sold
+export const COSTS_TO_YOU = [
+  'nothing',
+  'purchase-first',
+  'reduced-price',
+  'certificate-fee',
+] as const;
 export const CREDENTIAL_WEIGHTS = ['high', 'medium', 'low'] as const;
 export const ELIGIBILITIES = [
   'public',
@@ -97,6 +110,7 @@ export const OfferCategorySchema = z.enum(OFFER_CATEGORIES);
 export const TrackSchema = z.enum(TRACKS);
 export const TechnologySchema = z.enum(TECHNOLOGIES);
 export const WhatIsFreeSchema = z.enum(WHAT_IS_FREE);
+export const CostToYouSchema = z.enum(COSTS_TO_YOU);
 export const CredentialWeightSchema = z.enum(CREDENTIAL_WEIGHTS);
 export const EligibilitySchema = z.enum(ELIGIBILITIES);
 export const OfferStatusSchema = z.enum(OFFER_STATUSES);
@@ -107,6 +121,7 @@ export type Track = z.infer<typeof TrackSchema>;
 export type Technology = z.infer<typeof TechnologySchema>;
 export type TechnologyGroup = keyof typeof TECHNOLOGY_GROUPS;
 export type WhatIsFree = z.infer<typeof WhatIsFreeSchema>;
+export type CostToYou = z.infer<typeof CostToYouSchema>;
 export type CredentialWeight = z.infer<typeof CredentialWeightSchema>;
 export type Eligibility = z.infer<typeof EligibilitySchema>;
 export type OfferStatus = z.infer<typeof OfferStatusSchema>;
@@ -130,6 +145,8 @@ const offerFields = {
   examCode: z.string().nullable(),
   whatIsFree: WhatIsFreeSchema,
   cost: z.string().nullable(),
+  // optional so items written before the field existed still parse; costToYouOf() fills the gap
+  costToYou: CostToYouSchema.optional(),
   credentialWeight: CredentialWeightSchema,
   eligibility: z.array(EligibilitySchema).min(1),
   regions: z.string().min(1),
@@ -148,6 +165,7 @@ const offerFields = {
 interface OfferInvariantInput {
   whatIsFree: WhatIsFree;
   cost: string | null;
+  costToYou?: CostToYou | undefined;
   windowStart: string | null;
   windowEnd: string | null;
 }
@@ -160,6 +178,19 @@ function offerInvariants(value: OfferInvariantInput, ctx: z.RefinementCtx): void
   }
   if (!partial && value.cost !== null) {
     ctx.addIssue({ code: 'custom', path: ['cost'], message: 'only partial offers carry a cost' });
+  }
+  // the two fields answer different questions but must not contradict each other
+  const paidKind = partial || value.whatIsFree === 'training-only';
+  if (
+    (value.costToYou === 'nothing' && paidKind) ||
+    (value.costToYou === 'reduced-price' && !partial) ||
+    (value.costToYou === 'certificate-fee' && value.whatIsFree !== 'training-only')
+  ) {
+    ctx.addIssue({
+      code: 'custom',
+      path: ['costToYou'],
+      message: `costToYou '${value.costToYou}' contradicts whatIsFree '${value.whatIsFree}'`,
+    });
   }
   if (
     value.windowStart !== null &&

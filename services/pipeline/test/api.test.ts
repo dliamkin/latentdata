@@ -182,6 +182,16 @@ describe('approving a candidate', () => {
     });
   });
 
+  it('carries what the offer costs from the candidate to the offer', async () => {
+    mock
+      .on(GetCommand)
+      .resolves({ Item: candidateToItem(candidate({ costToYou: 'purchase-first' })) });
+    mock.on(QueryCommand).resolves({ Items: [] });
+    mock.on(TransactWriteCommand).resolves({});
+    const reply = await routeRequest(approve(), deps);
+    expect(reply.body.offer).toMatchObject({ costToYou: 'purchase-first' });
+  });
+
   it('marks an offer whose window has not opened as upcoming', async () => {
     mock
       .on(GetCommand)

@@ -36,6 +36,7 @@ export function promoteCandidate(
     examCode: candidate.examCode,
     whatIsFree: candidate.whatIsFree,
     cost: candidate.cost,
+    costToYou: candidate.costToYou,
     credentialWeight: candidate.credentialWeight,
     eligibility: candidate.eligibility,
     regions: candidate.regions,

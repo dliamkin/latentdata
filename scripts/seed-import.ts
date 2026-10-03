@@ -10,6 +10,7 @@ import {
   putCatalogEntry,
   putOfferIfAbsent,
   putSourceIfAbsent,
+  setOfferCostToYou,
   setOfferTaxonomy,
   setSourceKeywords,
   setSystemMeta,
@@ -21,6 +22,7 @@ import {
   normalizeOffers,
   normalizeSources,
   planCatalogSync,
+  planCostBackfill,
   planKeywordTopUp,
   planTaxonomyBackfill,
 } from '@cert-tracker/pipeline/seed';
@@ -72,6 +74,9 @@ for (const entry of backfill) {
   await setOfferTaxonomy(doc, table, entry.id, entry, now);
 }
 
+const costs = planCostBackfill(await listOffers(doc, table), offers);
+for (const entry of costs) await setOfferCostToYou(doc, table, entry.id, entry.costToYou, now);
+
 const topUp = planKeywordTopUp(await listSources(doc, table), sources);
 for (const entry of topUp) await setSourceKeywords(doc, table, entry.sourceId, entry);
 
@@ -79,7 +84,13 @@ const sync = planCatalogSync(await listCatalog(doc, table), catalog);
 for (const entry of sync.put) await putCatalogEntry(doc, table, entry);
 for (const id of sync.remove) await deleteCatalogEntry(doc, table, id);
 
-if (tally.created > 0 || backfill.length > 0 || sync.put.length > 0 || sync.remove.length > 0) {
+if (
+  tally.created > 0 ||
+  backfill.length > 0 ||
+  costs.length > 0 ||
+  sync.put.length > 0 ||
+  sync.remove.length > 0
+) {
   // without this the publisher would see nothing new and leave the site on the old snapshot
   await setSystemMeta(doc, table, { lastChangeAt: new Date().toISOString() });
 }
@@ -88,7 +99,7 @@ console.log(
   `offers and sources: created ${String(tally.created)}, present ${String(tally.exists)}`,
 );
 console.log(
-  `repairs: ${String(backfill.length)} offers classified, ${String(topUp.length)} sources re-keyworded`,
+  `repairs: ${String(backfill.length)} offers classified, ${String(costs.length)} given a cost, ${String(topUp.length)} sources re-keyworded`,
 );
 console.log(
   `catalog: ${String(sync.put.length)} written, ${String(sync.remove.length)} removed, ${String(catalog.length - sync.put.length)} unchanged`,
