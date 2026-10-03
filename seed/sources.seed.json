@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-01",
+  "generatedAt": "2026-10-03",
   "note": "Initial signal sources. Feed URLs must be verified on day one (M3) and recorded fixtures committed under fixtures/sources/. A source that cannot be fetched from AWS IPs stays enabled:false with a reason.",
   "defaults": {
     "pollIntervalMinutes": 120,
@@ -455,6 +455,112 @@
       "enabled": true,
       "tags": ["vendor-page"],
       "notes": "www.pmi.org itself sits behind a Cloudflare challenge (403), so Pearson VUE is the reachable surface. Path allowed by robots.txt."
+    },
+    {
+      "sourceId": "page-coursera-professional-certificates",
+      "kind": "page-diff",
+      "vendor": "Coursera",
+      "url": "https://www.coursera.org/professional-certificates",
+      "pollIntervalMinutes": 720,
+      "enabled": true,
+      "tags": ["catalog-page"],
+      "keywordsInclude": ["professional certificate"],
+      "notes": "Listing page; the server-rendered part shows about 15 programmes (4,600 characters of text), so a change means a newly featured one. Allowed by robots.txt and stable between fetches on 2026-10-03."
+    },
+    {
+      "sourceId": "page-anthropic-academy",
+      "kind": "page-diff",
+      "vendor": "Anthropic",
+      "url": "https://anthropic.skilljar.com/",
+      "pollIntervalMinutes": 720,
+      "enabled": true,
+      "tags": ["catalog-page"],
+      "keywordsInclude": ["claude", "course", "mcp"],
+      "notes": "Skilljar catalogue of free courses with certificates; course titles rarely say \"free\", hence the extra keywords."
+    },
+    {
+      "sourceId": "page-snowflake-courses",
+      "kind": "page-diff",
+      "vendor": "Snowflake",
+      "url": "https://learn.snowflake.com/en/courses/",
+      "pollIntervalMinutes": 720,
+      "enabled": true,
+      "tags": ["catalog-page"],
+      "keywordsInclude": ["free", "badge"],
+      "notes": "Catalogue with FREE/PAID labels per course, including the Hands-On Essentials badge workshops. robots.txt answered 530, which the adapter treats as allowed."
+    },
+    {
+      "sourceId": "page-confluent-certificates",
+      "kind": "page-diff",
+      "vendor": "Confluent",
+      "url": "https://developer.confluent.io/certificates/",
+      "pollIntervalMinutes": 720,
+      "enabled": true,
+      "tags": ["vendor-page"],
+      "keywordsInclude": ["certificate", "free"],
+      "notes": "Free Data Streaming Engineer certificate exams are announced here."
+    },
+    {
+      "sourceId": "page-semrush-academy-certification",
+      "kind": "page-diff",
+      "vendor": "Semrush",
+      "url": "https://www.semrush.com/academy/certification/",
+      "pollIntervalMinutes": 720,
+      "enabled": true,
+      "tags": ["catalog-page"],
+      "keywordsInclude": ["certification", "course"]
+    },
+    {
+      "sourceId": "page-apisec-university",
+      "kind": "page-diff",
+      "vendor": "APIsec University",
+      "url": "https://au.apisec.ai/",
+      "pollIntervalMinutes": 720,
+      "enabled": true,
+      "tags": ["catalog-page"],
+      "keywordsInclude": ["free", "course"],
+      "notes": "www.apisecuniversity.com redirects here. Course list with Free tags."
+    },
+    {
+      "sourceId": "page-aws-training-badges",
+      "kind": "page-diff",
+      "vendor": "AWS",
+      "url": "https://aws.amazon.com/training/badges/",
+      "pollIntervalMinutes": 720,
+      "enabled": true,
+      "tags": ["vendor-page"],
+      "keywordsInclude": ["badge", "free to earn"]
+    },
+    {
+      "sourceId": "page-aws-cert-wiki-vouchers",
+      "kind": "page-diff",
+      "vendor": "AWS",
+      "url": "https://awscertifications.github.io/AWSCertificationsWiki/vouchers-discounts/",
+      "pollIntervalMinutes": 360,
+      "enabled": true,
+      "tags": ["tracker"],
+      "notes": "Community-maintained list of AWS voucher and discount campaigns, last updated June 2026. A lead source only; verify on an AWS page."
+    },
+    {
+      "sourceId": "page-nvidia-training",
+      "kind": "page-diff",
+      "vendor": "NVIDIA",
+      "url": "https://www.nvidia.com/en-us/training/",
+      "pollIntervalMinutes": 360,
+      "enabled": true,
+      "tags": ["vendor-page"],
+      "keywordsInclude": ["certification", "gtc", "no cost"],
+      "notes": "Announces the free on-site certification exams at each GTC."
+    },
+    {
+      "sourceId": "page-ms-credentials-ai-challenge",
+      "kind": "page-diff",
+      "vendor": "Microsoft",
+      "url": "https://learn.microsoft.com/en-us/credentials/microsoft-credentials-ai-challenge",
+      "pollIntervalMinutes": 360,
+      "enabled": true,
+      "tags": ["vendor-page"],
+      "notes": "Microsoft's recurring Applied Skills challenge page; the last window ran 20 January to 2 March 2026."
     }
   ]
 }
