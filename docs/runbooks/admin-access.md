@@ -124,5 +124,10 @@ aws cognito-idp admin-set-user-mfa-preference \
 The next sign-in then asks to enrol a new authenticator. Re-enrol straight away: the account has
 no second factor until you do.
 
+**Putting an offer you found yourself into the queue.** Write it into a JSON file shaped like
+`seed/candidates.review.json` and run `npm run candidate:add -- --stage prod --file <file>`
+(`--dry-run` first). It lands in the Review tab like anything the pipeline finds, and entries
+already queued, decided or published are skipped.
+
 **A second admin.** `admin-create-user`, then `admin-add-user-to-group` with `admins`. No deploy,
 no code change.
