@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-03T06:55:44.803Z",
+  "generatedAt": "2026-10-03T16:25:44.779Z",
   "offers": [
     {
       "id": "aws-aif2cloud-2026",
@@ -255,6 +255,47 @@
       "addedBy": "scan",
       "addedAt": "2026-10-03",
       "updatedAt": "2026-10-03T06:48:00.046Z"
+    },
+    {
+      "id": "coddy-rust-certification",
+      "name": "Coddy Rust Certification",
+      "vendor": "Coddy",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "rust"
+      ],
+      "certifications": [
+        "Coddy Rust certificate (one per section of the Rust journey)"
+      ],
+      "examCode": null,
+      "whatIsFree": "training-and-badge",
+      "cost": null,
+      "credentialWeight": "low",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Finish every lesson and challenge in a section of the Rust journey; the certificate is generated automatically.",
+      "url": "https://coddy.tech/certification/rust",
+      "sourceUrl": "https://coddy.tech/certification/rust",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "Coddy is a small interactive-course platform; the certificate shows completion, and no employer recognition is claimed.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T16:13:27.779Z"
     },
     {
       "id": "databricks-accreditations",
@@ -1441,6 +1482,47 @@
       "updatedAt": "2026-10-01T15:19:42.754Z"
     },
     {
+      "id": "linux-foundation-getting-started-with-rust-lfel1002",
+      "name": "Getting Started with Rust (LFEL1002)",
+      "vendor": "Linux Foundation",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "rust"
+      ],
+      "certifications": [
+        "Getting Started with Rust digital badge"
+      ],
+      "examCode": "LFEL1002",
+      "whatIsFree": "training-and-badge",
+      "cost": null,
+      "credentialWeight": "low",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Enrol for free and finish the 60 to 90 minute course within the 30 days of access.",
+      "url": "https://training.linuxfoundation.org/express-learning/getting-started-with-rust-lfel1002/",
+      "sourceUrl": "https://training.linuxfoundation.org/express-learning/getting-started-with-rust-lfel1002/",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "An introduction, not a proficiency exam. The Linux Foundation's own announcement also mentions a certificate of completion; the course page names only the badge.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T16:13:21.419Z"
+    },
+    {
       "id": "linux-foundation-introduction-to-linux",
       "name": "Introduction to Linux (LFS101)",
       "vendor": "Linux Foundation",
@@ -1607,6 +1689,48 @@
       "addedBy": "manual",
       "addedAt": "2026-09-05",
       "updatedAt": "2026-10-01T15:19:42.754Z"
+    },
+    {
+      "id": "microsoft-applied-skills-get-started-with-classes-properties",
+      "name": "Applied Skills: Get started with classes, properties, and methods in C#",
+      "vendor": "Microsoft",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "csharp",
+        "dotnet"
+      ],
+      "certifications": [
+        "Microsoft Applied Skills: Get started with classes, properties, and methods in C#"
+      ],
+      "examCode": "APL-0200",
+      "whatIsFree": "full-exam",
+      "cost": null,
+      "credentialWeight": "medium",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Sign in to Microsoft Learn and pass the interactive lab assessment. A failed attempt can be relaunched after 72 hours.",
+      "url": "https://learn.microsoft.com/en-us/credentials/applied-skills/get-started-with-classes-properties-and-methods-in-c-sharp/",
+      "sourceUrl": "https://learn.microsoft.com/en-us/training/student-hub/credentials",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "The site already carries Applied Skills as one general offer; this is the C# credential on its own so it is findable under C# and .NET. The exam code is taken from the study guide link (APL0200) and should be checked.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T16:13:35.637Z"
     },
     {
       "id": "microsoft-build-2026-voucher",
@@ -2550,6 +2674,132 @@
       "addedBy": "manual",
       "addedAt": "2026-10-01",
       "updatedAt": "2026-10-01T15:19:42.754Z"
+    },
+    {
+      "id": "scholarhat-asp-net-core-free-course-with-certificate",
+      "name": "ASP.NET Core free course with certificate",
+      "vendor": "ScholarHat",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "csharp",
+        "dotnet"
+      ],
+      "certifications": [
+        "ScholarHat ASP.NET Core course certificate"
+      ],
+      "examCode": null,
+      "whatIsFree": "training-and-badge",
+      "cost": null,
+      "credentialWeight": "low",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Enrol, complete all the required modules and pass the final assessment or quiz.",
+      "url": "https://www.scholarhat.com/free-course/asp-net-core-course",
+      "sourceUrl": "https://www.scholarhat.com/free-course/asp-net-core-course",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "ScholarHat is run by Dot Net Tricks Innovation Pvt. Ltd., a training company that sells paid programmes alongside this course.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T16:13:09.698Z"
+    },
+    {
+      "id": "simplilearn-angular-basics-free-course",
+      "name": "Angular Basics free course",
+      "vendor": "Simplilearn",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "angular",
+        "typescript"
+      ],
+      "certifications": [
+        "SkillUp course completion certificate: Angular Basics"
+      ],
+      "examCode": null,
+      "whatIsFree": "training-and-badge",
+      "cost": null,
+      "credentialWeight": "low",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Enrol on SkillUp and complete the 3 hours of video lessons within the 90 days of access.",
+      "url": "https://www.simplilearn.com/learn-angular-basics-free-course-skillup",
+      "sourceUrl": "https://www.simplilearn.com/learn-angular-basics-free-course-skillup",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "A completion certificate, not an accredited certification. Simplilearn uses SkillUp to advertise its paid programmes.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T16:13:31.815Z"
+    },
+    {
+      "id": "simplilearn-asp-net-free-course",
+      "name": "ASP.NET free course",
+      "vendor": "Simplilearn",
+      "category": "dev",
+      "tracks": [
+        "software"
+      ],
+      "technologies": [
+        "csharp",
+        "dotnet"
+      ],
+      "certifications": [
+        "SkillUp course completion certificate: ASP.NET"
+      ],
+      "examCode": null,
+      "whatIsFree": "training-and-badge",
+      "cost": null,
+      "credentialWeight": "low",
+      "eligibility": [
+        "public"
+      ],
+      "regions": "Global",
+      "windowStart": null,
+      "windowEnd": null,
+      "status": "evergreen",
+      "recurring": {
+        "isRecurring": false,
+        "cadence": null,
+        "expectedNextWindow": null,
+        "expectedNextWindowDate": null
+      },
+      "requirements": "Enrol on SkillUp and complete the 2 hours of video lessons within the 90 days of access.",
+      "url": "https://www.simplilearn.com/free-asp-net-course-skillup",
+      "sourceUrl": "https://www.simplilearn.com/free-asp-net-course-skillup",
+      "lastVerified": "2026-10-03",
+      "verificationNote": "approved in review on 2026-10-03",
+      "notes": "A completion certificate, not an accredited certification.",
+      "addedBy": "scan",
+      "addedAt": "2026-10-03",
+      "updatedAt": "2026-10-03T16:13:05.261Z"
     },
     {
       "id": "snowflake-pearson-20-off-2026",
@@ -4764,10 +5014,76 @@
         "vendor": "University of Helsinki",
         "status": "active"
       }
+    },
+    {
+      "eventId": "01M418MQVDEM7WS4TWBPR4HA2W",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T16:13:05.261Z",
+      "offerId": "simplilearn-asp-net-free-course",
+      "payload": {
+        "name": "ASP.NET free course",
+        "vendor": "Simplilearn",
+        "status": "evergreen"
+      }
+    },
+    {
+      "eventId": "01M418MW62SJQ46BS83SKKR6KH",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T16:13:09.698Z",
+      "offerId": "scholarhat-asp-net-core-free-course-with-certificate",
+      "payload": {
+        "name": "ASP.NET Core free course with certificate",
+        "vendor": "ScholarHat",
+        "status": "evergreen"
+      }
+    },
+    {
+      "eventId": "01M418N7MBVRW6QZM9A0GMRRG7",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T16:13:21.419Z",
+      "offerId": "linux-foundation-getting-started-with-rust-lfel1002",
+      "payload": {
+        "name": "Getting Started with Rust (LFEL1002)",
+        "vendor": "Linux Foundation",
+        "status": "evergreen"
+      }
+    },
+    {
+      "eventId": "01M418NDV3J7K3AN6G42NBFWNE",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T16:13:27.779Z",
+      "offerId": "coddy-rust-certification",
+      "payload": {
+        "name": "Coddy Rust Certification",
+        "vendor": "Coddy",
+        "status": "evergreen"
+      }
+    },
+    {
+      "eventId": "01M418NHS7KA3JYG4CHCP52CSX",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T16:13:31.815Z",
+      "offerId": "simplilearn-angular-basics-free-course",
+      "payload": {
+        "name": "Angular Basics free course",
+        "vendor": "Simplilearn",
+        "status": "evergreen"
+      }
+    },
+    {
+      "eventId": "01M418NNGN0QD67PSKNPVDFHM0",
+      "type": "offer.discovered",
+      "occurredAt": "2026-10-03T16:13:35.637Z",
+      "offerId": "microsoft-applied-skills-get-started-with-classes-properties",
+      "payload": {
+        "name": "Applied Skills: Get started with classes, properties, and methods in C#",
+        "vendor": "Microsoft",
+        "status": "evergreen"
+      }
     }
   ],
   "meta": {
-    "lastPollAt": "2026-10-03T06:07:32.152Z",
+    "lastPollAt": "2026-10-03T16:07:33.348Z",
     "lastStatusRunAt": "2026-10-03T04:17:10.764Z",
     "sourceHealth": {
       "total": 30,
