@@ -44,7 +44,7 @@ than it should be here:
   `ALLOW_REFRESH_TOKEN_AUTH`. Left absent, CDK sets no list and CloudFormation falls back to
   allowing SRP and custom auth.
 - A 30-minute ID token and an 8-hour refresh token, so a stolen token dies the same working day
-  and MFA runs daily. Refresh token rotation stays off: setting a grace period makes CDK drop
+  and MFA runs daily. (The web app never stores the refresh token at all; see Consequences.) Refresh token rotation stays off: setting a grace period makes CDK drop
   `ALLOW_REFRESH_TOKEN_AUTH`.
 - The classic hosted pages, not managed login v2. v2 exists for the branding designer and for
   passkeys as a first factor, passkeys need a paid tier, and a v2 domain serves a broken sign-in
@@ -68,7 +68,13 @@ route expects — a Cognito access token carries `client_id` where an ID token c
 - $0 at this volume. Lite's free allowance is far above one monthly active user.
 - The bearer token, the `tokenHash` SSM parameter and the `Authenticator` interface are not built.
   The "rotate admin token" runbook in §13 of the brief becomes "revoke a session".
-- The admin UI's token dialog is replaced by the PKCE redirect in the next increment. Until then
-  the Review tab stays inert, and the API answers 401 to everything but `/health`.
+- The browser keeps the ID token in `sessionStorage` and nothing else. The refresh token that
+  comes back with it is dropped on the floor: no credential that outlives half an hour is ever
+  stored where a script could read it, and the price is a trip back through the hosted pages when
+  the token runs out. The API has no cookie to ride on, so there is no CSRF surface either.
+- The hosted pages return to the site root, not a callback path. The app routes on the hash, and
+  the root does not depend on the host's fallback for unknown paths.
+- The site has no Content-Security-Policy yet. With a token in `sessionStorage` that is the next
+  hardening step worth taking, as a `_headers` file on Pages.
 - `infra/test/stacks.test.ts` asserts each hardening decision above, so a later edit that drops
   one fails the build rather than quietly widening access.

@@ -1,9 +1,11 @@
 import { act, render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { axe } from 'vitest-axe';
 
+import { ADMIN_TOKEN_KEY, savePending } from './admin/auth.ts';
 import App from './App.tsx';
+import { API, AUTH, candidate, fakeToken, stubAdminEnv, stubFetch } from './test/admin.ts';
 
 describe('App', () => {
   it('renders the landmarks and the public tabs', async () => {
@@ -105,14 +107,69 @@ describe('App', () => {
     });
   });
 
-  it('shows the Review tab once a token is entered', async () => {
-    const user = userEvent.setup();
+  it('says sign-in is not set up in a build without the admin settings', async () => {
     window.history.replaceState(null, '', '/?admin');
     render(<App />);
-    await user.type(screen.getByLabelText('Admin token'), 'secret');
-    await user.click(screen.getByRole('button', { name: 'Enter admin mode' }));
-    expect(screen.getByRole('tab', { name: /Review/ })).toBeInTheDocument();
-    expect(window.sessionStorage.getItem('cert-tracker:admin-token:v1')).toBe('secret');
+    const dialog = await screen.findByRole('dialog', { name: 'Enter admin mode' });
+    expect(dialog).toHaveTextContent('not set up in this build');
+    expect(screen.getByRole('button', { name: 'Sign in' })).toBeDisabled();
     window.history.replaceState(null, '', '/');
+  });
+
+  it('ignores whatever an older build left in the token slot', () => {
+    // the dialog used to accept any string; none of them is a session
+    window.sessionStorage.setItem(ADMIN_TOKEN_KEY, 'secret');
+    render(<App />);
+    expect(screen.queryByRole('tab', { name: /Review/ })).not.toBeInTheDocument();
+  });
+
+  describe('with admin sign-in configured', () => {
+    beforeEach(() => {
+      stubAdminEnv();
+    });
+
+    afterEach(() => {
+      vi.unstubAllEnvs();
+      vi.unstubAllGlobals();
+      window.history.replaceState(null, '', '/');
+    });
+
+    it('shows the Review tab while the session token is live', () => {
+      stubFetch({ [`GET ${API}/admin/candidates`]: { body: { candidates: [] } } });
+      window.sessionStorage.setItem(ADMIN_TOKEN_KEY, fakeToken());
+      render(<App />);
+      expect(screen.getByRole('tab', { name: /Review/ })).toBeInTheDocument();
+    });
+
+    it('finishes the sign-in when the hosted pages send the browser back', async () => {
+      const idToken = fakeToken();
+      const fetcher = stubFetch({
+        [`POST ${AUTH}/oauth2/token`]: { body: { id_token: idToken } },
+        [`GET ${API}/admin/candidates`]: { body: { candidates: [candidate()] } },
+      });
+      savePending({ state: 's1', verifier: 'v1' });
+      window.history.replaceState(null, '', '/?code=abc&state=s1');
+      render(<App />);
+      expect(
+        await screen.findByRole('tab', { name: /Review/, selected: true }),
+      ).toBeInTheDocument();
+      expect(
+        await screen.findByRole('heading', { level: 3, name: 'Vendor free exam week' }),
+      ).toBeInTheDocument();
+      expect(window.sessionStorage.getItem(ADMIN_TOKEN_KEY)).toBe(idToken);
+      // the one-time code must not stay in the address bar
+      expect(window.location.search).toBe('');
+      expect(fetcher).toHaveBeenCalledWith(`${AUTH}/oauth2/token`, expect.anything());
+    });
+
+    it('opens the dialog with the reason when the sign-in does not check out', async () => {
+      stubFetch({});
+      savePending({ state: 's1', verifier: 'v1' });
+      window.history.replaceState(null, '', '/?code=abc&state=forged');
+      render(<App />);
+      const dialog = await screen.findByRole('dialog', { name: 'Enter admin mode' });
+      expect(dialog).toHaveTextContent('did not start in this tab');
+      expect(screen.queryByRole('tab', { name: /Review/ })).not.toBeInTheDocument();
+    });
   });
 });

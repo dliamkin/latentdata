@@ -30,8 +30,14 @@ const STORED: readonly StoreRow[] = [
   {
     key: 'cert-tracker:admin-token:v1',
     where: 'sessionStorage',
-    what: "The site owner's admin token. It is not created for ordinary visitors.",
+    what: "The site owner's sign-in token, good for half an hour. It is not created for ordinary visitors.",
     when: 'Only if the owner signs in to admin mode. It is deleted when the tab closes.',
+  },
+  {
+    key: 'cert-tracker:admin-signin:v1',
+    where: 'sessionStorage',
+    what: 'Two random values that tie a sign-in to the tab that started it. Not created for ordinary visitors.',
+    when: 'Only when the owner presses Sign in, and removed as soon as the sign-in page sends them back.',
   },
 ];
 
@@ -40,7 +46,7 @@ export default function PrivacyPage() {
     <article className="doc">
       <header className="doc-head">
         <h2>Privacy</h2>
-        <p className="doc-meta">Last updated 1 October 2026</p>
+        <p className="doc-meta">Last updated 3 October 2026</p>
       </header>
 
       <p className="doc-lede">

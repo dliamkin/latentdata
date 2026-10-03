@@ -275,14 +275,15 @@ rewrites it from the seed for local development. The guard is what stops that re
 
 ## What exists today
 
-| Piece                                   | State                                          |
-| --------------------------------------- | ---------------------------------------------- |
-| Static site, snapshot validation        | live                                           |
-| Table, events topic, queues, shared DLQ | live (topic and 2 queues idle — figure 2)      |
-| `publish`, `status`                     | live                                           |
-| `poll`, `triage`, `verify`              | live                                           |
-| Credential catalog, audience lens       | live                                           |
-| Admin API and review UI                 | M4 — nothing can promote or approve            |
-| `outbox`, `notify`, `digest`            | M5 — the topic has no publisher until `outbox` |
+| Piece                                          | State                                               |
+| ---------------------------------------------- | --------------------------------------------------- |
+| Static site, snapshot validation               | live                                                |
+| Table, events topic, queues, shared DLQ        | live (topic and 2 queues idle — figure 2)           |
+| `publish`, `status`                            | live                                                |
+| `poll`, `triage`, `verify`                     | live                                                |
+| Credential catalog, audience lens              | live                                                |
+| Admin sign-in, approve and dismiss a candidate | M4 — built (ADR-0014); the figures above predate it |
+| Promote `unverified`, merge, source health     | later — no code path yet                            |
+| `outbox`, `notify`, `digest`                   | M5 — the topic has no publisher until `outbox`      |
 
 Decisions and their reasons are in [adr/](adr/).

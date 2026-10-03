@@ -1592,15 +1592,91 @@ html[data-theme] .p-button.p-button-contrast {
   font-size: 10.5px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .admin-bar-spacer {
   flex: 1;
 }
 
+/* a long API host would otherwise push Sign out off a phone screen */
+.admin-bar-url {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-bar .p-button {
+  flex-shrink: 0;
+}
+
 .review-panel {
   margin-top: 16px;
   padding: 18px 20px;
+}
+
+.candidate-list {
+  display: grid;
+  gap: 12px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.candidate {
+  display: grid;
+  gap: 10px;
+  padding: 14px 16px;
+}
+
+.candidate-name {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.candidate-meta {
+  margin: 2px 0 0;
+  font-size: 12.5px;
+}
+
+.candidate-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 8px 16px;
+  margin: 0;
+}
+
+.candidate-facts dt {
+  color: var(--muted);
+  font-size: 11.5px;
+}
+
+.candidate-facts dd {
+  margin: 0;
+  font-size: 13px;
+}
+
+.candidate-text {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.candidate-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 0;
+  font-size: 13px;
+}
+
+.candidate-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
 }
 
 /* ---- responsive ---- */
