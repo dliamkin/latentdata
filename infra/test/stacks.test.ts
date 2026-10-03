@@ -264,7 +264,7 @@ describe('admin access', () => {
     expect(props.GenerateSecret).not.toBe(true);
     expect(props.PreventUserExistenceErrors).toBe('ENABLED');
     expect(props.EnableTokenRevocation).toBe(true);
-    expect(props.CallbackURLs).toEqual(['https://latentdata.org/admin/callback']);
+    expect(props.CallbackURLs).toEqual(['https://latentdata.org/']);
   });
 
   it('authorises by group membership, which the handler checks', () => {
@@ -289,8 +289,12 @@ describe('admin access', () => {
         expect(props.AuthorizerId).toBeUndefined();
       }
     }
-    expect(byKey.has('GET /health')).toBe(true);
-    expect(byKey.has('GET /admin/candidates')).toBe(true);
+    expect([...byKey.keys()].sort()).toEqual([
+      'GET /admin/candidates',
+      'GET /health',
+      'POST /admin/candidates/{id}/approve',
+      'POST /admin/candidates/{id}/dismiss',
+    ]);
   });
 
   it('validates the token in API Gateway, before any of my code runs', () => {
@@ -307,7 +311,7 @@ describe('admin access', () => {
     });
   });
 
-  it('cannot write to the table while it only reads', () => {
+  it('gives the api function the table and nothing else', () => {
     const policies = Object.entries(
       prod.findResources('AWS::IAM::Policy') as Record<string, Resource>,
     );
@@ -317,10 +321,11 @@ describe('admin access', () => {
       apiPolicy?.Properties.PolicyDocument as { Statement: { Action: string | string[] }[] }
     ).Statement;
     const actions = statements.flatMap((s) => (Array.isArray(s.Action) ? s.Action : [s.Action]));
-    for (const write of ['dynamodb:PutItem', 'dynamodb:UpdateItem', 'dynamodb:DeleteItem']) {
-      expect(actions).not.toContain(write);
+    // approving is a transaction over the table; it needs no queue, parameter or secret
+    expect(actions).toContain('dynamodb:PutItem');
+    for (const action of actions) {
+      expect(action).toMatch(/^(dynamodb|xray):/);
     }
-    expect(actions).toContain('dynamodb:Query');
   });
 
   it('only lets the site origin call the api from a browser', () => {

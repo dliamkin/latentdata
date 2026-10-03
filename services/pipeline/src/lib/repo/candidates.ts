@@ -1,4 +1,4 @@
-import { PutCommand, QueryCommand } from '@aws-sdk/lib-dynamodb';
+import { GetCommand, PutCommand, QueryCommand, type PutCommandInput } from '@aws-sdk/lib-dynamodb';
 
 import { CandidateSchema, type Candidate } from '@cert-tracker/core';
 
@@ -70,4 +70,50 @@ export async function listCandidatesByStage(
     start = page.LastEvaluatedKey;
   } while (start !== undefined);
   return candidates;
+}
+
+export async function getCandidate(
+  doc: DocClient,
+  table: string,
+  candidateId: string,
+): Promise<Candidate | null> {
+  const result = await doc.send(
+    new GetCommand({ TableName: table, Key: candidateKey(candidateId) }),
+  );
+  return result.Item === undefined ? null : itemToCandidate(result.Item);
+}
+
+// a Put for a transaction that moves a candidate on from `from`. The condition is what stops two
+// tabs, or a retried request, from deciding the same candidate twice.
+export function candidateDecisionItem(
+  table: string,
+  decided: Candidate,
+  from: Candidate['stage'],
+): Record<string, unknown> {
+  return {
+    Put: {
+      TableName: table,
+      Item: candidateToItem(decided),
+      ConditionExpression: '#stage = :from',
+      ExpressionAttributeNames: { '#stage': 'stage' },
+      ExpressionAttributeValues: { ':from': from },
+    },
+  };
+}
+
+// the same move on its own, for a decision that changes nothing the site shows
+export async function decideCandidate(
+  doc: DocClient,
+  table: string,
+  decided: Candidate,
+  from: Candidate['stage'],
+): Promise<'applied' | 'stale'> {
+  const { Put } = candidateDecisionItem(table, decided, from) as { Put: PutCommandInput };
+  try {
+    await doc.send(new PutCommand(Put));
+    return 'applied';
+  } catch (error) {
+    if (isConditionalCheckFailed(error)) return 'stale';
+    throw error;
+  }
 }

@@ -154,8 +154,9 @@ export class PipelineFunctions extends Construct {
       environment: { ADMIN_GROUP },
       sync: true,
     });
-    // read-only while the admin API only reads. The decision routes bring their own grant.
-    table.grantReadData(this.api);
+    // approving writes an offer, the candidate and an event in one transaction. It gets the
+    // table and nothing else: no queue, no parameter, no secret.
+    table.grantReadWriteData(this.api);
 
     this.all = [this.poll, this.triage, this.verify, this.publish, this.status, this.api];
   }

@@ -90,7 +90,9 @@ export class AdminIdentity extends Construct {
         // CDK's default scope set includes aws.cognito.signin.user.admin, which would let a
         // leaked token edit its own user in Cognito. The API wants identity and nothing else.
         scopes: [OAuthScope.OPENID, OAuthScope.EMAIL],
-        callbackUrls: props.siteOrigins.map((origin) => `${origin}/admin/callback`),
+        // the site root, not a path of its own: the app routes on the hash, and a root that
+        // always exists does not depend on the host's fallback for unknown paths
+        callbackUrls: props.siteOrigins.map((origin) => `${origin}/`),
         logoutUrls: props.siteOrigins.map((origin) => `${origin}/`),
       },
       preventUserExistenceErrors: true,
