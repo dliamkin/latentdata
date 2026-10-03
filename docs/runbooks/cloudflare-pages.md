@@ -21,6 +21,8 @@ rebuilding on every push to `main`, with a preview URL for every pull request.
    An exact version, not `24`: Pages resolves a bare major to an older patch than the test
    tooling accepts, and `npm ci` then stops with `EBADENGINE`. The repo's `.node-version` carries
    the same value; raise both together.
+   The three `VITE_…` values that turn admin sign-in on are added later, once the stack exists:
+   `docs/runbooks/admin-access.md`, step 4.
 5. Save and deploy. The first build takes a couple of minutes.
 
 ## 2. Custom domain

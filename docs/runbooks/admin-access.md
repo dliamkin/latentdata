@@ -49,23 +49,7 @@ aws cognito-idp admin-add-user-to-group \
   --group-name admins
 ```
 
-## 3. Sign in once, and enrol the authenticator
-
-Open `AdminHostedUiUrl` with the client id appended, so Cognito knows which app is asking:
-
-```
-<AdminHostedUiUrl>/login?client_id=<client-id>&response_type=code&scope=openid+email&redirect_uri=https://latentdata.org/admin/callback
-```
-
-Sign in with the temporary password. Cognito asks for a new one (16 characters, mixed case, a
-digit and a symbol), then shows a QR code for an authenticator app. Scan it and enter the
-six-digit code. MFA is mandatory, so this happens on the first sign-in and cannot be skipped.
-
-You land on `…/admin/callback?code=…`. A one-time code in the URL and nothing to receive it yet is
-the expected end of this runbook — the web app's half of the exchange is the next increment. Reaching
-this point proves the pool, the group, the client and the hosted pages all work.
-
-## 4. Check the boundary
+## 3. Check the boundary
 
 `/health` is open, because `infra-deploy.yml` smoke-tests it:
 
@@ -76,11 +60,44 @@ curl -s <AdminApiUrl>/health
 Everything under `/admin` is not. With no token, API Gateway refuses it before the Lambda runs:
 
 ```
-curl -s -o /dev/null -w '%{http_code}\n' <AdminApiUrl>/admin/candidates
+curl -s -o /dev/null -w '%{http_code}
+' <AdminApiUrl>/admin/candidates
 ```
 
 `401` is the correct answer. A `200` here means the authorizer is missing from the route and the
 candidate queue is readable by the internet — stop and fix that before anything else.
+
+## 4. Tell the site where to sign in
+
+The web app reads three values at build time. In Cloudflare → the Pages project → **Settings** →
+**Environment variables**, add them to **Production** as plain text (they are identifiers, not
+secrets, and they end up in the public bundle either way):
+
+| Variable                 | Stack output            |
+| ------------------------ | ----------------------- |
+| `VITE_API_BASE_URL`      | `AdminApiUrl`           |
+| `VITE_COGNITO_DOMAIN`    | `AdminHostedUiUrl`      |
+| `VITE_COGNITO_CLIENT_ID` | `AdminUserPoolClientId` |
+
+Then **Deployments** → the latest production deployment → **Retry deployment**, so a build picks
+them up. Leave Preview without them: preview URLs are not registered with Cognito as places a
+sign-in may return to, and the dialog there says sign-in is not set up.
+
+## 5. Sign in
+
+On the site, open the ⋮ menu → **Admin…** (or press Shift+A twice) → **Sign in**.
+
+The first time, Cognito asks for the temporary password from the email, then a new one (16
+characters, mixed case, a digit and a symbol), then shows a QR code for an authenticator app. Scan
+it and enter the six-digit code. MFA is mandatory, so this cannot be skipped.
+
+You come back to the site on the **Review** tab, with whatever the pipeline has queued. Approving a
+candidate writes the offer and it goes live with the next publish (within 15 minutes); dismissing
+drops it. Open the offer page and the source before approving — there is no undo in the UI.
+
+The session lasts 30 minutes and ends when the tab closes. Nothing longer-lived is kept in the
+browser, so after that it is **Admin…** → **Sign in** again; within the hour Cognito still remembers
+you and sends you straight back, after that it asks for the password and code.
 
 ## Routine jobs
 

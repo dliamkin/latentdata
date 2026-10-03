@@ -84,6 +84,10 @@ function Shell() {
   const docPage = isDocPage(route) ? route : null;
   const tab: TabId = docPage === null ? (route as TabId) : 'offers';
   const setTab = setRoute;
+  // the Review tab goes when the session does — expiry, a 401, or a reload on #review
+  useEffect(() => {
+    if (!adminActive && tab === 'review') setTab('offers');
+  }, [adminActive, tab, setTab]);
   const [selection, setSelection] = useState<StripSelection>(null);
   // the audience lens: every tab below shows one track's offers, or all of them
   const [audience, setAudience] = useState<Track | null>(null);

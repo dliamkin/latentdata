@@ -63,7 +63,7 @@ test('the admin dialog opens on Shift+A twice and cancel restores focus', async 
   await page.keyboard.press('Shift+A');
   const dialog = page.getByRole('dialog', { name: 'Enter admin mode' });
   await expect(dialog).toBeVisible();
-  await expect(dialog.getByLabel('Admin token')).toBeFocused();
+  await expect(dialog.getByRole('button', { name: 'Sign in' })).toBeFocused();
   await dialog.getByRole('button', { name: 'Cancel' }).click();
   await expect(dialog).toBeHidden();
   await expect(toggle).toBeFocused();

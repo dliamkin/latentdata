@@ -30,6 +30,13 @@ export default defineConfig({
     url: `http://localhost:${String(PORT)}`,
     reuseExistingServer: process.env.CI === undefined,
     timeout: 180_000,
-    env: { SNAPSHOT_PATH: '../../fixtures/web/snapshot.fixture.json' },
+    env: {
+      SNAPSHOT_PATH: '../../fixtures/web/snapshot.fixture.json',
+      // placeholders, so the admin dialog renders as it does in a configured build; no test
+      // follows the sign-in link, and .invalid never resolves if one did
+      VITE_API_BASE_URL: 'https://api.example.invalid',
+      VITE_COGNITO_DOMAIN: 'https://auth.example.invalid',
+      VITE_COGNITO_CLIENT_ID: 'e2e-client',
+    },
   },
 });
