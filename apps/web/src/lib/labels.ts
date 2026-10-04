@@ -13,6 +13,8 @@ import type {
 } from '@cert-tracker/core';
 
 import type { Coverage } from '../data/catalog.ts';
+import type { ClaimRole, PriceRange } from '../data/offers.ts';
+import { priceRangeLabel } from './format.ts';
 
 // the colour a marker takes; each maps to one token (see Tags.tsx and app.css)
 export type Tone = 'accent' | 'upcoming' | 'grey' | 'deadline' | 'ink' | 'muted';
@@ -108,6 +110,37 @@ export const ELIGIBILITY_TAGS: Record<Eligibility, TagSpec> = {
   'event-attendee': { label: 'Event attendee', icon: 'pi pi-ticket', tone: 'muted' },
   'need-based': { label: 'Need-based', icon: 'pi pi-heart', tone: 'muted' },
 };
+
+// the same groups said in the first person, for the "I am" buttons that hide what a visitor
+// cannot claim; `explain` is the hover text
+export const CLAIM_LABELS: Record<ClaimRole, { label: string; explain: string }> = {
+  student: {
+    label: 'A student',
+    explain: 'Enrolled at a school, college or university.',
+  },
+  partner: {
+    label: 'A partner',
+    explain: 'You work at a company that is a registered partner of the vendor.',
+  },
+  customer: {
+    label: 'A customer',
+    explain: 'You or your employer already pay the vendor for a product or subscription.',
+  },
+  'event-attendee': {
+    label: 'Going to an event',
+    explain: "You are registered for the vendor's conference or event.",
+  },
+  'need-based': {
+    label: 'Eligible for aid',
+    explain: 'Financial need, or a military, veteran or similar support programme.',
+  },
+};
+
+// what the list price means beside each kind of offer: the fee a free exam or a discount is
+// measured against, or what the certificate costs when only the course is free
+export function listPriceLabel(whatIsFree: WhatIsFree, price: PriceRange): string {
+  return `${whatIsFree === 'training-only' ? 'Certificate' : 'Normally'} ${priceRangeLabel(price)}`;
+}
 
 export const TRACK_TAGS: Record<Track, TagSpec> = {
   software: { label: 'Software', icon: 'pi pi-code', tone: 'muted' },

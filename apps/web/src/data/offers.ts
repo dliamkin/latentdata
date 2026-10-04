@@ -1,6 +1,7 @@
 import {
   TECHNOLOGIES,
   addDays,
+  catalogMatch,
   compareIsoDates,
   costToYouOf,
   daysBetween,
@@ -8,7 +9,9 @@ import {
   deriveStatus,
   isExpiringSoon,
   isWatchList,
+  type CatalogEntry,
   type CostToYou,
+  type Eligibility,
   type Offer,
   type OfferStatus,
   type SnapshotEvent,
@@ -51,9 +54,42 @@ export function offerGroup(status: OfferStatus, expiringSoon: boolean): OfferGro
   }
 }
 
+// the standard US list price of what an offer covers; min and max differ when it covers
+// credentials priced differently (any exam of a vendor, or several named ones)
+export interface PriceRange {
+  min: number;
+  max: number;
+}
+
+// read off the catalog: the credentials the offer names, or failing that the vendor's exams
+// when the offer is for any of them. Null when none of those has a published price.
+export function listPriceOf(
+  offer: Pick<Offer, 'vendor' | 'certifications' | 'examCode'>,
+  catalog: readonly CatalogEntry[],
+): PriceRange | null {
+  const named: CatalogEntry[] = [];
+  const wide: CatalogEntry[] = [];
+  for (const entry of catalog) {
+    const match = catalogMatch(entry, offer);
+    if (match === 'named') named.push(entry);
+    else if (match === 'vendor-wide') wide.push(entry);
+  }
+  // a named credential without a price is not answered by the vendor's other prices
+  const prices = (named.length > 0 ? named : wide)
+    .map((entry) => entry.listPriceUsd)
+    .filter((price): price is number => price !== null && price > 0);
+  if (prices.length === 0) return null;
+  return { min: Math.min(...prices), max: Math.max(...prices) };
+}
+
+const PRICE_SORT_CAP = 99_999;
+
 export interface OfferRow extends Offer {
   // always present on a row: the stored value, or what whatIsFree implies for older offers
   costToYou: CostToYou;
+  listPrice: PriceRange | null;
+  // whole days since the offer was last read against the vendor's page
+  checkedDaysAgo: number;
   derivedStatus: OfferStatus;
   expiringSoon: boolean;
   daysLeft: number | null;
@@ -66,7 +102,8 @@ export interface OfferRow extends Offer {
   groupRank: number;
   windowEndSort: string;
   weightRank: number;
-  // what costs nothing first, and within that an exam before a course
+  // what costs nothing first, within that an exam before a course, and within that the one
+  // that normally costs the most
   whatIsFreeRank: number;
 }
 
@@ -79,16 +116,23 @@ function windowProgress(offer: Offer, today: string): number | null {
   return elapsed / total;
 }
 
-export function toRows(offers: readonly Offer[], today: string): OfferRow[] {
+export function toRows(
+  offers: readonly Offer[],
+  today: string,
+  catalog: readonly CatalogEntry[] = [],
+): OfferRow[] {
   const newSince = addDays(today, -NEW_DAYS);
   return offers.map((offer) => {
     const derivedStatus = deriveStatus(offer, today);
     const expiringSoon = isExpiringSoon(offer, today);
     const group = offerGroup(derivedStatus, expiringSoon);
     const costToYou = costToYouOf(offer);
+    const listPrice = listPriceOf(offer, catalog);
     return {
       ...offer,
       costToYou,
+      listPrice,
+      checkedDaysAgo: Math.max(0, daysBetween(offer.lastVerified, today)),
       derivedStatus,
       expiringSoon,
       daysLeft: daysUntilEnd(offer, today),
@@ -99,7 +143,9 @@ export function toRows(offers: readonly Offer[], today: string): OfferRow[] {
       groupRank: OFFER_GROUPS.indexOf(group),
       windowEndSort: offer.windowEnd ?? '9999-12-31',
       weightRank: WEIGHT_RANK[offer.credentialWeight],
-      whatIsFreeRank: COST_RANK[costToYou] * 10 + WHAT_IS_FREE_RANK[offer.whatIsFree],
+      whatIsFreeRank:
+        (COST_RANK[costToYou] * 10 + WHAT_IS_FREE_RANK[offer.whatIsFree]) * (PRICE_SORT_CAP + 1) +
+        (PRICE_SORT_CAP - Math.min(Math.round(listPrice?.max ?? 0), PRICE_SORT_CAP)),
     };
   });
 }
@@ -107,6 +153,18 @@ export function toRows(offers: readonly Offer[], today: string): OfferRow[] {
 // the audience lens: every tab shows one track's offers, or all of them
 export function matchesAudience(row: Pick<OfferRow, 'tracks'>, audience: Track | null): boolean {
   return audience === null || row.tracks.includes(audience);
+}
+
+// what a visitor can say about themselves; 'public' is not a choice, everyone is the public
+export type ClaimRole = Exclude<Eligibility, 'public'>;
+// null: the visitor has not said, so nothing is hidden. An empty list: none of the roles, so
+// only offers open to everyone.
+export type Claim = readonly ClaimRole[] | null;
+
+export function matchesClaim(row: Pick<OfferRow, 'eligibility'>, claim: Claim): boolean {
+  if (claim === null) return true;
+  const roles: readonly Eligibility[] = claim;
+  return row.eligibility.some((who) => who === 'public' || roles.includes(who));
 }
 
 export function matchesTechnology(
@@ -215,6 +273,24 @@ export function summarize(rows: readonly OfferRow[], newIds: ReadonlySet<string>
     if (newIds.has(row.id)) counts.new += 1;
   }
   return counts;
+}
+
+// the banner's line: what can be had for nothing today, and what those exams normally cost
+export interface FreeNow {
+  offers: number;
+  usd: number;
+}
+
+export function freeNow(rows: readonly OfferRow[]): FreeNow {
+  const result: FreeNow = { offers: 0, usd: 0 };
+  for (const row of rows) {
+    const open = row.derivedStatus === 'active' || row.derivedStatus === 'evergreen';
+    if (!open || row.costToYou !== 'nothing') continue;
+    result.offers += 1;
+    // an offer for any one of several exams is counted at the dearest: it is what it can save
+    result.usd += row.listPrice?.max ?? 0;
+  }
+  return result;
 }
 
 export function offersOnDay(rows: readonly OfferRow[], iso: string): OfferRow[] {

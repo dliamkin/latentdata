@@ -5,6 +5,7 @@ import { axe } from 'vitest-axe';
 
 import { ADMIN_TOKEN_KEY, savePending } from './admin/auth.ts';
 import App from './App.tsx';
+import { CLAIM_KEY } from './data/claim.ts';
 import { API, AUTH, candidate, fakeToken, stubAdminEnv, stubFetch } from './test/admin.ts';
 
 describe('App', () => {
@@ -22,6 +23,35 @@ describe('App', () => {
     );
     expect(screen.queryByRole('tab', { name: /Review/ })).not.toBeInTheDocument();
     expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it('says in the banner what is free today and what it normally costs', () => {
+    render(<App />);
+    expect(screen.getByText(/Open now:/)).toHaveTextContent(
+      'Open now: 2 offers that cost nothing · $200 in exam fees waived',
+    );
+  });
+
+  it('hides what the visitor cannot claim, on every tab, and remembers the answer', async () => {
+    const user = userEvent.setup();
+    const { unmount } = render(<App />);
+    const offers = (): number => document.querySelectorAll('tr [data-offer-id]').length;
+    expect(offers()).toBe(6);
+
+    const who = screen.getByRole('group', { name: 'Who you are' });
+    await user.click(within(who).getByRole('button', { name: 'None of these' }));
+    // the three open to everyone; the student, partner and customer offers are gone
+    expect(offers()).toBe(3);
+    expect(within(who).getByRole('status')).toHaveTextContent('4 hidden');
+    expect(screen.getByRole('tab', { name: /Offers/ })).toHaveTextContent('3');
+
+    await user.click(within(who).getByRole('button', { name: 'A student' }));
+    expect(offers()).toBe(4);
+
+    unmount();
+    render(<App />);
+    expect(offers()).toBe(4);
+    localStorage.removeItem(CLAIM_KEY);
   });
 
   it('puts the doc pages in the footer and nowhere else', () => {

@@ -109,6 +109,26 @@ test('the audience lens narrows every tab at once', async ({ page }) => {
   await expect(page.getByRole('heading', { name: /What people ask for/ })).toContainText('3');
 });
 
+test('saying who you are hides what you cannot claim, and survives a reload', async ({ page }) => {
+  await page.goto('/');
+  const rows = page.locator('tr:has([data-offer-id])');
+  await expect(rows).toHaveCount(6);
+  await expect(rows.first()).toContainText('Normally $200');
+  await expect(rows.first()).toContainText(/Checked/);
+
+  const who = page.getByRole('group', { name: 'Who you are' });
+  await who.getByRole('button', { name: 'A student' }).click();
+  await expect(rows).toHaveCount(4);
+  await expect(who.getByRole('status')).toHaveText('3 hidden');
+
+  await page.reload();
+  await expect(rows).toHaveCount(4);
+  await expect(who.getByRole('button', { name: 'A student' })).toHaveAttribute(
+    'aria-pressed',
+    'true',
+  );
+});
+
 test('the footer opens the doc pages and the back button returns', async ({ page }) => {
   await page.goto('/');
   const footer = page.getByRole('contentinfo');

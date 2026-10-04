@@ -8,7 +8,7 @@ import { snapshot } from '../data/snapshot.ts';
 import { renderWithProviders } from '../test/render.tsx';
 import { OffersTable } from './OffersTable.tsx';
 
-const rows = toRows(snapshot.offers, '2026-09-29');
+const rows = toRows(snapshot.offers, '2026-09-29', snapshot.catalog);
 const none = new Set<string>();
 
 function bodyRows() {
@@ -150,6 +150,35 @@ describe('OffersTable', () => {
     // a free exam is not free when something has to be bought first
     expect(row('fx-recurring-undated')).toHaveTextContent(/Free exam.*Purchase needed/);
     expect(screen.getByRole('columnheader', { name: /Recognition/ })).toHaveAttribute('aria-sort');
+  });
+
+  it('says what the exam normally costs, where the catalog has a price', () => {
+    renderWithProviders(
+      <OffersTable rows={rows} quickFilter={null} newIds={none} initialReveal={null} />,
+    );
+    const row = (id: string): HTMLElement => {
+      const found = bodyRows().find((r) => r.querySelector(`[data-offer-id="${id}"]`) !== null);
+      if (found === undefined) throw new Error(`no row for ${id}`);
+      return found;
+    };
+    expect(row('fx-active-long')).toHaveTextContent('Normally $200');
+    expect(row('fx-upcoming')).toHaveTextContent('Normally $350');
+    // no catalog entry, so no figure is made up
+    expect(row('fx-evergreen')).not.toHaveTextContent('Normally');
+  });
+
+  it('says when each row was last checked, and puts status and dates in one column', () => {
+    renderWithProviders(
+      <OffersTable rows={rows} quickFilter={null} newIds={none} initialReveal={null} />,
+    );
+    const checked = bodyRows().filter((row) => row.textContent.includes('Checked 28 days ago'));
+    // every row but the unverified one, which already says it needs a check
+    expect(checked).toHaveLength(5);
+    expect(screen.getByRole('columnheader', { name: /When/ })).toHaveAttribute(
+      'aria-sort',
+      'ascending',
+    );
+    expect(screen.queryByRole('columnheader', { name: /Status/ })).not.toBeInTheDocument();
   });
 
   it('applies the quick filter and mutes training-only rows', () => {

@@ -45,7 +45,7 @@ import {
   type OfferRow,
   type QuickFilter,
 } from '../data/offers.ts';
-import { plural, windowLabel } from '../lib/format.ts';
+import { checkedLabel, formatDate, plural, windowLabel } from '../lib/format.ts';
 import {
   CATEGORY_LABELS,
   COST_TAGS,
@@ -53,6 +53,7 @@ import {
   TECHNOLOGY_LABELS,
   WEIGHT_TAGS,
   WHAT_IS_FREE_TAGS,
+  listPriceLabel,
   toOptions,
   type SelectOption,
   type Tone,
@@ -857,6 +858,19 @@ export function OffersTable({
                 </span>
                 <span className="offer-meta">
                   {row.vendor} · {CATEGORY_LABELS[row.category]}
+                  {/* an unverified offer already says it needs a check */}
+                  {row.derivedStatus !== 'unverified' && (
+                    <>
+                      {' · '}
+                      <span
+                        className="offer-checked"
+                        title={`Last read against the vendor's page on ${formatDate(row.lastVerified)}`}
+                      >
+                        <span className="pi pi-verified" aria-hidden="true" />{' '}
+                        {checkedLabel(row.checkedDaysAgo, row.lastVerified)}
+                      </span>
+                    </>
+                  )}
                 </span>
               </div>
             )}
@@ -888,41 +902,33 @@ export function OffersTable({
               <span className="free-cell">
                 <WhatIsFreeTag value={row.whatIsFree} />
                 <CostTag value={row.costToYou} detail={row.cost} />
+                {row.listPrice !== null && (
+                  <span className="list-price" title="The standard US list price">
+                    {listPriceLabel(row.whatIsFree, row.listPrice)}
+                  </span>
+                )}
               </span>
             )}
           />
           <Column
             field="weightRank"
             header="Recognition"
-            headerStyle={{ width: '7.25rem' }}
+            headerStyle={{ width: '6.75rem' }}
             sortable
             body={(row: OfferRow) => <RecognitionMeter value={row.credentialWeight} />}
           />
           <Column
             header="Eligibility"
-            headerStyle={{ width: '7rem' }}
+            headerStyle={{ width: '6.5rem' }}
             body={(row: OfferRow) => <EligibilityTags values={row.eligibility} />}
           />
+          {/* status and dates are one column: the groups already order rows by status, so the
+              sort is by end date and the filter is by status */}
           <Column
             field="windowEndSort"
-            header="Window"
-            headerStyle={{ width: '11rem' }}
-            sortable
-            body={(row: OfferRow) => (
-              <span className="window-cell">
-                <span className={`mono${row.windowEnd === null ? ' faint' : ''}`}>
-                  {windowLabel(row.windowStart, row.windowEnd)}
-                </span>
-                {row.group === 'ending' && row.windowProgress !== null && (
-                  <WindowBar progress={row.windowProgress} daysLeft={row.daysLeft} />
-                )}
-              </span>
-            )}
-          />
-          <Column
-            field="derivedStatus"
-            header="Status"
-            headerStyle={{ width: '9.5rem' }}
+            filterField="derivedStatus"
+            header="When"
+            headerStyle={{ width: '11.5rem' }}
             sortable
             filter
             filterHeader="Filter · Status"
@@ -940,18 +946,31 @@ export function OffersTable({
             showFilterMatchModes={false}
             showFilterOperator={false}
             showAddButton={false}
-            pt={{ filterMenuButton: { title: 'Filter this column' } }}
+            pt={{
+              headerCell: { title: 'Sort by end date' },
+              filterMenuButton: { title: 'Filter by status' },
+            }}
             body={(row: OfferRow) => (
-              <StatusTag
-                status={row.derivedStatus}
-                expiringSoon={row.expiringSoon}
-                daysLeft={row.daysLeft}
-              />
+              <span className="window-cell">
+                <StatusTag
+                  status={row.derivedStatus}
+                  expiringSoon={row.expiringSoon}
+                  daysLeft={row.daysLeft}
+                />
+                {(row.windowStart !== null || row.windowEnd !== null) && (
+                  <span className="mono window-dates">
+                    {windowLabel(row.windowStart, row.windowEnd)}
+                  </span>
+                )}
+                {row.group === 'ending' && row.windowProgress !== null && (
+                  <WindowBar progress={row.windowProgress} daysLeft={row.daysLeft} />
+                )}
+              </span>
             )}
           />
           <Column
             header="Mine"
-            headerStyle={{ width: '9rem' }}
+            headerStyle={{ width: '8rem' }}
             body={(row: OfferRow) => {
               const status = entries[row.id]?.status ?? '';
               return (

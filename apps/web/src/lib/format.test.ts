@@ -1,6 +1,13 @@
 import { describe, expect, it } from 'vitest';
 
-import { formatDate, plural, relativeTime, windowLabel } from './format.ts';
+import {
+  checkedLabel,
+  formatDate,
+  plural,
+  priceRangeLabel,
+  relativeTime,
+  windowLabel,
+} from './format.ts';
 
 describe('formatDate', () => {
   it('renders the calendar date without timezone drift', () => {
@@ -18,6 +25,25 @@ describe('windowLabel', () => {
     [null, null, 'No end date'],
   ])('%s .. %s -> %s', (start, end, expected) => {
     expect(windowLabel(start, end)).toBe(expected);
+  });
+});
+
+describe('checkedLabel', () => {
+  it.each([
+    [0, 'Checked today'],
+    [1, 'Checked yesterday'],
+    [5, 'Checked 5 days ago'],
+    [30, 'Checked 30 days ago'],
+    [31, 'Checked Sep 5, 2026'],
+  ])('%i days -> %s', (days, expected) => {
+    expect(checkedLabel(days, '2026-09-05')).toBe(expected);
+  });
+});
+
+describe('priceRangeLabel', () => {
+  it('gives one figure, or both ends when they differ', () => {
+    expect(priceRangeLabel({ min: 165, max: 165 })).toBe('$165');
+    expect(priceRangeLabel({ min: 100, max: 300 })).toBe('$100–$300');
   });
 });
 

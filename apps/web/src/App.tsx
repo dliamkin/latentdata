@@ -15,7 +15,15 @@ import { TabBar, TabPanel, type TabSpec } from './components/TabBar.tsx';
 import { SiteFooter } from './components/SiteFooter.tsx';
 import { TopBar } from './components/TopBar.tsx';
 import { UpdatePrompt } from './components/UpdatePrompt.tsx';
-import { matchesAudience, matchesQuickFilter, summarize, type QuickFilter } from './data/offers.ts';
+import { useClaim } from './data/claim.ts';
+import {
+  freeNow,
+  matchesAudience,
+  matchesClaim,
+  matchesQuickFilter,
+  summarize,
+  type QuickFilter,
+} from './data/offers.ts';
 import {
   useCatalog,
   useEvents,
@@ -92,6 +100,8 @@ function Shell() {
   const [selection, setSelection] = useState<StripSelection>(null);
   // the audience lens: every tab below shows one track's offers, or all of them
   const [audience, setAudience] = useState<Track | null>(null);
+  // who the visitor says they are: offers they cannot claim are hidden on every tab
+  const [claim, setClaim] = useClaim();
   const [aboutOpen, setAboutOpen] = useState(false);
   const [aboutMounted, setAboutMounted] = useState(false);
   // the Offers table portals its search box into the tab row; state, not a ref, so the table
@@ -111,10 +121,17 @@ function Shell() {
     };
   }, []);
 
-  const rows = useMemo(
-    () => allRows.filter((row) => matchesAudience(row, audience)),
-    [allRows, audience],
+  // a revealed offer is shown whoever the visitor is: a link to it must not land on nothing
+  const revealId = reveal?.id ?? null;
+  const claimable = useMemo(
+    () => allRows.filter((row) => row.id === revealId || matchesClaim(row, claim)),
+    [allRows, claim, revealId],
   );
+  const rows = useMemo(
+    () => claimable.filter((row) => matchesAudience(row, audience)),
+    [claimable, audience],
+  );
+  const free = useMemo(() => freeNow(rows), [rows]);
   const catalog = useCatalog(rows);
   const catalogRows = useMemo(
     () => catalog.filter((row) => matchesAudience(row, audience)),
@@ -122,11 +139,11 @@ function Shell() {
   );
   const audienceCounts = useMemo(
     () => ({
-      all: allRows.length,
-      software: allRows.filter((row) => matchesAudience(row, 'software')).length,
-      it: allRows.filter((row) => matchesAudience(row, 'it')).length,
+      all: claimable.length,
+      software: claimable.filter((row) => matchesAudience(row, 'software')).length,
+      it: claimable.filter((row) => matchesAudience(row, 'it')).length,
     }),
-    [allRows],
+    [claimable],
   );
   const counts = useMemo(() => summarize(rows, newIds), [rows, newIds]);
   const quickFilter: QuickFilter | null = selection === 'watchlist' ? null : selection;
@@ -197,7 +214,7 @@ function Shell() {
           </div>
         ) : (
           <>
-            <Banner />
+            <Banner freeNow={free} />
             <SummaryStrip
               counts={counts}
               selected={selection}
@@ -205,6 +222,9 @@ function Shell() {
               audience={audience}
               audienceCounts={audienceCounts}
               onAudience={setAudience}
+              claim={claim}
+              claimHidden={allRows.length - claimable.length}
+              onClaim={setClaim}
             />
             <div className="content">
               <TabBar
