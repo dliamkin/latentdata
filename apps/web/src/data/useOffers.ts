@@ -10,7 +10,7 @@ import { snapshot } from './snapshot.ts';
 // the only way components get offers; there is no fetch, the snapshot is in the bundle
 export function useOffers(): OfferRow[] {
   const today = useToday();
-  return useMemo(() => toRows(snapshot.offers, today), [today]);
+  return useMemo(() => toRows(snapshot.offers, today, snapshot.catalog), [today]);
 }
 
 // the catalog is the same credentials every visit; only the offers covering them move

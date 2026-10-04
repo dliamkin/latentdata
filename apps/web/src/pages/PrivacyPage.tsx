@@ -16,6 +16,12 @@ const STORED: readonly StoreRow[] = [
     when: 'When you use the theme button in the top bar.',
   },
   {
+    key: 'cert-tracker:claim:v1',
+    where: 'localStorage',
+    what: 'The groups you said you belong to (student, partner, customer, event attendee, eligible for aid), so offers you cannot claim stay hidden.',
+    when: 'When you press one of the "I am" buttons above the summary numbers. Pressing it again removes it.',
+  },
+  {
     key: 'cert-tracker:tracking:v1',
     where: 'localStorage',
     what: 'Your own notes about offers: a status you picked (applied, in progress, earned, dismissed) and any text you typed in a note field.',

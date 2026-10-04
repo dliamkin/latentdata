@@ -11,6 +11,7 @@ const audienceCounts = { all: 24, software: 9, it: 18 };
 function renderStrip(overrides: Partial<Parameters<typeof SummaryStrip>[0]> = {}) {
   const onSelect = vi.fn();
   const onAudience = vi.fn();
+  const onClaim = vi.fn();
   const result = render(
     <SummaryStrip
       counts={counts}
@@ -19,10 +20,13 @@ function renderStrip(overrides: Partial<Parameters<typeof SummaryStrip>[0]> = {}
       audience={null}
       audienceCounts={audienceCounts}
       onAudience={onAudience}
+      claim={null}
+      claimHidden={0}
+      onClaim={onClaim}
       {...overrides}
     />,
   );
-  return { ...result, onSelect, onAudience };
+  return { ...result, onSelect, onAudience, onClaim };
 }
 
 describe('SummaryStrip', () => {
@@ -54,6 +58,33 @@ describe('SummaryStrip', () => {
 
     await userEvent.click(within(group).getByRole('button', { name: /Software9/ }));
     expect(onAudience).toHaveBeenCalledWith('software');
+  });
+
+  it('asks who the visitor is and reports each answer', async () => {
+    const { onClaim } = renderStrip();
+    const group = screen.getByRole('group', { name: 'Who you are' });
+    expect(within(group).getAllByRole('button')).toHaveLength(6);
+    expect(within(group).queryByRole('status')).not.toBeInTheDocument();
+
+    await userEvent.click(within(group).getByRole('button', { name: 'A student' }));
+    expect(onClaim).toHaveBeenCalledWith(['student']);
+    await userEvent.click(within(group).getByRole('button', { name: 'None of these' }));
+    expect(onClaim).toHaveBeenCalledWith([]);
+  });
+
+  it('shows which answers are on and how many offers they hide', async () => {
+    const { container, onClaim } = renderStrip({ claim: ['student'], claimHidden: 3 });
+    const group = screen.getByRole('group', { name: 'Who you are' });
+    expect(within(group).getByRole('button', { name: 'A student' })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
+    expect(within(group).getByRole('status')).toHaveTextContent('3 hidden');
+
+    // taking the last answer off stops hiding anything
+    await userEvent.click(within(group).getByRole('button', { name: 'A student' }));
+    expect(onClaim).toHaveBeenCalledWith(null);
+    expect(await axe(container)).toHaveNoViolations();
   });
 
   it('marks the lens that is on', () => {

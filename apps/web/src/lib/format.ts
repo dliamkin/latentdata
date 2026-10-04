@@ -96,6 +96,24 @@ export function priceLabel(listPriceUsd: number | null): string {
   return listPriceUsd === 0 ? 'Free' : usdFormat.format(listPriceUsd);
 }
 
+// "$165", or "$100–$300" when what an offer covers is priced differently
+export function priceRangeLabel(range: { min: number; max: number }): string {
+  return range.min === range.max
+    ? usdFormat.format(range.max)
+    : `${usdFormat.format(range.min)}–${usdFormat.format(range.max)}`;
+}
+
+export function usdLabel(amount: number): string {
+  return usdFormat.format(amount);
+}
+
+// when an offer was last read against the vendor's page; a date once "days ago" stops helping
+export function checkedLabel(daysAgo: number, iso: string): string {
+  if (daysAgo <= 0) return 'Checked today';
+  if (daysAgo === 1) return 'Checked yesterday';
+  return daysAgo <= 30 ? `Checked ${String(daysAgo)} days ago` : `Checked ${formatDate(iso)}`;
+}
+
 export function plural(count: number, noun: string): string {
   return `${String(count)} ${noun}${count === 1 ? '' : 's'}`;
 }

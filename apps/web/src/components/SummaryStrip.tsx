@@ -1,7 +1,8 @@
 import type { Track } from '@cert-tracker/core';
 
-import type { QuickFilter, SummaryCounts } from '../data/offers.ts';
+import type { Claim, QuickFilter, SummaryCounts } from '../data/offers.ts';
 import { TRACK_TAGS } from '../lib/labels.ts';
+import { ClaimChips } from './ClaimChips.tsx';
 import { Segmented } from './Segmented.tsx';
 
 export type StripSelection = QuickFilter | 'watchlist' | null;
@@ -31,6 +32,9 @@ export function SummaryStrip({
   audience,
   audienceCounts,
   onAudience,
+  claim,
+  claimHidden,
+  onClaim,
 }: {
   counts: SummaryCounts;
   selected: StripSelection;
@@ -38,6 +42,9 @@ export function SummaryStrip({
   audience: Track | null;
   audienceCounts: AudienceCounts;
   onAudience: (audience: Track | null) => void;
+  claim: Claim;
+  claimHidden: number;
+  onClaim: (claim: Claim) => void;
 }) {
   const items: Item[] = [
     {
@@ -89,6 +96,7 @@ export function SummaryStrip({
   return (
     <div className="summary-row">
       <div className="summary-lens">
+        <ClaimChips claim={claim} hidden={claimHidden} onChange={onClaim} />
         <Segmented
           label="Who the offers are for"
           value={audience ?? 'all'}

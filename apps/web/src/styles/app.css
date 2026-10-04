@@ -521,6 +521,18 @@ html[data-theme] .p-menu .p-menuitem-link {
   color: var(--gold);
 }
 
+/* the live count under the promise: what is free today and what it normally costs */
+.banner-stat {
+  margin: 14px 0 0;
+  font-size: 15px;
+}
+
+.banner-stat strong {
+  font-size: 1.2em;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
 .banner-rosette {
   position: absolute;
   top: 50%;
@@ -953,7 +965,14 @@ html[data-theme='dark'] .monogram {
 .window-cell {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 5px;
+}
+
+.window-dates {
+  font-size: 12px;
+  color: var(--muted);
+  white-space: nowrap;
 }
 
 /* the share of a window that is left, draining toward the deadline colour */
@@ -1014,6 +1033,16 @@ html[data-theme='dark'] .monogram {
   color: var(--muted);
 }
 
+/* the banner's promise, kept on every row: when this offer was last read on the vendor's page */
+.offer-checked {
+  white-space: nowrap;
+}
+
+.offer-checked .pi {
+  font-size: 11px;
+  color: var(--accent);
+}
+
 /* what you get: the table's one filled badge. Colour backs up the icon and the words. */
 .free-badge {
   display: inline-flex;
@@ -1056,6 +1085,13 @@ html[data-theme='dark'] .monogram {
 
 .free-cell .mark {
   font-size: 12px;
+}
+
+.list-price {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--muted);
+  white-space: nowrap;
 }
 
 /* recognition: three bars and the word */
@@ -2279,7 +2315,34 @@ html[data-theme] .p-button.p-button-contrast {
   margin: 0 auto;
   padding: 10px var(--gutter) 10px;
   display: flex;
-  justify-content: flex-end;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 24px;
+}
+
+/* who the visitor is: the same pressed chips as the vendor row, on the left of the lens */
+.claim {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.claim-label,
+.claim-hidden {
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+.claim-label {
+  margin-right: 2px;
+}
+
+.claim-hidden {
+  margin-left: 4px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
 }
 
 .catalog-controls {
@@ -2360,7 +2423,10 @@ html[data-theme] .p-button.p-button-contrast {
 @media (max-width: 767px) {
   .summary-lens {
     justify-content: flex-start;
-    overflow-x: auto;
+  }
+
+  .claim-label {
+    flex-basis: 100%;
   }
 
   .summary-lens .segmented button {

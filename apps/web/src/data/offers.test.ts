@@ -1,7 +1,10 @@
 import { describe, expect, it } from 'vitest';
 
 import {
+  freeNow,
+  listPriceOf,
   matchesAudience,
+  matchesClaim,
   matchesQuickFilter,
   matchesTechnology,
   technologyCounts,
@@ -16,7 +19,7 @@ import {
 import { snapshot } from './snapshot.ts';
 
 const TODAY = '2026-09-29';
-const rows = toRows(snapshot.offers, TODAY);
+const rows = toRows(snapshot.offers, TODAY, snapshot.catalog);
 const byId = (id: string) => {
   const row = rows.find((r) => r.id === id);
   if (row === undefined) throw new Error(`missing fixture ${id}`);
@@ -60,6 +63,47 @@ describe('toRows', () => {
     expect(rank('fx-evergreen')).toBeLessThan(rank('fx-recurring-undated'));
     expect(rank('fx-recurring-undated')).toBeLessThan(rank('fx-upcoming'));
     expect(rank('fx-upcoming')).toBeLessThan(rank('fx-training-only'));
+  });
+
+  it('prices an offer from the catalog entry it names, and only then', () => {
+    expect(byId('fx-active-long').listPrice).toEqual({ min: 200, max: 200 });
+    expect(byId('fx-upcoming').listPrice).toEqual({ min: 350, max: 350 });
+    // named in the catalog, but the vendor publishes no single price
+    expect(byId('fx-recurring-expired').listPrice).toBeNull();
+    // not in the catalog at all
+    expect(byId('fx-evergreen').listPrice).toBeNull();
+    expect(toRows(snapshot.offers, TODAY).every((row) => row.listPrice === null)).toBe(true);
+  });
+
+  it('gives a range when an offer is for any exam of the vendor', () => {
+    const template = snapshot.catalog.find((entry) => entry.kind === 'exam');
+    if (template === undefined) throw new Error('the fixture has no exam entry');
+    const entry = (id: string, listPriceUsd: number | null) => ({
+      ...template,
+      id,
+      name: id,
+      vendor: 'Acme',
+      examCode: null,
+      aliases: [],
+      listPriceUsd,
+    });
+    const catalog = [entry('acme-one', 100), entry('acme-two', 300), entry('acme-three', null)];
+    const any = { vendor: 'Acme', certifications: ['Any Acme certification'], examCode: null };
+    expect(listPriceOf(any, catalog)).toEqual({ min: 100, max: 300 });
+    // a named credential without a price is not answered by the vendor's other prices
+    const named = { vendor: 'Acme', certifications: ['acme-three'], examCode: null };
+    expect(listPriceOf(named, catalog)).toBeNull();
+  });
+
+  it('puts the dearer exam first among offers that are otherwise the same', () => {
+    const unpriced = toRows(snapshot.offers, TODAY).find((row) => row.id === 'fx-active-long');
+    expect(byId('fx-active-long').whatIsFreeRank).toBeLessThan(unpriced?.whatIsFreeRank ?? -1);
+  });
+
+  it('counts the days since an offer was last checked', () => {
+    expect(byId('fx-active-long').checkedDaysAgo).toBe(28);
+    // never negative, whatever the visitor's clock says
+    expect(toRows(snapshot.offers, '2026-08-01')[0]?.checkedDaysAgo).toBe(0);
   });
 
   it('groups rows by what to act on first', () => {
@@ -163,6 +207,31 @@ describe('the audience lens', () => {
       { technology: 'kubernetes', count: 1 },
       { technology: 'linux', count: 1 },
     ]);
+  });
+});
+
+describe('matchesClaim', () => {
+  const shown = (claim: Parameters<typeof matchesClaim>[1]): string[] =>
+    rows.filter((row) => matchesClaim(row, claim)).map((row) => row.id);
+
+  it('hides nothing until the visitor says who they are', () => {
+    expect(shown(null)).toHaveLength(rows.length);
+  });
+
+  it('keeps what is open to everyone, plus what the visitor can claim', () => {
+    expect(shown([])).toEqual(['fx-active-long', 'fx-expired', 'fx-evergreen', 'fx-training-only']);
+    expect(shown(['student'])).toContain('fx-upcoming');
+    expect(shown(['student'])).not.toContain('fx-unverified');
+    // one of an offer's groups is enough
+    expect(shown(['customer'])).toContain('fx-recurring-undated');
+  });
+});
+
+describe('freeNow', () => {
+  it('counts open offers that cost nothing and adds up what they normally cost', () => {
+    // fx-active-long (200) and fx-evergreen (unpriced); the unverified one is not open
+    expect(freeNow(rows)).toEqual({ offers: 2, usd: 200 });
+    expect(freeNow([])).toEqual({ offers: 0, usd: 0 });
   });
 });
 
