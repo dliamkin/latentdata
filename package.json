@@ -35,7 +35,8 @@
     "source:set": "node scripts/source-set.ts",
     "candidate:add": "node scripts/candidate-add.ts",
     "vendor:icons": "node scripts/vendor-icons.ts",
-    "pr:draft": "node scripts/pr-draft.ts"
+    "pr:draft": "node scripts/pr-draft.ts",
+    "pr:open": "node scripts/pr-open.ts"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",

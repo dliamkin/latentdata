@@ -27,16 +27,25 @@ docs(adr): record why the table is provisioned, not on-demand
 
 GitHub derives a title and body from the commits only when the branch holds exactly one. With more
 it titles the PR after the branch name and leaves this repo's template untouched, which is how a
-"Feat/UI polish" with an empty body happens. So:
+"Feat/UI polish" with an empty body happens. The "Create a pull request" link git prints after a
+push does the same: it only ever shows the empty template. So the description is written before
+the push, and one command sends both:
 
 ```
 npm run pr:draft
+npm run pr:open
 ```
 
-That writes `.git/PR_BODY.md` with the commit list already under _What changed_, warns if the branch
-carries commits the base already has under another sha, and prints the `gh pr create` command to
-use. Write the Why, the Decisions and the Manual steps, and rewrite the suggested title when the
-branch does more than its first commit.
+`pr:draft` writes `.git/pr/<branch>.md`: a suggested title on the first line, then the template
+with the commit list already under _What changed_. It warns if the branch carries commits the base
+already has under another sha, and it will not overwrite a draft that exists. Write the Why, the
+Decisions and the Manual steps, and rewrite the title when the branch does more than its first
+commit.
+
+`pr:open` pushes the branch and opens the PR with that title and description, or updates the PR if
+one is already open, so it is also how a description gets corrected later. It refuses while a
+section still holds the template's hint, and while the branch carries commits `main` already has.
+`--dry-run` prints what it would do.
 
 `gh pr create --fill` is not a substitute: it writes the commit messages over the body and ignores
 the template, so the _why_ never gets written.
