@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-11T04:25:44.739Z",
+  "generatedAt": "2026-10-13T04:25:44.987Z",
   "offers": [
     {
       "id": "atlassian-certificate-holder-ach-credentials",
@@ -6593,11 +6593,23 @@
         "daysLeft": 3,
         "vendor": "Databricks"
       }
+    },
+    {
+      "eventId": "01M4SQMTX66PZW49EHQGV20P58",
+      "type": "offer.expiring",
+      "occurredAt": "2026-10-13T04:17:03.398Z",
+      "offerId": "databricks-advanced-learning-festival-fall-2026",
+      "payload": {
+        "name": "Databricks Advanced Learning Festival (fall 2026) — 50% certification voucher",
+        "windowEnd": "2026-10-14",
+        "daysLeft": 1,
+        "vendor": "Databricks"
+      }
     }
   ],
   "meta": {
-    "lastPollAt": "2026-10-11T04:08:36.715Z",
-    "lastStatusRunAt": "2026-10-11T04:17:13.498Z",
+    "lastPollAt": "2026-10-13T04:07:34.128Z",
+    "lastStatusRunAt": "2026-10-13T04:17:44.052Z",
     "sourceHealth": {
       "total": 37,
       "unhealthy": 0
