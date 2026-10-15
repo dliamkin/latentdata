@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-13T04:25:44.987Z",
+  "generatedAt": "2026-10-15T04:25:44.855Z",
   "offers": [
     {
       "id": "atlassian-certificate-holder-ach-credentials",
@@ -625,7 +625,7 @@
       "regions": "Global (Customer Academy accounts; Partner Academy excluded)",
       "windowStart": "2026-09-16",
       "windowEnd": "2026-10-14",
-      "status": "active",
+      "status": "expired",
       "recurring": {
         "isRecurring": true,
         "cadence": "twice yearly (spring + fall)",
@@ -640,7 +640,7 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-29",
-      "updatedAt": "2026-10-03T16:28:01.565Z"
+      "updatedAt": "2026-10-15T04:17:03.324Z"
     },
     {
       "id": "databricks-university-alliance-25-off-certification",
@@ -6605,14 +6605,25 @@
         "daysLeft": 1,
         "vendor": "Databricks"
       }
+    },
+    {
+      "eventId": "01M4YWE8TWGDQXSRWARVWT2AY5",
+      "type": "offer.expired",
+      "occurredAt": "2026-10-15T04:17:03.324Z",
+      "offerId": "databricks-advanced-learning-festival-fall-2026",
+      "payload": {
+        "name": "Databricks Advanced Learning Festival (fall 2026) — 50% certification voucher",
+        "vendor": "Databricks",
+        "windowEnd": "2026-10-14"
+      }
     }
   ],
   "meta": {
-    "lastPollAt": "2026-10-13T04:07:34.128Z",
-    "lastStatusRunAt": "2026-10-13T04:17:44.052Z",
+    "lastPollAt": "2026-10-15T04:07:33.290Z",
+    "lastStatusRunAt": "2026-10-15T04:17:13.852Z",
     "sourceHealth": {
       "total": 37,
-      "unhealthy": 0
+      "unhealthy": 1
     }
   }
 }
