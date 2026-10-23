@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-22T04:25:44.813Z",
+  "generatedAt": "2026-10-23T04:25:44.431Z",
   "offers": [
     {
       "id": "atlassian-certificate-holder-ach-credentials",
@@ -3086,7 +3086,7 @@
       "regions": "In person in Berlin, Germany.",
       "windowStart": "2026-10-21",
       "windowEnd": "2026-10-22",
-      "status": "active",
+      "status": "expired",
       "recurring": {
         "isRecurring": true,
         "cadence": "yearly",
@@ -3101,7 +3101,7 @@
       "notes": "The pass price was not on the page read. The main GTC Berlin page gives the event as 20-22 October; the window here is the two days the training page names.",
       "addedBy": "scan",
       "addedAt": "2026-10-03",
-      "updatedAt": "2026-10-21T04:17:09.381Z"
+      "updatedAt": "2026-10-23T04:17:03.319Z"
     },
     {
       "id": "nvidia-gtc-washington-d-c-2026-free-certification-exams-2026",
@@ -6651,11 +6651,22 @@
         "vendor": "GitHub",
         "windowEnd": "2026-10-21"
       }
+    },
+    {
+      "eventId": "01M5KFM0TQWQDCT9RNEXFNNQBN",
+      "type": "offer.expired",
+      "occurredAt": "2026-10-23T04:17:03.319Z",
+      "offerId": "nvidia-gtc-berlin-2026-free-certification-exams-2026",
+      "payload": {
+        "name": "NVIDIA GTC Berlin 2026: free certification exams",
+        "vendor": "NVIDIA",
+        "windowEnd": "2026-10-22"
+      }
     }
   ],
   "meta": {
-    "lastPollAt": "2026-10-22T04:07:35.095Z",
-    "lastStatusRunAt": "2026-10-22T04:17:13.501Z",
+    "lastPollAt": "2026-10-23T04:07:33.612Z",
+    "lastStatusRunAt": "2026-10-23T04:17:12.768Z",
     "sourceHealth": {
       "total": 36,
       "unhealthy": 0
