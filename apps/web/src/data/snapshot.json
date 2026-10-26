@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-23T04:25:44.431Z",
+  "generatedAt": "2026-10-26T04:25:44.844Z",
   "offers": [
     {
       "id": "atlassian-certificate-holder-ach-credentials",
@@ -1870,7 +1870,7 @@
       "regions": "In-person attendees (Atlanta); remote attendees ineligible",
       "windowStart": "2026-10-26",
       "windowEnd": "2026-10-26",
-      "status": "upcoming",
+      "status": "active",
       "recurring": {
         "isRecurring": true,
         "cadence": "annual (HashiConf)",
@@ -1885,7 +1885,7 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-29",
-      "updatedAt": "2026-10-03T16:28:01.565Z"
+      "updatedAt": "2026-10-26T04:17:09.291Z"
     },
     {
       "id": "hubspot-academy",
@@ -1996,7 +1996,7 @@
       "regions": "In person in Atlanta, Georgia, USA.",
       "windowStart": "2026-10-26",
       "windowEnd": "2026-10-29",
-      "status": "upcoming",
+      "status": "active",
       "recurring": {
         "isRecurring": true,
         "cadence": "yearly",
@@ -2011,7 +2011,7 @@
       "notes": "The asterisked terms and the list of exams were not on the pages read. The HashiCorp exams at the same event are already on the site as a separate offer.",
       "addedBy": "scan",
       "addedAt": "2026-10-03",
-      "updatedAt": "2026-10-03T21:15:09.698Z"
+      "updatedAt": "2026-10-26T04:17:09.469Z"
     },
     {
       "id": "isc2-cc-one-million-certified",
@@ -6662,11 +6662,35 @@
         "vendor": "NVIDIA",
         "windowEnd": "2026-10-22"
       }
+    },
+    {
+      "eventId": "01M5V6TBNB7TASS8RZ6ZM4NHZP",
+      "type": "offer.window_opened",
+      "occurredAt": "2026-10-26T04:17:09.291Z",
+      "offerId": "hashiconf-2026-attendee-exams",
+      "payload": {
+        "name": "HashiConf at IBM TechXchange 2026 — up to 2 free exam attempts",
+        "vendor": "HashiCorp",
+        "windowEnd": "2026-10-26",
+        "windowStart": "2026-10-26"
+      }
+    },
+    {
+      "eventId": "01M5V6TBTXA5XPYJRRM1V9Z61H",
+      "type": "offer.window_opened",
+      "occurredAt": "2026-10-26T04:17:09.469Z",
+      "offerId": "ibm-techxchange-2026-two-free-certification-exams-2026",
+      "payload": {
+        "name": "IBM TechXchange 2026: two free certification exams",
+        "vendor": "IBM",
+        "windowEnd": "2026-10-29",
+        "windowStart": "2026-10-26"
+      }
     }
   ],
   "meta": {
-    "lastPollAt": "2026-10-23T04:07:33.612Z",
-    "lastStatusRunAt": "2026-10-23T04:17:12.768Z",
+    "lastPollAt": "2026-10-26T04:07:32.748Z",
+    "lastStatusRunAt": "2026-10-26T04:17:12.006Z",
     "sourceHealth": {
       "total": 36,
       "unhealthy": 0
