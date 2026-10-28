@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-27T04:25:44.900Z",
+  "generatedAt": "2026-10-28T04:25:44.883Z",
   "offers": [
     {
       "id": "atlassian-certificate-holder-ach-credentials",
@@ -1346,7 +1346,7 @@
       "regions": "San Francisco in person, and virtual.",
       "windowStart": "2026-10-28",
       "windowEnd": "2026-10-29",
-      "status": "upcoming",
+      "status": "active",
       "recurring": {
         "isRecurring": true,
         "cadence": "yearly",
@@ -1361,7 +1361,7 @@
       "notes": "The page does not say whether the add-on can be bought with the free virtual pass or only with a paid pass; if only paid, costToYou should be purchase-first. Voucher expiry and eligible exams are not stated. Separate from the GH-700 beta code already on the site.",
       "addedBy": "scan",
       "addedAt": "2026-10-03",
-      "updatedAt": "2026-10-03T21:15:12.554Z"
+      "updatedAt": "2026-10-28T04:17:11.581Z"
     },
     {
       "id": "github-universe-preview-gh700-voucher-2026",
@@ -6697,11 +6697,35 @@
         "vendor": "HashiCorp",
         "windowEnd": "2026-10-26"
       }
+    },
+    {
+      "eventId": "01M60BKKSQ16AG4316ECEBENJZ",
+      "type": "offer.expiring",
+      "occurredAt": "2026-10-28T04:17:03.287Z",
+      "offerId": "ibm-techxchange-2026-two-free-certification-exams-2026",
+      "payload": {
+        "daysLeft": 1,
+        "name": "IBM TechXchange 2026: two free certification exams",
+        "vendor": "IBM",
+        "windowEnd": "2026-10-29"
+      }
+    },
+    {
+      "eventId": "01M60BKVWX34D8GMXTKCNGEKFK",
+      "type": "offer.window_opened",
+      "occurredAt": "2026-10-28T04:17:11.581Z",
+      "offerId": "github-universe-2026-usd-30-certification-voucher-2026",
+      "payload": {
+        "name": "GitHub Universe 2026: USD 30 certification voucher",
+        "vendor": "GitHub",
+        "windowEnd": "2026-10-29",
+        "windowStart": "2026-10-28"
+      }
     }
   ],
   "meta": {
-    "lastPollAt": "2026-10-27T04:07:35.515Z",
-    "lastStatusRunAt": "2026-10-27T04:17:13.341Z",
+    "lastPollAt": "2026-10-28T04:07:33.991Z",
+    "lastStatusRunAt": "2026-10-28T04:17:15.017Z",
     "sourceHealth": {
       "total": 36,
       "unhealthy": 0
