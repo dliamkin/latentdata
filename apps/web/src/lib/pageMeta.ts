@@ -47,7 +47,7 @@ const TAB_META: Record<Exclude<Route, 'offers'>, PageMeta> = {
   privacy: {
     title: `Privacy · ${SITE_NAME}`,
     description:
-      'What LatentData stores in your browser and what it sends anywhere. No cookies, no analytics, no accounts, and nothing leaves your device.',
+      'What LatentData stores in your browser and what it sends anywhere: Google Analytics for visit counts, no accounts, and your notes never leave your device.',
   },
 };
 

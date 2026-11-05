@@ -37,6 +37,8 @@ export default defineConfig({
       VITE_API_BASE_URL: 'https://api.example.invalid',
       VITE_COGNITO_DOMAIN: 'https://auth.example.invalid',
       VITE_COGNITO_CLIENT_ID: 'e2e-client',
+      // no Google tag: every test run would otherwise count as visits in the property
+      VITE_GA_MEASUREMENT_ID: '',
     },
   },
 });
