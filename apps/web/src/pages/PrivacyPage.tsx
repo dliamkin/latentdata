@@ -1,4 +1,7 @@
 const CONTACT = 'support@codeyouknow.com';
+// Google's terms ask every site that uses Analytics to link this page
+const GOOGLE_PARTNER_SITES = 'https://policies.google.com/technologies/partner-sites';
+const GOOGLE_OPT_OUT = 'https://tools.google.com/dlpage/gaoptout';
 
 interface StoreRow {
   key: string;
@@ -7,7 +10,8 @@ interface StoreRow {
   when: string;
 }
 
-// every key the app writes. If you add one, add it here: this table is the policy.
+// every key the app writes and every cookie it lets Google Analytics write. If you add one, add it
+// here: this table is the policy.
 const STORED: readonly StoreRow[] = [
   {
     key: 'cert-tracker:theme:v1',
@@ -34,6 +38,18 @@ const STORED: readonly StoreRow[] = [
     when: 'The first time you open the Activity tab.',
   },
   {
+    key: '_ga',
+    where: 'cookie',
+    what: 'A random number that Google Analytics uses to count a returning browser once rather than as a new visitor each time. It is not your name, your email or anything else about you: the site has none of those.',
+    when: 'When a page loads, by the Google Analytics script. It lasts two years from your last visit.',
+  },
+  {
+    key: '_ga_EKTCZ42NYH',
+    where: 'cookie',
+    what: "Google Analytics' record of your current visit: when it started and how many pages it has counted so far.",
+    when: 'When a page loads, by the Google Analytics script. It lasts two years from your last visit.',
+  },
+  {
     key: 'cert-tracker:admin-token:v1',
     where: 'sessionStorage',
     what: "The site owner's sign-in token, good for half an hour. It is not created for ordinary visitors.",
@@ -52,20 +68,24 @@ export default function PrivacyPage() {
     <article className="doc">
       <header className="doc-head">
         <h2>Privacy</h2>
-        <p className="doc-meta">Last updated 3 October 2026</p>
+        <p className="doc-meta">Last updated 5 November 2026</p>
       </header>
 
       <p className="doc-lede">
-        LatentData has no accounts, no cookies, no analytics and no server of its own. It is a set
-        of static files. Everything it remembers about you is stored in your own browser, stays
-        there, and can be erased by you at any time.
+        LatentData has no accounts and no server of its own. It is a set of static files. It uses
+        Google Analytics to count visits, which sets two cookies, described below. Everything else
+        it remembers about you is stored in your own browser, stays there, and can be erased by you
+        at any time.
       </p>
 
       <h3>What the site stores in your browser</h3>
       <p>
-        Four keys, and only the first three can ever appear for a visitor. None of them is an
-        identifier: nothing here distinguishes you from anyone else, and nothing is ever read back
-        by us, because there is nowhere for it to be sent.
+        Eight entries. Four are keys any visitor may get, two are the Google Analytics cookies, and
+        the last two appear only when the site owner signs in. The keys are not identifiers: nothing
+        in them tells you apart from anyone else, and we never read them back, because they never
+        leave your browser. The first cookie is an identifier, a random number, so that Google
+        Analytics counts a returning browser once rather than twice. Neither cookie carries a name,
+        an email or anything else about you: the site has none of those to put in it.
       </p>
       <div className="doc-scroller">
         <table className="doc-table">
@@ -99,14 +119,27 @@ export default function PrivacyPage() {
 
       <h3>What leaves your device</h3>
       <p>
-        Nothing that you do on the site. There is no form that submits anywhere, no telemetry, no
-        error reporting, and no request to any other company&apos;s servers. The certification data
-        you see is not fetched while you browse: it is compiled into the page before it is
-        published, so the site works with no further network access at all once it has loaded.
+        Two things. The first is the request that fetches the page, which goes to Cloudflare and is
+        covered below. The second is a set of usage figures sent to Google Analytics each time a
+        page loads and each time you move between tabs: the address and title of the page you are
+        on, the page that sent you here, your screen size, browser, operating system and language,
+        the random number from the <code>_ga</code> cookie, and your IP address, which Google uses
+        to work out a rough location, to the city at best, and says it does not keep. With the
+        standard settings, which are the ones in use, Google Analytics also notes when you scroll
+        most of the way down a page and when you follow a link to another site, including which
+        link.
       </p>
       <p>
-        The typefaces are served from this site rather than from a font service, so visiting
-        LatentData does not tell Google, or anyone else, that you were here.
+        None of that includes anything you type or choose. Your notes, your statuses and the groups
+        you say you belong to stay in your browser and are sent neither to Google nor to us. We see
+        the figures only as counts: how many visits, from which countries, on which tabs, to which
+        offers. There is no form that submits anywhere and no error reporting. The certification
+        data you see is not fetched while you browse: it is compiled into the page before it is
+        published.
+      </p>
+      <p>
+        The typefaces are served from this site rather than from a font service. Google Analytics is
+        the only other company your browser talks to while you are here.
       </p>
 
       <h3>Who else is necessarily involved</h3>
@@ -121,39 +154,58 @@ export default function PrivacyPage() {
         >
           Cloudflare&apos;s privacy policy
         </a>
-        . We do not add any analytics or visitor measurement on top of it, and we do not look at
-        those logs.
+        . We do not look at those logs.
+      </p>
+      <p>
+        Google receives the usage figures described above and keeps them for us. Google explains{' '}
+        <a href={GOOGLE_PARTNER_SITES} rel="noreferrer noopener" target="_blank">
+          how it uses data from sites that use its services
+        </a>
+        , and the rest is under Google&apos;s privacy policy. Google Analytics keeps the individual
+        records for two months; after that only the totals remain.
       </p>
 
       <h3>Links to other sites</h3>
       <p>
         Offers link out to the vendor&apos;s own page — Microsoft, AWS, Google Cloud and the rest.
         Once you follow one, you are on their site under their rules, and this policy no longer
-        applies. We get nothing back when you do: no click is reported to us, because there is
-        nobody here to report it to.
+        applies. The one thing recorded when you do is a line in the Google Analytics figures saying
+        that a link to that address was followed, so we can see which offers people actually use.
+        The vendor tells us nothing, and we tell the vendor nothing.
       </p>
 
       <h3>Erasing what is stored</h3>
       <p>
-        Clearing site data for latentdata.org in your browser removes all of it, immediately and
-        permanently. You can also dismiss individual offers or clear your notes from the offer row
-        itself, and the More menu in the top bar will export your notes to a file if you want to
-        keep them. Because none of it was ever sent anywhere, there is nothing left for us to delete
-        at our end, and no request you need to make to us.
+        Clearing site data for latentdata.org in your browser removes all of it, the keys and the
+        cookies alike, immediately and permanently. You can also dismiss individual offers or clear
+        your notes from the offer row itself, and the More menu in the top bar will export your
+        notes to a file if you want to keep them.
+      </p>
+      <p>
+        The figures already counted by Google Analytics cannot be traced back to you by us. They
+        carry no name, email or account, so we have no way to pick out the ones that were yours, and
+        Google deletes the individual records after two months. To keep your browser out of the
+        count altogether, use{' '}
+        <a href={GOOGLE_OPT_OUT} rel="noreferrer noopener" target="_blank">
+          Google&apos;s opt-out add-on
+        </a>{' '}
+        or any content blocker. The site works exactly the same without the script.
       </p>
 
       <h3>Children</h3>
       <p>
         The site is aimed at people pursuing professional certifications. It does not knowingly
-        collect anything from anyone, of any age, because it does not collect anything.
+        collect personal information from anyone, of any age: the usage figures carry no name, email
+        or account, and nothing you type leaves your browser.
       </p>
 
       <h3>Changes</h3>
       <p>
-        If the site ever starts collecting something — an account system, a newsletter, or usage
-        measurement — this page will say so before that ships, and the date at the top will change.
-        The page lives in the same public repository as the site, so its history is visible to
-        anyone.
+        This page used to say the site had no analytics. Google Analytics arrived with the update
+        dated at the top of this page, and the page changed in the same release. If the site ever
+        starts collecting anything more — an account system, a newsletter — this page will say so
+        before that ships, and the date at the top will change. The page lives in the same public
+        repository as the site, so its history is visible to anyone.
       </p>
 
       <h3>Getting in touch</h3>

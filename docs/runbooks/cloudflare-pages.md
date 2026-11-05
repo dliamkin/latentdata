@@ -22,7 +22,8 @@ rebuilding on every push to `main`, with a preview URL for every pull request.
    tooling accepts, and `npm ci` then stops with `EBADENGINE`. The repo's `.node-version` carries
    the same value; raise both together.
    The three `VITE_…` values that turn admin sign-in on are added later, once the stack exists:
-   `docs/runbooks/admin-access.md`, step 4.
+   `docs/runbooks/admin-access.md`, step 4. Nothing is needed for Google Analytics: a build with
+   no `VITE_GA_MEASUREMENT_ID` carries the site's own property ID (ADR-0017).
 5. Save and deploy. The first build takes a couple of minutes.
 
 ## 2. Custom domain

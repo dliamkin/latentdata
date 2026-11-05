@@ -3,13 +3,15 @@ import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
 
 import react from '@vitejs/plugin-react';
-import type { Plugin } from 'vite';
+import { loadEnv, type Plugin } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 import { defineConfig } from 'vitest/config';
 
 const FIXTURE_SNAPSHOT = '../../fixtures/web/snapshot.fixture.json';
 const THEMES: readonly string[] = ['lara-light-blue', 'lara-dark-blue'];
 const SITE_URL = 'https://latentdata.org';
+// the Google Analytics property. VITE_GA_MEASUREMENT_ID overrides it; empty builds without the tag
+const GA_MEASUREMENT_ID = 'G-EKTCZ42NYH';
 
 const require = createRequire(import.meta.url);
 const themeFile = (name: string): string =>
@@ -66,8 +68,38 @@ function sitemap(snapshotPath: string): Plugin {
   };
 }
 
-export default defineConfig(({ mode }) => {
+// Google's own snippet (gtag.js), injected into the built page only: `vite` never serves it and
+// the e2e build sets the ID to nothing (playwright.config.ts), so a developer's localhost is never
+// counted as a visit and the property needs no filters. The privacy page describes what it sends.
+function analytics(id: string): Plugin {
+  if (!/^G-[A-Z0-9]+$/.test(id)) throw new Error(`not a GA4 measurement ID: ${id}`);
+  return {
+    name: 'analytics',
+    transformIndexHtml: () => [
+      {
+        tag: 'script',
+        attrs: { async: true, src: `https://www.googletagmanager.com/gtag/js?id=${id}` },
+        injectTo: 'head',
+      },
+      {
+        tag: 'script',
+        children: [
+          'window.dataLayer = window.dataLayer || [];',
+          'function gtag(){dataLayer.push(arguments);}',
+          "gtag('js', new Date());",
+          `gtag('config', '${id}');`,
+        ].join('\n'),
+        injectTo: 'head',
+      },
+    ],
+  };
+}
+
+export default defineConfig(({ command, mode }) => {
   const isTest = mode === 'test';
+  // a .env copied from .env.example leaves the ID empty, so a local build carries no tag either
+  const env = loadEnv(mode, fileURLToPath(new URL('.', import.meta.url)));
+  const gaId = env.VITE_GA_MEASUREMENT_ID ?? GA_MEASUREMENT_ID;
   // tests and e2e builds run against the fixture so assertions don't move with the live data
   const snapshotPath =
     process.env.SNAPSHOT_PATH ?? (isTest ? FIXTURE_SNAPSHOT : './src/data/snapshot.json');
@@ -85,6 +117,8 @@ export default defineConfig(({ mode }) => {
       react(),
       themeAssets(),
       sitemap(snapshotFile),
+      // the tag belongs to the published page; a build is the only thing that gets it
+      command === 'build' && gaId !== '' && analytics(gaId),
       VitePWA({
         strategies: 'injectManifest',
         srcDir: 'src',

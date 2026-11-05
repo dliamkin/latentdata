@@ -1,9 +1,13 @@
 # The recorded pages under fixtures/sources/ are public documents; anything key-shaped in them
 # was served to every visitor and is redacted at record time (scripts/lib/redact.ts). The
 # allowlist covers what the redaction misses, and the commits from before it existed.
+#
+# `_ga_<id>` is the name of a Google Analytics cookie, listed on the privacy page. It is the
+# public measurement ID with the `G-` cut off, and every visitor's browser holds it.
 [extend]
 useDefault = true
 
 [allowlist]
-description = "recorded public pages"
+description = "recorded public pages, and the analytics cookie name"
 paths = ['''fixtures/sources/.*''']
+regexes = ['''_ga_[A-Z0-9]+''']
