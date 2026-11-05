@@ -13,20 +13,21 @@ afterEach(() => {
   window.location.hash = '';
 });
 
-// jsdom lacks these; PrimeReact and the theme code touch them on mount
+// jsdom lacks these; PrimeReact and the theme code touch them on mount. The mock leaves out the
+// two deprecated listener methods: nothing under test calls them, and lint rejects them
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
-  value: (query: string): MediaQueryList =>
-    ({
+  value: (query: string): MediaQueryList => {
+    const list: Omit<MediaQueryList, 'addListener' | 'removeListener'> = {
       matches: false,
       media: query,
       onchange: null,
-      addListener: () => undefined,
-      removeListener: () => undefined,
       addEventListener: () => undefined,
       removeEventListener: () => undefined,
       dispatchEvent: () => false,
-    }) as MediaQueryList,
+    };
+    return list as MediaQueryList;
+  },
 });
 
 Object.defineProperty(globalThis, 'ResizeObserver', {
