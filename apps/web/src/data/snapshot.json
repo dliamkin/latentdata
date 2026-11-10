@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-09T04:25:44.849Z",
+  "generatedAt": "2026-11-10T04:25:44.891Z",
   "offers": [
     {
       "id": "atlassian-certificate-holder-ach-credentials",
@@ -6767,11 +6767,23 @@
         "windowEnd": null,
         "windowStart": "2026-11-09"
       }
+    },
+    {
+      "eventId": "01M71TRZCXNAQXFRJTZCVWYQZJ",
+      "type": "offer.expiring",
+      "occurredAt": "2026-11-10T04:17:03.901Z",
+      "offerId": "salesforce-retake-promo-2026-27",
+      "payload": {
+        "daysLeft": 7,
+        "name": "Salesforce Certification Exam Retake Promotion 2026/2027",
+        "vendor": "Salesforce",
+        "windowEnd": "2026-11-17"
+      }
     }
   ],
   "meta": {
-    "lastPollAt": "2026-11-09T04:07:34.965Z",
-    "lastStatusRunAt": "2026-11-09T04:17:12.327Z",
+    "lastPollAt": "2026-11-10T04:07:34.044Z",
+    "lastStatusRunAt": "2026-11-10T04:17:15.047Z",
     "sourceHealth": {
       "total": 36,
       "unhealthy": 0
