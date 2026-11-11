@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-10T04:25:44.891Z",
+  "generatedAt": "2026-11-11T04:25:44.963Z",
   "offers": [
     {
       "id": "atlassian-certificate-holder-ach-credentials",
@@ -6779,11 +6779,23 @@
         "vendor": "Salesforce",
         "windowEnd": "2026-11-17"
       }
+    },
+    {
+      "eventId": "01M74D5NSAEFTXC21F7KSC6G27",
+      "type": "offer.expiring",
+      "occurredAt": "2026-11-11T04:17:03.274Z",
+      "offerId": "cisco-live-melbourne-2026-free-certification-exam-2026",
+      "payload": {
+        "daysLeft": 1,
+        "name": "Cisco Live Melbourne 2026: free certification exam",
+        "vendor": "Cisco",
+        "windowEnd": "2026-11-12"
+      }
     }
   ],
   "meta": {
-    "lastPollAt": "2026-11-10T04:07:34.044Z",
-    "lastStatusRunAt": "2026-11-10T04:17:15.047Z",
+    "lastPollAt": "2026-11-11T04:07:35.486Z",
+    "lastStatusRunAt": "2026-11-11T04:17:12.209Z",
     "sourceHealth": {
       "total": 36,
       "unhealthy": 0
