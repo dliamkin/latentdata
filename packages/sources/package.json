@@ -8,6 +8,6 @@
   },
   "dependencies": {
     "@cert-tracker/core": "0.0.0",
-    "fast-xml-parser": "5.11.2"
+    "fast-xml-parser": "5.12.0"
   }
 }
