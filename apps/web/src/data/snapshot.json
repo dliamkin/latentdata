@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-11T04:25:44.963Z",
+  "generatedAt": "2026-11-13T04:25:44.871Z",
   "offers": [
     {
       "id": "atlassian-certificate-holder-ach-credentials",
@@ -371,7 +371,7 @@
       "regions": "In person in Melbourne, Australia.",
       "windowStart": "2026-11-09",
       "windowEnd": "2026-11-12",
-      "status": "active",
+      "status": "expired",
       "recurring": {
         "isRecurring": true,
         "cadence": "yearly",
@@ -386,7 +386,7 @@
       "notes": "A USD 40 no-show fee may be charged. The pass price was not on this page. Cisco's own exam page lists no other promotions today.",
       "addedBy": "scan",
       "addedAt": "2026-10-03",
-      "updatedAt": "2026-11-09T04:17:10.800Z"
+      "updatedAt": "2026-11-13T04:17:03.167Z"
     },
     {
       "id": "cisco-python-essentials-1",
@@ -6791,11 +6791,22 @@
         "vendor": "Cisco",
         "windowEnd": "2026-11-12"
       }
+    },
+    {
+      "eventId": "01M79HZ3NZSC420N1AKR61WCYK",
+      "type": "offer.expired",
+      "occurredAt": "2026-11-13T04:17:03.167Z",
+      "offerId": "cisco-live-melbourne-2026-free-certification-exam-2026",
+      "payload": {
+        "name": "Cisco Live Melbourne 2026: free certification exam",
+        "vendor": "Cisco",
+        "windowEnd": "2026-11-12"
+      }
     }
   ],
   "meta": {
-    "lastPollAt": "2026-11-11T04:07:35.486Z",
-    "lastStatusRunAt": "2026-11-11T04:17:12.209Z",
+    "lastPollAt": "2026-11-13T04:07:34.898Z",
+    "lastStatusRunAt": "2026-11-13T04:17:11.921Z",
     "sourceHealth": {
       "total": 36,
       "unhealthy": 0
