@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-16T04:25:44.811Z",
+  "generatedAt": "2026-11-17T04:25:44.842Z",
   "offers": [
     {
       "id": "atlassian-certificate-holder-ach-credentials",
@@ -2684,7 +2684,7 @@
       "regions": "Global",
       "windowStart": "2026-11-17",
       "windowEnd": null,
-      "status": "upcoming",
+      "status": "active",
       "recurring": {
         "isRecurring": true,
         "cadence": "annual (Ignite, Nov)",
@@ -2699,7 +2699,7 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-05",
-      "updatedAt": "2026-10-03T16:28:01.565Z"
+      "updatedAt": "2026-11-17T04:17:11.042Z"
     },
     {
       "id": "microsoft-levelup-frontier-vouchers-2026",
@@ -2827,7 +2827,7 @@
       "regions": "ASIA Nov 17–19; EMEA Nov 24–26, 2026",
       "windowStart": "2026-11-17",
       "windowEnd": "2026-11-26",
-      "status": "upcoming",
+      "status": "active",
       "recurring": {
         "isRecurring": true,
         "cadence": "per Microsoft fiscal year",
@@ -2842,7 +2842,7 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-29",
-      "updatedAt": "2026-10-03T16:28:01.565Z"
+      "updatedAt": "2026-11-17T04:17:09.492Z"
     },
     {
       "id": "microsoft-virtual-training-days-50",
@@ -6826,11 +6826,35 @@
         "vendor": "Salesforce",
         "windowEnd": "2026-11-17"
       }
+    },
+    {
+      "eventId": "01M7KVJ5VM1HXWEBD4Q793Z966",
+      "type": "offer.window_opened",
+      "occurredAt": "2026-11-17T04:17:09.492Z",
+      "offerId": "microsoft-sales-cert-week-fy27",
+      "payload": {
+        "name": "Microsoft Sales Certification Week FY27 (AB-730 / AB-731)",
+        "vendor": "Microsoft",
+        "windowEnd": "2026-11-26",
+        "windowStart": "2026-11-17"
+      }
+    },
+    {
+      "eventId": "01M7KVJ7C232KGHPEP76AE8CXA",
+      "type": "offer.window_opened",
+      "occurredAt": "2026-11-17T04:17:11.042Z",
+      "offerId": "microsoft-ignite-challenge-2026",
+      "payload": {
+        "name": "Microsoft Ignite 2026 Challenge sweepstakes",
+        "vendor": "Microsoft",
+        "windowEnd": null,
+        "windowStart": "2026-11-17"
+      }
     }
   ],
   "meta": {
-    "lastPollAt": "2026-11-16T04:07:32.784Z",
-    "lastStatusRunAt": "2026-11-16T04:17:10.195Z",
+    "lastPollAt": "2026-11-17T04:07:34.140Z",
+    "lastStatusRunAt": "2026-11-17T04:17:11.071Z",
     "sourceHealth": {
       "total": 36,
       "unhealthy": 0
