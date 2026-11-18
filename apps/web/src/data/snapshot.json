@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-17T04:25:44.842Z",
+  "generatedAt": "2026-11-18T04:25:44.572Z",
   "offers": [
     {
       "id": "atlassian-certificate-holder-ach-credentials",
@@ -3683,7 +3683,7 @@
       "regions": "Global (USD pricing)",
       "windowStart": "2026-09-29",
       "windowEnd": "2026-11-17",
-      "status": "active",
+      "status": "expired",
       "recurring": {
         "isRecurring": true,
         "cadence": "roughly annual",
@@ -3698,7 +3698,7 @@
       "notes": "Opt-in deadline is the same day as windowStart.",
       "addedBy": "manual",
       "addedAt": "2026-09-29",
-      "updatedAt": "2026-10-03T16:28:01.565Z"
+      "updatedAt": "2026-11-18T04:17:03.205Z"
     },
     {
       "id": "salesforce-trailhead-developer-superbadges",
@@ -6850,13 +6850,24 @@
         "windowEnd": null,
         "windowStart": "2026-11-17"
       }
+    },
+    {
+      "eventId": "01M7PDYPQ558KGF314PF6NESHQ",
+      "type": "offer.expired",
+      "occurredAt": "2026-11-18T04:17:03.205Z",
+      "offerId": "salesforce-retake-promo-2026-27",
+      "payload": {
+        "name": "Salesforce Certification Exam Retake Promotion 2026/2027",
+        "vendor": "Salesforce",
+        "windowEnd": "2026-11-17"
+      }
     }
   ],
   "meta": {
-    "lastPollAt": "2026-11-17T04:07:34.140Z",
-    "lastStatusRunAt": "2026-11-17T04:17:11.071Z",
+    "lastPollAt": "2026-11-18T04:07:32.462Z",
+    "lastStatusRunAt": "2026-11-18T04:17:10.648Z",
     "sourceHealth": {
-      "total": 36,
+      "total": 35,
       "unhealthy": 0
     }
   }
