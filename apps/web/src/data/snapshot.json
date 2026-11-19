@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-18T04:25:44.572Z",
+  "generatedAt": "2026-11-19T04:25:45.013Z",
   "offers": [
     {
       "id": "atlassian-certificate-holder-ach-credentials",
@@ -6861,11 +6861,23 @@
         "vendor": "Salesforce",
         "windowEnd": "2026-11-17"
       }
+    },
+    {
+      "eventId": "01M7S0BDXKRPEQACZ92P18FGRW",
+      "type": "offer.expiring",
+      "occurredAt": "2026-11-19T04:17:03.411Z",
+      "offerId": "microsoft-sales-cert-week-fy27",
+      "payload": {
+        "daysLeft": 7,
+        "name": "Microsoft Sales Certification Week FY27 (AB-730 / AB-731)",
+        "vendor": "Microsoft",
+        "windowEnd": "2026-11-26"
+      }
     }
   ],
   "meta": {
-    "lastPollAt": "2026-11-18T04:07:32.462Z",
-    "lastStatusRunAt": "2026-11-18T04:17:10.648Z",
+    "lastPollAt": "2026-11-19T04:07:38.163Z",
+    "lastStatusRunAt": "2026-11-19T04:17:11.232Z",
     "sourceHealth": {
       "total": 35,
       "unhealthy": 0
