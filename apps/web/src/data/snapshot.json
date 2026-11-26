@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-25T04:25:44.749Z",
+  "generatedAt": "2026-11-26T04:25:44.881Z",
   "offers": [
     {
       "id": "atlassian-certificate-holder-ach-credentials",
@@ -6933,11 +6933,23 @@
         "vendor": "Microsoft",
         "windowEnd": "2026-11-26"
       }
+    },
+    {
+      "eventId": "01M8B14FZD79M3ZKYE0WRM333Y",
+      "type": "offer.expiring",
+      "occurredAt": "2026-11-26T04:17:04.493Z",
+      "offerId": "microsoft-partner-cert-week-fy27",
+      "payload": {
+        "daysLeft": 1,
+        "name": "Microsoft Partner Certification Week FY27 (all regional cohorts)",
+        "vendor": "Microsoft",
+        "windowEnd": "2026-11-27"
+      }
     }
   ],
   "meta": {
-    "lastPollAt": "2026-11-25T04:07:35.560Z",
-    "lastStatusRunAt": "2026-11-25T04:17:11.853Z",
+    "lastPollAt": "2026-11-26T04:07:34.895Z",
+    "lastStatusRunAt": "2026-11-26T04:17:12.293Z",
     "sourceHealth": {
       "total": 35,
       "unhealthy": 0
