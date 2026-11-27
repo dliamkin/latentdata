@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-26T04:25:44.881Z",
+  "generatedAt": "2026-11-27T04:25:44.935Z",
   "offers": [
     {
       "id": "atlassian-certificate-holder-ach-credentials",
@@ -2827,7 +2827,7 @@
       "regions": "ASIA Nov 17–19; EMEA Nov 24–26, 2026",
       "windowStart": "2026-11-17",
       "windowEnd": "2026-11-26",
-      "status": "active",
+      "status": "expired",
       "recurring": {
         "isRecurring": true,
         "cadence": "per Microsoft fiscal year",
@@ -2842,7 +2842,7 @@
       "notes": "",
       "addedBy": "manual",
       "addedAt": "2026-09-29",
-      "updatedAt": "2026-11-17T04:17:09.492Z"
+      "updatedAt": "2026-11-27T04:17:03.318Z"
     },
     {
       "id": "microsoft-virtual-training-days-50",
@@ -6945,11 +6945,34 @@
         "vendor": "Microsoft",
         "windowEnd": "2026-11-27"
       }
+    },
+    {
+      "eventId": "01M8DKH5TP0DT71XAEAF3RWAKH",
+      "type": "offer.expired",
+      "occurredAt": "2026-11-27T04:17:03.318Z",
+      "offerId": "microsoft-sales-cert-week-fy27",
+      "payload": {
+        "name": "Microsoft Sales Certification Week FY27 (AB-730 / AB-731)",
+        "vendor": "Microsoft",
+        "windowEnd": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "01M8DKH7XC4Z61RT5NTKFNT5WJ",
+      "type": "offer.expiring",
+      "occurredAt": "2026-11-27T04:17:05.452Z",
+      "offerId": "snowflake-pearson-20-off-2026",
+      "payload": {
+        "daysLeft": 3,
+        "name": "Snowflake SnowPro 20% off vouchers (Pearson VUE store)",
+        "vendor": "Snowflake",
+        "windowEnd": "2026-11-30"
+      }
     }
   ],
   "meta": {
-    "lastPollAt": "2026-11-26T04:07:34.895Z",
-    "lastStatusRunAt": "2026-11-26T04:17:12.293Z",
+    "lastPollAt": "2026-11-27T04:07:32.501Z",
+    "lastStatusRunAt": "2026-11-27T04:17:10.151Z",
     "sourceHealth": {
       "total": 35,
       "unhealthy": 0
